@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import LeadForm from '../components/LeadForm.astro';
+import Tbc from '../components/Tbc.astro';
+import neev from '../data/neev-check.json';
+import site from '../data/site.json';
+import { STATE_LABEL } from '../lib/data';
+import { u } from '../lib/url';
+const faq = [
+  ['Is a Neev Check a legal opinion?', 'No, not unless an advocate signs the legal checks in it. Checks marked "advocate" are done by an advocate; who that is will be named on each report. Until then we say plainly that it is not a legal opinion.'],
+  ['Do you check projects you sell?', 'Yes, and we show what we find on their pages, including warnings. London Mart, which we list, shows a delivery warning.'],
+  ['How much does it cost?', 'To confirm with PropBillions. We will state the price here before launch.'],
+  ['How long does it take?', 'To confirm. Public-record checks take a day or two; title and agreement checks depend on documents from the developer.'],
+  ['What do I need to give you?', 'The project name, the unit you are looking at, and the cost sheet and draft agreement if you have them.'],
+  ['Can a check say "do not buy"?', 'Yes. A "Stop" result means do not pay until it is fixed. If it cannot be fixed, we say so.'],
+];
+const compare = [
+  ['RERA record', 'Brochure says "RERA approved"', 'Number checked against this phase on the portal, with completion date and extensions'],
+  ['Price', 'Brochure price', 'All-in cost: GST, stamp duty, registration, parking, deposits'],
+  ['Area', 'Super area', 'RERA carpet area and the loading between them'],
+  ['Payment plan', 'Whatever is asked', 'Matched to construction stage and the 10% rule in RERA section 13'],
+  ['Developer', 'Their marketing', 'Delivery history, litigation, project loans'],
+  ['Location', 'Distances in the brochure', 'Peak-hour commute measured; infrastructure claims checked against sources'],
+  ['Who you rely on', 'The person selling', 'A written report with sources and dates'],
+];
+const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+let n = 0;
+---
+<Base headerTone="dark" title="Neev Check: 40 checks before you sign" description="Neev Check is PropBillions' 40-point review of a property before you sign: RERA record, title, approvals, developer history, carpet area, all-in cost, agreement and resale." jsonld={[ld]} breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Neev Check', path: '/neev-check' }]}>
+  <section class="section section--dark bp-grid nhero">
+    <div class="wrap">
+      <p class="label">The method</p>
+      <h1><span class="hi" lang="hi">नींव</span> Neev Check</h1>
+      <p class="lede">{neev.promise}</p>
+      <div class="states">{Object.entries(STATE_LABEL).map(([k, v]) => <span class={`check check--${k}`}>{v}</span>)}</div>
+      <div class="btn-row"><a class="btn" href="#book">Get a Neev Check</a><a class="btn btn--ghost" href="#sample">Read a sample report</a></div>
+      <p class="mono note">{neev.whoNote}</p>
+    </div>
+  </section>
+
+  <section class="section bp-grid">
+    <div class="wrap">
+      <p class="label">All 40 checks</p>
+      <h2 class="h2s">What we look at, and where</h2>
+      <div class="groups">
+        {neev.groups.map((g) => (
+          <section class="grp" id={g.id} data-reveal>
+            <h3><span class="mono">{g.id}</span> {g.name}</h3>
+            <ol class="grp__l" start={n + 1}>
+              {g.checks.map(([c, src]) => { n++; return <li><span class="mono grp__n">{String(n).padStart(2, '0')}</span><span>{c}</span><span class="mono grp__s">{src}</span></li>; })}
+            </ol>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper" id="sample">
+    <div class="wrap">
+      <p class="label">{neev.sample.label}</p>
+      <h2 class="h2s">Sample report: {neev.sample.project}</h2>
+      <div class="report">
+        <div class="report__head mono"><span>Neev Check · {neev.sample.date}</span><span>10 of 40 checks shown</span></div>
+        <table>
+          <thead><tr><th>Check</th><th>Result</th><th>Finding</th><th>Source</th></tr></thead>
+          <tbody>{neev.sample.results.map(([id, s, f, src]) => <tr><td class="mono">{id}</td><td><span class={`check check--${s}`}>{STATE_LABEL[s]}</span></td><td>{f}</td><td class="mono rs">{src}</td></tr>)}</tbody>
+        </table>
+        <div class="report__v"><p class="label">What to do</p><p>{neev.sample.verdict}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="label">Buying alone vs with PropBillions</p>
+      <h2 class="h2s">The same purchase, read twice</h2>
+      <div class="cmp-wrap"><table class="cmp"><thead><tr><th></th><th>Buying alone</th><th>With a Neev Check</th></tr></thead><tbody>{compare.map(([a, b, c]) => <tr><th scope="row">{a}</th><td>{b}</td><td>{c}</td></tr>)}</tbody></table></div>
+      <p class="paid" id="how-we-are-paid"><b>How PropBillions is paid:</b> {site.payModel ?? <Tbc what="how PropBillions earns (developer brokerage, buyer fee or both)" />}. We will say it here in one sentence before launch, because you should know who pays us before you trust our checks.</p>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="wrap faq">
+      <h2 class="h2s">Questions</h2>
+      {faq.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+    </div>
+  </section>
+
+  <section class="section section--dark" id="book">
+    <div class="wrap two"><div><p class="label">Book</p><h2 class="h2s">Send us the project. We send back the checks.</h2></div><LeadForm intent="neev-check" id="neev-form" dark /></div>
+  </section>
+</Base>
+<style>
+  .nhero h1 { font-size: var(--step-5); }
+  .states { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: var(--space-5) 0; }
+  .states .check { color: var(--lime-100); }
+  .note { color: var(--forest-300); margin-top: var(--space-5); max-width: 70ch; }
+  .h2s { font-size: var(--step-3); }
+  .groups { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); margin-top: var(--space-6); }
+  .grp h3 { font-size: var(--step-2); }
+  .grp h3 .mono { color: var(--bp-500); font-size: .5em; vertical-align: middle; }
+  .grp__l { list-style: none; padding: 0; margin: 0; }
+  .grp__l li { display: grid; grid-template-columns: 2.2rem 1fr; gap: .1rem .6rem; padding: .6rem 0; border-top: 1px solid var(--lime-300); }
+  .grp__n { color: var(--brass-600); }
+  .grp__s { grid-column: 2; color: var(--ink-500); font-size: 11px; }
+  .report { background: #fff; border: 1px solid var(--bp-100); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); margin-top: var(--space-5); }
+  .report__head { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 1rem; background: var(--forest-900); color: var(--lime-200); flex-wrap: wrap; }
+  .report table { font-size: .92rem; }
+  .report th { text-align: left; font: 500 var(--step--1) var(--font-mono); color: var(--ink-500); padding: .7rem 1rem; }
+  .report td { padding: .7rem 1rem; border-top: 1px solid var(--lime-200); vertical-align: top; }
+  .rs { font-size: 11px; color: var(--ink-500); }
+  .report__v { padding: 1rem; background: var(--lime-100); border-top: 2px solid var(--bad); }
+  .report__v p:last-child { margin: 0; font-weight: 600; }
+  @media (max-width: 700px) { .report thead { display: none; } .report tr { display: grid; grid-template-columns: 3rem 1fr; padding: .6rem 0; border-top: 1px solid var(--lime-200); } .report td { border: 0; padding: .2rem 1rem; } .report td:nth-child(3), .report td:nth-child(4) { grid-column: 1 / -1; } }
+  .cmp-wrap { overflow-x: auto; }
+  .cmp { min-width: 560px; margin-top: var(--space-5); }
+  .cmp th, .cmp td { text-align: left; padding: .8rem 1rem; border-top: 1px solid var(--lime-300); vertical-align: top; }
+  .cmp thead th { font: 500 var(--step--1) var(--font-mono); text-transform: uppercase; color: var(--ink-500); }
+  .cmp td:last-child { background: rgb(47 122 79 / .06); }
+  .paid { margin-top: var(--space-6); padding: var(--space-5); border-left: 3px solid var(--brass-500); background: var(--lime-50); max-width: 70ch; }
+  .faq details { border-top: 1px solid var(--lime-300); padding: var(--space-4) 0; }
+  .faq summary { cursor: pointer; font: 400 var(--step-1)/1.3 var(--font-display); min-height: var(--tap); display: flex; align-items: center; }
+  .two { display: grid; gap: var(--space-6); }
+  @media (min-width: 900px) { .two { grid-template-columns: .8fr 1.2fr; } }
+</style>

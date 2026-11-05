@@ -1,0 +1,129 @@
+---
+import { u } from '../lib/url';
+import site from '../data/site.json';
+const stills = [
+  ['phone-k1', 'A cramped rented room at dusk, traffic outside the window'],
+  ['phone-k3', 'The region seen from above like a map, project pins glowing'],
+  ['phone-k4', 'A plot among trees with a building drawn in white lines'],
+  ['phone-k5', 'An open gate and a garden path at golden hour'],
+  ['phone-k7', 'A balcony over forested hills with one lit diya'],
+  ['phone-k8', 'House keys on tied papers beside a diya'],
+];
+const caps = [
+  { r: '0-14', st: '0', hi: 'हर साल किराया बढ़ता है। घर नहीं।', en: 'Every year the rent goes up. The home never comes.', step: '01 The noise' },
+  { r: '15-34', st: '1', en: "Location is the one thing you can't renovate.", step: '02 The map' },
+  { r: '35-54', st: '2', en: 'We read the plan before you read the brochure.', step: '03 The blueprint' },
+  { r: '55-64', st: '3', en: 'Walk it before you pay for it.', step: '04 The gate' },
+  { r: '65-74', st: '', en: 'Carpet area, not brochure area.', step: '05 The door' },
+  { r: '75-92', st: '4', en: 'Heaven in the forest. Paperwork checked.', step: '06 The balcony' },
+];
+const wa = site.whatsapp ? `https://wa.me/${site.whatsapp.replace(/\D/g, '')}` : null;
+---
+<script is:inline>
+  (function () {
+    var d = document.documentElement, c = navigator.connection || {}, m = 'film';
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '')) m = 'static';
+    else if (innerWidth < 768 || (matchMedia('(pointer: coarse)').matches && innerWidth < 900 && innerHeight > innerWidth)) m = 'stills';
+    d.dataset.jmode = m;
+  })();
+</script>
+<section class="j" data-journey aria-label="The way home: a short scroll film">
+  <div class="j__stage">
+    <picture class="j__poster">
+      <source media="(max-width: 767px)" srcset={`${u('/img/journey/phone-k1-540.webp')} 540w, ${u('/img/journey/phone-k1.webp')} 810w`} sizes="100vw" />
+      <img src={u('/img/journey/k1-1600.webp')} srcset={`${u('/img/journey/k1-800.webp')} 800w, ${u('/img/journey/k1-1600.webp')} 1600w`} sizes="100vw" width="1600" height="905" alt="" fetchpriority="high" decoding="async" />
+    </picture>
+    <video class="j__video" muted playsinline preload="none" disablepictureinpicture aria-hidden="true"
+      data-src-desktop={u('/film/journey-1600.mp4')} data-src-tablet={u('/film/journey-1280.mp4')}></video>
+    <div class="j__stills" aria-hidden="true">
+      {stills.map(([k], i) => (
+        <div class="j__still" data-still style={i === 0 ? 'opacity:1' : 'opacity:0'}>
+          <img src={u(`/img/journey/${k}-540.webp`)} srcset={`${u(`/img/journey/${k}-540.webp`)} 540w, ${u(`/img/journey/${k}.webp`)} 810w`} sizes="100vw" width="540" height="960" alt="" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+        </div>
+      ))}
+    </div>
+    <div class="j__end" aria-hidden="true"><img src={u('/img/journey/k8-1600.webp')} srcset={`${u('/img/journey/k8-800.webp')} 800w, ${u('/img/journey/k8-1600.webp')} 1600w`} sizes="100vw" width="1600" height="905" alt="" loading="lazy" decoding="async" /></div>
+    <div class="j__scrim"></div>
+
+    <ol class="j__caps">
+      {caps.map((c) => (
+        <li class="j__cap" data-cap={c.r} data-still-cap={c.st}>
+          <span class="label">{c.step}</span>
+          {c.hi && <p class="j__hi hi" lang="hi">{c.hi}</p>}
+          <p class="j__line">{c.en}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="j__settle" data-settle>
+      <p class="label">07 The keys</p>
+      <h1 class="j__title">Your home, with the <em>paperwork read</em> first.</h1>
+      <p class="j__sub">PropBillions checks the RERA record, the title, the approvals and the all-in price before you sign. Noida, Greater Noida, South Delhi and the Kumaon hills.</p>
+      <div class="btn-row">
+        <a class="btn" href={u('/contact#visit')}>Book a site visit</a>
+        {wa ? <a class="btn btn--ghost btn--wa" href={wa}>WhatsApp us</a> : <a class="btn btn--ghost" href={`tel:${site.phone.replace(/\s/g, '')}`}>Call {site.phone}</a>}
+        <a class="btn btn--ghost" href={u('/neev-check')}>Get a Neev Check</a>
+      </div>
+    </div>
+
+    <div class="ring" data-ring hidden role="progressbar" aria-label="Loading the film">
+      <svg viewBox="0 0 60 60" width="60" height="60"><circle cx="30" cy="30" r="26" class="ring__bg" /><circle cx="30" cy="30" r="26" class="ring__arc" /></svg>
+      <span class="mono" data-ring-pct>0%</span>
+    </div>
+    <p class="j__ai ai-label">Made with AI. The projects are real.</p>
+    <p class="j__scroll mono" aria-hidden="true">Scroll</p>
+  </div>
+</section>
+<style>
+  .j { position: relative; background: var(--forest-950); color: var(--lime-50); height: 100svh; }
+  html[data-jmode='film'] .j { height: 900vh; }
+  html[data-jmode='stills'] .j { height: 600vh; }
+  .j__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+  .j__poster, .j__video, .j__stills, .j__end, .j__scrim { position: absolute; inset: 0; }
+  .j__poster img, .j__video, .j__end img, .j__still img { width: 100%; height: 100%; object-fit: cover; }
+  .j__video { opacity: 0; transition: opacity .6s var(--ease); }
+  .j.is-ready .j__video { opacity: 1; }
+  .j__stills { display: none; }
+  .j__still { position: absolute; inset: 0; will-change: opacity, transform; transform-origin: 50% 60%; }
+  html[data-jmode='stills'] .j__stills, .j[data-mode='stills'] .j__stills { display: block; }
+  html[data-jmode='stills'] .j__poster { visibility: hidden; }
+  .j__end { opacity: 0; }
+  html[data-jmode='static'] .j__end { opacity: 1; }
+  .j__scrim { background: linear-gradient(90deg, rgb(15 31 24 / .78) 0%, rgb(15 31 24 / .35) 45%, rgb(15 31 24 / 0) 70%), linear-gradient(0deg, rgb(15 31 24 / .6), transparent 40%); pointer-events: none; }
+  .j__caps { list-style: none; margin: 0; padding: 0; position: absolute; left: var(--gutter); right: var(--gutter); bottom: calc(18vh + env(safe-area-inset-bottom)); max-width: 34rem; }
+  .j__cap { position: absolute; bottom: 0; left: 0; right: 0; opacity: 0; transform: translateY(14px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  .j__cap.is-on { opacity: 1; transform: none; }
+  .j__cap .label { color: var(--brass-300); }
+  .j__hi { font-size: var(--step-4); line-height: 1.25; margin: .4rem 0 .2rem; text-shadow: 0 2px 30px rgb(0 0 0 / .4); }
+  .j__line { font: 400 var(--step-4)/1.05 var(--font-display); margin: .4rem 0 0; text-shadow: 0 2px 30px rgb(0 0 0 / .45); text-wrap: balance; }
+  .j__hi + .j__line { font: 400 var(--step-1)/1.4 var(--font-text); color: var(--lime-200); }
+  .j__settle { position: absolute; left: var(--gutter); right: var(--gutter); bottom: calc(8vh + env(safe-area-inset-bottom)); max-width: 40rem; opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); pointer-events: none; }
+  .j__settle.is-on, html[data-jmode='static'] .j__settle { opacity: 1; transform: none; pointer-events: auto; }
+  html[data-jmode='static'] .j__caps { display: none; }
+  .j__settle .label { color: var(--brass-300); }
+  .j__title { font-size: var(--step-5); margin: .4rem 0 var(--space-4); }
+  .j__title em { color: var(--brass-300); }
+  .j__sub { color: var(--lime-200); font-size: var(--step-1); max-width: 36rem; }
+  .ring { position: absolute; right: calc(var(--gutter) + env(safe-area-inset-right)); bottom: calc(var(--gutter) + env(safe-area-inset-bottom)); display: grid; place-items: center; width: 60px; height: 60px; }
+  .ring svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+  .ring circle { fill: none; stroke-width: 2; }
+  .ring__bg { stroke: rgb(255 255 255 / .18); }
+  .ring__arc { stroke: var(--brass-300); stroke-dasharray: 163.36; stroke-dashoffset: 163.36; transition: stroke-dashoffset .3s linear; }
+  .ring.is-indet svg { animation: spin 1.2s linear infinite; }
+  .ring.is-indet .ring__arc { stroke-dashoffset: 110; }
+  .ring span { font-size: 10px; }
+  @keyframes spin { to { transform: rotate(270deg); } }
+  .j__ai { position: absolute; left: var(--gutter); bottom: calc(1rem + env(safe-area-inset-bottom)); color: var(--lime-200); opacity: .8; margin: 0; }
+  .j__scroll { position: absolute; right: 50%; transform: translateX(50%); bottom: calc(1rem + env(safe-area-inset-bottom)); margin: 0; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; opacity: .7; }
+  html[data-jmode='static'] .j__scroll { display: none; }
+  @media (max-width: 767px) {
+    .j__caps { bottom: calc(22vh + env(safe-area-inset-bottom)); }
+    .j__scrim { background: linear-gradient(0deg, rgb(15 31 24 / .85) 0%, rgb(15 31 24 / .35) 50%, rgb(15 31 24 / .1) 100%); }
+    .j__settle { bottom: calc(10vh + env(safe-area-inset-bottom)); }
+    .j__scroll { display: none; }
+  }
+</style>
+<script>
+  import { initJourney } from '../scripts/journey';
+  initJourney();
+</script>

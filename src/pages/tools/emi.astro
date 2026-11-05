@@ -1,0 +1,69 @@
+---
+import Base from '../../layouts/Base.astro';
+import RateSources from '../../components/RateSources.astro';
+import { rates } from '../../lib/data';
+import { u } from '../../lib/url';
+const L = rates.loan;
+---
+<Base title="EMI and home loan eligibility calculator" description="Monthly EMI, total interest, and how much a bank may lend you, using RBI loan-to-value caps. Sourced and dated." breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Tools', path: '/tools' }, { name: 'EMI and eligibility', path: '/tools/emi' }]}>
+  <section class="section bp-grid"><div class="wrap tool">
+    <div>
+      <p class="label">Tool 02</p><h1 class="t">EMI and eligibility</h1>
+      <form class="tf" data-emi data-ltv={JSON.stringify(L.ltvBands)}>
+        <fieldset><legend class="mono">Your EMI</legend>
+          <label class="field"><span>Loan amount (₹)</span><input name="loan" inputmode="numeric" value="5000000" /></label>
+          <label class="field"><span>Interest rate (% a year)</span><input name="rate" inputmode="decimal" value={L.rateDefaultPct} /></label>
+          <label class="field"><span>Tenure (years)</span><input name="years" inputmode="numeric" value="20" /></label>
+        </fieldset>
+        <fieldset><legend class="mono">What a bank may lend</legend>
+          <label class="field"><span>Take-home pay a month (₹)</span><input name="income" inputmode="numeric" value="150000" /></label>
+          <label class="field"><span>Existing EMIs a month (₹)</span><input name="existing" inputmode="numeric" value="0" /></label>
+          <label class="field"><span>Share of pay for all EMIs (%)</span><input name="foir" inputmode="numeric" value={L.foirDefaultPct} /></label>
+          <label class="field"><span>Property value (₹)</span><input name="value" inputmode="numeric" value="7000000" /></label>
+        </fieldset>
+      </form>
+      <p class="small">{L.rateNote} {L.foirNote}</p>
+    </div>
+    <div class="out" aria-live="polite">
+      <div><p class="mono k">Monthly EMI</p><p class="v v--b" data-o="emi">–</p></div>
+      <p data-o="total"></p>
+      <div><p class="mono k">A bank may lend up to</p><p class="v" data-o="max">–</p></div>
+      <p data-o="why"></p>
+      <table class="lines"><thead><tr><th>Year</th><th>Principal</th><th>Interest</th><th>Left</th></tr></thead><tbody data-o="sched"></tbody></table>
+      <a class="btn" href={u('/tools/all-in-cost')}>Next: the all-in cost</a>
+    </div>
+  </div><div class="wrap"><RateSources /></div></section>
+</Base>
+<style>
+  .t { font-size: var(--step-5); }
+  .tool { display: grid; gap: var(--space-7); }
+  @media (min-width: 960px) { .tool { grid-template-columns: 1fr 1fr; align-items: start; } .out { position: sticky; top: 6rem; } }
+  fieldset { border: 0; padding: 0; margin: var(--space-5) 0 0; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  legend { color: var(--ink-500); margin-bottom: .5rem; }
+  .field span { font: 600 var(--step--1) var(--font-text); }
+  .small { font-size: var(--step--1); color: var(--ink-500); margin-top: var(--space-4); }
+  .out { background: var(--forest-900); color: var(--lime-100); border-radius: var(--radius-lg); padding: var(--space-6); display: grid; gap: var(--space-4); }
+  .k { margin: 0; color: var(--forest-300); } .v { font: 400 var(--step-4)/1 var(--font-display); margin: .3rem 0 0; } .v--b { color: var(--brass-300); }
+  .out p { margin: 0; }
+  .lines { font-size: .85rem; font-family: var(--font-mono); } .lines th, .lines td { text-align: right; padding: .3rem .2rem; } .lines th:first-child, .lines td:first-child { text-align: left; } .lines tr + tr { border-top: 1px solid rgb(255 255 255 / .06); }
+  .lines tbody { display: block; max-height: 240px; overflow: auto; } .lines thead, .lines tbody tr { display: table; width: 100%; table-layout: fixed; }
+</style>
+<script>
+  import { emi, schedule, eligibility } from '../../lib/emi';
+  import { inr } from '../../lib/money';
+  const f = document.querySelector<HTMLFormElement>('[data-emi]')!;
+  const bands = JSON.parse(f.dataset.ltv!);
+  const o = (k: string) => document.querySelector<HTMLElement>(`[data-o="${k}"]`)!;
+  const n = (k: string) => Number(String(new FormData(f).get(k) || '').replace(/[^\d.]/g, '')) || 0;
+  const run = () => {
+    const months = Math.round(n('years') * 12);
+    const m = emi(n('loan'), n('rate'), months), s = schedule(n('loan'), n('rate'), months);
+    o('emi').textContent = inr(m);
+    o('total').textContent = `Over ${n('years')} years you pay ${inr(s.totalPaid, { compact: true })}, of which ${inr(s.totalInterest, { compact: true })} is interest.`;
+    const e = eligibility({ netMonthlyIncome: n('income'), existingEmis: n('existing'), annualRatePct: n('rate'), years: n('years'), foirPct: n('foir'), propertyValue: n('value') || undefined, ltvBands: bands });
+    o('max').textContent = inr(e.maxLoan, { compact: true });
+    o('why').textContent = `Limited by ${e.limitedBy}. Income allows ${inr(e.byIncome, { compact: true })} (EMI up to ${inr(e.maxEmi)})${e.byValue !== null ? `; the ${e.ltvPct}% loan-to-value cap allows ${inr(e.byValue, { compact: true })}` : ''}. You pay the rest, plus stamp duty and registration, yourself.`;
+    o('sched').innerHTML = s.yearly.map((y) => `<tr><td>${y.year}</td><td>${inr(y.principal, { compact: true })}</td><td>${inr(y.interest, { compact: true })}</td><td>${inr(y.balance, { compact: true })}</td></tr>`).join('');
+  };
+  f.addEventListener('input', run); run();
+</script>

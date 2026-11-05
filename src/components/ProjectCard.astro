@@ -1,0 +1,52 @@
+---
+/** Project card with the X-ray lens: hover (desktop), press and hold (touch) or focus reveals the blueprint and check results. */
+import { img, projectUrl, allInLabel, type Project } from '../lib/data';
+import { u } from '../lib/url';
+interface Props { p: Project; eager?: boolean }
+const { p, eager = false } = Astro.props;
+const i = img(p.hero);
+const rera = p.rera ? { s: 'ok', t: `RERA ${p.rera}` } : { s: 'tbc', t: 'RERA number to confirm' };
+const allIn = allInLabel(p);
+const first = p.configs.find((c) => c.price) ?? p.configs[0];
+---
+<article class="pc" data-xray tabindex="-1">
+  <a class="pc__link" href={u(projectUrl(p))} aria-label={`${p.name}, ${p.cityLabel}. Open project`}></a>
+  <div class="pc__media">
+    {i && <img src={u(i.sizes.find((s) => s.width >= 800)?.src ?? i.largest.src)} srcset={i.sizes.map((s) => `${u(s.src)} ${s.width}w`).join(', ')} sizes="(min-width: 900px) 40vw, 86vw" width={i.largest.width} height={i.largest.height} alt={`${p.name}, ${p.kind}`} loading={eager ? 'eager' : 'lazy'} decoding="async" />}
+    <div class="pc__xray" aria-hidden="true">
+      {i && <img src={u(i.smallest.src)} alt="" loading="lazy" decoding="async" />}
+      <svg class="pc__grid" viewBox="0 0 100 62" preserveAspectRatio="none"><defs><pattern id={`g-${p.slug}`} width="5" height="5" patternUnits="userSpaceOnUse"><path d="M5 0H0V5" fill="none" stroke="currentColor" stroke-width=".15"/></pattern></defs><rect width="100" height="62" fill={`url(#g-${p.slug})`}/><path d="M30 52V20l20-10 20 10v32M30 30h40M30 41h40M43 52V44h14v8" fill="none" stroke="currentColor" stroke-width=".5"/></svg>
+    </div>
+    <span class="impression">{p.heroKind === 'render' ? "Artist's impression" : 'Photo'}</span>
+    <span class="pc__hint mono" aria-hidden="true"><span class="hint-fine">Hover</span><span class="hint-touch">Hold</span> to X-ray</span>
+  </div>
+  <div class="pc__body">
+    <p class="label">{p.type} · {p.cityLabel}</p>
+    <h3 class="pc__name">{p.name}</h3>
+    <p class="pc__kind">{p.kind}</p>
+    <dl class="pc__facts">
+      <div><dt>RERA</dt><dd><span class={`check check--${rera.s}`}>{p.rera ?? 'To confirm'}</span></dd></div>
+      <div><dt>Possession</dt><dd>{p.possession ?? <span class="tbc">to confirm</span>}</dd></div>
+      <div><dt>Price</dt><dd>{first.priceLabel}{allIn && <><br /><b>{allIn}</b> <span class="est">estimate</span></>}</dd></div>
+    </dl>
+  </div>
+</article>
+<style>
+  .pc { position: relative; display: grid; background: var(--lime-50); border: 1px solid var(--lime-300); border-radius: var(--radius-lg); overflow: hidden; height: 100%; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+  .pc:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .pc__link { position: absolute; inset: 0; z-index: 3; }
+  .pc__link:focus-visible { outline-offset: -4px; }
+  .pc__media { aspect-ratio: 16 / 10; }
+  .pc__media > img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+  .pc:hover .pc__media > img { transform: scale(1.03); }
+  .pc__grid { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .pc__body { padding: var(--space-5); display: grid; gap: .35rem; align-content: start; }
+  .pc__name { font-size: var(--step-2); margin: 0; }
+  .pc__kind { margin: 0; color: var(--ink-700); font-size: .95rem; }
+  .pc__facts { margin: var(--space-3) 0 0; display: grid; gap: .45rem; }
+  .pc__facts div { display: grid; grid-template-columns: 6.5rem 1fr; gap: .5rem; font-size: .92rem; }
+  .pc__facts dt { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-500); text-transform: uppercase; letter-spacing: .05em; }
+  .pc__facts dd { margin: 0; }
+  .est { font-family: var(--font-mono); font-size: 11px; color: var(--ink-500); }
+  .pc.is-xray .pc__facts { color: var(--bp-500); }
+</style>

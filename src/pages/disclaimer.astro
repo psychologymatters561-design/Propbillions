@@ -1,0 +1,12 @@
+---
+import Legal from '../layouts/Legal.astro';
+import Tbc from '../components/Tbc.astro';
+import site from '../data/site.json';
+---
+<Legal title="Disclaimer" description="RERA, pricing, images and returns: what PropBillions' website does and does not promise." path="/disclaimer" updated="5 Nov 2026">
+  <h2>RERA</h2><p>PropBillions acts as a real estate agent. Agent registration: {site.reraAgent.length ? site.reraAgent.map((r: { state: string; number: string }) => `${r.state} ${r.number}`).join(', ') : <Tbc what="RERA agent registration numbers" />}. Each project shows its own RERA registration number where published; where it is not published we say so.</p>
+  <h2>Prices</h2><p>Prices are as published by the developer or online listings, with the source named. "All-in" figures are our estimates and state exactly what they include. GST, stamp duty and registration rates come from the sources listed on each tool.</p>
+  <h2>No promised returns</h2><p>Nothing on this site promises rental income, returns or price growth. Property prices can fall.</p>
+  <h2>Images</h2><p>Renders are the developer's artist's impressions. Photos are labelled as photos. The journey film is made with AI.</p>
+  <h2>Neev Check</h2><p>A Neev Check is not a legal opinion unless the legal checks in it are signed by an advocate named on the report.</p>
+</Legal>

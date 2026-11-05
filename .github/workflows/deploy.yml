@@ -1,0 +1,68 @@
+name: deploy
+on:
+  push:
+    branches: [main, ccr-6651a26a-t4gy2p]
+    paths-ignore: ['audit-raw/**', 'media-raw/**', 'docs/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: deploy-${{ github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Pages settings (for the record)
+        run: |
+          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github+json" https://api.github.com/repos/${{ github.repository }}/pages | tee pages-info.json | head -40
+      - run: npm ci
+      - run: npm test
+      - name: Build
+        env:
+          SITE_URL: https://psychologymatters561-design.github.io
+          BASE_PATH: /Propbillions
+        run: npm run build && touch dist/.nojekyll && node scripts/copy-gate.mjs dist
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    if: github.ref_name == 'main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://psychologymatters561-design.github.io/Propbillions/
+    steps:
+      - name: Try to switch Pages to Actions deploys (needs admin rights; may be refused)
+        id: sw
+        run: |
+          code=$(curl -s -o r.json -w "%{http_code}" -X PUT -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github+json" https://api.github.com/repos/${{ github.repository }}/pages -d '{"build_type":"workflow"}')
+          cat r.json || true; echo "code=$code" >> "$GITHUB_OUTPUT"; echo "switch status $code"
+      - name: Deploy with Actions
+        if: steps.sw.outputs.code == '204' || steps.sw.outputs.code == '200'
+        id: d
+        uses: actions/deploy-pages@v4
+      - name: Fallback, publish the built site at the root of main (branch-based Pages)
+        if: steps.sw.outputs.code != '204' && steps.sw.outputs.code != '200'
+        run: |
+          git clone --depth 1 "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" repo
+          mkdir -p art && cd art
+          curl -sL -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" -o list.json
+          url=$(node -e "const a=require('./list.json').artifacts.find(x=>x.name==='github-pages');console.log(a.archive_download_url)")
+          curl -sL -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "$url" -o a.zip && unzip -q a.zip && mkdir site && tar -xf artifact.tar -C site
+          cd ../repo
+          # remove the previous published build (listed in .published), then copy the new one in
+          if [ -f .published ]; then xargs -a .published rm -rf; fi
+          (cd ../art/site && ls -A) > .published
+          cp -a ../art/site/. .
+          git config user.name "deploy-bot"; git config user.email "deploy-bot@users.noreply.github.com"
+          git add -A && git commit -q -m "Publish site build ${{ github.sha }}" && git push origin HEAD:main
+          curl -s -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github+json" https://api.github.com/repos/${{ github.repository }}/pages/builds

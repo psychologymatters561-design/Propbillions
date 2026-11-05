@@ -1,0 +1,69 @@
+---
+import Base from '../../layouts/Base.astro';
+import RateSources from '../../components/RateSources.astro';
+import { rates } from '../../lib/data';
+import { u } from '../../lib/url';
+---
+<Base title="All-in cost calculator: brochure price to real cost" description="Add GST, stamp duty, registration, parking, PLC and deposits to a brochure price. UP, Delhi and Uttarakhand rates, sourced and dated." breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Tools', path: '/tools' }, { name: 'All-in cost', path: '/tools/all-in-cost' }]}>
+  <section class="section bp-grid"><div class="wrap tool">
+    <div>
+      <p class="label">Tool 01</p><h1 class="t">All-in cost</h1>
+      <p class="lede">Type the brochure numbers. See what you will actually pay.</p>
+      <form class="tf" data-allin-tool data-rates={JSON.stringify(rates.states)} data-gst={JSON.stringify(rates.gst)}>
+        <label class="field"><span>State</span><select name="state">{Object.entries(rates.states).map(([k, s]) => <option value={k}>{s.label}</option>)}</select></label>
+        <label class="field"><span>Base price (₹)</span><input name="base" inputmode="numeric" value="4500000" /></label>
+        <label class="field"><span>Super area (sq ft)</span><input name="superArea" inputmode="numeric" placeholder="optional" /></label>
+        <label class="field"><span>Carpet area (sq ft)</span><input name="carpetArea" inputmode="numeric" placeholder="optional" /></label>
+        <label class="field"><span>PLC and floor rise (₹)</span><input name="plc" inputmode="numeric" value="0" /></label>
+        <label class="field"><span>Parking (₹)</span><input name="parking" inputmode="numeric" value="0" /></label>
+        <label class="field"><span>Club, power backup, other (₹)</span><input name="club" inputmode="numeric" value="0" /></label>
+        <label class="field"><span>Maintenance deposit (₹)</span><input name="maint" inputmode="numeric" value="0" /></label>
+        <label class="field"><span>Stage</span><select name="stage"><option value="uc">Under construction (home)</option><option value="aff">Under construction, affordable home</option><option value="ready">Ready, with completion certificate</option><option value="com">Commercial, under construction</option></select></label>
+        <label class="field"><span>Registered in the name of</span><select name="holder"><option value="male">A man</option><option value="female">A woman</option><option value="joint">Jointly</option></select></label>
+      </form>
+    </div>
+    <div class="out" aria-live="polite">
+      <div class="out__nums"><div><p class="mono k">Brochure</p><p class="v" data-o="base">–</p></div><div><p class="mono k">All-in</p><p class="v v--b" data-o="total">–</p></div></div>
+      <p class="hidden" data-o="hidden"></p>
+      <table class="lines"><tbody data-o="lines"></tbody></table>
+      <p class="mono loading" data-o="loading"></p>
+      <p class="small">Estimate only. Stamp duty is charged on the higher of agreement value and circle rate; ask the sub-registrar for the circle rate. GST on maintenance deposits is not included.</p>
+      <a class="btn" href={u('/contact#visit')}>Check a real cost sheet with us</a>
+    </div>
+  </div>
+  <div class="wrap"><RateSources /></div></section>
+</Base>
+<style>
+  .t { font-size: var(--step-5); }
+  .tool { display: grid; gap: var(--space-7); }
+  @media (min-width: 960px) { .tool { grid-template-columns: 1fr 1fr; align-items: start; } .out { position: sticky; top: 6rem; } }
+  .tf { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4); margin-top: var(--space-5); }
+  .field span { font: 600 var(--step--1) var(--font-text); }
+  .out { background: var(--forest-900); color: var(--lime-100); border-radius: var(--radius-lg); padding: var(--space-6); display: grid; gap: var(--space-4); }
+  .out__nums { display: flex; gap: var(--space-6); flex-wrap: wrap; }
+  .k { margin: 0; color: var(--forest-300); } .v { font: 400 var(--step-4)/1 var(--font-display); margin: .3rem 0 0; } .v--b { color: var(--brass-300); }
+  .hidden { margin: 0; color: var(--lime-200); }
+  .lines { font-size: .92rem; } .lines th { text-align: left; font-weight: 500; padding: .45rem 0; } .lines td { text-align: right; font-family: var(--font-mono); } .lines tr + tr { border-top: 1px solid rgb(255 255 255 / .08); }
+  .loading { margin: 0; color: var(--lime-200); }
+  .small { font-size: var(--step--1); color: var(--forest-300); margin: 0; }
+</style>
+<script>
+  import { allInCost } from '../../lib/cost';
+  import { inr } from '../../lib/money';
+  const f = document.querySelector<HTMLFormElement>('[data-allin-tool]')!;
+  const R = JSON.parse(f.dataset.rates!), G = JSON.parse(f.dataset.gst!);
+  const o = (k: string) => document.querySelector<HTMLElement>(`[data-o="${k}"]`)!;
+  const num = (v: FormDataEntryValue | null) => Number(String(v || '').replace(/[^\d.]/g, '')) || 0;
+  const run = () => {
+    const d = new FormData(f);
+    const st = String(d.get('stage'));
+    const gstPct = st === 'ready' ? G.readyWithCompletionCertificate : st === 'aff' ? G.affordableUnderConstruction : st === 'com' ? G.commercialUnderConstruction : G.residentialUnderConstruction;
+    const a = allInCost({ basePrice: num(d.get('base')), plc: num(d.get('plc')), parking: num(d.get('parking')), clubAndOther: num(d.get('club')), maintenanceDeposit: num(d.get('maint')), superArea: num(d.get('superArea')) || undefined, carpetArea: num(d.get('carpetArea')) || undefined, gstPct, holder: d.get('holder') as 'male', stamp: R[String(d.get('state'))].stamp });
+    o('base').textContent = inr(num(d.get('base')), { compact: true });
+    o('total').textContent = inr(a.total, { compact: true });
+    o('hidden').textContent = `${inr(a.hidden)} above the brochure price (+${a.hiddenPct.toFixed(1)}%).${a.perSqftCarpet ? ` That is ${inr(a.perSqftCarpet)} per sq ft of carpet area.` : ''}`;
+    o('lines').innerHTML = a.lines.map((l) => `<tr><th>${l.label}${l.note ? `<br><small>${l.note}</small>` : ''}</th><td>${inr(l.amount)}</td></tr>`).join('');
+    o('loading').textContent = a.loading !== null ? `Loading: super area is ${a.loading.toFixed(0)}% bigger than carpet area. You live in the carpet area.` : '';
+  };
+  f.addEventListener('input', run); run();
+</script>

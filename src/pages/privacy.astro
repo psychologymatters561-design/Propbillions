@@ -1,0 +1,20 @@
+---
+import Legal from '../layouts/Legal.astro';
+import Tbc from '../components/Tbc.astro';
+import site from '../data/site.json';
+---
+<Legal title="Privacy notice" description="How PropBillions collects and uses your personal data, under the Digital Personal Data Protection Act, 2023." path="/privacy" updated="5 Nov 2026">
+  <p>This notice explains what personal data PropBillions ({site.legalName}) collects through this website, why, and your rights under the Digital Personal Data Protection Act, 2023 (DPDP Act).</p>
+  <h2>What we collect</h2>
+  <ul><li>What you type in our forms: name, mobile number, email (optional), budget, preferred visit slot and any note.</li><li>The page you sent it from and campaign tags in the link (for example utm_source).</li><li>No data is collected by the calculators. They run in your browser.</li></ul>
+  <h2>Why we use it</h2>
+  <ul><li>To answer the request you made: a call back, a shortlist, a site visit, a brochure or a Neev Check.</li><li>Only if you tick the second box: to send you new project updates.</li><li>Only with that same marketing consent: to tell Meta and Google, in hashed form, that an enquiry happened, so we can measure our ads.</li></ul>
+  <h2>Who sees it</h2>
+  <p>The PropBillions team. We do not share your number with a developer without asking you first. Service providers that carry the message (for example our email or messaging provider) process it on our behalf: <Tbc what="list of processors: email, WhatsApp provider, CRM, hosting" />.</p>
+  <h2>How long we keep it</h2>
+  <p><Tbc what="retention period" />. You can ask us to delete it sooner.</p>
+  <h2>Your rights</h2>
+  <ul><li>Withdraw consent at any time, as easily as you gave it.</li><li>Ask what we hold, correct it, or have it erased.</li><li>Nominate someone to exercise these rights for you.</li><li>Complain to our grievance officer, and then to the Data Protection Board of India.</li></ul>
+  <h2>Grievance officer</h2>
+  <p>Name and contact: <Tbc what="grievance officer name, email and phone" />. Until named, write to <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+</Legal>

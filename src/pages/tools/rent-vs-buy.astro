@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import RateSources from '../../components/RateSources.astro';
+import { u } from '../../lib/url';
+---
+<Base title="Rent vs buy calculator, without guessing price growth" description="Instead of assuming prices rise, this calculator shows the yearly price growth at which buying beats renting over your time frame." breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Tools', path: '/tools' }, { name: 'Rent vs buy', path: '/tools/rent-vs-buy' }]}>
+  <section class="section bp-grid"><div class="wrap tool">
+    <div>
+      <p class="label">Tool 03</p><h1 class="t">Rent vs buy</h1>
+      <p class="lede">Most calculators assume prices rise and then tell you to buy. We do not assume. We show the price growth you would need.</p>
+      <form class="tf" data-rvb>
+        <label class="field"><span>All-in price of the home (₹)</span><input name="price" inputmode="numeric" value="8000000" /></label>
+        <label class="field"><span>Down payment (%)</span><input name="down" inputmode="numeric" value="20" /></label>
+        <label class="field"><span>Stamp duty, registration, fees (₹)</span><input name="oneTime" inputmode="numeric" value="600000" /></label>
+        <label class="field"><span>Loan rate (%)</span><input name="rate" inputmode="decimal" value="8.5" /></label>
+        <label class="field"><span>Loan tenure (years)</span><input name="loanYears" inputmode="numeric" value="20" /></label>
+        <label class="field"><span>Maintenance a month (₹)</span><input name="maint" inputmode="numeric" value="4000" /></label>
+        <label class="field"><span>Rent for a similar home a month (₹)</span><input name="rent" inputmode="numeric" value="25000" /></label>
+        <label class="field"><span>Rent increase a year (%), your guess</span><input name="rentGrowth" inputmode="decimal" value="5" /></label>
+        <label class="field"><span>What your savings earn a year (%), your guess</span><input name="invest" inputmode="decimal" value="7" /></label>
+        <label class="field"><span>Years you plan to stay</span><input name="years" inputmode="numeric" value="10" /></label>
+      </form>
+    </div>
+    <div class="out" aria-live="polite">
+      <div><p class="mono k">Buying wins if prices grow faster than</p><p class="v v--b" data-o="be">–</p></div>
+      <p data-o="say"></p>
+      <p data-o="zero"></p>
+      <p data-o="emi"></p>
+      <p class="small">Assumptions are yours, not forecasts. Nothing here predicts prices or promises returns. Selling costs assumed at 1%.</p>
+      <a class="btn" href={u('/contact#shortlist')}>Talk it through with us</a>
+    </div>
+  </div><div class="wrap"><RateSources /></div></section>
+</Base>
+<style>
+  .t { font-size: var(--step-5); }
+  .tool { display: grid; gap: var(--space-7); }
+  @media (min-width: 960px) { .tool { grid-template-columns: 1fr 1fr; align-items: start; } .out { position: sticky; top: 6rem; } }
+  .tf { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4); margin-top: var(--space-5); }
+  .field span { font: 600 var(--step--1) var(--font-text); }
+  .out { background: var(--forest-900); color: var(--lime-100); border-radius: var(--radius-lg); padding: var(--space-6); display: grid; gap: var(--space-4); }
+  .out p { margin: 0; }
+  .k { margin: 0; color: var(--forest-300); } .v { font: 400 var(--step-5)/1 var(--font-display); margin: .3rem 0 0; } .v--b { color: var(--brass-300); }
+  .small { font-size: var(--step--1); color: var(--forest-300); }
+</style>
+<script>
+  import { rentVsBuy } from '../../lib/rentVsBuy';
+  import { inr } from '../../lib/money';
+  const f = document.querySelector<HTMLFormElement>('[data-rvb]')!;
+  const o = (k: string) => document.querySelector<HTMLElement>(`[data-o="${k}"]`)!;
+  const n = (k: string) => Number(String(new FormData(f).get(k) || '').replace(/[^\d.-]/g, '')) || 0;
+  const run = () => {
+    const r = rentVsBuy({ price: n('price'), downPct: n('down'), oneTimeCosts: n('oneTime'), loanRatePct: n('rate'), loanYears: n('loanYears'), monthlyMaintenance: n('maint'), rent: n('rent'), rentGrowthPct: n('rentGrowth'), investReturnPct: n('invest'), years: Math.max(1, Math.round(n('years'))) });
+    const be = r.breakEvenGrowthPct;
+    o('be').textContent = be === null ? 'above 30%' : `${be.toFixed(1)}% a year`;
+    o('say').textContent = be === null ? 'Over this time frame renting stays cheaper at any realistic growth.' : `Over ${n('years')} years, if the home's price grows more than ${be.toFixed(1)}% a year, buying leaves you better off. Less than that, renting and investing the difference does. Ask yourself if ${be.toFixed(1)}% a year is realistic for this exact street.`;
+    o('zero').textContent = `If prices stay flat, buying leaves you ${r.atZeroGrowth >= 0 ? 'ahead by' : 'behind by'} ${inr(Math.abs(r.atZeroGrowth), { compact: true })}.`;
+    o('emi').textContent = `EMI ${inr(r.emi)} a month after paying ${inr(r.upfront, { compact: true })} upfront.`;
+  };
+  f.addEventListener('input', run); run();
+</script>

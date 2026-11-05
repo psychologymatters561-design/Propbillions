@@ -1,0 +1,64 @@
+{
+  "checked": "2026-11-05",
+  "note": "Every rate here is shown in the tools with its source and date. Secondary sources were used where the official notification could not be fetched; each is marked for a check against the official portal before launch.",
+  "states": {
+    "UP": {
+      "label": "Uttar Pradesh (Noida, Greater Noida)",
+      "stamp": { "malePct": 7, "femalePct": 6, "jointPct": 6.5, "concessionUpTo": 10000000, "registration": { "pct": 1 } },
+      "summary": "Stamp duty 7%. Women get 1 point off (6%) on homes up to ₹1 crore; joint male and female 6.5%. Registration 1%.",
+      "sources": [
+        { "title": "UP Govt extends stamp duty concession for women on property worth up to ₹1 crore (Free Press Journal)", "url": "https://www.freepressjournal.in/india/up-govt-extends-stamp-duty-concession-for-women-on-property-worth-up-to-1-crore" },
+        { "title": "Stamp Duty and Registration Charges in Uttar Pradesh 2026 (Godrej Capital)", "url": "https://www.godrejcapital.com/media-blog/knowledge-centre/stamp-duty-and-registration-charges-in-uttar-pradesh" }
+      ],
+      "official": "https://igrsup.gov.in",
+      "verify": true
+    },
+    "DL": {
+      "label": "Delhi",
+      "stamp": { "malePct": 6, "femalePct": 4, "jointPct": 5, "registration": { "pct": 1 }, "extraFixed": 100 },
+      "summary": "Stamp duty 6% (men), 4% (women), 5% (joint). Registration 1% plus ₹100 pasting fee. NDMC and Cantonment areas differ.",
+      "sources": [
+        { "title": "Stamp Duty & Registration Charges in Delhi 2026 (ClearTax)", "url": "https://cleartax.in/s/stamp-duty-and-registration-charges-in-delhi" },
+        { "title": "Stamp Duty and Property Registration Charges in Delhi (BankBazaar)", "url": "https://www.bankbazaar.com/home-loan/stamp-duty-and-property-registration-charges-delhi.html" }
+      ],
+      "official": "https://revenue.delhi.gov.in",
+      "verify": true
+    },
+    "UK": {
+      "label": "Uttarakhand (Kainchi Dham, Nainital district)",
+      "stamp": { "malePct": 5, "femalePct": 3.75, "jointPct": 5, "concessionUpTo": 2500000, "registration": { "pct": 2, "cap": 50000 } },
+      "summary": "Stamp duty 5%. Women 3.75% on property up to ₹25 lakh. Registration 2%; sources disagree on the cap (₹25,000 or ₹50,000), so the tool uses the higher one.",
+      "sources": [
+        { "title": "Stamp duty and registration charges in Uttarakhand (Square Yards)", "url": "https://www.squareyards.com/blog/stamp-duty-and-registration-charges-in-uttarakhand" },
+        { "title": "Stamp duty registration charges in Uttarakhand (HomeFirst)", "url": "https://homefirstindia.com/blog/article/stamp-duty-registration-charges-in-uttarakhand/" }
+      ],
+      "official": "https://registration.uk.gov.in",
+      "verify": true
+    }
+  },
+  "gst": {
+    "residentialUnderConstruction": 5,
+    "affordableUnderConstruction": 1,
+    "readyWithCompletionCertificate": 0,
+    "commercialUnderConstruction": 12,
+    "commercialNote": "Most sources give 12% with input tax credit for under-construction shops and offices; at least two say 18% after the September 2025 GST changes. Ask the developer for the rate on its tax invoice.",
+    "sources": [
+      { "title": "GST on Real Estate in 2026 (Rustomjee)", "url": "https://www.rustomjee.com/blog/gst-on-real-estate-in-2026/" },
+      { "title": "GST on under construction property, rates and calculation (HomeFirst)", "url": "https://homefirstindia.com/blog/article/gst-on-under-construction-property-rates-calculation/" },
+      { "title": "GST for builders, post GST 2.0 (Disytax)", "url": "https://disytax.com/gst-for-builders/" }
+    ],
+    "verify": true
+  },
+  "loan": {
+    "ltvBands": [ { "upTo": 3000000, "maxLtvPct": 90 }, { "upTo": 7500000, "maxLtvPct": 80 }, { "upTo": null, "maxLtvPct": 75 } ],
+    "ltvSummary": "RBI caps on loan to value: up to 90% for loans up to ₹30 lakh, 80% up to ₹75 lakh, 75% above that.",
+    "ltvSources": [
+      { "title": "Home buyers can now get more loan for property up to Rs 30 lakh (Business Standard, 2015)", "url": "https://www.business-standard.com/amp/article/pf/home-buyers-can-now-get-more-loan-for-property-up-to-rs-30-lakh-115100801016_1.html" },
+      { "title": "Home loan LTV ratio calculation (HDFC Bank)", "url": "https://homeloans.hdfc.bank.in/blog/home-finance/home-loan-ltv-ratio-calculation" }
+    ],
+    "foirDefaultPct": 50,
+    "foirNote": "Our assumption, not a bank rule: many lenders let total EMIs reach roughly 40 to 60% of take-home pay. Your bank decides.",
+    "rateDefaultPct": 8.5,
+    "rateNote": "Example rate only. Use the rate on your bank's sanction letter."
+  }
+}

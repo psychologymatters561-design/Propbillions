@@ -1,0 +1,28 @@
+---
+import { STATE_LABEL, source, type Check } from '../lib/data';
+interface Props { checks: Check[]; compact?: boolean }
+const { checks, compact = false } = Astro.props;
+---
+<ul class:list={['checks', { 'checks--compact': compact }]}>
+  {checks.map((c) => {
+    const s = source(c.src);
+    return (
+      <li class="checks__i">
+        <span class={`check check--${c.s}`}>{STATE_LABEL[c.s]}</span>
+        <div>
+          <strong>{c.t}</strong>
+          {!compact && <p>{c.n}</p>}
+          {!compact && s && <p class="checks__src">Source: {s.sources.slice(0, 2).map((x, i) => <>{i > 0 && ' · '}<a href={x.url} rel="noopener" target="_blank">{x.title}</a></>)} <span class="mono">(checked {s.checked})</span></p>}
+        </div>
+      </li>
+    );
+  })}
+</ul>
+<style>
+  .checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .checks__i { display: grid; grid-template-columns: 9.5rem 1fr; gap: var(--space-4); padding: var(--space-4) 0; border-top: 1px solid var(--lime-300); }
+  .checks__i p { margin: .25rem 0 0; font-size: .95rem; color: var(--ink-700); }
+  .checks__src { font-size: var(--step--1) !important; }
+  .checks--compact .checks__i { grid-template-columns: 1fr; gap: .2rem; padding: .5rem 0; }
+  @media (max-width: 560px) { .checks__i { grid-template-columns: 1fr; gap: .35rem; } }
+</style>

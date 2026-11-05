@@ -1,0 +1,19 @@
+[
+ {
+  "url": "https://propbillions.com/public/images/logo.png",
+  "ct": "image/png",
+  "page": "https://propbillions.com",
+  "alt": "Propbillions Logo",
+  "w": 415,
+  "h": 125,
+  "file": "logo-561d36e428.png",
+  "bytes": 71890,
+  "contentType": "image/png"
+ },
+ {
+  "url": "https://propbillions.com/%23n",
+  "page": "https://propbillions.com",
+  "bg": true,
+  "error": 404
+ }
+]

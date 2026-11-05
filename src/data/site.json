@@ -1,0 +1,19 @@
+{
+  "name": "PropBillions",
+  "legalName": "PropBillions Pvt Ltd",
+  "domain": "propbillions.com",
+  "founded": 2026,
+  "phones": ["+91 98118 85521", "+91 99996 56345"],
+  "phone": "+91 98118 85521",
+  "whatsapp": null,
+  "email": "info@propbillions.com",
+  "salesEmail": "sales@propbillions.com",
+  "address": "B-13, UG Floor, Tower T-3, NX One, Tech Zone 4, Greater Noida West 201306",
+  "addressNote": "Contact page address. The current footer shows a different address (Tech Zone IV, Amrapali Dream Valley, Greater Noida 201318). To confirm which is the registered office.",
+  "hours": "Mon to Sun, 10:00 am to 6:30 pm. Wednesday closed.",
+  "hoursNote": "Contact page says Mon to Sun with Wednesday off; footer says Mon to Sat. To confirm.",
+  "reraAgent": [],
+  "payModel": null,
+  "markets": ["Noida", "Greater Noida", "Greater Noida West", "South Delhi", "Kainchi Dham, Uttarakhand"],
+  "_sources": "All facts from propbillions.com as crawled on 5 Nov 2026 (audit-raw/hf/crawl/pages.json). null = unknown, shown as 'to confirm'. WhatsApp number not published on the current site; the form falls back to it only once set."
+}

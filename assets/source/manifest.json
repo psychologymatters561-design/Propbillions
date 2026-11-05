@@ -1,0 +1,1046 @@
+[
+ {
+  "file": "assets/source/1bhk-1-0bc7e963c4.png",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/1bhk-1.png",
+  "foundOn": "https://propbillions.com/projects/heaven-in-the-forest-your-dream-home-near-kaichi-dham",
+  "bytes": 1858257,
+  "width": 2636,
+  "height": 1634,
+  "alt": "Heavan in the forest Floor Layout",
+  "used": true,
+  "kind": "plan",
+  "note": "Floor plan, 1 BHK, 570 sq ft as printed",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-1bhk-1600.webp",
+    "width": 1600,
+    "height": 992,
+    "bytes": 40374
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-1bhk-900.webp",
+    "width": 900,
+    "height": 558,
+    "bytes": 23388
+   }
+  ]
+ },
+ {
+  "file": "assets/source/2bhk-1-14a695d6a5.png",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/2bhk-1.png",
+  "foundOn": "https://propbillions.com/projects/heaven-in-the-forest-your-dream-home-near-kaichi-dham",
+  "bytes": 749984,
+  "width": 2074,
+  "height": 1354,
+  "alt": "Heavan in the forest Floor Layout",
+  "used": true,
+  "kind": "plan",
+  "note": "Floor plan, 2 BHK villa",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-2bhk-1600.webp",
+    "width": 1600,
+    "height": 1045,
+    "bytes": 75266
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-2bhk-900.webp",
+    "width": 900,
+    "height": 588,
+    "bytes": 33810
+   }
+  ]
+ },
+ {
+  "file": "assets/source/34-5bc7b7ff32.jpg",
+  "originalUrl": "https://propbillions.com/public/images/34.jpg",
+  "foundOn": "https://propbillions.com/gallery",
+  "bytes": 141815,
+  "width": 960,
+  "height": 1199,
+  "alt": "✨ Six Months of Success. One Team. Bigger Dreams. ✨A journey built on people, passion, teamwork,.jpg",
+  "used": true,
+  "kind": "photo",
+  "note": "Team event photo from the gallery",
+  "rights": "Client's own material.",
+  "outputs": [
+   {
+    "src": "/img/team/event-1-960.webp",
+    "width": 960,
+    "height": 1199,
+    "bytes": 95614
+   },
+   {
+    "src": "/img/team/event-1-900.webp",
+    "width": 900,
+    "height": 1124,
+    "bytes": 88378
+   },
+   {
+    "src": "/img/team/event-1-480.webp",
+    "width": 480,
+    "height": 600,
+    "bytes": 38698
+   }
+  ]
+ },
+ {
+  "file": "assets/source/3bhk-85eab40014.png",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/3bhk.png",
+  "foundOn": "https://propbillions.com/projects/heaven-in-the-forest-your-dream-home-near-kaichi-dham",
+  "bytes": 1102420,
+  "width": 2080,
+  "height": 1354,
+  "alt": "Heavan in the forest Floor Layout",
+  "used": true,
+  "kind": "plan",
+  "note": "Floor plan, 3 BHK villa",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-3bhk-1600.webp",
+    "width": 1600,
+    "height": 1042,
+    "bytes": 119984
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-3bhk-900.webp",
+    "width": 900,
+    "height": 586,
+    "bytes": 51452
+   }
+  ]
+ },
+ {
+  "file": "assets/source/3rdfloor-b214d41295.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/3rdfloor.jpeg",
+  "foundOn": "https://propbillions.com/projects/london-mart",
+  "bytes": 371235,
+  "width": 1600,
+  "height": 1066,
+  "alt": "Third Floor",
+  "used": true,
+  "kind": "plan",
+  "note": "Third floor plan",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/london-mart/plan-third-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 157992
+   },
+   {
+    "src": "/img/projects/london-mart/plan-third-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 69136
+   }
+  ]
+ },
+ {
+  "file": "assets/source/4thfloor-37fe97f21b.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/4thfloor.jpeg",
+  "foundOn": "https://propbillions.com/projects/london-mart",
+  "bytes": 303111,
+  "width": 1600,
+  "height": 1066,
+  "alt": "Fourth Floor",
+  "used": true,
+  "kind": "plan",
+  "note": "Fourth floor plan",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/london-mart/plan-fourth-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 117740
+   },
+   {
+    "src": "/img/projects/london-mart/plan-fourth-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 51412
+   }
+  ]
+ },
+ {
+  "file": "assets/source/5-ec48e62b56.jpg",
+  "originalUrl": "https://propbillions.com/public/images/5.jpg",
+  "foundOn": "https://propbillions.com/gallery",
+  "bytes": 135581,
+  "width": 852,
+  "height": 1066,
+  "alt": "✨ Six Months of Success. One Team. Bigger Dreams. ✨A journey built on people, passion, teamwork,.jpg",
+  "used": true,
+  "kind": "photo",
+  "note": "Team event photo from the gallery",
+  "rights": "Client's own material.",
+  "outputs": [
+   {
+    "src": "/img/team/event-3-852.webp",
+    "width": 852,
+    "height": 1066,
+    "bytes": 102706
+   },
+   {
+    "src": "/img/team/event-3-480.webp",
+    "width": 480,
+    "height": 601,
+    "bytes": 39762
+   }
+  ]
+ },
+ {
+  "file": "assets/source/500-4be5d23a8c.jpg",
+  "originalUrl": "https://picsum.photos/seed/propbillions-launch/500/500",
+  "foundOn": "https://propbillions.com/home",
+  "bytes": 62472,
+  "width": 500,
+  "height": 500,
+  "alt": "New launch properties",
+  "used": false,
+  "note": "Stock-style tile. Not used."
+ },
+ {
+  "file": "assets/source/5thfloor-6a908fdec8.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/5thfloor.jpeg",
+  "foundOn": "https://propbillions.com/projects/london-mart",
+  "bytes": 267046,
+  "width": 1600,
+  "height": 1066,
+  "alt": "Fifth Floor",
+  "used": true,
+  "kind": "plan",
+  "note": "Fifth floor plan",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/london-mart/plan-fifth-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 104410
+   },
+   {
+    "src": "/img/projects/london-mart/plan-fifth-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 47000
+   }
+  ]
+ },
+ {
+  "file": "assets/source/6-813b484069.jpg",
+  "originalUrl": "https://propbillions.com/public/images/6.jpg",
+  "foundOn": "https://propbillions.com/gallery",
+  "bytes": 148570,
+  "width": 960,
+  "height": 1199,
+  "alt": "✨ Six Months of Success. One Team. Bigger Dreams. ✨A journey built on people, passion, teamwork,.jpg",
+  "used": true,
+  "kind": "photo",
+  "note": "Team event photo from the gallery",
+  "rights": "Client's own material.",
+  "outputs": [
+   {
+    "src": "/img/team/event-2-960.webp",
+    "width": 960,
+    "height": 1199,
+    "bytes": 105392
+   },
+   {
+    "src": "/img/team/event-2-900.webp",
+    "width": 900,
+    "height": 1124,
+    "bytes": 96740
+   },
+   {
+    "src": "/img/team/event-2-480.webp",
+    "width": 480,
+    "height": 600,
+    "bytes": 39336
+   }
+  ]
+ },
+ {
+  "file": "assets/source/7-90fb90e5d6.jpg",
+  "originalUrl": "https://propbillions.com/public/images/7.jpg",
+  "foundOn": "https://propbillions.com/gallery",
+  "bytes": 137487,
+  "width": 960,
+  "height": 1199,
+  "alt": "7✨ Six Months of Success. One Team. Bigger Dreams. ✨A journey built on people, passion, teamwork,.jpg",
+  "used": false,
+  "note": "Gallery photo, duplicate set. Not used."
+ },
+ {
+  "file": "assets/source/AJX3cKViqha9AfJKonnI5ehIHJGdG56PIB4SDTXc-c7529eeb18.jpg",
+  "originalUrl": "https://propbillions.com/public/posts/AJX3cKViqha9AfJKonnI5ehIHJGdG56PIB4SDTXc.jpg",
+  "foundOn": "https://propbillions.com/blog/10-things-to-consider-before-buying-your-first-home",
+  "bytes": 51190,
+  "width": 538,
+  "height": 362,
+  "alt": "10 Things to Consider Before Buying Your First Home",
+  "used": false,
+  "note": "Blog thumbnail. Not used."
+ },
+ {
+  "file": "assets/source/Fareed_Ahmad-d9a5e3844a.png",
+  "originalUrl": "https://propbillions.com/public/images/Fareed_Ahmad.png",
+  "foundOn": "https://propbillions.com/about",
+  "bytes": 1977107,
+  "width": 1189,
+  "height": 1323,
+  "alt": "fareed ahmad",
+  "used": true,
+  "kind": "portrait",
+  "note": "Team photo from propbillions.com/about",
+  "rights": "Client team photo. Confirm consent of each person.",
+  "outputs": [
+   {
+    "src": "/img/team/fareed-ahmad-640.webp",
+    "width": 640,
+    "height": 712,
+    "bytes": 29690
+   },
+   {
+    "src": "/img/team/fareed-ahmad-320.webp",
+    "width": 320,
+    "height": 356,
+    "bytes": 12648
+   }
+  ]
+ },
+ {
+  "file": "assets/source/about-hero-4e835dabd2.jpg",
+  "originalUrl": "https://propbillions.com/public/images/about-hero.jpg",
+  "foundOn": "https://propbillions.com/about",
+  "bytes": 1122335,
+  "width": 4288,
+  "height": 2848,
+  "alt": null,
+  "used": false,
+  "note": "Origin unknown, likely stock. Not used."
+ },
+ {
+  "file": "assets/source/amit_kumar-c051947f58.jpg",
+  "originalUrl": "https://propbillions.com/public/images/amit_kumar.jpg",
+  "foundOn": "https://propbillions.com/about",
+  "bytes": 51514,
+  "width": 640,
+  "height": 640,
+  "alt": "Amit Kumar",
+  "used": true,
+  "kind": "portrait",
+  "note": "Team photo from propbillions.com/about",
+  "rights": "Client team photo. Confirm consent of each person.",
+  "outputs": [
+   {
+    "src": "/img/team/amit-kumar-640.webp",
+    "width": 640,
+    "height": 640,
+    "bytes": 27330
+   },
+   {
+    "src": "/img/team/amit-kumar-320.webp",
+    "width": 320,
+    "height": 320,
+    "bytes": 11214
+   }
+  ]
+ },
+ {
+  "file": "assets/source/commerical-b8ee42ba95.avif",
+  "originalUrl": "https://propbillions.com/public/images/commerical.avif",
+  "foundOn": "https://propbillions.com/home",
+  "bytes": 359813,
+  "width": 2250,
+  "height": 1500,
+  "alt": "Commercial properties",
+  "used": false,
+  "note": "Stock-style tile. Not used."
+ },
+ {
+  "file": "assets/source/firstfloor-d2bc270fc8.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/firstfloor.jpeg",
+  "foundOn": "https://propbillions.com/projects/london-mart",
+  "bytes": 298990,
+  "width": 1600,
+  "height": 1066,
+  "alt": "First Floor",
+  "used": true,
+  "kind": "plan",
+  "note": "First floor plan",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/london-mart/plan-first-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 117590
+   },
+   {
+    "src": "/img/projects/london-mart/plan-first-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 53628
+   }
+  ]
+ },
+ {
+  "file": "assets/source/godrej-golf-links-a36e2a8582.webp",
+  "originalUrl": "https://propbillions.com/public/images/projects/banners/godrej-golf-links.webp",
+  "foundOn": "https://propbillions.com/projects?address=Chhattarpur%2C%20Satbari%2C%20South%20Delhi%2C%20New%20Delhi",
+  "bytes": 63686,
+  "width": 600,
+  "height": 350,
+  "alt": "Godrej Golf Links",
+  "used": true,
+  "kind": "render",
+  "note": "Developer render",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/godrej-golf-links/render-600.webp",
+    "width": 600,
+    "height": 350,
+    "bytes": 26142
+   },
+   {
+    "src": "/img/projects/godrej-golf-links/render-480.webp",
+    "width": 480,
+    "height": 280,
+    "bytes": 14374
+   }
+  ]
+ },
+ {
+  "file": "assets/source/godrej-woodz-sector-43-1-16c1ecd578.webp",
+  "originalUrl": "https://propbillions.com/public/images/projects/banners/godrej-woodz-sector-43-1.webp",
+  "foundOn": "https://propbillions.com/projects?address=Chhattarpur%2C%20Satbari%2C%20South%20Delhi%2C%20New%20Delhi",
+  "bytes": 122948,
+  "width": 1366,
+  "height": 640,
+  "alt": "Godrej The Plaza",
+  "used": true,
+  "kind": "render",
+  "note": "Developer render (Godrej Woods)",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/godrej-the-plaza/render-1366.webp",
+    "width": 1366,
+    "height": 640,
+    "bytes": 125250
+   },
+   {
+    "src": "/img/projects/godrej-the-plaza/render-900.webp",
+    "width": 900,
+    "height": 422,
+    "bytes": 60236
+   },
+   {
+    "src": "/img/projects/godrej-the-plaza/render-480.webp",
+    "width": 480,
+    "height": 225,
+    "bytes": 21026
+   }
+  ]
+ },
+ {
+  "file": "assets/source/logo-561d36e428.png",
+  "originalUrl": "https://propbillions.com/public/images/logo.png",
+  "foundOn": "https://propbillions.com/careers/sales-professional-1789975626",
+  "bytes": 71890,
+  "width": 415,
+  "height": 125,
+  "alt": "propbillions_logo",
+  "used": true,
+  "kind": "logo",
+  "note": "Current logo",
+  "rights": "Client's own material.",
+  "outputs": [
+   {
+    "src": "/img/brand/logo-current-415.webp",
+    "width": 415,
+    "height": 125,
+    "bytes": 21858
+   }
+  ]
+ },
+ {
+  "file": "assets/source/logo-be87f79e91.webp",
+  "originalUrl": "https://propbillions.com/public/images/logo.webp",
+  "foundOn": "https://propbillions.com/gallery",
+  "bytes": 252698,
+  "width": 2940,
+  "height": 1960,
+  "alt": null,
+  "used": false,
+  "note": "Mislabelled skyline image, origin unknown. Not used."
+ },
+ {
+  "file": "assets/source/lowerground-359d3ce926.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/lowerground.jpeg",
+  "foundOn": "https://propbillions.com/projects/london-mart",
+  "bytes": 344169,
+  "width": 1600,
+  "height": 1066,
+  "alt": "Lower ground",
+  "used": true,
+  "kind": "plan",
+  "note": "Lower ground floor plan",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/london-mart/plan-lower-ground-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 152108
+   },
+   {
+    "src": "/img/projects/london-mart/plan-lower-ground-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 63442
+   }
+  ]
+ },
+ {
+  "file": "assets/source/move-b730d92600.avif",
+  "originalUrl": "https://propbillions.com/public/images/move.avif",
+  "foundOn": "https://propbillions.com/home",
+  "bytes": 55332,
+  "width": 2250,
+  "height": 1500,
+  "alt": "Ready to move properties",
+  "used": false,
+  "note": "Stock-style tile. Not used."
+ },
+ {
+  "file": "assets/source/muskan-992fbd781b.jpg",
+  "originalUrl": "https://propbillions.com/public/images/muskan.jpg",
+  "foundOn": "https://propbillions.com/about",
+  "bytes": 821644,
+  "width": 2941,
+  "height": 2941,
+  "alt": "Muskan Malik",
+  "used": true,
+  "kind": "portrait",
+  "note": "Team photo from propbillions.com/about",
+  "rights": "Client team photo. Confirm consent of each person.",
+  "outputs": [
+   {
+    "src": "/img/team/muskan-malik-640.webp",
+    "width": 640,
+    "height": 640,
+    "bytes": 21928
+   },
+   {
+    "src": "/img/team/muskan-malik-320.webp",
+    "width": 320,
+    "height": 320,
+    "bytes": 9016
+   }
+  ]
+ },
+ {
+  "file": "assets/source/residential-966bc76860.avif",
+  "originalUrl": "https://propbillions.com/public/images/residential.avif",
+  "foundOn": "https://propbillions.com/home",
+  "bytes": 2012658,
+  "width": 4000,
+  "height": 6000,
+  "alt": "Residential properties",
+  "used": false,
+  "note": "Stock-style tile. Not used."
+ },
+ {
+  "file": "assets/source/sarvesh_chauhan-910b556807.png",
+  "originalUrl": "https://propbillions.com/public/images/sarvesh_chauhan.png",
+  "foundOn": "https://propbillions.com/about",
+  "bytes": 1417428,
+  "width": 1019,
+  "height": 1032,
+  "alt": "fareed ahmad",
+  "used": true,
+  "kind": "portrait",
+  "note": "Team photo from propbillions.com/about",
+  "rights": "Client team photo. Confirm consent of each person.",
+  "outputs": [
+   {
+    "src": "/img/team/sarvesh-chauhan-640.webp",
+    "width": 640,
+    "height": 648,
+    "bytes": 20842
+   },
+   {
+    "src": "/img/team/sarvesh-chauhan-320.webp",
+    "width": 320,
+    "height": 324,
+    "bytes": 8892
+   }
+  ]
+ },
+ {
+  "file": "assets/source/screenshot-2026-09-15-at-123744-am-2fb3f8f82a.png",
+  "originalUrl": "https://propbillions.com/public/images/projects/banners/screenshot-2026-09-15-at-123744-am.png",
+  "foundOn": "https://propbillions.com/projects?address=Chhattarpur%2C%20Satbari%2C%20South%20Delhi%2C%20New%20Delhi",
+  "bytes": 4462910,
+  "width": 2388,
+  "height": 1392,
+  "alt": "Heaven in the Forest – Your Dream Home Near Kaichi Dham",
+  "used": true,
+  "kind": "render",
+  "note": "Developer banner (FLR Developers LLP)",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/banner-1600.webp",
+    "width": 1600,
+    "height": 933,
+    "bytes": 131664
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/banner-900.webp",
+    "width": 900,
+    "height": 525,
+    "bytes": 65270
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/banner-480.webp",
+    "width": 480,
+    "height": 280,
+    "bytes": 24434
+   }
+  ]
+ },
+ {
+  "file": "assets/source/screenshot-2026-09-21-at-24407-pm-3c625e1b41.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/screenshot-2026-09-21-at-24407-pm.jpeg",
+  "foundOn": "https://propbillions.com/projects/tech-park-knowledge-park-5",
+  "bytes": 418735,
+  "width": 2754,
+  "height": 1944,
+  "alt": "Tech Park Layout",
+  "used": true,
+  "kind": "plan",
+  "note": "Site layout",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/layout-1600.webp",
+    "width": 1600,
+    "height": 1129,
+    "bytes": 45316
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/layout-900.webp",
+    "width": 900,
+    "height": 635,
+    "bytes": 19772
+   }
+  ]
+ },
+ {
+  "file": "assets/source/screenshot-2026-09-21-at-24531-pm-89b597b33a.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/screenshot-2026-09-21-at-24531-pm.jpeg",
+  "foundOn": "https://propbillions.com/projects/tech-park-knowledge-park-5",
+  "bytes": 924426,
+  "width": 2690,
+  "height": 1894,
+  "alt": "Tech Park Outer Facade",
+  "used": true,
+  "kind": "render",
+  "note": "Outer facade render",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-1-1600.webp",
+    "width": 1600,
+    "height": 1127,
+    "bytes": 137164
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-1-900.webp",
+    "width": 900,
+    "height": 634,
+    "bytes": 61778
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-1-480.webp",
+    "width": 480,
+    "height": 338,
+    "bytes": 21278
+   }
+  ]
+ },
+ {
+  "file": "assets/source/screenshot-2026-09-21-at-24548-pm-83ab5abe83.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/screenshot-2026-09-21-at-24548-pm.jpeg",
+  "foundOn": "https://propbillions.com/projects/tech-park-knowledge-park-5",
+  "bytes": 1642667,
+  "width": 2680,
+  "height": 1872,
+  "alt": "Tech Park Outer Facade",
+  "used": true,
+  "kind": "render",
+  "note": "Outer facade render",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-2-1600.webp",
+    "width": 1600,
+    "height": 1118,
+    "bytes": 315250
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-2-900.webp",
+    "width": 900,
+    "height": 629,
+    "bytes": 125874
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-2-480.webp",
+    "width": 480,
+    "height": 335,
+    "bytes": 39632
+   }
+  ]
+ },
+ {
+  "file": "assets/source/screenshot-2026-09-21-at-24600-pm-dc81262c56.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/screenshot-2026-09-21-at-24600-pm.jpeg",
+  "foundOn": "https://propbillions.com/projects/tech-park-knowledge-park-5",
+  "bytes": 987669,
+  "width": 2670,
+  "height": 1864,
+  "alt": "Tech Park Outer Facade",
+  "used": true,
+  "kind": "render",
+  "note": "Outer facade render",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-3-1600.webp",
+    "width": 1600,
+    "height": 1117,
+    "bytes": 156796
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-3-900.webp",
+    "width": 900,
+    "height": 628,
+    "bytes": 69674
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-3-480.webp",
+    "width": 480,
+    "height": 335,
+    "bytes": 25082
+   }
+  ]
+ },
+ {
+  "file": "assets/source/secondfloor-79ab08e1bb.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/secondfloor.jpeg",
+  "foundOn": "https://propbillions.com/projects/london-mart",
+  "bytes": 320889,
+  "width": 1600,
+  "height": 1066,
+  "alt": "Second Floor",
+  "used": true,
+  "kind": "plan",
+  "note": "Second floor plan",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/london-mart/plan-second-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 125904
+   },
+   {
+    "src": "/img/projects/london-mart/plan-second-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 56190
+   }
+  ]
+ },
+ {
+  "file": "assets/source/shahnawaz-fba35e3cac.png",
+  "originalUrl": "https://propbillions.com/public/images/shahnawaz.PNG",
+  "foundOn": "https://propbillions.com/about",
+  "bytes": 1236346,
+  "width": 907,
+  "height": 907,
+  "alt": "Shahnawaz Khan",
+  "used": true,
+  "kind": "portrait",
+  "note": "Team photo from propbillions.com/about",
+  "rights": "Client team photo. Confirm consent of each person.",
+  "outputs": [
+   {
+    "src": "/img/team/shahnawaz-khan-640.webp",
+    "width": 640,
+    "height": 640,
+    "bytes": 31876
+   },
+   {
+    "src": "/img/team/shahnawaz-khan-320.webp",
+    "width": 320,
+    "height": 320,
+    "bytes": 12268
+   }
+  ]
+ },
+ {
+  "file": "assets/source/site-visit-ebe3f5a434.jpg",
+  "originalUrl": "https://brickandbank.com/public/images/site-visit.jpg",
+  "foundOn": "https://propbillions.com/about",
+  "bytes": 4593748,
+  "width": 4000,
+  "height": 6000,
+  "alt": null,
+  "used": false,
+  "note": "Origin unknown. Not used."
+ },
+ {
+  "file": "assets/source/sky_mansion_by_risland_2-65d843a3c7.webp",
+  "originalUrl": "https://propbillions.com/public/images/projects/banners/sky_mansion_by_risland_2.webp",
+  "foundOn": "https://propbillions.com/projects?address=Chhattarpur%2C%20Satbari%2C%20South%20Delhi%2C%20New%20Delhi",
+  "bytes": 86936,
+  "width": 1200,
+  "height": 662,
+  "alt": "Risland Sky Mansion",
+  "used": true,
+  "kind": "render",
+  "note": "Developer render",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/risland-sky-mansion/render-1200.webp",
+    "width": 1200,
+    "height": 662,
+    "bytes": 90726
+   },
+   {
+    "src": "/img/projects/risland-sky-mansion/render-900.webp",
+    "width": 900,
+    "height": 496,
+    "bytes": 71262
+   },
+   {
+    "src": "/img/projects/risland-sky-mansion/render-480.webp",
+    "width": 480,
+    "height": 265,
+    "bytes": 32154
+   }
+  ]
+ },
+ {
+  "file": "assets/source/techpark-2438106f55.webp",
+  "originalUrl": "https://propbillions.com/public/images/projects/banners/techpark.webp",
+  "foundOn": "https://propbillions.com/projects?address=Chhattarpur%2C%20Satbari%2C%20South%20Delhi%2C%20New%20Delhi",
+  "bytes": 126144,
+  "width": 1201,
+  "height": 800,
+  "alt": "Tech Park, Knowledge Park - 5",
+  "used": true,
+  "kind": "render",
+  "note": "Developer render",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/render-1201.webp",
+    "width": 1201,
+    "height": 800,
+    "bytes": 87400
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/render-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 49734
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/render-480.webp",
+    "width": 480,
+    "height": 320,
+    "bytes": 19876
+   }
+  ]
+ },
+ {
+  "file": "assets/source/upperground-901cf57c27.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/floor_plans/upperground.jpeg",
+  "foundOn": "https://propbillions.com/projects/london-mart",
+  "bytes": 448483,
+  "width": 1600,
+  "height": 1066,
+  "alt": "Ground Floor",
+  "used": true,
+  "kind": "plan",
+  "note": "Ground floor plan",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/london-mart/plan-ground-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 214496
+   },
+   {
+    "src": "/img/projects/london-mart/plan-ground-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 87366
+   }
+  ]
+ },
+ {
+  "file": "assets/source/whatsapp-image-2024-05-17-at-114317-am-e42f53fa49.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/banners/whatsapp-image-2024-05-17-at-114317-am.jpeg",
+  "foundOn": "https://propbillions.com/projects?address=Chhattarpur%2C%20Satbari%2C%20South%20Delhi%2C%20New%20Delhi",
+  "bytes": 349616,
+  "width": 1280,
+  "height": 719,
+  "alt": "London Mart",
+  "used": true,
+  "kind": "render",
+  "note": "Developer render",
+  "rights": "Developer material shown on the client's site. Written permission from the developer to confirm. Label: Artist's impression.",
+  "outputs": [
+   {
+    "src": "/img/projects/london-mart/render-1280.webp",
+    "width": 1280,
+    "height": 719,
+    "bytes": 146094
+   },
+   {
+    "src": "/img/projects/london-mart/render-900.webp",
+    "width": 900,
+    "height": 506,
+    "bytes": 79150
+   },
+   {
+    "src": "/img/projects/london-mart/render-480.webp",
+    "width": 480,
+    "height": 270,
+    "bytes": 28552
+   }
+  ]
+ },
+ {
+  "file": "assets/source/whatsapp-image-2026-09-26-at-175350-1-b401618b98.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/gallery/whatsapp-image-2026-09-26-at-175350-1.jpeg",
+  "foundOn": "https://propbillions.com/projects/heaven-in-the-forest-your-dream-home-near-kaichi-dham",
+  "bytes": 204558,
+  "width": 899,
+  "height": 1599,
+  "alt": "Heaven in the Forest – Your Dream Home Near Kaichi Dham - Gallery 4",
+  "used": true,
+  "kind": "photo",
+  "note": "Site photo shared by PropBillions (WhatsApp image dated 26 Sep 2026)",
+  "rights": "Client's own material.",
+  "outputs": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-2-899.webp",
+    "width": 899,
+    "height": 1599,
+    "bytes": 134132
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-2-480.webp",
+    "width": 480,
+    "height": 854,
+    "bytes": 63380
+   }
+  ]
+ },
+ {
+  "file": "assets/source/whatsapp-image-2026-09-26-at-175350-50acd084df.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/gallery/whatsapp-image-2026-09-26-at-175350.jpeg",
+  "foundOn": "https://propbillions.com/projects/heaven-in-the-forest-your-dream-home-near-kaichi-dham",
+  "bytes": 194983,
+  "width": 899,
+  "height": 1599,
+  "alt": "Heaven in the Forest – Your Dream Home Near Kaichi Dham - Gallery 3",
+  "used": true,
+  "kind": "photo",
+  "note": "Site photo shared by PropBillions (WhatsApp image dated 26 Sep 2026)",
+  "rights": "Client's own material.",
+  "outputs": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-1-899.webp",
+    "width": 899,
+    "height": 1599,
+    "bytes": 131030
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-1-480.webp",
+    "width": 480,
+    "height": 854,
+    "bytes": 55462
+   }
+  ]
+ },
+ {
+  "file": "assets/source/whatsapp-image-2026-09-26-at-175351-1-dbcb5ffea8.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/gallery/whatsapp-image-2026-09-26-at-175351-1.jpeg",
+  "foundOn": "https://propbillions.com/projects/heaven-in-the-forest-your-dream-home-near-kaichi-dham",
+  "bytes": 257922,
+  "width": 899,
+  "height": 1599,
+  "alt": "Heaven in the Forest – Your Dream Home Near Kaichi Dham - Gallery 1",
+  "used": true,
+  "kind": "photo",
+  "note": "Site photo shared by PropBillions (WhatsApp image dated 26 Sep 2026)",
+  "rights": "Client's own material.",
+  "outputs": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-4-899.webp",
+    "width": 899,
+    "height": 1599,
+    "bytes": 190502
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-4-480.webp",
+    "width": 480,
+    "height": 854,
+    "bytes": 83978
+   }
+  ]
+ },
+ {
+  "file": "assets/source/whatsapp-image-2026-09-26-at-175351-482b53bae9.jpg",
+  "originalUrl": "https://propbillions.com/public/images/projects/gallery/whatsapp-image-2026-09-26-at-175351.jpeg",
+  "foundOn": "https://propbillions.com/projects/heaven-in-the-forest-your-dream-home-near-kaichi-dham",
+  "bytes": 181315,
+  "width": 899,
+  "height": 1599,
+  "alt": "Heaven in the Forest – Your Dream Home Near Kaichi Dham - Gallery 2",
+  "used": true,
+  "kind": "photo",
+  "note": "Site photo shared by PropBillions (WhatsApp image dated 26 Sep 2026)",
+  "rights": "Client's own material.",
+  "outputs": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-3-899.webp",
+    "width": 899,
+    "height": 1599,
+    "bytes": 115876
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-3-480.webp",
+    "width": 480,
+    "height": 854,
+    "bytes": 49742
+   }
+  ]
+ }
+]

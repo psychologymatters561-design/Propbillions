@@ -1,0 +1,17 @@
+---
+import Base from './Base.astro';
+interface Props { title: string; description: string; path: string; updated: string }
+const { title, description, path, updated } = Astro.props;
+---
+<Base title={title} description={description} breadcrumbs={[{ name: 'Home', path: '/' }, { name: title, path }]}>
+  <section class="section"><div class="wrap legal">
+    <p class="label">Legal</p><h1>{title}</h1>
+    <p class="mono up">Draft for PropBillions' review. Last updated {updated}. To be checked by a lawyer before launch.</p>
+    <slot />
+  </div></section>
+</Base>
+<style>
+  .legal { max-width: 760px; } .legal h1 { font-size: var(--step-4); } .up { color: var(--warn); }
+  .legal :global(h2) { font-size: var(--step-2); margin-top: var(--space-6); }
+  .legal :global(li) { margin-bottom: .4rem; }
+</style>

@@ -1,0 +1,12 @@
+[
+  { "slug": "greater-noida-west", "name": "Greater Noida West", "state": "UP", "intro": "Mostly homes so far, with commercial land opening up in Knowledge Park 5 and along the 130 m road. The metro question decides a lot here, so we track it from sources, not brochures.",
+    "facts": ["aquaLine", "airport"], "published": ["NH 24 and the FNG Expressway are about 5 minutes from Sector 16B, according to the London Mart listing. We have not timed it yet."] },
+  { "slug": "noida", "name": "Noida", "state": "UP", "intro": "Sector 43 sits inside the older, built-up Noida grid, near the DND Flyway and the Noida-Greater Noida Expressway, as the Godrej Woods material describes.",
+    "facts": ["airport"], "published": ["Road access to the Noida-Greater Noida Expressway and DND Flyway, as published for Godrej Woods. Routes and times not yet measured by us."] },
+  { "slug": "greater-noida", "name": "Greater Noida", "state": "UP", "intro": "Planned sectors, wide roads and Pari Chowk at the centre. The airport at Jewar is now operating, which changes the map for this side of the region.",
+    "facts": ["airport"], "published": ["Pari Chowk, Delta metro station, the Noida-Greater Noida Expressway and the Yamuna Expressway are listed as nearby for Sector 27."] },
+  { "slug": "delhi", "name": "South Delhi", "state": "DL", "intro": "Chhattarpur and Satbari sit on the edge of the Aravalli green belt, between Mehrauli-Gurugram Road and Vasant Kunj.",
+    "facts": [], "published": ["Developer-published distances: about 4 km to Mehrauli-Gurugram Road, 14 km to IGI Airport. Not yet measured by us."] },
+  { "slug": "uttarakhand", "name": "Kainchi Dham, Uttarakhand", "state": "UK", "intro": "Pine hills in Nainital district, known for the Kainchi Dham ashram. Second homes here come with a land law that every outside buyer should read first.",
+    "facts": ["ukLandLaw"], "published": [] }
+]

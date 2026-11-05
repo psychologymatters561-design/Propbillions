@@ -1,0 +1,88 @@
+---
+import { u } from '../lib/url';
+import site from '../data/site.json';
+const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
+const nav = [
+  { href: '/projects', label: 'Projects' },
+  { href: '/neev-check', label: 'Neev Check' },
+  { href: '/locations', label: 'Locations' },
+  { href: '/tools', label: 'Tools' },
+  { href: '/about', label: 'About' },
+];
+const { tone = 'light' } = Astro.props as { tone?: 'light' | 'dark' };
+---
+<header class={`hdr hdr--${tone}`} data-header>
+  <div class="hdr__in wrap">
+    <a class="brand" href={u('/')} aria-label="PropBillions home">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path d="M4 28V12L16 4l12 8v16" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 28V17h10v11" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 28h24" stroke="var(--brass-500)" stroke-width="1.6"/></svg>
+      <span>Prop<b>Billions</b></span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="hdr__nav">
+        {nav.map((n) => <li><a href={u(n.href)} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <div class="hdr__cta">
+      <a class="btn btn--small" href={u('/contact#visit')}>Book a site visit</a>
+      <button class="hdr__menu" aria-expanded="false" aria-controls="mnav" data-menu><span class="visually-hidden">Menu</span><i></i><i></i></button>
+    </div>
+  </div>
+  <div class="mnav" id="mnav" hidden>
+    <ul>
+      {nav.map((n) => <li><a href={u(n.href)}>{n.label}</a></li>)}
+      <li><a href={u('/contact')}>Contact</a></li>
+    </ul>
+    <div class="btn-row">
+      <a class="btn" href={u('/contact#visit')}>Book a site visit</a>
+      {site.whatsapp && <a class="btn btn--ghost btn--wa" href={`https://wa.me/${site.whatsapp.replace(/\D/g, '')}`}>WhatsApp</a>}
+    </div>
+  </div>
+</header>
+<style>
+  .hdr { position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top); transition: background .4s var(--ease), color .4s var(--ease), box-shadow .4s var(--ease), transform .45s var(--ease); }
+  .hdr--dark { color: var(--lime-100); }
+  .hdr.is-solid { background: rgb(244 239 229 / .9); color: var(--ink-900); backdrop-filter: blur(12px) saturate(1.2); box-shadow: 0 1px 0 var(--lime-300); }
+  .hdr.is-hidden { transform: translateY(-100%); }
+  .hdr__in { display: flex; align-items: center; gap: var(--space-5); min-height: 64px; padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+  .brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; font: 500 1.15rem/1 var(--font-text); letter-spacing: -.01em; min-height: var(--tap); }
+  .brand b { font-weight: 700; }
+  .hdr__nav { display: none; list-style: none; margin: 0; padding: 0; gap: var(--space-5); }
+  .hdr__nav a { text-decoration: none; font-weight: 500; font-size: .95rem; padding: .6rem 0; position: relative; }
+  .hdr__nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: .3rem; height: 1px; background: var(--brass-500); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
+  .hdr__nav a:hover::after, .hdr__nav a[aria-current]::after { transform: scaleX(1); }
+  .hdr__cta { margin-left: auto; display: flex; gap: var(--space-3); align-items: center; }
+  .btn--small { min-height: 40px; padding: .55em 1em; font-size: .9rem; display: none; }
+  .hdr__menu { width: var(--tap); height: var(--tap); display: grid; place-content: center; gap: 6px; background: none; border: 0; color: inherit; cursor: pointer; }
+  .hdr__menu i { display: block; width: 22px; height: 1.5px; background: currentColor; transition: transform .35s var(--ease); }
+  .hdr__menu[aria-expanded='true'] i:first-of-type { transform: translateY(3.75px) rotate(45deg); }
+  .hdr__menu[aria-expanded='true'] i:last-of-type { transform: translateY(-3.75px) rotate(-45deg); }
+  .mnav { background: var(--forest-900); color: var(--lime-100); padding: var(--space-5) var(--gutter) calc(var(--space-6) + env(safe-area-inset-bottom)); }
+  .mnav ul { list-style: none; margin: 0 0 var(--space-5); padding: 0; }
+  .mnav li a { display: block; padding: .65rem 0; font: 400 var(--step-3)/1.1 var(--font-display); text-decoration: none; border-bottom: 1px solid rgb(255 255 255 / .08); }
+  @media (min-width: 900px) {
+    .hdr__nav { display: flex; } .hdr__menu { display: none; } .btn--small { display: inline-flex; } .mnav { display: none !important; }
+  }
+  @media (min-width: 560px) { .btn--small { display: inline-flex; } }
+</style>
+<script>
+  const h = document.querySelector('[data-header]') as HTMLElement;
+  const btn = document.querySelector('[data-menu]') as HTMLButtonElement;
+  const m = document.getElementById('mnav')!;
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(open)); m.hidden = !open; h.classList.toggle('is-solid', open || scrollY > 40);
+  });
+  let last = 0;
+  const onScroll = () => {
+    const y = scrollY;
+    if (btn.getAttribute('aria-expanded') !== 'true') {
+      const film = document.querySelector('section[data-journey]');
+      const filmEnd = film ? film.getBoundingClientRect().bottom + y - 80 : 0;
+      h.classList.toggle('is-solid', y > 40 && y > filmEnd);
+      h.classList.toggle('is-hidden', y > 400 && y > last + 4);
+      if (y < last - 4) h.classList.remove('is-hidden');
+    }
+    last = y;
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+</script>

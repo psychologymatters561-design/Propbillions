@@ -1,0 +1,51 @@
+---
+import { u } from '../lib/url';
+import site from '../data/site.json';
+import Tbc from './Tbc.astro';
+const year = new Date().getFullYear();
+---
+<footer class="ftr section--dark bp-grid">
+  <div class="wrap ftr__grid">
+    <div class="ftr__brand">
+      <p class="ftr__big">Read the plan<br /><em>before</em> you sign.</p>
+      <div class="btn-row">
+        <a class="btn" href={u('/contact#visit')}>Book a site visit</a>
+        <a class="btn btn--ghost" href={u('/neev-check')}>Get a Neev Check</a>
+      </div>
+    </div>
+    <nav class="ftr__cols" aria-label="Footer">
+      <div><p class="label">Buy</p><ul><li><a href={u('/projects')}>Projects</a></li><li><a href={u('/locations')}>Locations</a></li><li><a href={u('/neev-check')}>Neev Check</a></li><li><a href={u('/nri')}>NRI buyers</a></li></ul></div>
+      <div><p class="label">Tools</p><ul><li><a href={u('/tools/all-in-cost')}>All-in cost</a></li><li><a href={u('/tools/emi')}>EMI and eligibility</a></li><li><a href={u('/tools/rent-vs-buy')}>Rent vs buy</a></li></ul></div>
+      <div><p class="label">Firm</p><ul><li><a href={u('/about')}>About</a></li><li><a href={u('/contact')}>Contact</a></li><li><a href={u('/about#how-we-are-paid')}>How we are paid</a></li><li><a href={u('/style')}>Style guide</a></li></ul></div>
+    </nav>
+    <div class="ftr__legal">
+      <p class="mono">
+        RERA agent registration:
+        {site.reraAgent.length ? site.reraAgent.map((r: { state: string; number: string }) => <span> {r.state}: {r.number} </span>) : <Tbc what="RERA agent registration number for each state" />}
+      </p>
+      <p class="mono">
+        {site.phone ? <a href={`tel:${site.phone}`}>{site.phone}</a> : null}
+        {site.email ? <> · <a href={`mailto:${site.email}`}>{site.email}</a></> : null}
+        {site.address ? <> · {site.address}</> : <> Office address: <Tbc what="registered office address" /></>}
+      </p>
+      <p class="ftr__small">Images marked "Artist's impression" are developer renders and may differ from the final building. The journey film on the home page is made with AI. The projects are real. Prices, availability and possession dates come from the developer and can change; check the RERA website before you pay. Nothing on this site promises returns or price growth.</p>
+      <p class="ftr__small">
+        <a href={u('/privacy')}>Privacy</a> · <a href={u('/terms')}>Terms</a> · <a href={u('/disclaimer')}>Disclaimer</a> · © {year} PropBillions
+      </p>
+    </div>
+  </div>
+</footer>
+<style>
+  .ftr { padding: clamp(4rem, 8vw, 7rem) 0 calc(2rem + env(safe-area-inset-bottom)); }
+  .ftr__grid { display: grid; gap: var(--space-7); }
+  .ftr__big { font: 400 var(--step-4)/1 var(--font-display); margin-bottom: var(--space-5); }
+  .ftr__big em { color: var(--brass-300); }
+  .ftr__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-5); }
+  .ftr__cols ul { list-style: none; margin: 0; padding: 0; }
+  .ftr__cols a { display: inline-block; padding: .45rem 0; text-decoration: none; color: var(--lime-200); }
+  .ftr__cols a:hover { color: var(--brass-300); }
+  .ftr__legal { border-top: 1px solid rgb(255 255 255 / .1); padding-top: var(--space-5); color: var(--forest-300); }
+  .ftr__legal a { color: var(--lime-200); }
+  .ftr__small { font-size: var(--step--1); max-width: 90ch; }
+  @media (min-width: 900px) { .ftr__grid { grid-template-columns: 1.2fr 1fr; } .ftr__legal { grid-column: 1 / -1; } }
+</style>

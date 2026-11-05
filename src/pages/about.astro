@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Tbc from '../components/Tbc.astro';
+import team from '../data/team.json';
+import site from '../data/site.json';
+import { u } from '../lib/url';
+---
+<Base title="About PropBillions: who we are and how we are paid" description="PropBillions is a real estate advisory founded in 2026 in Greater Noida West. Meet the team, see how we are paid, and read what we will and will not say." breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }]}>
+  <section class="section bp-grid"><div class="wrap">
+    <p class="label">About</p>
+    <h1 class="t">A young firm. <em>That is why we show our work.</em></h1>
+    <p class="lede">PropBillions was founded in {site.founded} in Greater Noida West. We do not have decades of deals to point to yet. So instead of asking for trust, we show the checks.</p>
+  </div></section>
+  <section class="section section--paper"><div class="wrap">
+    <h2 class="h2s">The people</h2>
+    <ul class="team">{team.map((t) => <li data-reveal><div data-window><Img k={t.photo} alt={`${t.name}${t.role ? ', ' + t.role : ''}`} sizes="(min-width: 900px) 20vw, 45vw" label={false} /></div><p class="n">{t.name}</p><p class="mono r">{t.role ?? <Tbc what={`role of ${t.name}`} />}</p></li>)}</ul>
+    <div class="ev">{['team/event-1', 'team/event-2', 'team/event-3'].map((k) => <Img k={k} alt="The PropBillions team at a company event" sizes="(min-width: 900px) 30vw, 100vw" label={false} />)}</div>
+    <p class="mono cap">From the team's "six months" celebration, as posted on the current site.</p>
+  </div></section>
+  <section class="section" id="how-we-are-paid"><div class="wrap two">
+    <div><p class="label">How we are paid</p><h2 class="h2s">You should know this before you trust us.</h2></div>
+    <div class="paid">
+      <p class="big">{site.payModel ?? <>PropBillions earns through <Tbc what="developer brokerage, buyer fee, or both" />.</>}</p>
+      <p>Whatever the answer, two rules hold: we show warnings on projects that pay us, and we never ask you to pay us for a listing.</p>
+    </div>
+  </div></section>
+  <section class="section section--dark"><div class="wrap two">
+    <div><p class="label">What we will not say</p><h2 class="h2s">Seven words you will not read here</h2></div>
+    <ul class="no mono"><li>Guaranteed returns</li><li>High yield</li><li>Dream-home talk</li><li>Verified, without saying what</li><li>Prices only go up</li><li>Last few units (unless true and dated)</li><li>Ghaziabad (until we have a project there)</li></ul>
+  </div></section>
+  <section class="section section--paper"><div class="wrap facts">
+    <div><p class="mono k">Registered name</p><p>{site.legalName}</p></div>
+    <div><p class="mono k">Office</p><p>{site.address}</p><p class="small">{site.addressNote}</p></div>
+    <div><p class="mono k">RERA agent registration</p><p>{site.reraAgent.length ? site.reraAgent.map((r: { state: string; number: string }) => `${r.state}: ${r.number}`).join(', ') : <Tbc what="RERA agent registration in UP, Delhi and Uttarakhand" />}</p></div>
+    <div><p class="mono k">Contact</p><p>{site.phones.join(', ')} · <a href={`mailto:${site.email}`}>{site.email}</a></p><a class="btn" href={u('/contact')}>Talk to us</a></div>
+  </div></section>
+</Base>
+<style>
+  .t { font-size: var(--step-5); } .t em { color: var(--brass-600); }
+  .h2s { font-size: var(--step-3); }
+  .team { list-style: none; margin: var(--space-5) 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .team :global(.im) { aspect-ratio: 4 / 5; border-radius: 200px 200px var(--radius) var(--radius); }
+  .n { font: 400 var(--step-1)/1.2 var(--font-display); margin: .6rem 0 0; } .r { margin: .2rem 0 0; color: var(--ink-500); }
+  .ev { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); margin-top: var(--space-6); }
+  .ev :global(.im) { aspect-ratio: 4 / 5; border-radius: var(--radius-lg); }
+  .cap { color: var(--ink-500); font-size: var(--step--1); }
+  .two { display: grid; gap: var(--space-6); } @media (min-width: 900px) { .two { grid-template-columns: .9fr 1.1fr; } }
+  .paid .big { font: 400 var(--step-3)/1.15 var(--font-display); }
+  .no { list-style: none; padding: 0; margin: 0; } .no li { padding: .7rem 0; border-bottom: 1px solid rgb(255 255 255 / .1); text-decoration: line-through; text-decoration-color: var(--brass-300); }
+  .facts { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+  .k { color: var(--ink-500); margin: 0 0 .3rem; } .small { font-size: var(--step--1); color: var(--ink-500); }
+</style>
+<script>import { initMotion } from '../scripts/motion'; initMotion();</script>
