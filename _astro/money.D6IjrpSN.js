@@ -1,0 +1,1 @@
+function o(t,e={}){if(!Number.isFinite(t))return"–";const n=t<0?"-":"",r=Math.abs(t);if(e.compact){if(r>=1e7)return`${n}₹${i(r/1e7)} Cr`;if(r>=1e5)return`${n}₹${i(r/1e5)} L`}return n+"₹"+Math.round(r).toLocaleString("en-IN")}function i(t){return(Math.round(t*100)/100).toString()}export{o as i};
