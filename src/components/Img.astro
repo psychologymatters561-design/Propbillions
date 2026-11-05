@@ -1,0 +1,22 @@
+---
+import { img } from '../lib/data';
+import { u } from '../lib/url';
+interface Props { k: string; alt: string; sizes?: string; eager?: boolean; class?: string; label?: boolean; fit?: 'cover' | 'contain' }
+const { k, alt, sizes = '(min-width: 900px) 50vw, 100vw', eager = false, class: cls = '', label = true, fit = 'cover' } = Astro.props;
+const i = img(k);
+const isRender = i?.kind === 'render';
+---
+{i ? (
+  <figure class:list={['im', cls, `im--${fit}`]}>
+    <img src={u(i.largest.src)} srcset={i.sizes.map((s) => `${u(s.src)} ${s.width}w`).join(', ')} sizes={sizes} width={i.largest.width} height={i.largest.height}
+      alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : undefined} />
+    {label && isRender && <figcaption class="impression">Artist's impression</figcaption>}
+    {label && i.kind === 'photo' && <figcaption class="impression">Photo</figcaption>}
+  </figure>
+) : <div class="im im--missing" role="img" aria-label={`${alt} (image to confirm)`}><span class="tbc">image to confirm</span></div>}
+<style>
+  .im { position: relative; margin: 0; overflow: hidden; background: var(--lime-200); }
+  .im img { width: 100%; height: 100%; object-fit: cover; }
+  .im--contain img { object-fit: contain; background: #fff; }
+  .im--missing { display: grid; place-items: center; min-height: 200px; }
+</style>

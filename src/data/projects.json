@@ -1,0 +1,143 @@
+[
+  {
+    "slug": "heaven-in-the-forest", "city": "uttarakhand", "name": "Heaven in the Forest", "locality": "Near Kainchi Dham", "cityLabel": "Kainchi Dham, Uttarakhand", "state": "UK",
+    "address": "Near Kainchi Dham, Uttarakhand", "type": "Residential", "kind": "Second homes: apartments and villas",
+    "status": "Under construction", "developer": "FLR Developers LLP", "developerSource": "Name printed on the project banner",
+    "rera": null, "reraNote": "Not published on the current listing.",
+    "units": 18, "furnished": true,
+    "configs": [
+      { "type": "1 BHK premium apartment", "area": "570 sq ft (area type not stated)", "price": 4500000, "priceLabel": "from ₹45 lakh" },
+      { "type": "2 BHK villa", "area": null, "price": 8500000, "priceLabel": "from ₹85 lakh" },
+      { "type": "3 BHK villa", "area": null, "price": 11000000, "priceLabel": "₹1.10 crore" }
+    ],
+    "paymentPlan": [ ["At booking", "10%"], ["45 days after booking", "40%"], ["Structure stage, about 6 months", "25%"], ["On possession", "25%"] ],
+    "possession": null, "possessionNote": "No possession date published. Structure stage stated at about 6 months.",
+    "allIn": { "basePrice": 4500000, "gstPct": 5, "label": "1 BHK at the starting price" },
+    "hero": "projects/heaven-in-the-forest/banner", "heroKind": "render",
+    "gallery": [ ["projects/heaven-in-the-forest/site-1", "photo", "The site today"], ["projects/heaven-in-the-forest/site-2", "photo", "The site today"], ["projects/heaven-in-the-forest/site-3", "photo", "View from the site"], ["projects/heaven-in-the-forest/site-4", "photo", "Approach to the site"] ],
+    "plans": [ ["projects/heaven-in-the-forest/plan-1bhk", "1 BHK apartment, 570 sq ft as printed"], ["projects/heaven-in-the-forest/plan-2bhk", "2 BHK villa"], ["projects/heaven-in-the-forest/plan-3bhk", "3 BHK villa"] ],
+    "summary": "A resort-style second-home community of 18 furnished homes in the pine hills near Kainchi Dham. Starting prices are published, which is rare. The RERA number is not.",
+    "highlights": ["18 homes in total", "Fully furnished", "Swimming pool and kids' play area (as listed)", "Up to 70% home loan through HDFC Bank, as stated by the listing"],
+    "checks": [
+      { "k": "rera", "s": "tbc", "t": "RERA registration", "n": "No RERA number on the current listing. Ask for it, and check it on the Uttarakhand RERA website, before you pay anything." },
+      { "k": "land", "s": "warn", "t": "Who can buy here", "n": "Uttarakhand's 2025 land law bars outsiders from buying agricultural land in Nainital district and caps residential land at 250 sq m per family. Ask how villa land titles are held.", "src": "ukLandLaw" },
+      { "k": "price", "s": "ok", "t": "Prices published", "n": "Starting prices are on the listing: ₹45 lakh, ₹85 lakh and ₹1.10 crore." },
+      { "k": "area", "s": "warn", "t": "Carpet vs super area", "n": "The 1 BHK plan prints 570 sq ft but does not say if that is carpet area. Ask for the RERA carpet area." },
+      { "k": "plan", "s": "warn", "t": "Payment plan", "n": "40% falls due 45 days after booking. Under Section 13 of the RERA Act a promoter cannot take more than 10% before a registered agreement for sale, so sign and register first." },
+      { "k": "possession", "s": "tbc", "t": "Possession date", "n": "No possession date published." },
+      { "k": "returns", "s": "ok", "t": "No promised returns", "n": "The listing mentions holiday-rental potential. We show no rental figures and promise none." }
+    ],
+    "source": "https://propbillions.com/projects/heaven-in-the-forest-your-dream-home-near-kaichi-dham",
+    "coords": [29.4237, 79.5168]
+  },
+  {
+    "slug": "london-mart", "city": "greater-noida-west", "name": "London Mart", "locality": "Sector 16B", "cityLabel": "Greater Noida West", "state": "UP",
+    "address": "Plot C-3, Sector 16B, Greater Noida West, UP 201306", "type": "Commercial", "kind": "Retail high street, food court, multiplex, studios",
+    "status": "Under construction", "developer": "Mart Promoters Pvt. Ltd.", "developerSource": "Named in the listing's disclaimer",
+    "rera": "UPRERAPRJ15269", "reraNote": "Phase 1, registered 23 Feb 2018 as printed on the listing.",
+    "configs": [ { "type": "Retail shops, food court and studios", "area": null, "price": null, "priceLabel": "Price on request" } ],
+    "possession": null, "possessionNote": "No completion date published.",
+    "allIn": null,
+    "hero": "projects/london-mart/render", "heroKind": "render",
+    "gallery": [],
+    "plans": [ ["projects/london-mart/plan-lower-ground", "Lower ground floor"], ["projects/london-mart/plan-ground", "Ground floor"], ["projects/london-mart/plan-first", "First floor"], ["projects/london-mart/plan-second", "Second floor"], ["projects/london-mart/plan-third", "Third floor"], ["projects/london-mart/plan-fourth", "Fourth floor"], ["projects/london-mart/plan-fifth", "Fifth floor"] ],
+    "summary": "A themed retail street on a 130 m road in Greater Noida West. RERA registered in 2018, still marked under construction in 2026, which is the first thing to ask about.",
+    "highlights": ["On a 130 m wide main road (as listed)", "Retail, food court, multiplex and banquet (as listed)", "Shop ceilings up to 16 ft (as listed)"],
+    "checks": [
+      { "k": "rera", "s": "ok", "t": "RERA number published", "n": "UPRERAPRJ15269 (Phase 1), as printed on the listing. Portal check pending." },
+      { "k": "age", "s": "warn", "t": "Delivery timeline", "n": "Registered on 23 Feb 2018 and still marked under construction in Nov 2026. Ask for the latest RERA quarterly update and the revised completion date." },
+      { "k": "metro", "s": "warn", "t": "Metro claim", "n": "The listing cites a proposed metro station nearby. July 2026 reports say the first stretch of the Aqua Line extension ends at Kisan Chowk, Sector 4. Do not price in a station that is not approved.", "src": "aquaLine" },
+      { "k": "catchment", "s": "tbc", "t": "Catchment claim", "n": "The '35,000 families nearby' figure is the developer's. No source given." },
+      { "k": "gst", "s": "tbc", "t": "GST on shops", "n": "Usually 12% on under-construction commercial units; some sources say 18% since Sept 2025. Ask for the rate on the tax invoice." }
+    ],
+    "source": "https://propbillions.com/projects/london-mart",
+    "coords": [28.6005, 77.4402]
+  },
+  {
+    "slug": "tech-park-knowledge-park-5", "city": "greater-noida-west", "name": "Tech Park, Knowledge Park 5", "locality": "Knowledge Park 5", "cityLabel": "Greater Noida West", "state": "UP",
+    "address": "Plot 200, Knowledge Park 5, Chauganpur, Greater Noida West, UP", "type": "Commercial", "kind": "IT/ITES and commercial plots",
+    "status": "Under construction", "developer": null,
+    "rera": null, "reraNote": "Not published on the current listing.",
+    "configs": [ { "type": "IT/ITES and commercial plots", "area": null, "price": null, "priceLabel": "Price on request" } ],
+    "possession": null, "possessionNote": "Not published.",
+    "allIn": null,
+    "hero": "projects/tech-park-knowledge-park-5/facade-1", "heroKind": "render",
+    "gallery": [ ["projects/tech-park-knowledge-park-5/facade-2", "render", "Outer facade"], ["projects/tech-park-knowledge-park-5/facade-3", "render", "Outer facade"], ["projects/tech-park-knowledge-park-5/render", "render", "Aerial view"] ],
+    "plans": [ ["projects/tech-park-knowledge-park-5/layout", "Site layout"] ],
+    "summary": "IT/ITES and commercial plots in Knowledge Park 5. Permitted use depends on the authority's terms, so the paperwork matters more than the render.",
+    "highlights": ["IT/ITES and office use, subject to approvals (as listed)", "Greater Noida West location"],
+    "checks": [
+      { "k": "rera", "s": "tbc", "t": "RERA registration", "n": "Not published on the listing. Ask for it." },
+      { "k": "use", "s": "warn", "t": "Permitted use", "n": "The listing says use is subject to approvals and zoning. Ask for the allotment letter and land-use terms in writing." },
+      { "k": "metro", "s": "warn", "t": "Metro to Knowledge Park 5", "n": "The Knowledge Park 5 leg of the Aqua Line is not in the current first stretch, per July 2026 reports.", "src": "aquaLine" },
+      { "k": "price", "s": "tbc", "t": "Price", "n": "Price on request. We will publish an all-in figure once we have the cost sheet." }
+    ],
+    "source": "https://propbillions.com/projects/tech-park-knowledge-park-5",
+    "coords": [28.5726, 77.4535]
+  },
+  {
+    "slug": "godrej-the-plaza", "city": "noida", "name": "Godrej The Plaza", "locality": "Sector 43", "cityLabel": "Noida", "state": "UP",
+    "address": "Plot GH-01/A, Godrej Woods, Sector 43, Noida, UP 201303", "type": "Commercial", "kind": "Retail shops within Godrej Woods",
+    "status": "Verify current stage", "developer": "Godrej (as named on the listing)",
+    "rera": null, "reraNote": "Not published on the current listing.",
+    "configs": [ { "type": "Retail shops", "area": null, "price": null, "priceLabel": "Price on request" } ],
+    "possession": null, "possessionNote": "Not published.",
+    "allIn": null,
+    "hero": "projects/godrej-the-plaza/render", "heroKind": "render",
+    "gallery": [], "plans": [],
+    "summary": "The retail part of Godrej Woods in Sector 43, set on a 30 m boulevard according to project material. Ask for the stage, the RERA number and an itemised cost sheet.",
+    "highlights": ["Retail component of Godrej Woods (as listed)", "30 m wide boulevard (as published in project material)"],
+    "checks": [
+      { "k": "rera", "s": "tbc", "t": "RERA registration", "n": "Not published on the listing. Ask for it." },
+      { "k": "stage", "s": "tbc", "t": "Construction stage", "n": "The listing itself says 'verify current stage'." },
+      { "k": "gst", "s": "tbc", "t": "GST on shops", "n": "Usually 12% on under-construction commercial units; some sources say 18%. Ask for the tax invoice rate." }
+    ],
+    "source": "https://propbillions.com/projects/godrej-the-plaza-sector-43-noida",
+    "coords": [28.5655, 77.3437]
+  },
+  {
+    "slug": "godrej-golf-links", "city": "greater-noida", "name": "Godrej Golf Links", "locality": "Sector 27, near Pari Chowk", "cityLabel": "Greater Noida", "state": "UP",
+    "address": "Plot REP-1, Sector 27, near Pari Chowk, Greater Noida, UP", "type": "Residential", "kind": "Villas, apartments and Crown Residences in a golf township",
+    "status": "Verify current phase", "developer": "AR Landcraft LLP, with Godrej Properties as partner (as published)",
+    "rera": null, "reraNote": "Not published on the current listing; each phase has its own registration.",
+    "configs": [ { "type": "3 BHK (Crown Residences)", "area": null, "price": 28800000, "priceLabel": "about ₹2.88 crore (online listings, not a quote)" }, { "type": "4 BHK (Crown Residences)", "area": null, "price": null, "priceLabel": "On request" } ],
+    "possession": null, "possessionNote": "Depends on phase.",
+    "allIn": { "basePrice": 28800000, "gstPct": 5, "label": "3 BHK at the indicative price, if under construction" },
+    "hero": "projects/godrej-golf-links/render", "heroKind": "render",
+    "gallery": [], "plans": [],
+    "summary": "A golf-themed township of about 100 acres in Greater Noida with several phases. Phase, RERA number and possession date differ by phase, so compare like with like.",
+    "highlights": ["About 100 acres (as published)", "9-hole golf course and clubhouse (as published)", "Close to Pari Chowk"],
+    "checks": [
+      { "k": "rera", "s": "tbc", "t": "RERA registration", "n": "Each phase has its own number. Not published on the listing." },
+      { "k": "price", "s": "warn", "t": "Price basis", "n": "₹2.88 crore comes from online listings, not a quotation. Get a unit-specific cost sheet." },
+      { "k": "airport", "s": "ok", "t": "Airport", "n": "Noida International Airport began commercial flights on 15 June 2026. Travel time not yet measured by us.", "src": "airport" }
+    ],
+    "source": "https://propbillions.com/projects/godrej-golf-links-greater-noida",
+    "coords": [28.4648, 77.5103]
+  },
+  {
+    "slug": "risland-sky-mansion", "city": "delhi", "name": "Risland Sky Mansion", "locality": "Chhattarpur, Satbari", "cityLabel": "South Delhi", "state": "DL",
+    "address": "Chhattarpur, Satbari, South Delhi, New Delhi", "type": "Residential", "kind": "3 and 4 BHK apartments, 5 BHK triplex penthouses",
+    "status": "Ready to move (verify)", "developer": "Risland India",
+    "rera": null, "reraNote": "DLRERA2018P0014 is cited by some sources. Not yet verified on the Delhi RERA portal, so not shown as confirmed.",
+    "units": 160,
+    "configs": [
+      { "type": "3 BHK", "area": "about 3,255 to 3,300 sq ft (area type not stated)", "price": 51000000, "priceLabel": "about ₹5.1 crore (online listings)" },
+      { "type": "4 BHK", "area": "about 3,900 to 4,050 sq ft", "price": 76000000, "priceLabel": "about ₹7.6 crore (online listings)" },
+      { "type": "5 BHK triplex penthouse", "area": "about 9,450 to 11,130 sq ft", "price": 180000000, "priceLabel": "about ₹18 crore (online listings)" }
+    ],
+    "possession": "Ready to move, as listed", "possessionNote": "Ask for the occupancy certificate.",
+    "allIn": { "basePrice": 51000000, "gstPct": 0, "label": "3 BHK at the indicative price, ready to move with OC" },
+    "hero": "projects/risland-sky-mansion/render", "heroKind": "render",
+    "gallery": [], "plans": [],
+    "summary": "Four towers and about 160 homes on 4.1 acres near the Aravalli green belt. Listed as ready to move, so the occupancy certificate is the document to see first.",
+    "highlights": ["About 4.1 acres, 4 towers, about 160 homes (as published)", "Near Chhattarpur metro (as published)"],
+    "checks": [
+      { "k": "rera", "s": "tbc", "t": "RERA registration", "n": "DLRERA2018P0014 is cited by some sources. We will mark it confirmed only after checking the Delhi RERA portal." },
+      { "k": "oc", "s": "tbc", "t": "Occupancy certificate", "n": "Listed as ready to move. Ask for the OC; without it, GST and possession rules change." },
+      { "k": "area", "s": "warn", "t": "Carpet vs super area", "n": "Published areas do not say whether they are carpet or super area." }
+    ],
+    "source": "https://propbillions.com/projects/risland-sky-mansion-chhattarpur",
+    "coords": [28.4985, 77.1835]
+  }
+]

@@ -5,6 +5,8 @@
 export interface StampRule {
   /** Percent of the agreement value, by who holds the title. */
   malePct: number; femalePct: number; jointPct: number;
+  /** Women's and joint concessions apply only up to this value (rupees). Above it, the male rate applies. */
+  concessionUpTo?: number | null;
   /** Registration fee: percent with optional cap, or slabs of fixed amounts. */
   registration: { pct?: number; cap?: number; fixed?: number; slabs?: { upTo: number | null; fee: number }[] };
   /** Extra flat fees (pasting fee, scanning, etc.). */
@@ -38,7 +40,8 @@ export function allInCost(i: CostInput) {
   const gstBase = i.gstOnAll === false ? i.basePrice : agreement;
   const gst = (gstBase * i.gstPct) / 100;
   const stampBase = Math.max(agreement, i.circleValue || 0);
-  const pct = i.holder === 'female' ? i.stamp.femalePct : i.holder === 'joint' ? i.stamp.jointPct : i.stamp.malePct;
+  const concession = i.stamp.concessionUpTo == null || stampBase <= i.stamp.concessionUpTo;
+  const pct = !concession ? i.stamp.malePct : i.holder === 'female' ? i.stamp.femalePct : i.holder === 'joint' ? i.stamp.jointPct : i.stamp.malePct;
   const stampDuty = (stampBase * pct) / 100;
   const registration = registrationFee(stampBase, i.stamp.registration) + (i.stamp.extraFixed || 0);
   const maint = (i.maintenanceDeposit || 0) * (1 + (i.maintenanceGstPct || 0) / 100);

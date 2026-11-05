@@ -63,6 +63,11 @@ describe('all-in cost', () => {
     expect(allInCost({ basePrice: 1_000_000, plc: 100_000, gstPct: 5, gstOnAll: false, holder: 'joint', stamp }).lines.find((l) => l.key === 'gst')!.amount).toBe(50_000);
     expect(allInCost({ basePrice: 1_000_000, gstPct: 0, holder: 'joint', stamp }).lines.find((l) => l.key === 'gst')).toBeUndefined();
   });
+  it('drops the women\'s concession above the cap (UP: up to ₹1 Cr)', () => {
+    const up = { malePct: 7, femalePct: 6, jointPct: 6.5, concessionUpTo: 10_000_000, registration: { pct: 1 } };
+    expect(allInCost({ basePrice: 9_000_000, gstPct: 0, holder: 'female', stamp: up }).lines.find((l) => l.key === 'stamp')!.amount).toBe(540_000);
+    expect(allInCost({ basePrice: 20_000_000, gstPct: 0, holder: 'female', stamp: up }).lines.find((l) => l.key === 'stamp')!.amount).toBe(1_400_000);
+  });
   it('reports loading between super and carpet area', () => {
     const r = allInCost({ basePrice: 1, superArea: 1300, carpetArea: 1000, gstPct: 0, holder: 'male', stamp });
     expect(r.loading).toBeCloseTo(30);

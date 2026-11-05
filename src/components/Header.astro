@@ -76,7 +76,9 @@ const { tone = 'light' } = Astro.props as { tone?: 'light' | 'dark' };
   const onScroll = () => {
     const y = scrollY;
     if (btn.getAttribute('aria-expanded') !== 'true') {
-      h.classList.toggle('is-solid', y > 40 && !document.body.hasAttribute('data-film-active'));
+      const film = document.querySelector('section[data-journey]');
+      const filmEnd = film ? film.getBoundingClientRect().bottom + y - 80 : 0;
+      h.classList.toggle('is-solid', y > 40 && y > filmEnd);
       h.classList.toggle('is-hidden', y > 400 && y > last + 4);
       if (y < last - 4) h.classList.remove('is-hidden');
     }

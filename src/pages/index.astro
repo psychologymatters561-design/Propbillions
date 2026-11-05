@@ -1,0 +1,227 @@
+---
+import Base from '../layouts/Base.astro';
+import Journey from '../components/Journey.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import RegionMap from '../components/RegionMap.astro';
+import LeadForm from '../components/LeadForm.astro';
+import Img from '../components/Img.astro';
+import Tbc from '../components/Tbc.astro';
+import { projects, projectAllIn, source } from '../lib/data';
+import { inr } from '../lib/money';
+import { u } from '../lib/url';
+import team from '../data/team.json';
+import site from '../data/site.json';
+import neev from '../data/neev-check.json';
+const hif = projects.find((p) => p.slug === 'heaven-in-the-forest')!;
+const hifCost = projectAllIn(hif)!;
+const fears = [
+  ['“Possession will be delayed.”', 'We pull the RERA dates and the developer’s past deliveries. London Mart was registered in 2018 and is still under construction; we say so on its page.', '/neev-check#A'],
+  ['“There will be hidden charges.”', 'Brochure price and all-in price, side by side, every time a price exists.', '/tools/all-in-cost'],
+  ['“The agent is paid to push one project.”', 'We show warnings on the projects we sell, and we say how we are paid.', '/about#how-we-are-paid'],
+  ['“I’ll buy in the wrong area.”', 'Location pages with sourced facts, including the claims we refuse to repeat.', '/locations'],
+  ['“The title is not clean.”', 'Title, mortgages, land use and authority dues are checks 6 to 10.', '/neev-check#B'],
+  ['“I’ll pay for 1,800 sq ft and live in 1,300.”', 'Carpet vs super area, on every project and in the calculator.', '/tools/all-in-cost'],
+  ['“I won’t be able to sell it later.”', 'Resale listings and real rents nearby. We never promise returns.', '/neev-check#H'],
+];
+const air = source('airport')!;
+---
+<Base title="PropBillions | Real estate advisory, paperwork checked first" description="PropBillions checks the RERA record, title, approvals and all-in price before you sign. Projects in Noida, Greater Noida, Greater Noida West, South Delhi and near Kainchi Dham." headerTone="dark" jsonld={[{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'PropBillions', url: new URL(u('/'), Astro.site).href }]}>
+  <Fragment slot="head">
+    <link rel="preload" as="image" href={u('/img/journey/phone-k1-540.webp')} media="(max-width: 767px)" fetchpriority="high" />
+    <link rel="preload" as="image" href={u('/img/journey/k1-1600.webp')} media="(min-width: 768px)" fetchpriority="high" />
+  </Fragment>
+
+  <Journey />
+
+  <section class="section section--paper bp-grid" id="fears">
+    <div class="wrap">
+      <p class="label" data-reveal>Seven fears, seven answers</p>
+      <h2 data-reveal>Buyers tell us the same seven worries. <em>Each one has a check.</em></h2>
+      <ol class="fears">
+        {fears.map(([q, a, href], i) => (
+          <li data-reveal data-delay={`${i * 60}ms`}>
+            <span class="mono fears__n">{String(i + 1).padStart(2, '0')}</span>
+            <p class="fears__q">{q}</p>
+            <p class="fears__a">{a} <a href={u(href)}>See how</a></p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="projects" data-hscroll>
+    <div class="wrap gal__head">
+      <p class="label">Six projects, read before listed</p>
+      <h2>The projects. <em>With what we found.</em></h2>
+      <p class="lede">Hover or press and hold a photo to X-ray it: RERA status, possession and the all-in price where one exists.</p>
+    </div>
+    <div class="gal" >
+      <div class="gal__track" data-hscroll-track>
+        {projects.map((p, i) => <div class="gal__item"><ProjectCard p={p} eager={i === 0} /></div>)}
+        <div class="gal__item gal__end"><p class="label">Not sure yet?</p><p class="gal__endq">Tell us your budget and where you work. We send a shortlist of three on WhatsApp, with the checks.</p><a class="btn" href={u('/contact#shortlist')}>Get a shortlist</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bp-grid" id="neev-check">
+    <div class="wrap neev">
+      <div class="neev__copy">
+        <p class="label" data-reveal>The method</p>
+        <h2 data-reveal><span class="hi" lang="hi">नींव</span> Neev Check</h2>
+        <p class="lede" data-reveal><span class="count mono" data-count="40">40</span> checks before you sign. Each result is <b>clear</b>, <b>ask about this</b>, <b>stop</b> or <b>not checked yet</b>, with the source and the date.</p>
+        <ul class="neev__groups" data-reveal>
+          {neev.groups.map((g) => <li><span class="mono">{g.id}</span> {g.name}</li>)}
+        </ul>
+        <div class="btn-row" data-reveal><a class="btn" href={u('/neev-check')}>See all 40 checks</a><a class="btn btn--ghost" href={u('/neev-check#sample')}>Read a sample report</a></div>
+      </div>
+      <div class="neev__draw">
+        <svg viewBox="0 0 400 300" data-draw aria-hidden="true">
+          <g fill="none" stroke="var(--bp-500)" stroke-width="1.2">
+            <path d="M40 270H360" /><path d="M80 270V90H320V270" /><path d="M80 90L200 40L320 90" />
+            <path d="M80 130H320M80 170H320M80 210H320M80 250H320" />
+            <path d="M140 90V270M200 90V270M260 90V270" />
+            <path d="M180 270V230H220V270" /><rect x="96" y="100" width="28" height="20" /><rect x="276" y="140" width="28" height="20" />
+          </g>
+        </svg>
+        <div class="neev__img" data-draw-reveal><Img k="projects/tech-park-knowledge-park-5/facade-1" alt="Tech Park, Knowledge Park 5, outer facade" sizes="(min-width: 900px) 45vw, 100vw" /></div>
+        <p class="mono neev__cap">The plan first. Then the picture.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark bp-grid" id="where">
+    <div class="wrap where">
+      <div>
+        <p class="label">Where we work</p>
+        <h2>Five in Delhi NCR. <em>One in the hills.</em></h2>
+        <p class="lede">The current site says Noida, Greater Noida and Ghaziabad. Our projects are in Noida, Greater Noida, Greater Noida West, South Delhi and near Kainchi Dham, so that is what this map shows.</p>
+        <p class="where__fact"><span class="check check--ok">Sourced</span> {air.claim} <a href={air.sources[0].url} rel="noopener" target="_blank">Source</a></p>
+        <a class="btn btn--ghost" href={u('/locations')}>Read the location notes</a>
+      </div>
+      <RegionMap />
+    </div>
+  </section>
+
+  <section class="section section--paper" id="all-in">
+    <div class="wrap allin">
+      <div>
+        <p class="label" data-reveal>The number nobody puts on the poster</p>
+        <h2 data-reveal>{inr(hif.allIn!.basePrice, { compact: true })} on the brochure. <em>{inr(hifCost.total, { compact: true })}</em> to own it.</h2>
+        <p class="lede" data-reveal>Heaven in the Forest, 1 BHK at the published starting price. GST at {hif.allIn!.gstPct}%, Uttarakhand stamp duty and registration added. Estimate for a male buyer; women pay less stamp duty on homes up to ₹25 lakh.</p>
+        <a class="btn" href={u('/tools/all-in-cost')} data-reveal>Work out your own all-in cost</a>
+      </div>
+      <table class="allin__t" data-reveal>
+        <caption class="visually-hidden">All-in cost estimate</caption>
+        <tbody>
+          {hifCost.lines.map((l) => <tr><th scope="row">{l.label}</th><td class="mono">{inr(l.amount)}</td></tr>)}
+          <tr class="allin__total"><th scope="row">All-in estimate</th><td class="mono">{inr(hifCost.total)}</td></tr>
+          <tr><th scope="row">Above the brochure price</th><td class="mono">+{hifCost.hiddenPct.toFixed(1)}%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="people">
+    <div class="wrap">
+      <p class="label" data-reveal>Who you will talk to</p>
+      <h2 data-reveal>Real people, <em>real names.</em></h2>
+      <ul class="team">
+        {team.map((t, i) => (
+          <li data-reveal data-delay={`${i * 70}ms`}>
+            <div data-window><Img k={t.photo} alt={`${t.name}${t.role ? ', ' + t.role : ''}`} sizes="(min-width: 900px) 18vw, 45vw" label={false} /></div>
+            <p class="team__n">{t.name}</p>
+            <p class="team__r mono">{t.role ?? <Tbc what={`role of ${t.name}`} />}</p>
+          </li>
+        ))}
+      </ul>
+      <div class="proof">
+        <div><p class="mono proof__k">Founded</p><p class="proof__v">{site.founded}</p></div>
+        <div><p class="mono proof__k">Projects we list</p><p class="proof__v"><span data-count={projects.length}>{projects.length}</span></p></div>
+        <div><p class="mono proof__k">Checks per project</p><p class="proof__v"><span data-count="40">40</span></p></div>
+        <div><p class="mono proof__k">Reviews</p><p class="proof__v proof__v--s">None shown until they are real and named.</p></div>
+      </div>
+      <p class="proof__office mono">Office: {site.address}. {site.hours}</p>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="book">
+    <div class="wrap book">
+      <div>
+        <p class="label">One small step</p>
+        <h2>Start with a shortlist. <em>Decide later.</em></h2>
+        <ol class="ladder mono">
+          <li><a href={u('/tools/all-in-cost')}>1 Work out the all-in cost</a></li>
+          <li><span>2 Get a shortlist on WhatsApp</span></li>
+          <li><span>3 Visit the site with us</span></li>
+          <li><a href={u('/neev-check')}>4 Neev Check before you sign</a></li>
+          <li><span>5 Book</span></li>
+        </ol>
+      </div>
+      <LeadForm intent="shortlist" id="home-lead" dark />
+    </div>
+  </section>
+</Base>
+
+<style>
+  h2 em { color: var(--brass-600); font-style: italic; }
+  .section--dark h2 em { color: var(--brass-300); }
+  .fears { list-style: none; margin: var(--space-7) 0 0; padding: 0; display: grid; gap: 0; }
+  .fears li { display: grid; grid-template-columns: 3rem 1fr; gap: .2rem 1rem; padding: var(--space-5) 0; border-top: 1px solid var(--lime-300); }
+  .fears__n { color: var(--brass-600); padding-top: .4rem; }
+  .fears__q { font: 400 var(--step-2)/1.15 var(--font-display); margin: 0; }
+  .fears__a { grid-column: 2; margin: 0; color: var(--ink-700); }
+  @media (min-width: 900px) { .fears li { grid-template-columns: 4rem 1fr 1fr; align-items: baseline; } .fears__a { grid-column: 3; } }
+  .gal__head { margin-bottom: var(--space-6); }
+  .gal { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: var(--space-3); }
+  .gal::-webkit-scrollbar { display: none; }
+  .gal__track { display: flex; gap: var(--space-5); padding: 0 var(--gutter); width: max-content; }
+  .gal__item { width: min(86vw, 440px); scroll-snap-align: center; color: var(--ink-900); }
+  .gal__end { display: grid; align-content: center; gap: var(--space-4); padding: var(--space-6); border: 1px dashed rgb(255 255 255 / .2); border-radius: var(--radius-lg); color: var(--lime-100); }
+  .gal__endq { font: 400 var(--step-2)/1.2 var(--font-display); margin: 0; }
+  @media (min-width: 900px) { [data-hscroll] { height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-block: var(--space-6); overflow: clip; } .gal { overflow: visible; } .gal__item { width: 420px; } }
+  .neev { display: grid; gap: var(--space-7); align-items: center; }
+  .count { font-size: 1.1em; color: var(--brass-600); }
+  .neev__groups { list-style: none; padding: 0; margin: var(--space-5) 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem 1.5rem; }
+  .neev__groups li { padding: .4rem 0; border-bottom: 1px solid var(--lime-300); }
+  .neev__groups .mono { color: var(--bp-500); margin-right: .4rem; }
+  .neev__draw { position: relative; aspect-ratio: 4 / 3; background: var(--lime-50); border: 1px solid var(--bp-100); border-radius: var(--radius-lg); overflow: hidden; }
+  .neev__draw svg { position: absolute; inset: 6%; width: 88%; height: 88%; }
+  .neev__img { position: absolute; inset: 0; }
+  .neev__img :global(.im) { height: 100%; }
+  .neev__cap { position: absolute; right: .6rem; top: .6rem; margin: 0; color: var(--bp-500); background: var(--lime-50); padding: .2em .5em; z-index: 2; }
+  @media (min-width: 900px) { .neev { grid-template-columns: 1fr 1.1fr; } }
+  .where { display: grid; gap: var(--space-6); align-items: center; }
+  .where__fact { font-size: .95rem; color: var(--lime-200); display: grid; gap: .4rem; }
+  .where__fact a { color: var(--brass-300); }
+  @media (min-width: 1000px) { .where { grid-template-columns: .8fr 1.2fr; } }
+  .allin { display: grid; gap: var(--space-6); align-items: center; }
+  .allin__t { font-size: .95rem; background: var(--lime-100); border-radius: var(--radius-lg); overflow: hidden; }
+  .allin__t th { text-align: left; font-weight: 500; padding: .7rem 1rem; }
+  .allin__t td { text-align: right; padding: .7rem 1rem; }
+  .allin__t tr + tr { border-top: 1px solid var(--lime-300); }
+  .allin__total { background: var(--forest-900); color: var(--lime-50); }
+  .allin__total th, .allin__total td { font-weight: 700; }
+  @media (min-width: 900px) { .allin { grid-template-columns: 1.1fr 1fr; } }
+  .team { list-style: none; margin: var(--space-6) 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+  .team :global(.im) { aspect-ratio: 4 / 5; border-radius: 200px 200px var(--radius) var(--radius); }
+  .team__n { font: 400 var(--step-1)/1.2 var(--font-display); margin: .7rem 0 0; }
+  .team__r { margin: .2rem 0 0; color: var(--ink-500); }
+  @media (min-width: 900px) { .team { grid-template-columns: repeat(5, 1fr); } }
+  .proof { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); border-top: 1px solid var(--lime-300); padding-top: var(--space-5); }
+  .proof__k { color: var(--ink-500); margin: 0; }
+  .proof__v { font: 400 var(--step-4)/1 var(--font-display); margin: .3rem 0 0; }
+  .proof__v--s { font-size: var(--step-1); line-height: 1.3; }
+  .proof__office { color: var(--ink-500); margin-top: var(--space-5); }
+  @media (min-width: 900px) { .proof { grid-template-columns: repeat(4, 1fr); } }
+  .book { display: grid; gap: var(--space-7); }
+  .ladder { list-style: none; padding: 0; margin: var(--space-5) 0 0; display: grid; gap: .3rem; }
+  .ladder li { padding: .7rem 0; border-bottom: 1px solid rgb(255 255 255 / .1); }
+  .ladder a { color: var(--brass-300); }
+  @media (min-width: 900px) { .book { grid-template-columns: .8fr 1.2fr; } }
+</style>
+<script>
+  import { initMotion } from '../scripts/motion';
+  import { initXray } from '../scripts/xray';
+  initXray();
+  initMotion();
+</script>

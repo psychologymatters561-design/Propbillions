@@ -1,0 +1,73 @@
+{
+  "name": "Neev Check",
+  "promise": "40 checks on a project before you sign. What we check, where we checked it, and on what date. Every result is one of four: clear, ask about this, stop, or not checked yet.",
+  "whoNote": "Which checks are done by an advocate and which by the PropBillions team is to be confirmed. Until then, legal checks are marked 'advocate' and are not shown as a legal opinion.",
+  "groups": [
+    { "id": "A", "name": "Registration", "checks": [
+      ["RERA number matches this phase", "State RERA portal"],
+      ["RERA completion date and any extensions", "State RERA portal"],
+      ["Quarterly progress updates filed on time", "State RERA portal"],
+      ["Complaints and orders against the project", "RERA portal, cause lists"],
+      ["Status of the promoter's other registered projects", "State RERA portal"] ] },
+    { "id": "B", "name": "Land and title", "checks": [
+      ["Title chain for 30 years", "Sub-registrar records (advocate)"],
+      ["Mortgages and charges on the land", "Encumbrance records, CERSAI (advocate)"],
+      ["Land use matches the project type", "Master plan, allotment letter"],
+      ["Authority lease and allotment terms", "Development authority (advocate)"],
+      ["Dues owed to the authority", "Development authority records"] ] },
+    { "id": "C", "name": "Approvals", "checks": [
+      ["Sanctioned building plan matches the brochure", "Authority sanction"],
+      ["Environmental clearance where required", "Environment ministry portal"],
+      ["Fire NOC", "Fire department"],
+      ["Completion and occupancy certificate (ready homes)", "Authority"],
+      ["Height and other clearances where relevant", "Issuing agency"] ] },
+    { "id": "D", "name": "Developer", "checks": [
+      ["Delivery history: promised vs actual dates", "RERA portals, buyer records"],
+      ["Litigation and insolvency cases", "eCourts, NCLT (advocate)"],
+      ["Separate RERA account for buyer money", "RERA filings"],
+      ["Who holds the project loan charge", "RERA filings, CERSAI"],
+      ["Registry delays in past projects", "Buyer records, news"] ] },
+    { "id": "E", "name": "The home itself", "checks": [
+      ["RERA carpet area vs super area loading", "Agreement, RERA filing"],
+      ["Floor plan matches the sanctioned plan", "Sanction plan"],
+      ["Light, view and orientation as promised", "Site visit"],
+      ["Parking allotted in writing", "Allotment letter"],
+      ["Specifications written into the agreement", "Agreement"] ] },
+    { "id": "F", "name": "Money", "checks": [
+      ["Itemised all-in cost sheet", "Developer cost sheet"],
+      ["GST rate on the tax invoice", "Invoice"],
+      ["Stamp duty and registration estimate", "State rates, circle rate"],
+      ["Payment plan vs construction stage (10% rule)", "RERA Act section 13"],
+      ["Maintenance deposit and monthly charges", "Cost sheet, agreement"] ] },
+    { "id": "G", "name": "Agreement", "checks": [
+      ["Builder-buyer agreement vs the state's model agreement", "State RERA rules (advocate)"],
+      ["Delay penalty is equal for both sides", "Agreement (advocate)"],
+      ["Cancellation and refund terms", "Agreement (advocate)"],
+      ["Transfer and resale charges", "Agreement"],
+      ["Possession date in the agreement matches RERA", "Agreement, RERA portal"] ] },
+    { "id": "H", "name": "Location and resale", "checks": [
+      ["Commute measured at peak hours", "Our own drive and metro timing"],
+      ["Infrastructure claims checked against sources", "Government and news sources"],
+      ["Resale listings and how fast they sell", "Listing data"],
+      ["Actual rents nearby (never promised)", "Listing data"],
+      ["Schools and hospitals within reach", "Site visit, maps"] ] }
+  ],
+  "sample": {
+    "label": "Sample report. Fictional project, real format.",
+    "project": "Sample Residency, Tower B, 3 BHK",
+    "date": "5 Nov 2026",
+    "results": [
+      ["A1", "ok", "RERA number matches Phase 2", "Checked on the state RERA portal, 5 Nov 2026"],
+      ["A2", "warn", "Completion date extended once, from Dec 2026 to Jun 2027", "RERA portal extension order"],
+      ["B2", "ok", "No charge on the land other than the disclosed project loan", "Encumbrance search (advocate)"],
+      ["C1", "warn", "Brochure shows a clubhouse pool not in the sanctioned plan", "Sanction plan vs brochure"],
+      ["D1", "ok", "Last 3 projects delivered within 6 months of the RERA date", "RERA portal records"],
+      ["E1", "warn", "Super area 1,850 sq ft; RERA carpet area 1,342 sq ft (38% loading)", "Agreement schedule"],
+      ["F1", "ok", "All-in cost ₹1.62 Cr against a brochure price of ₹1.45 Cr", "Cost sheet and state rates"],
+      ["F4", "bad", "35% asked within 30 days, before the agreement is registered", "Payment plan vs RERA section 13"],
+      ["G2", "warn", "Buyer pays 18% on delays; developer pays 9%", "Agreement clause 14"],
+      ["H1", "ok", "34 minutes to the nearest metro at 9 am, measured", "Our drive, Tuesday 9:05 am"]
+    ],
+    "verdict": "Do not pay the second instalment until the agreement is registered. Ask for the pool in writing or a price cut. Everything else is reasonable."
+  }
+}

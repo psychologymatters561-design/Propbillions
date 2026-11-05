@@ -1,0 +1,650 @@
+{
+ "projects/heaven-in-the-forest/plan-1bhk": {
+  "kind": "plan",
+  "note": "Floor plan, 1 BHK, 570 sq ft as printed",
+  "sizes": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-1bhk-1600.webp",
+    "width": 1600,
+    "height": 992,
+    "bytes": 40374
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-1bhk-900.webp",
+    "width": 900,
+    "height": 558,
+    "bytes": 23388
+   }
+  ]
+ },
+ "projects/heaven-in-the-forest/plan-2bhk": {
+  "kind": "plan",
+  "note": "Floor plan, 2 BHK villa",
+  "sizes": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-2bhk-1600.webp",
+    "width": 1600,
+    "height": 1045,
+    "bytes": 75266
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-2bhk-900.webp",
+    "width": 900,
+    "height": 588,
+    "bytes": 33810
+   }
+  ]
+ },
+ "team/event-1": {
+  "kind": "photo",
+  "note": "Team event photo from the gallery",
+  "sizes": [
+   {
+    "src": "/img/team/event-1-960.webp",
+    "width": 960,
+    "height": 1199,
+    "bytes": 95614
+   },
+   {
+    "src": "/img/team/event-1-900.webp",
+    "width": 900,
+    "height": 1124,
+    "bytes": 88378
+   },
+   {
+    "src": "/img/team/event-1-480.webp",
+    "width": 480,
+    "height": 600,
+    "bytes": 38698
+   }
+  ]
+ },
+ "projects/heaven-in-the-forest/plan-3bhk": {
+  "kind": "plan",
+  "note": "Floor plan, 3 BHK villa",
+  "sizes": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-3bhk-1600.webp",
+    "width": 1600,
+    "height": 1042,
+    "bytes": 119984
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/plan-3bhk-900.webp",
+    "width": 900,
+    "height": 586,
+    "bytes": 51452
+   }
+  ]
+ },
+ "projects/london-mart/plan-third": {
+  "kind": "plan",
+  "note": "Third floor plan",
+  "sizes": [
+   {
+    "src": "/img/projects/london-mart/plan-third-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 157992
+   },
+   {
+    "src": "/img/projects/london-mart/plan-third-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 69136
+   }
+  ]
+ },
+ "projects/london-mart/plan-fourth": {
+  "kind": "plan",
+  "note": "Fourth floor plan",
+  "sizes": [
+   {
+    "src": "/img/projects/london-mart/plan-fourth-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 117740
+   },
+   {
+    "src": "/img/projects/london-mart/plan-fourth-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 51412
+   }
+  ]
+ },
+ "team/event-3": {
+  "kind": "photo",
+  "note": "Team event photo from the gallery",
+  "sizes": [
+   {
+    "src": "/img/team/event-3-852.webp",
+    "width": 852,
+    "height": 1066,
+    "bytes": 102706
+   },
+   {
+    "src": "/img/team/event-3-480.webp",
+    "width": 480,
+    "height": 601,
+    "bytes": 39762
+   }
+  ]
+ },
+ "projects/london-mart/plan-fifth": {
+  "kind": "plan",
+  "note": "Fifth floor plan",
+  "sizes": [
+   {
+    "src": "/img/projects/london-mart/plan-fifth-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 104410
+   },
+   {
+    "src": "/img/projects/london-mart/plan-fifth-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 47000
+   }
+  ]
+ },
+ "team/event-2": {
+  "kind": "photo",
+  "note": "Team event photo from the gallery",
+  "sizes": [
+   {
+    "src": "/img/team/event-2-960.webp",
+    "width": 960,
+    "height": 1199,
+    "bytes": 105392
+   },
+   {
+    "src": "/img/team/event-2-900.webp",
+    "width": 900,
+    "height": 1124,
+    "bytes": 96740
+   },
+   {
+    "src": "/img/team/event-2-480.webp",
+    "width": 480,
+    "height": 600,
+    "bytes": 39336
+   }
+  ]
+ },
+ "team/fareed-ahmad": {
+  "kind": "portrait",
+  "note": "Team photo from propbillions.com/about",
+  "sizes": [
+   {
+    "src": "/img/team/fareed-ahmad-640.webp",
+    "width": 640,
+    "height": 712,
+    "bytes": 29690
+   },
+   {
+    "src": "/img/team/fareed-ahmad-320.webp",
+    "width": 320,
+    "height": 356,
+    "bytes": 12648
+   }
+  ]
+ },
+ "team/amit-kumar": {
+  "kind": "portrait",
+  "note": "Team photo from propbillions.com/about",
+  "sizes": [
+   {
+    "src": "/img/team/amit-kumar-640.webp",
+    "width": 640,
+    "height": 640,
+    "bytes": 27330
+   },
+   {
+    "src": "/img/team/amit-kumar-320.webp",
+    "width": 320,
+    "height": 320,
+    "bytes": 11214
+   }
+  ]
+ },
+ "projects/london-mart/plan-first": {
+  "kind": "plan",
+  "note": "First floor plan",
+  "sizes": [
+   {
+    "src": "/img/projects/london-mart/plan-first-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 117590
+   },
+   {
+    "src": "/img/projects/london-mart/plan-first-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 53628
+   }
+  ]
+ },
+ "projects/godrej-golf-links/render": {
+  "kind": "render",
+  "note": "Developer render",
+  "sizes": [
+   {
+    "src": "/img/projects/godrej-golf-links/render-600.webp",
+    "width": 600,
+    "height": 350,
+    "bytes": 26142
+   },
+   {
+    "src": "/img/projects/godrej-golf-links/render-480.webp",
+    "width": 480,
+    "height": 280,
+    "bytes": 14374
+   }
+  ]
+ },
+ "projects/godrej-the-plaza/render": {
+  "kind": "render",
+  "note": "Developer render (Godrej Woods)",
+  "sizes": [
+   {
+    "src": "/img/projects/godrej-the-plaza/render-1366.webp",
+    "width": 1366,
+    "height": 640,
+    "bytes": 125250
+   },
+   {
+    "src": "/img/projects/godrej-the-plaza/render-900.webp",
+    "width": 900,
+    "height": 422,
+    "bytes": 60236
+   },
+   {
+    "src": "/img/projects/godrej-the-plaza/render-480.webp",
+    "width": 480,
+    "height": 225,
+    "bytes": 21026
+   }
+  ]
+ },
+ "brand/logo-current": {
+  "kind": "logo",
+  "note": "Current logo",
+  "sizes": [
+   {
+    "src": "/img/brand/logo-current-415.webp",
+    "width": 415,
+    "height": 125,
+    "bytes": 21858
+   }
+  ]
+ },
+ "projects/london-mart/plan-lower-ground": {
+  "kind": "plan",
+  "note": "Lower ground floor plan",
+  "sizes": [
+   {
+    "src": "/img/projects/london-mart/plan-lower-ground-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 152108
+   },
+   {
+    "src": "/img/projects/london-mart/plan-lower-ground-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 63442
+   }
+  ]
+ },
+ "team/muskan-malik": {
+  "kind": "portrait",
+  "note": "Team photo from propbillions.com/about",
+  "sizes": [
+   {
+    "src": "/img/team/muskan-malik-640.webp",
+    "width": 640,
+    "height": 640,
+    "bytes": 21928
+   },
+   {
+    "src": "/img/team/muskan-malik-320.webp",
+    "width": 320,
+    "height": 320,
+    "bytes": 9016
+   }
+  ]
+ },
+ "team/sarvesh-chauhan": {
+  "kind": "portrait",
+  "note": "Team photo from propbillions.com/about",
+  "sizes": [
+   {
+    "src": "/img/team/sarvesh-chauhan-640.webp",
+    "width": 640,
+    "height": 648,
+    "bytes": 20842
+   },
+   {
+    "src": "/img/team/sarvesh-chauhan-320.webp",
+    "width": 320,
+    "height": 324,
+    "bytes": 8892
+   }
+  ]
+ },
+ "projects/heaven-in-the-forest/banner": {
+  "kind": "render",
+  "note": "Developer banner (FLR Developers LLP)",
+  "sizes": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/banner-1600.webp",
+    "width": 1600,
+    "height": 933,
+    "bytes": 131664
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/banner-900.webp",
+    "width": 900,
+    "height": 525,
+    "bytes": 65270
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/banner-480.webp",
+    "width": 480,
+    "height": 280,
+    "bytes": 24434
+   }
+  ]
+ },
+ "projects/tech-park-knowledge-park-5/layout": {
+  "kind": "plan",
+  "note": "Site layout",
+  "sizes": [
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/layout-1600.webp",
+    "width": 1600,
+    "height": 1129,
+    "bytes": 45316
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/layout-900.webp",
+    "width": 900,
+    "height": 635,
+    "bytes": 19772
+   }
+  ]
+ },
+ "projects/tech-park-knowledge-park-5/facade-1": {
+  "kind": "render",
+  "note": "Outer facade render",
+  "sizes": [
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-1-1600.webp",
+    "width": 1600,
+    "height": 1127,
+    "bytes": 137164
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-1-900.webp",
+    "width": 900,
+    "height": 634,
+    "bytes": 61778
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-1-480.webp",
+    "width": 480,
+    "height": 338,
+    "bytes": 21278
+   }
+  ]
+ },
+ "projects/tech-park-knowledge-park-5/facade-2": {
+  "kind": "render",
+  "note": "Outer facade render",
+  "sizes": [
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-2-1600.webp",
+    "width": 1600,
+    "height": 1118,
+    "bytes": 315250
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-2-900.webp",
+    "width": 900,
+    "height": 629,
+    "bytes": 125874
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-2-480.webp",
+    "width": 480,
+    "height": 335,
+    "bytes": 39632
+   }
+  ]
+ },
+ "projects/tech-park-knowledge-park-5/facade-3": {
+  "kind": "render",
+  "note": "Outer facade render",
+  "sizes": [
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-3-1600.webp",
+    "width": 1600,
+    "height": 1117,
+    "bytes": 156796
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-3-900.webp",
+    "width": 900,
+    "height": 628,
+    "bytes": 69674
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/facade-3-480.webp",
+    "width": 480,
+    "height": 335,
+    "bytes": 25082
+   }
+  ]
+ },
+ "projects/london-mart/plan-second": {
+  "kind": "plan",
+  "note": "Second floor plan",
+  "sizes": [
+   {
+    "src": "/img/projects/london-mart/plan-second-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 125904
+   },
+   {
+    "src": "/img/projects/london-mart/plan-second-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 56190
+   }
+  ]
+ },
+ "team/shahnawaz-khan": {
+  "kind": "portrait",
+  "note": "Team photo from propbillions.com/about",
+  "sizes": [
+   {
+    "src": "/img/team/shahnawaz-khan-640.webp",
+    "width": 640,
+    "height": 640,
+    "bytes": 31876
+   },
+   {
+    "src": "/img/team/shahnawaz-khan-320.webp",
+    "width": 320,
+    "height": 320,
+    "bytes": 12268
+   }
+  ]
+ },
+ "projects/risland-sky-mansion/render": {
+  "kind": "render",
+  "note": "Developer render",
+  "sizes": [
+   {
+    "src": "/img/projects/risland-sky-mansion/render-1200.webp",
+    "width": 1200,
+    "height": 662,
+    "bytes": 90726
+   },
+   {
+    "src": "/img/projects/risland-sky-mansion/render-900.webp",
+    "width": 900,
+    "height": 496,
+    "bytes": 71262
+   },
+   {
+    "src": "/img/projects/risland-sky-mansion/render-480.webp",
+    "width": 480,
+    "height": 265,
+    "bytes": 32154
+   }
+  ]
+ },
+ "projects/tech-park-knowledge-park-5/render": {
+  "kind": "render",
+  "note": "Developer render",
+  "sizes": [
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/render-1201.webp",
+    "width": 1201,
+    "height": 800,
+    "bytes": 87400
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/render-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 49734
+   },
+   {
+    "src": "/img/projects/tech-park-knowledge-park-5/render-480.webp",
+    "width": 480,
+    "height": 320,
+    "bytes": 19876
+   }
+  ]
+ },
+ "projects/london-mart/plan-ground": {
+  "kind": "plan",
+  "note": "Ground floor plan",
+  "sizes": [
+   {
+    "src": "/img/projects/london-mart/plan-ground-1600.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 214496
+   },
+   {
+    "src": "/img/projects/london-mart/plan-ground-900.webp",
+    "width": 900,
+    "height": 600,
+    "bytes": 87366
+   }
+  ]
+ },
+ "projects/london-mart/render": {
+  "kind": "render",
+  "note": "Developer render",
+  "sizes": [
+   {
+    "src": "/img/projects/london-mart/render-1280.webp",
+    "width": 1280,
+    "height": 719,
+    "bytes": 146094
+   },
+   {
+    "src": "/img/projects/london-mart/render-900.webp",
+    "width": 900,
+    "height": 506,
+    "bytes": 79150
+   },
+   {
+    "src": "/img/projects/london-mart/render-480.webp",
+    "width": 480,
+    "height": 270,
+    "bytes": 28552
+   }
+  ]
+ },
+ "projects/heaven-in-the-forest/site-2": {
+  "kind": "photo",
+  "note": "Site photo shared by PropBillions (WhatsApp image dated 26 Sep 2026)",
+  "sizes": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-2-899.webp",
+    "width": 899,
+    "height": 1599,
+    "bytes": 134132
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-2-480.webp",
+    "width": 480,
+    "height": 854,
+    "bytes": 63380
+   }
+  ]
+ },
+ "projects/heaven-in-the-forest/site-1": {
+  "kind": "photo",
+  "note": "Site photo shared by PropBillions (WhatsApp image dated 26 Sep 2026)",
+  "sizes": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-1-899.webp",
+    "width": 899,
+    "height": 1599,
+    "bytes": 131030
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-1-480.webp",
+    "width": 480,
+    "height": 854,
+    "bytes": 55462
+   }
+  ]
+ },
+ "projects/heaven-in-the-forest/site-4": {
+  "kind": "photo",
+  "note": "Site photo shared by PropBillions (WhatsApp image dated 26 Sep 2026)",
+  "sizes": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-4-899.webp",
+    "width": 899,
+    "height": 1599,
+    "bytes": 190502
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-4-480.webp",
+    "width": 480,
+    "height": 854,
+    "bytes": 83978
+   }
+  ]
+ },
+ "projects/heaven-in-the-forest/site-3": {
+  "kind": "photo",
+  "note": "Site photo shared by PropBillions (WhatsApp image dated 26 Sep 2026)",
+  "sizes": [
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-3-899.webp",
+    "width": 899,
+    "height": 1599,
+    "bytes": 115876
+   },
+   {
+    "src": "/img/projects/heaven-in-the-forest/site-3-480.webp",
+    "width": 480,
+    "height": 854,
+    "bytes": 49742
+   }
+  ]
+ }
+}
