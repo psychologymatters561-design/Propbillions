@@ -1,0 +1,5221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#3B0F1A">
+    <title>Heaven in the Forest – Your Dream Home Near Kaichi Dham - Propbillions</title>
+    <meta name="p:domain_verify" content="133a274070cc16df501fcb5267b6dd80"/>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts: Fraunces (display) + Manrope (body) + Noto Sans Devanagari (Diwali greeting) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@600&display=swap" rel="stylesheet">
+    <!-- AOS (scroll animation — used by content templates via data-aos) -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ============ Propbillions design tokens — DIWALI EDITION ============
+           Same variable names as before so every content template
+           repaints automatically. To go back after the festival, restore
+           the previous navy/gold values below. */
+        :root{
+            --bb-white:#FFFFFF;
+            --bb-cream:#FFF8EC;        /* warm page background */
+            --bb-beige-light:#FBEBD0;  /* soft panel background */
+            --bb-beige:#F0D9B0;        /* hairline borders */
+            --bb-beige-dark:#9A5A00;   /* price / value accent */
+            --bb-espresso:#3B0F1A;     /* deep maroon — headings, dark sections */
+            --bb-brass:#E08A00;        /* saffron-gold — primary accent */
+            --bb-brass-light:#FFB43A;  /* marigold — hover states */
+            --bb-blue:#8C1D2F;
+            --bb-blue-light:#B3263C;
+            --bb-text:#2B1418;
+            --bb-text-muted:#7A5F5F;
+            --bb-radius:2px;
+            --bb-shadow: 0 20px 50px -20px rgba(59,15,26,.4);
+        }
+
+        html{scroll-behavior:smooth;}
+        body{overflow-x:hidden;}
+        img,video,iframe{max-width:100%;}
+        .navbar-brand img{max-width:100%;height:auto;}
+
+        body{
+            font-family:'Manrope', sans-serif;
+            color:var(--bb-text);
+            background-color:var(--bb-white);
+        }
+
+        h1,h2,h3,h4,h5,h6, .display-font{
+            font-family:'Fraunces', serif;
+            color:var(--bb-espresso);
+            font-weight:600;
+            letter-spacing:-0.01em;
+        }
+
+        a{ color: var(--bb-blue); }
+
+        /* ---------- Brand utilities ---------- */
+        .text-brass{ color: var(--bb-brass) !important; }
+        .bg-cream{ background-color: var(--bb-cream) !important; }
+        .bg-beige-light{ background-color: var(--bb-beige-light) !important; }
+        .bg-espresso{ background-color: var(--bb-espresso) !important; }
+        .border-beige{ border-color: var(--bb-beige) !important; }
+
+        .btn-primary{
+            background-color:var(--bb-brass);
+            border-color:var(--bb-brass);
+            color:var(--bb-espresso);
+            border-radius: var(--bb-radius);
+            padding: .6rem 1.7rem;
+            font-weight:700;
+            letter-spacing:.01em;
+            transition: all .3s cubic-bezier(.2,.8,.2,1);
+        }
+        .btn-primary:hover, .btn-primary:focus{
+            background-color:var(--bb-brass-light);
+            border-color:var(--bb-brass-light);
+            color:var(--bb-espresso);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -10px rgba(224,138,0,.55);
+        }
+        .btn-outline-primary{
+            color:var(--bb-espresso);
+            border-color:var(--bb-espresso);
+            border-radius:var(--bb-radius);
+            font-weight:700;
+            transition: all .3s cubic-bezier(.2,.8,.2,1);
+        }
+        .btn-outline-primary:hover{
+            background-color:var(--bb-espresso);
+            border-color:var(--bb-espresso);
+            color:#fff;
+            transform: translateY(-2px);
+        }
+        .btn-outline-dark{
+            border-radius:var(--bb-radius);
+            font-weight:700;
+            color:var(--bb-espresso);
+            border-color:var(--bb-espresso);
+            transition: all .3s ease;
+        }
+        .btn-outline-dark:hover{ background:var(--bb-espresso); color:#fff; }
+        .btn-outline-secondary{ border-radius:var(--bb-radius); }
+
+        /* ---------- Cards: sharp corners + bracket marks on hover ---------- */
+        .card{
+            border-radius: var(--bb-radius);
+            border-color: var(--bb-beige);
+            position:relative;
+            overflow:hidden;
+            transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+        }
+        .card::before, .card::after{
+            content:''; position:absolute; width:16px; height:16px; z-index:3; pointer-events:none;
+            border-color: var(--bb-brass); opacity:0; transition:opacity .4s ease;
+        }
+        .card::before{ top:8px; left:8px; border-top:2px solid; border-left:2px solid; }
+        .card::after{ bottom:8px; right:8px; border-bottom:2px solid; border-right:2px solid; }
+        .card:hover::before, .card:hover::after{ opacity:1; }
+        .card:hover{ box-shadow: var(--bb-shadow); transform: translateY(-4px); }
+
+        /* ---------- Ledger-line divider ---------- */
+        .brick-divider{
+            display:flex;
+            flex-direction:column;
+            gap:4px;
+            width:56px;
+            margin: .65rem 0 1.5rem;
+        }
+        .brick-divider span{ display:block; height:2px; background: var(--bb-brass); width:100%; }
+        .brick-divider span:nth-child(2){ height:1px; background:var(--bb-beige-dark); opacity:.55; }
+        .brick-divider span:nth-child(3){ display:none; }
+        .text-center .brick-divider{ margin-left:auto; margin-right:auto; }
+
+        /* ---------- Header ---------- */
+        .topbar{
+            background-color: var(--bb-espresso);
+            color: var(--bb-beige-light);
+            font-size:.85rem;
+        }
+        .topbar a{ color: var(--bb-beige-light); }
+        .topbar a:hover{ color: var(--bb-brass-light); }
+
+        header.site-header{ transition: box-shadow .35s ease, padding .35s ease; }
+        header.site-header.bb-scrolled{ box-shadow: 0 12px 30px -20px rgba(59,15,26,.5); }
+
+        /* DIWALI: one soft string of twinkling lights under the header */
+        header.site-header::after{
+            content:""; position:absolute; left:0; right:0; bottom:-7px; height:7px; pointer-events:none;
+            background:
+                radial-gradient(circle at 6px 3px,#FFB43A 0 2px,transparent 3px) 0 0/28px 7px repeat-x,
+                radial-gradient(circle at 6px 3px,#FF5A1F 0 2px,transparent 3px) 14px 0/56px 7px repeat-x,
+                radial-gradient(circle at 6px 3px,#FFE08A 0 2px,transparent 3px) 7px 0/42px 7px repeat-x;
+            filter:drop-shadow(0 0 3px rgba(255,170,50,.8));
+            animation:dwTwinkle 2.6s ease-in-out infinite alternate;
+        }
+        @keyframes dwTwinkle{ from{opacity:.55} to{opacity:1} }
+
+        .navbar-brand{
+            display:flex; align-items:center; gap:10px;
+            font-family:'Fraunces', serif;
+            font-weight:700;
+            color: var(--bb-espresso) !important;
+            letter-spacing:.01em;
+        }
+        .navbar-brand svg{ width:30px; height:30px; flex-shrink:0; }
+        .navbar-brand .billions{ color: var(--bb-brass); }
+        .navbar-brand .brand-stack{ display:flex; flex-direction:column; line-height:1; }
+        .navbar-brand small{
+            display:block;
+            font-family:'Manrope', sans-serif;
+            font-weight:500;
+            font-size:.6rem;
+            letter-spacing:.24em;
+            color: var(--bb-text-muted);
+            text-transform:uppercase;
+            margin-top:4px;
+        }
+
+        .nav-link{ color: var(--bb-text); font-weight:600; position:relative; }
+        .nav-link.active, .nav-link:hover{ color: var(--bb-brass) !important; }
+        .nav-link.active::after{
+            content:"";
+            position:absolute; left:0; bottom:-2px;
+            width:100%; height:2px;
+            background: var(--bb-brass);
+        }
+
+        /* ---------- Footer ---------- */
+        footer.bb-footer{
+            background-color: var(--bb-espresso);
+            color: #E8CFC0;
+            position:relative;
+        }
+        footer.bb-footer h5, footer.bb-footer h6{ color: var(--bb-white); }
+        footer.bb-footer .footer-brand{ display:flex; align-items:center; gap:10px; }
+        footer.bb-footer .footer-brand svg{ width:30px; height:30px; }
+        footer.bb-footer a{
+            color:#E8CFC0;
+            text-decoration:none;
+            transition:color .2s ease;
+        }
+        footer.bb-footer a:hover{ color: var(--bb-brass-light); }
+        footer.bb-footer .social-btn{
+            border-color: rgba(255,255,255,.2);
+            color:#E8CFC0;
+            transition: all .25s ease;
+        }
+        footer.bb-footer .social-btn:hover{
+            background-color:var(--bb-brass);
+            border-color:var(--bb-brass);
+            color:var(--bb-espresso);
+        }
+        footer.bb-footer hr{ border-color: rgba(255,255,255,.14); }
+        footer.bb-footer .form-control{ border-radius: var(--bb-radius) 0 0 var(--bb-radius); }
+        footer.bb-footer .btn-primary{ border-radius: 0 var(--bb-radius) var(--bb-radius) 0; }
+
+        /* ---------- Misc animation ---------- */
+        @keyframes bbFadeUp{
+            from{ opacity:0; transform:translateY(14px); }
+            to{ opacity:1; transform:translateY(0); }
+        }
+        .bb-animate-in{ animation: bbFadeUp .7s ease both; }
+
+        /* ============ DIWALI OFFER BANNER (modal) ============ */
+        #diwaliModal .modal-dialog{ max-width:820px; }
+        #diwaliModal .modal-content{ max-height:calc(100dvh - 1rem); overflow-x:hidden; overflow-y:auto; border:0; border-radius:var(--bb-radius); box-shadow:0 30px 80px -20px rgba(0,0,0,.6); }
+        #diwaliModal .btn-close{ position:absolute; top:12px; right:12px; z-index:5; background-color:#fff; border-radius:50%; padding:.55rem; opacity:.9; }
+
+        .dw-art{
+            position:relative; min-height:300px; height:100%; overflow:hidden; color:#fff;
+            background:radial-gradient(ellipse at 50% 85%,#C2410C 0%,#7A1D2B 45%,#2A0A12 100%);
+            display:flex; flex-direction:column; align-items:center; justify-content:flex-end; text-align:center; padding:2rem 1.5rem;
+        }
+        .dw-art img.dw-photo{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+        .dw-art::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(42,10,18,.15),rgba(42,10,18,.85)); }
+        .dw-art > *:not(img){ position:relative; z-index:2; }
+
+        .dw-diya{ position:relative; width:84px; height:42px; margin-bottom:1.6rem; }
+        .dw-diya .bowl{ position:absolute; inset:auto 0 0 0; height:100%; border-radius:6% 6% 100% 100%/10% 10% 100% 100%;
+            background:linear-gradient(180deg,#E98A2E,#B0501A 55%,#6B2A0E); box-shadow:0 0 36px rgba(255,130,30,.55); }
+        .dw-diya .flame{ position:absolute; left:50%; bottom:calc(100% + 2px); width:18px; height:38px; margin-left:-9px; transform-origin:50% 100%;
+            border-radius:50% 50% 50% 50%/62% 62% 38% 38%;
+            background:radial-gradient(ellipse at 50% 75%,#FFF7D0,#FFD45A 35%,#FF8A1F 70%,rgba(255,80,20,0));
+            box-shadow:0 0 26px 9px rgba(255,150,40,.6); animation:dwFlicker .8s ease-in-out infinite alternate; }
+        @keyframes dwFlicker{ 0%{transform:scale(1) rotate(-2deg)} 50%{transform:scale(.93,1.1) rotate(1.5deg)} 100%{transform:scale(1.04,.95) rotate(-1deg)} }
+
+        .dw-art .dw-hi{ font-family:'Noto Sans Devanagari','Fraunces',serif; font-weight:600; font-size:1.8rem; line-height:1.1; color:#FFE29A; margin:0; }
+        .dw-art .dw-sub{ font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; opacity:.85; margin-top:.5rem; }
+
+        .dw-form{ padding:2.25rem 1.9rem; background:#fff; }
+        .dw-form h3{ font-size:1.55rem; margin-bottom:.35rem; }
+        .dw-form .dw-lead{ color:var(--bb-text-muted); font-size:.9rem; margin-bottom:1.2rem; }
+        .dw-form .form-control{ border-radius:var(--bb-radius); border-color:var(--bb-beige); padding:.6rem .8rem; }
+        .dw-form .form-control:focus{ border-color:var(--bb-brass); box-shadow:0 0 0 .2rem rgba(224,138,0,.18); }
+        .dw-form small{ color:var(--bb-text-muted); font-size:.75rem; }
+
+        /* ============ RESPONSIVE ============ */
+
+        /* Tablets & below: tidy header, full-width CTA in the collapsed menu */
+        @media (max-width: 991.98px){
+            .navbar-collapse{ padding:.75rem 0 1rem; }
+            .navbar-nav .nav-link{ padding:.6rem 0; }
+            .nav-link.active::after{ width:36px; }
+            .navbar-collapse .btn-primary{ width:100%; }
+        }
+
+        /* Phones */
+        @media (max-width: 767.98px){
+            .topbar{ font-size:.76rem; }
+            .topbar .container{ justify-content:center !important; text-align:center; gap:.15rem; }
+            .topbar .me-3{ margin-right:.5rem !important; }
+            .navbar-brand img{ width:130px; }
+            footer.bb-footer{ overflow-wrap:anywhere; padding-bottom:calc(1rem + env(safe-area-inset-bottom)); }
+
+            /* Banner: image on top, form underneath */
+            #diwaliModal .modal-dialog{ margin:.5rem; }
+            .dw-art{ min-height:clamp(180px,50vw,260px); height:auto; flex-direction:column; justify-content:flex-end; align-items:center; padding:1.25rem 1rem 1.1rem; text-align:center; }
+            .dw-diya{ width:60px; height:30px; margin:0 0 .9rem; }
+            .dw-diya .flame{ width:13px; height:28px; margin-left:-6.5px; }
+            .dw-art .dw-hi{ font-size:1.5rem; }
+            .dw-art .dw-sub{ font-size:.65rem; letter-spacing:.24em; margin-top:.35rem; }
+            .dw-form{ padding:1.25rem 1.1rem 1.4rem; }
+            .dw-form h3{ font-size:1.25rem; }
+            .dw-form .dw-lead{ font-size:.85rem; margin-bottom:1rem; }
+            .dw-form .form-control{ font-size:16px; } /* stops iOS zoom-on-focus */
+        }
+
+        /* Small phones */
+        @media (max-width: 380px){
+            .navbar-brand img{ width:112px; }
+            .dw-art{ min-height:170px; }
+            .dw-art .dw-hi{ font-size:1.3rem; }
+        }
+
+        /* Landscape phones / very short screens: keep the form reachable */
+        @media (max-height: 520px) and (orientation: landscape){
+            #diwaliModal .modal-dialog{ margin:.35rem auto; }
+            .dw-art{ min-height:0; padding:.75rem 3rem .75rem 1rem; }
+            .dw-form{ padding:1rem 1.25rem; }
+            .dw-form h3{ font-size:1.15rem; }
+            .dw-form .dw-lead{ display:none; }
+        }
+
+        /* Large screens: keep the banner comfortably sized */
+        @media (min-width: 1400px){
+            #diwaliModal .modal-dialog{ max-width:880px; }
+        }
+
+        @media (prefers-reduced-motion: reduce){
+            .bb-animate-in{ animation:none; }
+            html{ scroll-behavior:auto; }
+            header.site-header::after, .dw-diya .flame{ animation:none; }
+        }
+        .model-content{    width: 80%;}
+    </style>
+    
+<style>
+
+/* =========================================================
+   PROPBILLIONS PROJECT DETAIL
+========================================================= */
+
+:root{
+    --bb-white:#FFFFFF;
+    --bb-cream:#F6F9FC;        /* page background, was warm cream */
+    --bb-beige-light:#E7EEF6;  /* soft panel background */
+    --bb-beige:#D6E1EE;        /* hairline borders */
+    --bb-beige-dark:#9C7A1A;   /* price / value accent (gold-dark) */
+    --bb-espresso:#0A2540;     /* navy — headings, dark sections */
+    --bb-brass:#C9A227;        /* gold — primary accent */
+    --bb-brass-light:#E8C965;  /* gold-light — hover states */
+    --bb-blue:#1D4E89;
+    --bb-blue-light:#2F6FB0;
+    --bb-text:#122336;
+    --bb-text-muted:#59697C;
+    --bb-radius:2px;
+    --bb-shadow: 0 20px 50px -20px rgba(10,37,64,.35);
+}
+
+
+/* =========================================================
+   ENTRANCE ANIMATION (shared with hero elsewhere on the site)
+========================================================= */
+
+@keyframes bbFadeUp{
+    from{ opacity:0; transform: translateY(24px); }
+    to{ opacity:1; transform: translateY(0); }
+}
+
+.bb-anim{
+    opacity:0;
+    animation-fill-mode: forwards;
+    animation-duration:.9s;
+    animation-timing-function: cubic-bezier(.22,.61,.36,1);
+}
+
+.bb-anim-fadeup{ animation-name: bbFadeUp; }
+.bb-delay-1{ animation-delay:.15s; }
+.bb-delay-2{ animation-delay:.35s; }
+.bb-delay-3{ animation-delay:.55s; }
+
+@keyframes bbDividerGrow{
+    from{ transform: scaleX(0); }
+    to{ transform: scaleX(1); }
+}
+
+@keyframes bbBtnPulse{
+    0%   { box-shadow: 0 0 0 0 rgba(201,162,39,.45); }
+    70%  { box-shadow: 0 0 0 14px rgba(201,162,39,0); }
+    100% { box-shadow: 0 0 0 0 rgba(201,162,39,0); }
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.bb-project-hero{
+    position:relative;
+    height:460px;
+    overflow:hidden;
+    background:var(--bb-espresso);
+}
+
+.bb-project-hero-image{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.bb-project-hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(10,37,64,.20) 0%,
+            rgba(10,37,64,.35) 35%,
+            rgba(10,37,64,.92) 100%
+        );
+}
+
+.bb-project-hero-content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:flex-end;
+    color:#fff;
+}
+
+.bb-project-hero-inner{
+    max-width:900px;
+    padding-bottom:48px;
+}
+
+.bb-project-meta{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:12px;
+    color:#EAF1FA;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+}
+
+.bb-project-meta i{
+    color:var(--bb-brass);
+    font-size:18px;
+}
+
+.bb-project-hero h1{
+    margin:0 0 12px;
+    color:#fff;
+    font-family:'Fraunces', serif;
+    font-size:clamp(2.3rem,5vw,4.3rem);
+    line-height:1.05;
+    font-weight:700;
+}
+
+.bb-project-hero p{
+    margin:0;
+    color:rgba(255,255,255,.85);
+    font-family:'Manrope',sans-serif;
+    font-size:15px;
+}
+
+.bb-project-hero p i{
+    color:var(--bb-brass);
+    margin-right:5px;
+}
+
+
+/* =========================================================
+   NO BANNER
+========================================================= */
+
+.bb-project-no-banner{
+    padding:90px 0 70px;
+    background:var(--bb-cream);
+    border-bottom:1px solid var(--bb-beige);
+}
+
+.bb-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+    color:var(--bb-brass);
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+}
+
+.bb-eyebrow span{
+    color:var(--bb-beige-dark);
+}
+
+.bb-project-no-banner h1{
+    max-width:850px;
+    margin:0 0 14px;
+    color:var(--bb-espresso);
+    font-family:'Fraunces',serif;
+    font-size:clamp(2.3rem,5vw,4rem);
+    line-height:1.08;
+}
+
+.bb-project-no-banner p{
+    margin:0;
+    color:var(--bb-text-muted);
+}
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.bb-project-section{
+    padding:70px 0 90px;
+    background:var(--bb-cream);
+}
+
+.bb-content-card{
+    margin-bottom:28px;
+    padding:34px;
+    background:var(--bb-white);
+    border:1px solid var(--bb-beige);
+    border-radius:14px;
+    box-shadow:0 12px 35px rgba(10,37,64,.05);
+    transition: box-shadow .35s ease, transform .35s ease;
+}
+
+.bb-content-card:hover{
+    box-shadow: var(--bb-shadow);
+    transform: translateY(-3px);
+}
+
+.bb-section-heading{
+    margin-bottom:24px;
+}
+
+.bb-section-kicker{
+    display:block;
+    margin-bottom:7px;
+    color:var(--bb-brass);
+    font-family:'Manrope',sans-serif;
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+}
+
+.bb-section-heading h2{
+    margin:0;
+    color:var(--bb-espresso);
+    font-family:'Fraunces',serif;
+    font-size:clamp(1.6rem,3vw,2.15rem);
+    line-height:1.15;
+}
+
+.bb-divider{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    margin-top:13px;
+}
+
+.bb-divider span{
+    display:block;
+    width:24px;
+    height:2px;
+    background:var(--bb-beige);
+    transform-origin:left;
+    animation: bbDividerGrow .7s ease forwards;
+}
+
+.bb-divider span:nth-child(2){
+    width:10px;
+    background:var(--bb-brass);
+    animation-delay:.12s;
+}
+
+.bb-divider span:nth-child(3){
+    width:5px;
+    background:var(--bb-beige-dark);
+    animation-delay:.24s;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.bb-description{
+    color:var(--bb-text-muted);
+    font-family:'Manrope',sans-serif;
+    font-size:15px;
+    line-height:1.95;
+}
+
+.bb-description p{
+    margin-bottom:20px;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.bb-highlight-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px 18px;
+}
+
+.bb-highlight-item{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:11px 0;
+    color:var(--bb-text);
+    font-size:14px;
+    line-height:1.55;
+    border-bottom:1px solid var(--bb-beige-light);
+    transition: transform .25s ease;
+}
+
+.bb-highlight-item:hover{
+    transform: translateX(4px);
+}
+
+.bb-check{
+    flex:0 0 24px;
+    width:24px;
+    height:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:var(--bb-beige-light);
+    color:var(--bb-brass);
+    font-size:12px;
+    transition: background-color .25s ease, color .25s ease, transform .25s ease;
+}
+
+.bb-highlight-item:hover .bb-check{
+    background:var(--bb-brass);
+    color:#fff;
+    transform: scale(1.1);
+}
+
+
+/* =========================================================
+   AMENITIES
+========================================================= */
+
+.bb-amenities-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+}
+
+.bb-amenity-item{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:13px 14px;
+    background:var(--bb-cream);
+    border:1px solid var(--bb-beige-light);
+    border-radius:10px;
+    color:var(--bb-espresso);
+    font-size:13px;
+    transition:all .25s ease;
+}
+
+.bb-amenity-item:hover{
+    border-color:var(--bb-brass);
+    background:var(--bb-beige-light);
+    transform:translateY(-3px);
+    box-shadow: 0 10px 22px -14px rgba(10,37,64,.35);
+}
+
+.bb-amenity-icon{
+    width:30px;
+    height:30px;
+    flex:0 0 30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:var(--bb-white);
+    color:var(--bb-brass);
+    transition: transform .3s ease;
+}
+
+.bb-amenity-item:hover .bb-amenity-icon{
+    transform: rotate(-8deg) scale(1.1);
+}
+
+
+/* =========================================================
+   FLOOR PLANS
+========================================================= */
+
+.bb-floor-card{
+    overflow:hidden;
+    border:1px solid var(--bb-beige-light);
+    border-radius:12px;
+    background:var(--bb-cream);
+    transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.bb-floor-card:hover{
+    transform: translateY(-4px);
+    box-shadow: var(--bb-shadow);
+}
+
+.bb-floor-image{
+    aspect-ratio:16/10;
+    background:var(--bb-beige-light);
+    overflow:hidden;
+}
+
+.bb-floor-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .5s ease;
+}
+
+.bb-floor-card:hover .bb-floor-image img{
+    transform:scale(1.06);
+}
+
+.bb-floor-placeholder{
+    aspect-ratio:16/10;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    color:var(--bb-beige-dark);
+    background:var(--bb-beige-light);
+}
+
+.bb-floor-placeholder i{
+    font-size:35px;
+}
+
+.bb-floor-info{
+    padding:17px;
+}
+
+.bb-floor-info h4{
+    margin:0 0 7px;
+    color:var(--bb-espresso);
+    font-size:17px;
+}
+
+.bb-floor-info p{
+    margin:0 0 6px;
+    color:var(--bb-text-muted);
+    font-size:13px;
+}
+
+.bb-floor-info p i{
+    color:var(--bb-brass);
+    margin-right:5px;
+}
+
+.bb-floor-info strong{
+    color:var(--bb-beige-dark);
+    font-size:14px;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.bb-gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+}
+
+.bb-gallery-item{
+    position:relative;
+    display:block;
+    overflow:hidden;
+    aspect-ratio:16/10;
+    border-radius:10px;
+    background:var(--bb-beige-light);
+}
+
+.bb-gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .5s ease;
+}
+
+.bb-gallery-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(10,37,64,.55);
+    color:#fff;
+    opacity:0;
+    transition:opacity .3s ease;
+}
+
+.bb-gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+.bb-gallery-item:hover .bb-gallery-overlay{
+    opacity:1;
+}
+
+
+/* =========================================================
+   PRICE PLANS
+========================================================= */
+
+.bb-price-list{
+    display:flex;
+    flex-direction:column;
+}
+
+.bb-price-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:18px 0;
+    border-bottom:1px solid var(--bb-beige-light);
+    transition: background-color .2s ease;
+}
+
+.bb-price-row:hover{
+    background: var(--bb-beige-light);
+}
+
+.bb-price-row:first-child{
+    padding-top:0;
+}
+
+.bb-price-row:last-child{
+    border-bottom:0;
+    padding-bottom:0;
+}
+
+.bb-price-row h4{
+    margin:0 0 5px;
+    color:var(--bb-espresso);
+    font-size:16px;
+}
+
+.bb-price-row p{
+    margin:0;
+    color:var(--bb-text-muted);
+    font-size:13px;
+}
+
+.bb-price-row strong{
+    flex-shrink:0;
+    color:var(--bb-beige-dark);
+    font-size:15px;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.bb-faq-item{
+    border-bottom:1px solid var(--bb-beige-light);
+}
+
+.bb-faq-item:last-child{
+    border-bottom:0;
+}
+
+.bb-faq-question{
+    width:100%;
+    padding:19px 4px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    border:0;
+    background:transparent;
+    color:var(--bb-espresso);
+    text-align:left;
+    font-family:'Manrope',sans-serif;
+    font-size:14px;
+    font-weight:600;
+    transition: color .2s ease;
+}
+
+.bb-faq-question:hover{
+    color:var(--bb-brass);
+}
+
+.bb-faq-question i{
+    color:var(--bb-brass);
+    transition:transform .3s ease;
+}
+
+.bb-faq-question[aria-expanded="true"] i{
+    transform:rotate(45deg);
+}
+
+.bb-faq-answer{
+    padding:0 4px 20px;
+    color:var(--bb-text-muted);
+    font-size:14px;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.bb-sidebar{
+    position:sticky;
+    top:140px;
+}
+
+.bb-inquiry-card{
+    overflow:hidden;
+    margin-bottom:22px;
+    border:1px solid var(--bb-beige);
+    border-radius:14px;
+    background:var(--bb-white);
+    box-shadow:0 15px 45px rgba(10,37,64,.09);
+}
+
+.bb-inquiry-top{
+    padding:24px 25px;
+    background:var(--bb-espresso);
+    color:#fff;
+}
+
+.bb-inquiry-top span{
+    display:block;
+    margin-bottom:5px;
+    color:rgba(255,255,255,.62);
+    font-size:10px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+}
+
+.bb-inquiry-top h3{
+    margin:0;
+    color:#fff;
+    font-family:'Fraunces',serif;
+    font-size:26px;
+}
+
+.bb-inquiry-content{
+    padding:25px;
+}
+
+.bb-inquiry-content h2{
+    margin:0 0 8px;
+    color:var(--bb-espresso);
+    font-family:'Fraunces',serif;
+    font-size:24px;
+    line-height:1.2;
+}
+
+.bb-inquiry-content > p{
+    margin:0 0 20px;
+    color:var(--bb-text-muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.bb-inquiry-form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.bb-form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.bb-form-group label{
+    margin-bottom:6px;
+    color:var(--bb-espresso);
+    font-size:12px;
+    font-weight:700;
+}
+
+.bb-form-group input,
+.bb-form-group textarea{
+    width:100%;
+    padding:12px 13px;
+    border:1px solid var(--bb-beige);
+    border-radius:9px;
+    outline:none;
+    background:#fff;
+    color:var(--bb-espresso);
+    font-family:'Manrope',sans-serif;
+    font-size:13px;
+    transition:all .2s ease;
+}
+
+.bb-form-group textarea{
+    resize:vertical;
+    min-height:105px;
+}
+
+.bb-form-group input::placeholder,
+.bb-form-group textarea::placeholder{
+    color:#9FB0C4;
+}
+
+.bb-form-group input:focus,
+.bb-form-group textarea:focus{
+    border-color:var(--bb-brass);
+    box-shadow:0 0 0 3px rgba(201,162,39,.16);
+}
+
+.bb-submit-btn{
+    position:relative;
+    width:100%;
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-top:2px;
+    padding:12px 18px;
+    border:1px solid var(--bb-espresso);
+    border-radius:999px;
+    background:var(--bb-espresso);
+    color:#fff;
+    font-family:'Manrope',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.02em;
+    cursor:pointer;
+    transition:all .25s ease;
+    animation: bbBtnPulse 2.8s ease-out infinite;
+}
+
+.bb-submit-btn:hover{
+    background:var(--bb-brass);
+    border-color:var(--bb-brass);
+    color:var(--bb-espresso);
+    transform:translateY(-2px);
+    animation-play-state: paused;
+}
+
+.bb-submit-btn i{
+    font-size:15px;
+    transition: transform .25s ease;
+}
+
+.bb-submit-btn:hover i{
+    transform: translateX(3px);
+}
+
+.bb-inquiry-note{
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    margin-top:17px;
+    padding-top:16px;
+    border-top:1px solid var(--bb-beige-light);
+    color:var(--bb-text-muted);
+    font-size:11px;
+    line-height:1.55;
+}
+
+.bb-inquiry-note i{
+    flex-shrink:0;
+    color:var(--bb-brass);
+    font-size:15px;
+}
+
+
+/* =========================================================
+   ALERTS
+========================================================= */
+
+.bb-alert{
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+    margin-bottom:18px;
+    padding:11px 13px;
+    border-radius:8px;
+    font-size:12px;
+    line-height:1.5;
+    animation: bbFadeUp .4s ease both;
+}
+
+.bb-alert-success{
+    border:1px solid #cfe6d3;
+    background:#f0f9f2;
+    color:#1F6B3B;
+}
+
+.bb-alert-error{
+    border:1px solid #f0d0cf;
+    background:#fdf3f2;
+    color:#9C3B2D;
+}
+
+.bb-alert i{
+    margin-top:2px;
+}
+
+
+/* =========================================================
+   PROJECT FACTS
+========================================================= */
+
+.bb-facts-card,
+.bb-featured-card{
+    margin-bottom:22px;
+    padding:23px;
+    border:1px solid var(--bb-beige-light);
+    border-radius:14px;
+    background:#fff;
+    transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.bb-facts-card:hover,
+.bb-featured-card:hover{
+    box-shadow: var(--bb-shadow);
+    transform: translateY(-3px);
+}
+
+.bb-sidebar-title{
+    margin-bottom:14px;
+}
+
+.bb-sidebar-title > span{
+    display:block;
+    margin-bottom:5px;
+    color:var(--bb-brass);
+    font-size:10px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+}
+
+.bb-sidebar-title h3{
+    margin:0;
+    color:var(--bb-espresso);
+    font-family:'Fraunces',serif;
+    font-size:21px;
+}
+
+.bb-fact-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:15px;
+    padding:13px 0;
+    border-bottom:1px solid var(--bb-beige-light);
+}
+
+.bb-fact-row:last-child{
+    border-bottom:0;
+    padding-bottom:0;
+}
+
+.bb-fact-row span{
+    color:var(--bb-text-muted);
+    font-size:12px;
+}
+
+.bb-fact-row strong{
+    max-width:60%;
+    color:var(--bb-espresso);
+    font-size:12px;
+    text-align:right;
+}
+
+.bb-fact-location strong{
+    line-height:1.5;
+}
+
+
+/* =========================================================
+   FEATURED PROJECTS
+========================================================= */
+
+.bb-featured-list{
+    display:flex;
+    flex-direction:column;
+}
+
+.bb-featured-item{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid var(--bb-beige-light);
+    text-decoration:none;
+}
+
+.bb-featured-item:last-child{
+    border-bottom:0;
+}
+
+.bb-featured-image{
+    width:68px;
+    height:58px;
+    flex:0 0 68px;
+    overflow:hidden;
+    border-radius:8px;
+    background:var(--bb-beige-light);
+}
+
+.bb-featured-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .35s ease;
+}
+
+.bb-featured-item:hover .bb-featured-image img{
+    transform:scale(1.08);
+}
+
+.bb-featured-placeholder{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--bb-brass);
+    font-size:22px;
+}
+
+.bb-featured-info{
+    min-width:0;
+    padding-right:18px;
+}
+
+.bb-featured-info h4{
+    overflow:hidden;
+    margin:0 0 5px;
+    color:var(--bb-espresso);
+    font-family:'Fraunces',serif;
+    font-size:15px;
+    font-weight:600;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.bb-featured-info p{
+    overflow:hidden;
+    margin:0;
+    color:var(--bb-text-muted);
+    font-size:10px;
+    line-height:1.4;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.bb-featured-info p i{
+    color:var(--bb-brass);
+}
+
+.bb-featured-arrow{
+    position:absolute;
+    right:0;
+    color:var(--bb-brass);
+    font-size:14px;
+    opacity:.5;
+    transition:all .25s ease;
+}
+
+.bb-featured-item:hover .bb-featured-arrow{
+    opacity:1;
+    transform:translate(2px,-2px);
+}
+
+.bb-view-all{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px solid var(--bb-beige-light);
+    color:var(--bb-beige-dark);
+    font-size:12px;
+    font-weight:700;
+    text-decoration:none;
+    transition: color .2s ease;
+}
+
+.bb-view-all:hover{
+    color:var(--bb-brass);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.bb-project-cta{
+    padding:0 0 80px;
+    background:var(--bb-cream);
+}
+
+.bb-cta-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+    padding:35px 40px;
+    border-radius:14px;
+    background:var(--bb-espresso);
+}
+
+.bb-cta-inner span{
+    color:var(--bb-brass);
+    font-size:10px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+}
+
+.bb-cta-inner h2{
+    margin:6px 0 0;
+    color:#fff;
+    font-family:'Fraunces',serif;
+    font-size:clamp(1.4rem,3vw,2.1rem);
+}
+
+.bb-cta-btn{
+    flex-shrink:0;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:13px 20px;
+    border:1px solid var(--bb-brass);
+    border-radius:999px;
+    color:#fff;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:700;
+    transition:all .25s ease;
+    animation: bbBtnPulse 2.8s ease-out infinite;
+}
+
+.bb-cta-btn:hover{
+    background:var(--bb-brass);
+    color:var(--bb-espresso);
+    transform: translateY(-2px);
+    animation-play-state: paused;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:991.98px){
+
+    .bb-sidebar{
+        position:static;
+    }
+
+    .bb-project-hero{
+        height:390px;
+    }
+
+}
+
+@media(max-width:767.98px){
+
+    .bb-project-hero{
+        height:300px;
+    }
+
+    .bb-project-hero-inner{
+        padding-bottom:28px;
+    }
+
+    .bb-project-hero h1{
+        font-size:2.1rem;
+    }
+
+    .bb-project-hero p{
+        font-size:12px;
+    }
+
+    .bb-project-section{
+        padding:45px 0 60px;
+    }
+
+    .bb-content-card{
+        padding:23px 19px;
+    }
+
+    .bb-highlight-grid,
+    .bb-amenities-grid,
+    .bb-gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .bb-price-row{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8px;
+    }
+
+    .bb-cta-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:28px 24px;
+    }
+
+    .bb-cta-btn{
+        width:100%;
+        justify-content:center;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .bb-project-no-banner{
+        padding:60px 0 45px;
+    }
+
+    .bb-project-hero{
+        height:270px;
+    }
+
+    .bb-project-hero h1{
+        font-size:1.8rem;
+    }
+
+    .bb-project-meta{
+        font-size:9px;
+    }
+
+    .bb-content-card{
+        padding:20px 16px;
+    }
+
+    .bb-inquiry-content,
+    .bb-inquiry-top{
+        padding:20px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        scroll-behavior:auto !important;
+        transition:none !important;
+        animation:none !important;
+    }
+
+    .bb-anim{
+        opacity:1 !important;
+        transform:none !important;
+    }
+
+    .bb-divider span{
+        transform:none !important;
+    }
+
+}
+
+</style>
+
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- ================= HEADER / NAVBAR ================= -->
+    <header class="sticky-top shadow-sm bg-white site-header" id="siteHeader">
+        <!-- Top Bar (Quick Info) -->
+        <div class="topbar py-2 border-bottom" style="border-color:rgba(255,255,255,.08) !important;">
+            <div class="container d-flex flex-wrap justify-content-between align-items-center">
+                <div>
+                    <span class="me-3"><i class="bi bi-telephone-fill text-brass me-1"></i> +91 98118 85521 , 99996 56345</span>
+                    <span class="d-none d-sm-inline"><i class="bi bi-envelope-fill text-brass me-1"></i> info@propbillions.com</span>
+                </div>
+                <div class="d-none d-md-block">
+                    <a href="https://www.facebook.com/people/Propbillions/61594346425490/" class="me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/propbillions/" class="me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://x.com/Propbillions" class="btn btn-sm social-btn rounded-circle"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+            <div class="container">
+                <!-- Brand Logo / Name -->
+                <a class="navbar-brand fs-3 lh-1" href="https://propbillions.com/home">
+                   <img src="https://propbillions.com/public/images/logo.png" alt="propbillions_logo" width="160">
+                </a>
+
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-medium">
+                        <li class="nav-item">
+                            <a class="nav-link " href="https://propbillions.com/home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="https://propbillions.com/about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="https://propbillions.com/projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="https://propbillions.com/gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="https://propbillions.com/blog">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="https://propbillions.com/careers">Careers</a>
+                        </li>
+                        <!--<li class="nav-item">-->
+                        <!--    <a class="nav-link " href="https://propbillions.com/contact-us">Contact Us</a>-->
+                        <!--</li>-->
+                    </ul>
+
+                    <!-- Call To Action Button -->
+                    <div class="ms-lg-3">
+                        <a href="https://propbillions.com/contact-us" class="btn btn-primary px-4">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="flex-grow-1">
+        
+
+
+
+
+
+<section class="bb-project-hero">
+
+    <img
+        src="https://propbillions.com/public/images/projects/banners/screenshot-2026-09-15-at-123744-am.png"
+        alt="Heaven in the Forest – Your Dream Home Near Kaichi Dham"
+        class="bb-project-hero-image"
+    >
+
+    <div class="bb-project-hero-overlay"></div>
+
+    <div class="bb-project-hero-content">
+
+        <div class="container">
+
+            <div class="bb-project-hero-inner">
+
+                <div class="bb-project-meta bb-anim bb-anim-fadeup">
+
+                    <span>
+                        Residential
+                    </span>
+
+                    <i class="bi bi-dot"></i>
+
+                    <span>
+                        Under Construction
+                    </span>
+
+                </div>
+
+                <h1 class="bb-anim bb-anim-fadeup bb-delay-1">
+                    Heaven in the Forest – Your Dream Home Near Kaichi Dham
+                </h1>
+
+                                    <p class="bb-anim bb-anim-fadeup bb-delay-2">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        Kaichi Dham, UttarKhand
+                    </p>
+                
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<section class="bb-project-section">
+
+    <div class="container">
+
+        <div class="row g-4 g-xl-5">
+
+
+            
+
+            <div class="col-lg-8">
+
+                
+
+                
+                    <article class="bb-content-card" data-aos="fade-up">
+
+                        <div class="bb-section-heading">
+
+                            <span class="bb-section-kicker">
+                                About The Project
+                            </span>
+
+                            <h2>
+                                Heaven in the Forest – Your Dream Home Near Kaichi Dham
+                            </h2>
+
+                            <div class="bb-divider">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                        <div class="bb-description">
+
+                            <p><strong>Project Overview</strong></p><p>Heaven in the Forest is a resort-style second-home community near Kainchi Dham in Uttarakhand, designed for peaceful mountain living surrounded by lush forests and breathtaking valley views. The project combines a nature-centric lifestyle with second-home, holiday-home and investment opportunities.</p><p><strong>Property Options &amp; Pricing</strong></p><figure class="table"><table><tbody><tr><td><strong>Property Type</strong></td><td><strong>Configuration</strong></td><td><strong>Starting Price</strong></td></tr><tr><td>Premium Apartment</td><td>1 BHK</td><td><strong>₹45 Lakhs</strong></td></tr><tr><td>Luxury Villa</td><td>2 BHK</td><td><strong>₹85 Lakhs</strong></td></tr><tr><td>Luxury Villa</td><td>3 BHK</td><td><strong>₹1.10 Crore</strong></td></tr></tbody></table></figure><p><strong>Lifestyle &amp; Location</strong></p><p>Prime location near Kainchi Dham, offering a blend of spirituality, nature and investment potential. The homes are positioned for panoramic views of the Himalayas and pine forests, with a lifestyle focused on fresh mountain air, privacy and memorable stays.</p><p><strong>Investment &amp; Rental Potential</strong></p><p>The project is presented as an investment opportunity with potential for short-term holiday rentals. The combination of a scenic Uttarakhand setting, furnished homes and a resort-style community can support second-home and holiday-use requirements.</p><p><strong>Easy Payment Plan</strong></p><figure class="table"><table><tbody><tr><td><strong>Milestone</strong></td><td><strong>Payment</strong></td></tr><tr><td>At Booking</td><td><strong>10%</strong></td></tr><tr><td>After 45 Days</td><td><strong>40% — with HDFC Bank support</strong></td></tr><tr><td>On Structure (6 Months)</td><td><strong>25%</strong></td></tr><tr><td>On Possession</td><td><strong>25%</strong></td></tr></tbody></table></figure><p><strong>Home Loan Support</strong></p><p>Home loans of up to 70% are stated to be available through HDFC Bank.</p><p>The payment plan also mentions HDFC Bank support for the 40% payment milestone after 45 days.</p><p><strong>Why Heaven in the Forest?</strong></p><p>Mountain living near Kainchi Dham.</p><p>Limited inventory with only 18 units.</p><p>Fully furnished, ready-to-use homes.</p><p>Resort-style amenities for owners and families.</p><p>Suitable for personal use, holidays and investment.</p><p>Potential for short-term holiday rental income.<br><br>HEAVEN IN THE FOREST</p><h2>Price &amp; Payment Plan</h2><h3>Property Price List</h3><figure class="table"><table><thead><tr><th>Property Type</th><th>Configuration</th><th>Starting Price</th></tr></thead><tbody><tr><td>Premium Apartment</td><td>1 BHK</td><td><strong>₹45 Lakhs</strong></td></tr><tr><td>Luxury Villa</td><td>2 BHK</td><td><strong>₹85 Lakhs</strong></td></tr><tr><td>Luxury Villa</td><td>3 BHK</td><td><strong>₹1.10 Crore</strong></td></tr></tbody></table></figure><h2>Easy Payment Plan</h2><figure class="table"><table><thead><tr><th>Payment Stage</th><th>Percentage</th></tr></thead><tbody><tr><td>At the Time of Booking</td><td><strong>10%</strong></td></tr><tr><td>After 45 Days</td><td><strong>40%</strong></td></tr><tr><td>On Structure – 6 Months</td><td><strong>25%</strong></td></tr><tr><td>On Possession</td><td><strong>25%</strong></td></tr><tr><td><strong>Total</strong></td><td><strong>100%</strong></td></tr></tbody></table></figure><h3>Payment Plan Details</h3><p><strong>10% – Booking</strong><br>Pay 10% of the property value at the time of booking.</p><p><strong>40% – After 45 Days</strong><br>Pay 40% after 45 days, with stated HDFC Bank support subject to applicable eligibility and approval.</p><p><strong>25% – Structure Stage</strong><br>Pay 25% upon reaching the structure stage, stated at approximately 6 months.</p><p><strong>25% – Possession</strong><br>The remaining 25% is payable at the time of possession.</p><h2>Home Loan Support</h2><p><strong>Up to 70% home loan support</strong> is stated to be available through HDFC Bank, subject to the bank’s eligibility criteria, documentation and approval.</p><h3>Investment Options</h3><p><strong>Starting from ₹45 Lakhs</strong></p><p>Choose from:</p><p><strong>1 BHK Premium Apartment</strong><br>From <strong>₹45 Lakhs</strong></p><p><strong>2 BHK Luxury Villa</strong><br>From <strong>₹85 Lakhs</strong></p><p><strong>3 BHK Luxury Villa</strong><br>Up to <strong>₹1.10 Crore</strong></p><h3>Important Note:</h3><p>Prices mentioned above are based on the information provided and may be subject to change. Buyers should confirm the latest price, availability, applicable charges, specifications, payment schedule and financing terms with the authorized project representative before booking.</p><p>&nbsp;</p><p><strong>Project Positioning</strong></p><p><strong>“Own your home where every morning begins with fresh mountain air and unforgettable views.”</strong></p><p>&nbsp;</p><p><strong>HEAVEN IN THE FOREST</strong></p><p><i>Near Kainchi Dham • Uttarakhand</i></p>
+
+                        </div>
+
+                    </article>
+
+                
+
+                
+
+                
+                    <article class="bb-content-card" data-aos="fade-up">
+
+                        <div class="bb-section-heading">
+
+                            <span class="bb-section-kicker">
+                                Key Features
+                            </span>
+
+                            <h2>
+                                Project Highlights
+                            </h2>
+
+                            <div class="bb-divider">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                        <div class="bb-highlight-grid">
+
+                            
+                                
+                                    <div class="bb-highlight-item" data-aos="fade-up" data-aos-delay="0">
+
+                                        <div class="bb-check">
+                                            <i class="bi bi-check2"></i>
+                                        </div>
+
+                                        <span>
+                                            Only 18 units in the project.
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-highlight-item" data-aos="fade-up" data-aos-delay="60">
+
+                                        <div class="bb-check">
+                                            <i class="bi bi-check2"></i>
+                                        </div>
+
+                                        <span>
+                                            Fully furnished homes.
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-highlight-item" data-aos="fade-up" data-aos-delay="120">
+
+                                        <div class="bb-check">
+                                            <i class="bi bi-check2"></i>
+                                        </div>
+
+                                        <span>
+                                            Spectacular mountain and forest views.
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-highlight-item" data-aos="fade-up" data-aos-delay="180">
+
+                                        <div class="bb-check">
+                                            <i class="bi bi-check2"></i>
+                                        </div>
+
+                                        <span>
+                                            Kids’ play area.
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-highlight-item" data-aos="fade-up" data-aos-delay="240">
+
+                                        <div class="bb-check">
+                                            <i class="bi bi-check2"></i>
+                                        </div>
+
+                                        <span>
+                                            Wide internal roads.
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-highlight-item" data-aos="fade-up" data-aos-delay="300">
+
+                                        <div class="bb-check">
+                                            <i class="bi bi-check2"></i>
+                                        </div>
+
+                                        <span>
+                                            Peaceful and nature-centric lifestyle.
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-highlight-item" data-aos="fade-up" data-aos-delay="360">
+
+                                        <div class="bb-check">
+                                            <i class="bi bi-check2"></i>
+                                        </div>
+
+                                        <span>
+                                            Ideal for second home, holiday home and investment.
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                        </div>
+
+                    </article>
+
+                
+
+                
+
+                
+                    <article class="bb-content-card" data-aos="fade-up">
+
+                        <div class="bb-section-heading">
+
+                            <span class="bb-section-kicker">
+                                Lifestyle
+                            </span>
+
+                            <h2>
+                                Amenities
+                            </h2>
+
+                            <div class="bb-divider">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                        <div class="bb-amenities-grid">
+
+                            
+                                
+                                    <div class="bb-amenity-item" data-aos="zoom-in" data-aos-delay="0">
+
+                                        <div class="bb-amenity-icon">
+                                            <i class="bi bi-stars"></i>
+                                        </div>
+
+                                        <span>
+                                            Swimming pool
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-amenity-item" data-aos="zoom-in" data-aos-delay="50">
+
+                                        <div class="bb-amenity-icon">
+                                            <i class="bi bi-stars"></i>
+                                        </div>
+
+                                        <span>
+                                            24*7 Electricity
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-amenity-item" data-aos="zoom-in" data-aos-delay="100">
+
+                                        <div class="bb-amenity-icon">
+                                            <i class="bi bi-stars"></i>
+                                        </div>
+
+                                        <span>
+                                            Wide Raod
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-amenity-item" data-aos="zoom-in" data-aos-delay="150">
+
+                                        <div class="bb-amenity-icon">
+                                            <i class="bi bi-stars"></i>
+                                        </div>
+
+                                        <span>
+                                            Beautiful Mountain View
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-amenity-item" data-aos="zoom-in" data-aos-delay="200">
+
+                                        <div class="bb-amenity-icon">
+                                            <i class="bi bi-stars"></i>
+                                        </div>
+
+                                        <span>
+                                            Furniture
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-amenity-item" data-aos="zoom-in" data-aos-delay="250">
+
+                                        <div class="bb-amenity-icon">
+                                            <i class="bi bi-stars"></i>
+                                        </div>
+
+                                        <span>
+                                            Kitchen
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-amenity-item" data-aos="zoom-in" data-aos-delay="300">
+
+                                        <div class="bb-amenity-icon">
+                                            <i class="bi bi-stars"></i>
+                                        </div>
+
+                                        <span>
+                                            Modern Bedroom
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-amenity-item" data-aos="zoom-in" data-aos-delay="350">
+
+                                        <div class="bb-amenity-icon">
+                                            <i class="bi bi-stars"></i>
+                                        </div>
+
+                                        <span>
+                                            American Style Villa
+                                        </span>
+
+                                    </div>
+
+                                
+                            
+                        </div>
+
+                    </article>
+
+                
+
+                
+
+                
+                    <article class="bb-content-card" data-aos="fade-up">
+
+                        <div class="bb-section-heading">
+
+                            <span class="bb-section-kicker">
+                                Layouts
+                            </span>
+
+                            <h2>
+                                Floor Plans
+                            </h2>
+
+                            <div class="bb-divider">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                        <div class="row g-4">
+
+                            
+                                
+                                <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
+
+                                    <div class="bb-floor-card">
+
+                                        
+                                            <div class="bb-floor-image">
+
+                                                <img
+                                                    src="https://propbillions.com/public/images/projects/floor_plans/1bhk-1.png"
+                                                    alt="Heavan in the forest Floor Layout"
+                                                    loading="lazy"
+                                                >
+
+                                            </div>
+
+                                        
+                                        <div class="bb-floor-info">
+
+                                                                                            <h4>
+                                                    Heavan in the forest Floor Layout
+                                                </h4>
+                                            
+                                                                                            <p>
+                                                    <i class="bi bi-aspect-ratio"></i>
+                                                    1BHK - 570 Sqft
+                                                </p>
+                                            
+                                                                                            <strong>
+                                                    45 Lac
+                                                </strong>
+                                            
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            
+                                
+                                <div class="col-md-6" data-aos="fade-up" data-aos-delay="80">
+
+                                    <div class="bb-floor-card">
+
+                                        
+                                            <div class="bb-floor-image">
+
+                                                <img
+                                                    src="https://propbillions.com/public/images/projects/floor_plans/2bhk-1.png"
+                                                    alt="Heavan in the forest Floor Layout"
+                                                    loading="lazy"
+                                                >
+
+                                            </div>
+
+                                        
+                                        <div class="bb-floor-info">
+
+                                                                                            <h4>
+                                                    Heavan in the forest Floor Layout
+                                                </h4>
+                                            
+                                                                                            <p>
+                                                    <i class="bi bi-aspect-ratio"></i>
+                                                    2BHK Villa - 1233sqft
+                                                </p>
+                                            
+                                                                                            <strong>
+                                                    85 Lac
+                                                </strong>
+                                            
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            
+                                
+                                <div class="col-md-6" data-aos="fade-up" data-aos-delay="160">
+
+                                    <div class="bb-floor-card">
+
+                                        
+                                            <div class="bb-floor-image">
+
+                                                <img
+                                                    src="https://propbillions.com/public/images/projects/floor_plans/3bhk.png"
+                                                    alt="Heavan in the forest Floor Layout"
+                                                    loading="lazy"
+                                                >
+
+                                            </div>
+
+                                        
+                                        <div class="bb-floor-info">
+
+                                                                                            <h4>
+                                                    Heavan in the forest Floor Layout
+                                                </h4>
+                                            
+                                                                                            <p>
+                                                    <i class="bi bi-aspect-ratio"></i>
+                                                    3BHK Villa - 1750sqft
+                                                </p>
+                                            
+                                                                                            <strong>
+                                                    1.10 Cr
+                                                </strong>
+                                            
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            
+                        </div>
+
+                    </article>
+
+                
+
+                
+
+                
+                    <article class="bb-content-card" data-aos="fade-up">
+
+                        <div class="bb-section-heading">
+
+                            <span class="bb-section-kicker">
+                                Visual Tour
+                            </span>
+
+                            <h2>
+                                Project Gallery
+                            </h2>
+
+                            <div class="bb-divider">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                        <div class="bb-gallery-grid">
+
+                            
+                                
+                                
+                                    <a
+                                        href="https://propbillions.com/storage/images/projects/gallery/whatsapp-image-2026-09-26-at-175351-1.jpeg"
+                                        class="bb-gallery-item"
+                                        target="_blank"
+                                        data-aos="zoom-in"
+                                        data-aos-delay="0"
+                                    >
+
+                                        <img
+                                            src="https://propbillions.com/public/images/projects/gallery/whatsapp-image-2026-09-26-at-175351-1.jpeg"
+                                            alt="Heaven in the Forest – Your Dream Home Near Kaichi Dham - Gallery 1"
+                                            loading="lazy"
+                                        >
+
+                                        <div class="bb-gallery-overlay">
+                                            <i class="bi bi-arrows-fullscreen"></i>
+                                        </div>
+
+                                    </a>
+
+                                
+                            
+                                
+                                
+                                    <a
+                                        href="https://propbillions.com/storage/images/projects/gallery/whatsapp-image-2026-09-26-at-175351.jpeg"
+                                        class="bb-gallery-item"
+                                        target="_blank"
+                                        data-aos="zoom-in"
+                                        data-aos-delay="60"
+                                    >
+
+                                        <img
+                                            src="https://propbillions.com/public/images/projects/gallery/whatsapp-image-2026-09-26-at-175351.jpeg"
+                                            alt="Heaven in the Forest – Your Dream Home Near Kaichi Dham - Gallery 2"
+                                            loading="lazy"
+                                        >
+
+                                        <div class="bb-gallery-overlay">
+                                            <i class="bi bi-arrows-fullscreen"></i>
+                                        </div>
+
+                                    </a>
+
+                                
+                            
+                                
+                                
+                                    <a
+                                        href="https://propbillions.com/storage/images/projects/gallery/whatsapp-image-2026-09-26-at-175350.jpeg"
+                                        class="bb-gallery-item"
+                                        target="_blank"
+                                        data-aos="zoom-in"
+                                        data-aos-delay="120"
+                                    >
+
+                                        <img
+                                            src="https://propbillions.com/public/images/projects/gallery/whatsapp-image-2026-09-26-at-175350.jpeg"
+                                            alt="Heaven in the Forest – Your Dream Home Near Kaichi Dham - Gallery 3"
+                                            loading="lazy"
+                                        >
+
+                                        <div class="bb-gallery-overlay">
+                                            <i class="bi bi-arrows-fullscreen"></i>
+                                        </div>
+
+                                    </a>
+
+                                
+                            
+                                
+                                
+                                    <a
+                                        href="https://propbillions.com/storage/images/projects/gallery/whatsapp-image-2026-09-26-at-175350-1.jpeg"
+                                        class="bb-gallery-item"
+                                        target="_blank"
+                                        data-aos="zoom-in"
+                                        data-aos-delay="180"
+                                    >
+
+                                        <img
+                                            src="https://propbillions.com/public/images/projects/gallery/whatsapp-image-2026-09-26-at-175350-1.jpeg"
+                                            alt="Heaven in the Forest – Your Dream Home Near Kaichi Dham - Gallery 4"
+                                            loading="lazy"
+                                        >
+
+                                        <div class="bb-gallery-overlay">
+                                            <i class="bi bi-arrows-fullscreen"></i>
+                                        </div>
+
+                                    </a>
+
+                                
+                            
+                        </div>
+
+                    </article>
+
+                
+
+                
+
+                
+                    <article class="bb-content-card" data-aos="fade-up">
+
+                        <div class="bb-section-heading">
+
+                            <span class="bb-section-kicker">
+                                Investment
+                            </span>
+
+                            <h2>
+                                Price Plans
+                            </h2>
+
+                            <div class="bb-divider">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                        <div class="bb-price-list">
+
+                            
+                                
+                                <div class="bb-price-row">
+
+                                    <div>
+
+                                                                                    <h4>
+                                                1 BHK
+                                            </h4>
+                                        
+                                                                                    <p>
+                                                Fully Furnished
+                                            </p>
+                                        
+                                    </div>
+
+                                    <strong>
+                                        ₹45 Lakhs
+                                    </strong>
+
+                                </div>
+
+                            
+                                
+                                <div class="bb-price-row">
+
+                                    <div>
+
+                                                                                    <h4>
+                                                2 BHK
+                                            </h4>
+                                        
+                                                                                    <p>
+                                                Fully Furnished
+                                            </p>
+                                        
+                                    </div>
+
+                                    <strong>
+                                        ₹85 Lakhs
+                                    </strong>
+
+                                </div>
+
+                            
+                                
+                                <div class="bb-price-row">
+
+                                    <div>
+
+                                                                                    <h4>
+                                                3 BHK
+                                            </h4>
+                                        
+                                                                                    <p>
+                                                Fully Furnished
+                                            </p>
+                                        
+                                    </div>
+
+                                    <strong>
+                                        ₹1.10 Crore
+                                    </strong>
+
+                                </div>
+
+                            
+                        </div>
+
+                    </article>
+
+                
+
+                
+
+                
+                    <article class="bb-content-card" data-aos="fade-up">
+
+                        <div class="bb-section-heading">
+
+                            <span class="bb-section-kicker">
+                                Need To Know
+                            </span>
+
+                            <h2>
+                                Frequently Asked Questions
+                            </h2>
+
+                            <div class="bb-divider">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                        <div class="bb-faq">
+
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq0"
+                                            aria-expanded="false"
+                                            aria-controls="faq0"
+                                        >
+
+                                            <span>
+                                                Where is Heaven in the Forest located?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq0"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                Heaven in the Forest is located near Kainchi Dham, Uttarakhand, offering a peaceful mountain environment surrounded by lush forests and beautiful valley views.
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq1"
+                                            aria-expanded="false"
+                                            aria-controls="faq1"
+                                        >
+
+                                            <span>
+                                                What types of properties are available?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq1"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                The project offers three property options:  1 BHK Premium Apartments 2 BHK Luxury Villas 3 BHK Luxury Villas
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq2"
+                                            aria-expanded="false"
+                                            aria-controls="faq2"
+                                        >
+
+                                            <span>
+                                                How many units are available in the project?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq2"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                Heaven in the Forest is an exclusive project with only 18 units, providing a limited and private second-home community.
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq3"
+                                            aria-expanded="false"
+                                            aria-controls="faq3"
+                                        >
+
+                                            <span>
+                                                What is the starting price?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq3"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                Prices start from ₹45 Lakhs for the 1 BHK premium apartment and go up to approximately ₹1.10 Crore for the 3 BHK luxury villa.
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq4"
+                                            aria-expanded="false"
+                                            aria-controls="faq4"
+                                        >
+
+                                            <span>
+                                                Are the homes fully furnished?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq4"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                Yes. The homes are offered as fully furnished properties, making them suitable for personal stays, holidays and second-home use.
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq5"
+                                            aria-expanded="false"
+                                            aria-controls="faq5"
+                                        >
+
+                                            <span>
+                                                What amenities are available?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq5"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                The project includes:  Swimming Pool Cafeteria Kids’ Play Area Wide Internal Roads Mountain &amp; Forest Views Resort-style community environment
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq6"
+                                            aria-expanded="false"
+                                            aria-controls="faq6"
+                                        >
+
+                                            <span>
+                                                Is Heaven in the Forest suitable as a second home?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq6"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                Yes. The project is designed as a second-home and holiday-home community, providing a peaceful mountain lifestyle away from the city.
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq7"
+                                            aria-expanded="false"
+                                            aria-controls="faq7"
+                                        >
+
+                                            <span>
+                                                Can the property be used as a holiday home?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq7"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                Yes. The furnished homes and resort-style environment make them suitable for personal holidays and family getaways.
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq8"
+                                            aria-expanded="false"
+                                            aria-controls="faq8"
+                                        >
+
+                                            <span>
+                                                Does the project have investment potential?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq8"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                The project is positioned as an investment opportunity, with potential for short-term holiday rentals in addition to personal use. Actual rental returns will depend on occupancy, operating costs and market conditions.
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq9"
+                                            aria-expanded="false"
+                                            aria-controls="faq9"
+                                        >
+
+                                            <span>
+                                                Is home loan support available?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq9"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                Yes. Home loans of up to 70% are stated to be available through HDFC Bank, subject to the bank’s eligibility, documentation and approval process.
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq10"
+                                            aria-expanded="false"
+                                            aria-controls="faq10"
+                                        >
+
+                                            <span>
+                                                What is the payment plan?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq10"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                The stated payment plan is:  10% at Booking 40% after 45 days with HDFC Bank support 25% on Structure (6 Months) 25% on Possession
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                                
+                                    <div class="bb-faq-item">
+
+                                        <button
+                                            type="button"
+                                            class="bb-faq-question"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#faq11"
+                                            aria-expanded="false"
+                                            aria-controls="faq11"
+                                        >
+
+                                            <span>
+                                                What kind of views can residents expect?
+                                            </span>
+
+                                            <i class="bi bi-plus-lg"></i>
+
+                                        </button>
+
+                                        <div
+                                            id="faq11"
+                                            class="collapse"
+                                        >
+
+                                            <div class="bb-faq-answer">
+
+                                                The project offers spectacular mountain, forest and valley views, with the natural surroundings forming a major part of the lifestyle experience.
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                
+                            
+                        </div>
+
+                    </article>
+
+                
+            </div>
+
+
+            
+
+            <div class="col-lg-4">
+
+                <div class="bb-sidebar">
+
+
+                    
+
+                    <div
+                        class="bb-inquiry-card"
+                        data-aos="fade-left"
+                    >
+
+                        <div class="bb-inquiry-top">
+
+                            <span>
+                                Starting Price
+                            </span>
+
+                            <h3>
+                                Price on Request
+                            </h3>
+
+                        </div>
+
+                        <div class="bb-inquiry-content">
+
+                         
+
+                            <h2>
+                                Interested in this property?
+                            </h2>
+
+                            <p>
+                                Speak with our property advisors for pricing,
+                                availability, floor plans and site visit assistance.
+                            </p>
+
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            <form
+                                action="#"
+                                method="POST"
+                                class="bb-inquiry-form"
+                            >
+
+                                <input type="hidden" name="_token" value="04f4u5KPG1sAjpkXHeadN8TRZH8mLYCV7KYcJI9m" autocomplete="off">
+                                <input
+                                    type="hidden"
+                                    name="project_id"
+                                    value="9"
+                                >
+
+                                <input
+                                    type="hidden"
+                                    name="project"
+                                    value="heaven-in-the-forest-your-dream-home-near-kaichi-dham"
+                                >
+
+
+                                <div class="bb-form-group">
+
+                                    <label for="bb-name">
+                                        Full Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="bb-name"
+                                        name="name"
+                                        value=""
+                                        placeholder="Enter your name"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="bb-form-group">
+
+                                    <label for="bb-mobile">
+                                        Mobile Number
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="bb-mobile"
+                                        name="mobile"
+                                        value=""
+                                        placeholder="+91 XXXXX XXXXX"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="bb-form-group">
+
+                                    <label for="bb-email">
+                                        Email Address
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="bb-email"
+                                        name="email"
+                                        value=""
+                                        placeholder="you@example.com"
+                                    >
+
+                                </div>
+
+
+                                <div class="bb-form-group">
+
+                                    <label for="bb-message">
+                                        Message
+                                    </label>
+
+                                    <textarea
+                                        id="bb-message"
+                                        name="message"
+                                        rows="4"
+                                        placeholder="I'm interested in Heaven in the Forest – Your Dream Home Near Kaichi Dham"
+                                    >I&#039;m interested in Heaven in the Forest – Your Dream Home Near Kaichi Dham</textarea>
+
+                                </div>
+
+
+                                <button
+                                    type="submit"
+                                    class="bb-submit-btn"
+                                >
+
+                                    <span>
+                                        Request Information
+                                    </span>
+
+                                    <i class="bi bi-arrow-right"></i>
+
+                                </button>
+
+                            </form>
+
+
+                            <div class="bb-inquiry-note">
+
+                                <i class="bi bi-shield-check"></i>
+
+                                <span>
+                                    Your information is kept confidential.
+                                    Our advisor will contact you shortly.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    
+
+                    <div
+                        class="bb-facts-card"
+                        data-aos="fade-left"
+                        data-aos-delay="100"
+                    >
+
+                        <div class="bb-sidebar-title">
+
+                            <span>
+                                Project Overview
+                            </span>
+
+                            <div class="bb-divider">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+
+                        
+                            <div class="bb-fact-row">
+
+                                <span>
+                                    Category
+                                </span>
+
+                                <strong>
+                                    Residential
+                                </strong>
+
+                            </div>
+
+                        
+
+                        
+                            <div class="bb-fact-row">
+
+                                <span>
+                                    Configuration
+                                </span>
+
+                                <strong>
+                                    890 Sq.ft
+                                </strong>
+
+                            </div>
+
+                        
+
+                        
+                            <div class="bb-fact-row">
+
+                                <span>
+                                    Project Stage
+                                </span>
+
+                                <strong>
+                                    Under Construction
+                                </strong>
+
+                            </div>
+
+                        
+
+                        
+                            <div class="bb-fact-row bb-fact-location">
+
+                                <span>
+                                    Location
+                                </span>
+
+                                <strong>
+                                    Kaichi Dham, UttarKhand
+                                </strong>
+
+                            </div>
+
+                        
+                    </div>
+
+
+                    
+
+                    
+
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="pb-emi-section" id="emiCalculator">
+
+    <div class="container">
+
+        
+        <div class="pb-emi-heading">
+            <span class="pb-emi-kicker">
+                <span></span>
+                FINANCIAL PLANNER
+            </span>
+
+            <h2>
+                EMI <strong>Calculator</strong>
+            </h2>
+
+            <p>
+                Calculate your monthly home loan EMI, total interest,
+                principal and complete repayment schedule.
+            </p>
+        </div>
+
+
+        
+        <div class="pb-emi-card">
+
+            <div class="row g-0 align-items-stretch">
+
+                
+                <div class="col-lg-6">
+
+                    <div class="pb-emi-input-panel">
+
+                        <div class="pb-emi-panel-head">
+                            <div>
+                                <span>LOAN DETAILS</span>
+                                <h3>Calculate Your EMI</h3>
+                            </div>
+
+                            <div class="pb-emi-calculator-icon">
+                                <i class="bi bi-calculator"></i>
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="pb-emi-field">
+
+                            <div class="pb-emi-label-row">
+                                <label for="amountInput">
+                                    Loan Amount
+                                </label>
+
+                                <div class="pb-emi-value-box">
+                                    ₹
+                                    <input
+                                        type="number"
+                                        id="amountInput"
+                                        value="500000"
+                                        min="10000"
+                                        max="100000000"
+                                        step="10000"
+                                    >
+                                </div>
+                            </div>
+
+                            <input
+                                type="range"
+                                id="amount"
+                                min="10000"
+                                max="10000000"
+                                step="10000"
+                                value="500000"
+                                class="pb-emi-range"
+                            >
+
+                            <div class="pb-range-values">
+                                <span>₹10K</span>
+                                <span>₹1 Cr</span>
+                            </div>
+
+                        </div>
+
+
+                        
+                        <div class="pb-emi-field">
+
+                            <div class="pb-emi-label-row">
+                                <label for="rateInput">
+                                    Interest Rate
+                                </label>
+
+                                <div class="pb-emi-value-box">
+                                    <input
+                                        type="number"
+                                        id="rateInput"
+                                        value="8.5"
+                                        min="0"
+                                        max="30"
+                                        step="0.1"
+                                    >
+                                    %
+                                </div>
+                            </div>
+
+                            <input
+                                type="range"
+                                id="rate"
+                                min="0"
+                                max="20"
+                                step="0.1"
+                                value="8.5"
+                                class="pb-emi-range"
+                            >
+
+                            <div class="pb-range-values">
+                                <span>0%</span>
+                                <span>20%</span>
+                            </div>
+
+                        </div>
+
+
+                        
+                        <div class="pb-emi-field">
+
+                            <div class="pb-emi-label-row">
+                                <label for="yearInput">
+                                    Loan Tenure
+                                </label>
+
+                                <div class="pb-emi-value-box">
+                                    <input
+                                        type="number"
+                                        id="yearInput"
+                                        value="20"
+                                        min="1"
+                                        max="40"
+                                        step="1"
+                                    >
+                                    Years
+                                </div>
+                            </div>
+
+                            <input
+                                type="range"
+                                id="years"
+                                min="1"
+                                max="40"
+                                step="1"
+                                value="20"
+                                class="pb-emi-range"
+                            >
+
+                            <div class="pb-range-values">
+                                <span>1 Year</span>
+                                <span>40 Years</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="pb-emi-info">
+                            <i class="bi bi-info-circle"></i>
+
+                            <span>
+                                EMI is calculated using the standard
+                                reducing balance method.
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                
+                <div class="col-lg-6">
+
+                    <div class="pb-emi-chart-panel">
+
+                        <div class="pb-chart-glow"></div>
+
+                        <div class="pb-chart-content">
+
+                            <span class="pb-chart-title">
+                                MONTHLY EMI
+                            </span>
+
+                            <div class="pb-chart-emi">
+                                <small>₹</small>
+                                <span id="emi">0</span>
+                            </div>
+
+
+                            
+                            <div class="pb-donut-wrapper">
+
+                                <svg
+                                    class="pb-donut"
+                                    viewBox="0 0 240 240"
+                                >
+
+                                    
+                                    <circle
+                                        class="pb-donut-bg"
+                                        cx="120"
+                                        cy="120"
+                                        r="88"
+                                    ></circle>
+
+                                    
+                                    <circle
+                                        class="pb-donut-interest"
+                                        id="interestCircle"
+                                        cx="120"
+                                        cy="120"
+                                        r="88"
+                                    ></circle>
+
+                                    
+                                    <circle
+                                        class="pb-donut-principal"
+                                        id="principalCircle"
+                                        cx="120"
+                                        cy="120"
+                                        r="88"
+                                    ></circle>
+
+                                </svg>
+
+
+                                <div class="pb-donut-center">
+
+                                    <span>
+                                        TOTAL AMOUNT
+                                    </span>
+
+                                    <strong id="total">
+                                        ₹0
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            
+                            <div class="pb-chart-legend">
+
+                                <div class="pb-legend-item">
+
+                                    <span class="pb-legend-dot principal-dot"></span>
+
+                                    <div>
+                                        <small>Principal</small>
+                                        <strong id="principal">
+                                            ₹0
+                                        </strong>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="pb-legend-item">
+
+                                    <span class="pb-legend-dot interest-dot"></span>
+
+                                    <div>
+                                        <small>Total Interest</small>
+                                        <strong id="interest">
+                                            ₹0
+                                        </strong>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            
+                            <div class="pb-percentage-row">
+
+                                <div>
+                                    <span>Principal</span>
+                                    <strong id="principalPercent">
+                                        0%
+                                    </strong>
+                                </div>
+
+                                <div>
+                                    <span>Interest</span>
+                                    <strong id="interestPercent">
+                                        0%
+                                    </strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            
+            <div class="pb-emi-summary">
+
+                <div class="pb-summary-item">
+
+                    <span>
+                        <i class="bi bi-wallet2"></i>
+                        Monthly EMI
+                    </span>
+
+                    <strong>
+                        ₹ <span id="emiSummary">0</span>
+                    </strong>
+
+                </div>
+
+
+                <div class="pb-summary-item">
+
+                    <span>
+                        <i class="bi bi-house"></i>
+                        Principal
+                    </span>
+
+                    <strong>
+                        ₹ <span id="principalSummary">0</span>
+                    </strong>
+
+                </div>
+
+
+                <div class="pb-summary-item">
+
+                    <span>
+                        <i class="bi bi-percent"></i>
+                        Total Interest
+                    </span>
+
+                    <strong>
+                        ₹ <span id="interestSummary">0</span>
+                    </strong>
+
+                </div>
+
+
+                <div class="pb-summary-item">
+
+                    <span>
+                        <i class="bi bi-cash-stack"></i>
+                        Total Amount
+                    </span>
+
+                    <strong>
+                        ₹ <span id="totalSummary">0</span>
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="pb-amortization">
+
+            <div class="pb-amortization-head">
+
+                <div>
+                    <span class="pb-emi-kicker">
+                        <span></span>
+                        REPAYMENT PLAN
+                    </span>
+
+                    <h3>
+                        EMI <strong>Schedule</strong>
+                    </h3>
+                </div>
+
+                <div class="pb-table-note">
+                    <i class="bi bi-calendar3"></i>
+                    Monthly Breakdown
+                </div>
+
+            </div>
+
+
+            <div class="pb-table-wrapper">
+
+                <table class="pb-emi-table">
+
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>EMI</th>
+                            <th>Interest</th>
+                            <th>Principal</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="emiTable">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<style>
+
+:root{
+    --pb-navy:#0A2540;
+    --pb-blue:#1D4E89;
+    --pb-blue-light:#2F6FB0;
+    --pb-gold:#C9A227;
+    --pb-gold-light:#E8C965;
+    --pb-white:#FFFFFF;
+    --pb-bg:#F6F9FC;
+    --pb-border:#D6E1EE;
+    --pb-text:#122336;
+    --pb-muted:#66778A;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.pb-emi-section{
+    position:relative;
+    padding:100px 0;
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(201,162,39,.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(29,78,137,.08),
+            transparent 30%
+        ),
+        var(--pb-bg);
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.pb-emi-heading{
+    text-align:center;
+    max-width:760px;
+    margin:0 auto 50px;
+}
+
+.pb-emi-kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:var(--pb-gold);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.pb-emi-kicker span{
+    width:28px;
+    height:2px;
+    background:var(--pb-gold);
+    display:inline-block;
+}
+
+.pb-emi-heading h2{
+    margin:14px 0 12px;
+    color:var(--pb-navy);
+    font-size:48px;
+    font-weight:300;
+    letter-spacing:-1.5px;
+}
+
+.pb-emi-heading h2 strong{
+    font-weight:800;
+    color:var(--pb-blue);
+}
+
+.pb-emi-heading p{
+    margin:0;
+    color:var(--pb-muted);
+    font-size:16px;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.pb-emi-card{
+    position:relative;
+    background:#fff;
+    border:1px solid rgba(10,37,64,.08);
+    border-radius:26px;
+    overflow:hidden;
+    box-shadow:
+        0 30px 80px rgba(10,37,64,.13);
+}
+
+
+/* =========================================================
+   INPUT PANEL
+========================================================= */
+
+.pb-emi-input-panel{
+    padding:50px;
+    height:100%;
+}
+
+.pb-emi-panel-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+.pb-emi-panel-head span{
+    color:var(--pb-gold);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.pb-emi-panel-head h3{
+    margin:8px 0 0;
+    color:var(--pb-navy);
+    font-size:28px;
+    font-weight:800;
+}
+
+.pb-emi-calculator-icon{
+    width:55px;
+    height:55px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--pb-gold);
+    background:rgba(201,162,39,.1);
+    border:1px solid rgba(201,162,39,.2);
+    font-size:22px;
+}
+
+
+/* =========================================================
+   FIELDS
+========================================================= */
+
+.pb-emi-field{
+    margin-bottom:34px;
+}
+
+.pb-emi-label-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:17px;
+}
+
+.pb-emi-label-row label{
+    color:var(--pb-text);
+    font-size:15px;
+    font-weight:700;
+    margin:0;
+}
+
+.pb-emi-value-box{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    min-width:125px;
+    padding:9px 13px;
+    border-radius:10px;
+    background:#f5f8fb;
+    border:1px solid var(--pb-border);
+    color:var(--pb-navy);
+    font-size:13px;
+    font-weight:800;
+}
+
+.pb-emi-value-box input{
+    width:100%;
+    border:0;
+    outline:0;
+    background:transparent;
+    color:var(--pb-navy);
+    font-size:14px;
+    font-weight:800;
+    text-align:right;
+}
+
+
+/* Remove arrows */
+
+.pb-emi-value-box input::-webkit-outer-spin-button,
+.pb-emi-value-box input::-webkit-inner-spin-button{
+    -webkit-appearance:none;
+    margin:0;
+}
+
+.pb-emi-value-box input[type=number]{
+    -moz-appearance:textfield;
+}
+
+
+/* =========================================================
+   RANGE
+========================================================= */
+
+.pb-emi-range{
+    width:100%;
+    height:5px;
+    appearance:none;
+    -webkit-appearance:none;
+    border-radius:20px;
+    outline:none;
+    cursor:pointer;
+    background:
+        linear-gradient(
+            to right,
+            var(--pb-gold) 0%,
+            var(--pb-gold) 50%,
+            #dfe7ef 50%,
+            #dfe7ef 100%
+        );
+}
+
+.pb-emi-range::-webkit-slider-thumb{
+    appearance:none;
+    -webkit-appearance:none;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:var(--pb-navy);
+    border:4px solid #fff;
+    box-shadow:
+        0 3px 10px rgba(10,37,64,.25);
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.pb-emi-range::-webkit-slider-thumb:hover{
+    transform:scale(1.2);
+    background:var(--pb-gold);
+}
+
+.pb-emi-range::-moz-range-thumb{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:var(--pb-navy);
+    border:4px solid #fff;
+    box-shadow:
+        0 3px 10px rgba(10,37,64,.25);
+    cursor:pointer;
+}
+
+.pb-range-values{
+    display:flex;
+    justify-content:space-between;
+    margin-top:9px;
+    color:#8A98A7;
+    font-size:11px;
+}
+
+
+/* =========================================================
+   INFO
+========================================================= */
+
+.pb-emi-info{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+    padding:13px 15px;
+    border-radius:10px;
+    background:#f7fafc;
+    color:#728294;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.pb-emi-info i{
+    color:var(--pb-gold);
+    font-size:15px;
+}
+
+
+/* =========================================================
+   CHART PANEL
+========================================================= */
+
+.pb-emi-chart-panel{
+    position:relative;
+    height:100%;
+    min-height:620px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(201,162,39,.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #0A2540,
+            #071B30
+        );
+}
+
+.pb-chart-glow{
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:rgba(201,162,39,.08);
+    filter:blur(10px);
+    animation:pbGlow 4s ease-in-out infinite;
+}
+
+@keyframes pbGlow{
+    0%,100%{
+        transform:scale(.95);
+        opacity:.5;
+    }
+    50%{
+        transform:scale(1.08);
+        opacity:1;
+    }
+}
+
+.pb-chart-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    text-align:center;
+    padding:40px;
+}
+
+.pb-chart-title{
+    color:rgba(255,255,255,.6);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2.5px;
+}
+
+.pb-chart-emi{
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    margin:8px 0 20px;
+    color:#fff;
+    font-size:42px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.pb-chart-emi small{
+    margin-top:7px;
+    margin-right:5px;
+    color:var(--pb-gold-light);
+    font-size:22px;
+}
+
+
+/* =========================================================
+   DONUT
+========================================================= */
+
+.pb-donut-wrapper{
+    position:relative;
+    width:280px;
+    height:280px;
+    margin:0 auto 28px;
+}
+
+.pb-donut{
+    width:100%;
+    height:100%;
+    transform:rotate(-90deg);
+    overflow:visible;
+}
+
+.pb-donut circle{
+    fill:none;
+    stroke-width:24;
+}
+
+.pb-donut-bg{
+    stroke:rgba(255,255,255,.08);
+}
+
+.pb-donut-interest,
+.pb-donut-principal{
+    stroke-linecap:round;
+    transition:
+        stroke-dasharray 1.3s cubic-bezier(.22,1,.36,1),
+        stroke-dashoffset 1.3s cubic-bezier(.22,1,.36,1);
+}
+
+.pb-donut-interest{
+    stroke:var(--pb-gold);
+    filter:
+        drop-shadow(
+            0 0 7px rgba(201,162,39,.45)
+        );
+}
+
+.pb-donut-principal{
+    stroke:#3E82C4;
+    filter:
+        drop-shadow(
+            0 0 7px rgba(62,130,196,.35)
+        );
+}
+
+.pb-donut-center{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.pb-donut-center span{
+    color:rgba(255,255,255,.5);
+    font-size:9px;
+    letter-spacing:1.8px;
+    font-weight:800;
+}
+
+.pb-donut-center strong{
+    margin-top:7px;
+    color:#fff;
+    font-size:21px;
+    font-weight:800;
+}
+
+
+/* =========================================================
+   LEGEND
+========================================================= */
+
+.pb-chart-legend{
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    margin-bottom:25px;
+}
+
+.pb-legend-item{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    text-align:left;
+}
+
+.pb-legend-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+}
+
+.principal-dot{
+    background:#3E82C4;
+    box-shadow:0 0 10px rgba(62,130,196,.5);
+}
+
+.interest-dot{
+    background:var(--pb-gold);
+    box-shadow:0 0 10px rgba(201,162,39,.5);
+}
+
+.pb-legend-item small{
+    display:block;
+    color:rgba(255,255,255,.5);
+    font-size:10px;
+}
+
+.pb-legend-item strong{
+    display:block;
+    margin-top:2px;
+    color:#fff;
+    font-size:13px;
+}
+
+
+/* =========================================================
+   PERCENTAGE
+========================================================= */
+
+.pb-percentage-row{
+    display:flex;
+    justify-content:center;
+    gap:70px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.pb-percentage-row div{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.pb-percentage-row span{
+    color:rgba(255,255,255,.5);
+    font-size:11px;
+}
+
+.pb-percentage-row strong{
+    color:var(--pb-gold-light);
+    font-size:13px;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.pb-emi-summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid #edf1f5;
+    background:#fff;
+}
+
+.pb-summary-item{
+    padding:25px 30px;
+    border-right:1px solid #edf1f5;
+}
+
+.pb-summary-item:last-child{
+    border-right:0;
+}
+
+.pb-summary-item span{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--pb-muted);
+    font-size:12px;
+    font-weight:600;
+}
+
+.pb-summary-item span i{
+    color:var(--pb-gold);
+}
+
+.pb-summary-item strong{
+    display:block;
+    margin-top:7px;
+    color:var(--pb-navy);
+    font-size:20px;
+    font-weight:800;
+}
+
+
+/* =========================================================
+   AMORTIZATION
+========================================================= */
+
+.pb-amortization{
+    margin-top:70px;
+}
+
+.pb-amortization-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:25px;
+}
+
+.pb-amortization-head h3{
+    margin:10px 0 0;
+    color:var(--pb-navy);
+    font-size:32px;
+    font-weight:300;
+}
+
+.pb-amortization-head h3 strong{
+    font-weight:800;
+    color:var(--pb-blue);
+}
+
+.pb-table-note{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 15px;
+    border:1px solid var(--pb-border);
+    border-radius:8px;
+    background:#fff;
+    color:var(--pb-muted);
+    font-size:12px;
+    font-weight:700;
+}
+
+.pb-table-note i{
+    color:var(--pb-gold);
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.pb-table-wrapper{
+    overflow:hidden;
+    border:1px solid var(--pb-border);
+    border-radius:18px;
+    background:#fff;
+    box-shadow:
+        0 20px 50px rgba(10,37,64,.07);
+}
+
+.pb-emi-table{
+    width:100%;
+    margin:0;
+    border-collapse:collapse;
+}
+
+.pb-emi-table thead{
+    background:var(--pb-navy);
+}
+
+.pb-emi-table th{
+    padding:17px 20px;
+    color:#fff;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.7px;
+    text-transform:uppercase;
+    text-align:right;
+    white-space:nowrap;
+}
+
+.pb-emi-table th:first-child{
+    text-align:left;
+}
+
+.pb-emi-table td{
+    padding:15px 20px;
+    border-bottom:1px solid #edf1f5;
+    color:#526477;
+    font-size:13px;
+    text-align:right;
+    white-space:nowrap;
+}
+
+.pb-emi-table td:first-child{
+    text-align:left;
+    color:var(--pb-navy);
+    font-weight:800;
+}
+
+.pb-emi-table tbody tr{
+    transition:.25s ease;
+}
+
+.pb-emi-table tbody tr:hover{
+    background:#f8fafc;
+}
+
+.pb-emi-table tbody tr:last-child td{
+    border-bottom:0;
+}
+
+.pb-emi-table td:last-child{
+    color:var(--pb-blue);
+    font-weight:800;
+}
+
+
+/* =========================================================
+   TABLE ANIMATION
+========================================================= */
+
+.pb-table-row-animation{
+    animation:pbTableRow .35s ease both;
+}
+
+@keyframes pbTableRow{
+
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:991px){
+
+    .pb-emi-input-panel{
+        padding:35px;
+    }
+
+    .pb-emi-chart-panel{
+        min-height:570px;
+    }
+
+    .pb-emi-summary{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .pb-summary-item:nth-child(2){
+        border-right:0;
+    }
+
+    .pb-summary-item:nth-child(-n+2){
+        border-bottom:1px solid #edf1f5;
+    }
+
+}
+
+
+@media(max-width:767px){
+
+    .pb-emi-section{
+        padding:70px 0;
+    }
+
+    .pb-emi-heading{
+        margin-bottom:35px;
+    }
+
+    .pb-emi-heading h2{
+        font-size:36px;
+    }
+
+    .pb-emi-input-panel{
+        padding:28px 22px;
+    }
+
+    .pb-emi-panel-head h3{
+        font-size:24px;
+    }
+
+    .pb-emi-chart-panel{
+        min-height:520px;
+    }
+
+    .pb-chart-content{
+        padding:30px 20px;
+    }
+
+    .pb-chart-emi{
+        font-size:34px;
+    }
+
+    .pb-donut-wrapper{
+        width:240px;
+        height:240px;
+    }
+
+    .pb-chart-legend{
+        gap:20px;
+    }
+
+    .pb-percentage-row{
+        gap:40px;
+    }
+
+    .pb-amortization-head{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .pb-table-wrapper{
+        overflow-x:auto;
+    }
+
+    .pb-emi-table{
+        min-width:650px;
+    }
+
+}
+
+
+@media(max-width:480px){
+
+    .pb-emi-heading h2{
+        font-size:31px;
+    }
+
+    .pb-emi-label-row{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .pb-emi-value-box{
+        width:100%;
+    }
+
+    .pb-emi-chart-panel{
+        min-height:500px;
+    }
+
+    .pb-donut-wrapper{
+        width:215px;
+        height:215px;
+    }
+
+    .pb-chart-emi{
+        font-size:29px;
+    }
+
+    .pb-emi-summary{
+        grid-template-columns:1fr;
+    }
+
+    .pb-summary-item{
+        border-right:0 !important;
+        border-bottom:1px solid #edf1f5;
+    }
+
+    .pb-summary-item:last-child{
+        border-bottom:0;
+    }
+
+    .pb-percentage-row{
+        gap:25px;
+    }
+
+}
+
+
+/* Reduced Motion */
+
+@media(prefers-reduced-motion:reduce){
+
+    .pb-chart-glow{
+        animation:none;
+    }
+
+    .pb-donut-interest,
+    .pb-donut-principal{
+        transition:none;
+    }
+
+}
+
+</style>
+
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function(){
+
+    /* =========================================
+       ELEMENTS
+    ========================================= */
+
+    const amountInput = document.getElementById('amountInput');
+    const amountSlider = document.getElementById('amount');
+
+    const rateInput = document.getElementById('rateInput');
+    const rateSlider = document.getElementById('rate');
+
+    const yearInput = document.getElementById('yearInput');
+    const yearSlider = document.getElementById('years');
+
+    const emiElement = document.getElementById('emi');
+    const principalElement = document.getElementById('principal');
+    const interestElement = document.getElementById('interest');
+    const totalElement = document.getElementById('total');
+
+    const emiSummary = document.getElementById('emiSummary');
+    const principalSummary = document.getElementById('principalSummary');
+    const interestSummary = document.getElementById('interestSummary');
+    const totalSummary = document.getElementById('totalSummary');
+
+    const tableBody = document.getElementById('emiTable');
+
+    const principalCircle =
+        document.getElementById('principalCircle');
+
+    const interestCircle =
+        document.getElementById('interestCircle');
+
+    const principalPercent =
+        document.getElementById('principalPercent');
+
+    const interestPercent =
+        document.getElementById('interestPercent');
+
+
+    /* =========================================
+       DONUT CONFIG
+    ========================================= */
+
+    const radius = 88;
+
+    const circumference =
+        2 * Math.PI * radius;
+
+    principalCircle.style.strokeDasharray =
+        `${circumference} ${circumference}`;
+
+    interestCircle.style.strokeDasharray =
+        `${circumference} ${circumference}`;
+
+    principalCircle.style.strokeDashoffset =
+        circumference;
+
+    interestCircle.style.strokeDashoffset =
+        circumference;
+
+
+    /* =========================================
+       INDIAN CURRENCY
+    ========================================= */
+
+    function formatNumber(value){
+
+        return Math.round(value).toLocaleString('en-IN');
+
+    }
+
+
+    /* =========================================
+       NUMBER ANIMATION
+    ========================================= */
+
+    function animateNumber(
+        element,
+        start,
+        end,
+        duration = 700
+    ){
+
+        const startTime = performance.now();
+
+        function update(currentTime){
+
+            const progress =
+                Math.min(
+                    (currentTime - startTime) / duration,
+                    1
+                );
+
+            const eased =
+                1 - Math.pow(1 - progress, 3);
+
+            const current =
+                start + ((end - start) * eased);
+
+            element.textContent =
+                formatNumber(current);
+
+            if(progress < 1){
+
+                requestAnimationFrame(update);
+
+            }
+
+        }
+
+        requestAnimationFrame(update);
+
+    }
+
+
+    /* =========================================
+       INPUT -> SLIDER
+    ========================================= */
+
+    amountInput.addEventListener('input', function(){
+
+        let value = Number(this.value);
+
+        if(value < 10000){
+            value = 10000;
+        }
+
+        if(value > 10000000){
+            value = 10000000;
+        }
+
+        amountSlider.value = value;
+
+        calculateEMI();
+
+    });
+
+
+    rateInput.addEventListener('input', function(){
+
+        let value = Number(this.value);
+
+        if(value < 0){
+            value = 0;
+        }
+
+        if(value > 20){
+            value = 20;
+        }
+
+        rateSlider.value = value;
+
+        calculateEMI();
+
+    });
+
+
+    yearInput.addEventListener('input', function(){
+
+        let value = Number(this.value);
+
+        if(value < 1){
+            value = 1;
+        }
+
+        if(value > 40){
+            value = 40;
+        }
+
+        yearSlider.value = value;
+
+        calculateEMI();
+
+    });
+
+
+    /* =========================================
+       SLIDER -> INPUT
+    ========================================= */
+
+    amountSlider.addEventListener('input', function(){
+
+        amountInput.value = this.value;
+
+        calculateEMI();
+
+    });
+
+
+    rateSlider.addEventListener('input', function(){
+
+        rateInput.value = this.value;
+
+        calculateEMI();
+
+    });
+
+
+    yearSlider.addEventListener('input', function(){
+
+        yearInput.value = this.value;
+
+        calculateEMI();
+
+    });
+
+
+    /* =========================================
+       RANGE BACKGROUND
+    ========================================= */
+
+    function updateRangeBackground(
+        slider,
+        min,
+        max
+    ){
+
+        const value =
+            Number(slider.value);
+
+        const percentage =
+            ((value - min) / (max - min)) * 100;
+
+        slider.style.background =
+            `linear-gradient(
+                to right,
+                #C9A227 0%,
+                #C9A227 ${percentage}%,
+                #dfe7ef ${percentage}%,
+                #dfe7ef 100%
+            )`;
+
+    }
+
+
+    /* =========================================
+       DONUT ANIMATION
+    ========================================= */
+
+    function updateChart(
+        principalRatio,
+        interestRatio
+    ){
+
+        const principalLength =
+            circumference * principalRatio;
+
+        const interestLength =
+            circumference * interestRatio;
+
+
+        /*
+         * Principal segment
+         */
+
+        principalCircle.style.strokeDasharray =
+            `${principalLength} ${circumference}`;
+
+        principalCircle.style.strokeDashoffset =
+            0;
+
+
+        /*
+         * Interest starts after principal
+         */
+
+        interestCircle.style.strokeDasharray =
+            `${interestLength} ${circumference}`;
+
+        interestCircle.style.strokeDashoffset =
+            -principalLength;
+
+    }
+
+
+    /* =========================================
+       CALCULATE EMI
+    ========================================= */
+
+    let previousEMI = 0;
+
+    function calculateEMI(){
+
+        const principal =
+            Number(amountInput.value);
+
+        const annualRate =
+            Number(rateInput.value);
+
+        const years =
+            Number(yearInput.value);
+
+
+        if(
+            !principal ||
+            principal <= 0 ||
+            !years ||
+            years <= 0
+        ){
+
+            return;
+
+        }
+
+
+        const months =
+            years * 12;
+
+        const monthlyRate =
+            annualRate / 12 / 100;
+
+
+        let emi;
+
+
+        /*
+         * Zero interest
+         */
+
+        if(monthlyRate === 0){
+
+            emi =
+                principal / months;
+
+        }
+
+        /*
+         * Standard reducing balance EMI
+         */
+
+        else{
+
+            emi =
+                principal *
+                monthlyRate *
+                Math.pow(
+                    1 + monthlyRate,
+                    months
+                )
+                /
+                (
+                    Math.pow(
+                        1 + monthlyRate,
+                        months
+                    ) - 1
+                );
+
+        }
+
+
+        const totalAmount =
+            emi * months;
+
+        const totalInterest =
+            totalAmount - principal;
+
+
+        const principalRatio =
+            principal / totalAmount;
+
+        const interestRatio =
+            totalInterest / totalAmount;
+
+
+        /* =====================================
+           TEXT RESULTS
+        ===================================== */
+
+        animateNumber(
+            emiElement,
+            previousEMI,
+            emi
+        );
+
+        animateNumber(
+            emiSummary,
+            previousEMI,
+            emi
+        );
+
+        animateNumber(
+            principalElement,
+            0,
+            principal,
+            500
+        );
+
+        animateNumber(
+            principalSummary,
+            0,
+            principal,
+            500
+        );
+
+        animateNumber(
+            interestElement,
+            0,
+            totalInterest,
+            600
+        );
+
+        animateNumber(
+            interestSummary,
+            0,
+            totalInterest,
+            600
+        );
+
+        animateNumber(
+            totalElement,
+            0,
+            totalAmount,
+            700
+        );
+
+        animateNumber(
+            totalSummary,
+            0,
+            totalAmount,
+            700
+        );
+
+
+        previousEMI = emi;
+
+
+        /* =====================================
+           PERCENTAGES
+        ===================================== */
+
+        principalPercent.textContent =
+            Math.round(principalRatio * 100) + '%';
+
+        interestPercent.textContent =
+            Math.round(interestRatio * 100) + '%';
+
+
+        /* =====================================
+           CHART
+        ===================================== */
+
+        updateChart(
+            principalRatio,
+            interestRatio
+        );
+
+
+        /* =====================================
+           RANGE BACKGROUNDS
+        ===================================== */
+
+        updateRangeBackground(
+            amountSlider,
+            10000,
+            10000000
+        );
+
+        updateRangeBackground(
+            rateSlider,
+            0,
+            20
+        );
+
+        updateRangeBackground(
+            yearSlider,
+            1,
+            40
+        );
+
+
+        /* =====================================
+           TABLE
+        ===================================== */
+
+        generateEMITable(
+            principal,
+            annualRate,
+            years,
+            emi
+        );
+
+    }
+
+
+    /* =========================================
+       GENERATE AMORTIZATION TABLE
+    ========================================= */
+
+    function generateEMITable(
+        loanAmount,
+        annualRate,
+        years,
+        emi
+    ){
+
+        const months =
+            years * 12;
+
+        const monthlyRate =
+            annualRate / 12 / 100;
+
+        let balance =
+            loanAmount;
+
+
+        let html = '';
+
+
+        for(
+            let month = 1;
+            month <= months;
+            month++
+        ){
+
+            let interest;
+
+            let principalPart;
+
+
+            /*
+             * Zero interest
+             */
+
+            if(monthlyRate === 0){
+
+                interest = 0;
+
+                principalPart = emi;
+
+            }
+
+            /*
+             * Normal EMI
+             */
+
+            else{
+
+                interest =
+                    balance * monthlyRate;
+
+                principalPart =
+                    emi - interest;
+
+            }
+
+
+            /*
+             * Avoid final balance going negative
+             */
+
+            if(
+                principalPart > balance
+            ){
+
+                principalPart =
+                    balance;
+
+            }
+
+
+            balance -= principalPart;
+
+
+            if(balance < 0.01){
+
+                balance = 0;
+
+            }
+
+
+            html += `
+
+                <tr class="pb-table-row-animation"
+                    style="animation-delay:${Math.min(
+                        month * 0.015,
+                        0.3
+                    )}s">
+
+                    <td>
+                        ${month}
+                    </td>
+
+                    <td>
+                        ₹ ${formatNumber(emi)}
+                    </td>
+
+                    <td>
+                        ₹ ${formatNumber(interest)}
+                    </td>
+
+                    <td>
+                        ₹ ${formatNumber(principalPart)}
+                    </td>
+
+                    <td>
+                        ₹ ${formatNumber(balance)}
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+
+
+        tableBody.innerHTML = html;
+
+    }
+
+
+    /* =========================================
+       INITIAL CALCULATION
+    ========================================= */
+
+    calculateEMI();
+
+});
+
+</script>
+
+
+
+<section class="bb-project-cta">
+
+    <div class="container">
+
+        <div
+            class="bb-cta-inner"
+            data-aos="fade-up"
+        >
+
+            <div>
+
+                <span>
+                    Find Your Next Address
+                </span>
+
+                <h2>
+                    Ready to explore Heaven in the Forest – Your Dream Home Near Kaichi Dham?
+                </h2>
+
+            </div>
+
+            <a
+                href="#"
+                class="bb-cta-btn"
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+            >
+
+                <span>
+                    Talk to an Advisor
+                </span>
+
+                <i class="bi bi-arrow-up-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bb-footer pt-5 pb-3 mt-auto">
+        <div class="container">
+            <div class="row g-4 mb-4">
+
+                <!-- Col 1: About Company -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand mb-3">
+                        <a class="navbar-brand fs-3 lh-1" href="https://propbillions.com/home">
+                            <img src="https://propbillions.com/public/images/logo.png" alt="propbillions_logo" width="160">
+                        </a>
+                    </div>
+                    <p class="small">
+                        A premier real estate advisory firm dedicated to guiding you home. Whether buying, selling, or investing across Noida, Greater Noida and Ghaziabad, we bring verified inventory, transparent deals and end-to-end support.
+                    </p>
+                    <div class="d-flex gap-2">
+                        <a href="https://www.facebook.com/propbillions" class="btn btn-sm social-btn rounded-circle" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/propbillions?stkn=MWV1cng1bzB6MHBwaw==" class="btn btn-sm social-btn rounded-circle" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/propbillions/" class="btn btn-sm social-btn rounded-circle" target="_blank"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="btn btn-sm social-btn rounded-circle"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="btn btn-sm social-btn rounded-circle"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="mb-3 fw-bold">Quick Links</h6>
+                    <ul class="list-unstyled small mb-0">
+                        <li class="mb-2"><a href="https://propbillions.com/home"><i class="bi bi-chevron-right me-1"></i> Home</a></li>
+                        <li class="mb-2"><a href="https://propbillions.com/about"><i class="bi bi-chevron-right me-1"></i> About Us</a></li>
+                        <li class="mb-2"><a href="https://propbillions.com/projects"><i class="bi bi-chevron-right me-1"></i> All Projects</a></li>
+                        <li class="mb-2"><a href="https://propbillions.com/gallery"><i class="bi bi-chevron-right me-1"></i> Gallery</a></li>
+                        <li class="mb-2"><a href="https://propbillions.com/blog"><i class="bi bi-chevron-right me-1"></i> Latest News</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Support & Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="mb-3 fw-bold">Get In Touch</h6>
+                    <ul class="list-unstyled small mb-0">
+                        <li class="mb-2">
+                            <i class="bi bi-geo-alt-fill text-brass me-2"></i>PropBillions Pvt Ltd, Tech Zone IV, Amrapali Dream Valley, Greater Noida, Uttar Pradesh 201318
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-telephone-fill text-brass me-2"></i> +91 98118 85521 , 99996 56345
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-envelope-fill text-brass me-2"></i> info@propbillions.in
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-clock-fill text-brass me-2"></i> Mon - Sat: 10:00 AM - 6:30 PM (Wed: Off)
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="mb-3 fw-bold">Newsletter</h6>
+                    <p class="small">Subscribe for the latest property alerts and NCR real estate market updates.</p>
+                    <form action="https://propbillions.com/contact-us" method="POST">
+                        <input type="hidden" name="_token" value="04f4u5KPG1sAjpkXHeadN8TRZH8mLYCV7KYcJI9m" autocomplete="off">                        <div class="input-group mb-3">
+                            <input type="email" name="email" class="form-control form-control-sm" placeholder="Your email address" required>
+                            <button class="btn btn-primary btn-sm" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <!-- Copyright Notice -->
+            <div class="row align-items-center small">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2026 Propbillions Real Estate Advisory. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                    <a href="https://propbillions.com/contact-us" class="me-3">Contact Us</a>
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= DIWALI OFFER BANNER: image (left) + form (right) ================= -->
+    <div class="modal fade" id="diwaliModal" tabindex="-1" aria-labelledby="diwaliTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                <div class="row g-0">
+                    <!-- LEFT: image. Upload your creative to public/images/diwali-banner.jpg;
+                         until then the maroon/saffron diya artwork shows. -->
+                    <div class="col-md-5">
+                        <div class="dw-art">
+                            <img class="dw-photo" src="https://propbillions.com/public/images/diwali-banner.jpg" alt="Happy Diwali from Propbillions" onerror="this.remove()">
+                            <div class="dw-diya" aria-hidden="true"><div class="flame"></div><div class="bowl"></div></div>
+                            <p class="dw-hi">शुभ दीपावली</p>
+                            <div class="dw-sub">Happy Diwali</div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: form -->
+                    <div class="col-md-7">
+                        <div class="dw-form">
+                            <h3 id="diwaliTitle">Light up your new home this Diwali</h3>
+                            <p class="dw-lead">Share your details and our advisors will call you with festive offers on verified projects across Noida, Greater Noida and Ghaziabad.</p>
+
+                            <form
+                                action="https://propbillions.com/contact-us"
+                                method="POST"
+                            >
+                                <input type="hidden" name="_token" value="04f4u5KPG1sAjpkXHeadN8TRZH8mLYCV7KYcJI9m" autocomplete="off">                                <input type="hidden" name="message" value="Diwali offer enquiry">
+                                <div class="mb-3">
+                                    <input type="text" name="name" class="form-control" placeholder="Your name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" name="phone" class="form-control" placeholder="Phone number" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" name="email" class="form-control" placeholder="Email address" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Claim Diwali Offer</button>
+                                <small class="d-block text-center mt-2">We'll only use your details to contact you about this enquiry.</small>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS (scroll animation — content templates keep using data-aos as-is) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- anime.js (brand-mark entrance + header micro-interactions) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script>
+        AOS.init({ duration: 700, once: true, offset: 60 });
+
+        (function(){
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // Deepen header shadow once the page scrolls.
+            var header = document.getElementById('siteHeader');
+            var onScroll = function(){
+                header.classList.toggle('bb-scrolled', window.scrollY > 10);
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            // One-time draw-in for the logo mark's ledger strokes on load.
+            if (!reduceMotion && typeof anime === 'function') {
+                var strokes = document.querySelectorAll('#bbLogoMark line');
+                strokes.forEach(function(line){
+                    var len = 16;
+                    line.style.strokeDasharray = len;
+                    line.style.strokeDashoffset = len;
+                });
+                anime({
+                    targets: strokes,
+                    strokeDashoffset: [16, 0],
+                    duration: 700,
+                    delay: anime.stagger(90, { start: 150 }),
+                    easing: 'easeInOutSine'
+                });
+            }
+
+            // Diwali banner: show once per browser session, 2s after load.
+            var dw = document.getElementById('diwaliModal');
+            if (dw && typeof bootstrap !== 'undefined') {
+                var seen = false;
+                try { seen = sessionStorage.getItem('bbDiwaliSeen') === '1'; } catch (e) {}
+                if (!seen) {
+                    setTimeout(function(){
+                        new bootstrap.Modal(dw).show();
+                        try { sessionStorage.setItem('bbDiwaliSeen', '1'); } catch (e) {}
+                    }, 2000);
+                }
+            }
+        })();
+    </script>
+    </body>
+</html>
