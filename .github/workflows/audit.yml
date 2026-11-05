@@ -25,22 +25,27 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Crawl site
         run: node scripts/audit/crawl.mjs "${{ inputs.target || 'https://propbillions.com' }}" audit-raw/site 80 || true
+      - name: Commit crawl
+        run: |
+          git config user.name "audit-bot"; git config user.email "audit-bot@users.noreply.github.com"
+          git add audit-raw; git commit -m "audit: raw crawl and images" || true
+          for i in 1 2 3; do git pull --rebase -X theirs origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break; sleep 5; done
       - name: Lighthouse (phone and desktop)
         run: |
           mkdir -p audit-raw/lighthouse
           CH=$(node -e "console.log(require('playwright').chromium.executablePath())")
           for url in "${{ inputs.target || 'https://propbillions.com' }}" $(cat scripts/audit/benchmarks.txt 2>/dev/null); do
             n=$(echo "$url" | sed -E 's#https?://##; s#[^a-zA-Z0-9]+#_#g')
-            CHROME_PATH=$CH npx lighthouse "$url" --quiet --output=json --output-path=audit-raw/lighthouse/${n}_mobile.json --chrome-flags="--headless=new --no-sandbox" --only-categories=performance,seo,accessibility,best-practices || true
-            CHROME_PATH=$CH npx lighthouse "$url" --quiet --preset=desktop --output=json --output-path=audit-raw/lighthouse/${n}_desktop.json --chrome-flags="--headless=new --no-sandbox" --only-categories=performance,seo,accessibility,best-practices || true
+            CHROME_PATH=$CH timeout 150 npx lighthouse "$url" --quiet --max-wait-for-load=40000 --output=json --output-path=audit-raw/lighthouse/${n}_mobile.json --chrome-flags="--headless=new --no-sandbox" --only-categories=performance,seo,accessibility,best-practices || true
+            CHROME_PATH=$CH timeout 150 npx lighthouse "$url" --quiet --max-wait-for-load=40000 --preset=desktop --output=json --output-path=audit-raw/lighthouse/${n}_desktop.json --chrome-flags="--headless=new --no-sandbox" --only-categories=performance,seo,accessibility,best-practices || true
           done
           # keep only the useful parts so the repo stays small
           node scripts/audit/slim-lighthouse.mjs audit-raw/lighthouse || true
       - name: Benchmark screenshots
-        run: node scripts/audit/bench-shots.mjs audit-raw/bench || true
+        run: timeout 600 node scripts/audit/bench-shots.mjs audit-raw/bench || true
       - name: Commit results
         run: |
           git config user.name "audit-bot"; git config user.email "audit-bot@users.noreply.github.com"
           git add audit-raw
-          git commit -m "audit: raw crawl, images and lighthouse results" || exit 0
-          for i in 1 2 3; do git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break; sleep 5; done
+          git commit -m "audit: lighthouse and benchmark results" || exit 0
+          for i in 1 2 3; do git pull --rebase -X theirs origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break; sleep 5; done
