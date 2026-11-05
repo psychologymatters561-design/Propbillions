@@ -9,10 +9,10 @@ const out = process.argv[3] || 'test-results/devices';
 fs.mkdirSync(out, { recursive: true });
 const pages = ['/', '/projects', '/projects/uttarakhand/heaven-in-the-forest', '/projects/greater-noida-west/london-mart', '/neev-check', '/locations', '/locations/greater-noida-west', '/tools', '/tools/all-in-cost', '/tools/emi', '/tools/rent-vs-buy', '/about', '/contact', '/nri', '/privacy', '/terms', '/disclaimer', '/style'];
 const DEV = {
-  iphone: { ...devices['iPhone 13'], expect: 'stills' },
-  ipad: { ...devices['iPad (gen 7) landscape'], expect: 'film' },
-  laptop: { viewport: { width: 1366, height: 768 }, expect: 'film' },
-  desktop1920: { viewport: { width: 1920, height: 1080 }, expect: 'film' },
+  iphone: { ...devices['iPhone 13'], expect: 'm' },
+  ipad: { ...devices['iPad (gen 7) landscape'], expect: 't' },
+  laptop: { viewport: { width: 1366, height: 768 }, expect: 'd' },
+  desktop1920: { viewport: { width: 1920, height: 1080 }, expect: 'd' },
   reduced: { viewport: { width: 1366, height: 768 }, reducedMotion: 'reduce', expect: 'static' },
 };
 const b = await chromium.launch();

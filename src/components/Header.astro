@@ -11,7 +11,7 @@ const nav = [
 ];
 const { tone = 'light' } = Astro.props as { tone?: 'light' | 'dark' };
 ---
-<header class={`hdr hdr--${tone}`} data-header>
+<header class={`hdr hdr--${tone}`} data-header data-tone={tone} transition:persist="header">
   <div class="hdr__in wrap">
     <a class="brand" href={u('/')} aria-label="PropBillions home">
       <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path d="M4 28V12L16 4l12 8v16" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 28V17h10v11" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 28h24" stroke="var(--brass-500)" stroke-width="1.6"/></svg>
@@ -41,7 +41,7 @@ const { tone = 'light' } = Astro.props as { tone?: 'light' | 'dark' };
 <style>
   .hdr { position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top); transition: background .4s var(--ease), color .4s var(--ease), box-shadow .4s var(--ease), transform .45s var(--ease); }
   .hdr--dark { color: var(--lime-100); }
-  .hdr.is-solid { background: rgb(244 239 229 / .9); color: var(--ink-900); backdrop-filter: blur(12px) saturate(1.2); box-shadow: 0 1px 0 var(--lime-300); }
+  .hdr.is-solid, .hdr.is-open { background: rgb(244 239 229 / .9); color: var(--ink-900); backdrop-filter: blur(12px) saturate(1.2); box-shadow: 0 1px 0 var(--lime-300); }
   .hdr.is-hidden { transform: translateY(-100%); }
   .hdr__in { display: flex; align-items: center; gap: var(--space-5); min-height: 64px; padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
   .brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; font: 500 1.15rem/1 var(--font-text); letter-spacing: -.01em; min-height: var(--tap); }
@@ -65,13 +65,12 @@ const { tone = 'light' } = Astro.props as { tone?: 'light' | 'dark' };
   @media (min-width: 560px) { .btn--small { display: inline-flex; } }
 </style>
 <script>
+  // The header persists across page changes; it re-reads the page on every navigation.
   const h = document.querySelector('[data-header]') as HTMLElement;
   const btn = document.querySelector('[data-menu]') as HTMLButtonElement;
   const m = document.getElementById('mnav')!;
-  btn?.addEventListener('click', () => {
-    const open = btn.getAttribute('aria-expanded') !== 'true';
-    btn.setAttribute('aria-expanded', String(open)); m.hidden = !open; h.classList.toggle('is-solid', open || scrollY > 40);
-  });
+  const setMenu = (open: boolean) => { btn.setAttribute('aria-expanded', String(open)); m.hidden = !open; h.classList.toggle('is-open', open); };
+  btn?.addEventListener('click', () => setMenu(btn.getAttribute('aria-expanded') !== 'true'));
   let last = 0;
   const onScroll = () => {
     const y = scrollY;
@@ -84,5 +83,14 @@ const { tone = 'light' } = Astro.props as { tone?: 'light' | 'dark' };
     }
     last = y;
   };
-  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  addEventListener('scroll', onScroll, { passive: true });
+  document.addEventListener('astro:page-load', () => {
+    setMenu(false); h.classList.remove('is-hidden');
+    const tone = document.querySelector('main')?.dataset.headerTone || 'light';
+    h.classList.toggle('hdr--dark', tone === 'dark'); h.classList.toggle('hdr--light', tone !== 'dark');
+    const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+    const path = location.pathname.replace(base, '') || '/';
+    h.querySelectorAll<HTMLAnchorElement>('.hdr__nav a').forEach((a) => { const href = a.getAttribute('href')!.replace(base, ''); a.toggleAttribute('aria-current', path.startsWith(href)); });
+    onScroll();
+  });
 </script>

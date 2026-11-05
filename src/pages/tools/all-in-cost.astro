@@ -50,7 +50,9 @@ import { u } from '../../lib/url';
 <script>
   import { allInCost } from '../../lib/cost';
   import { inr } from '../../lib/money';
-  const f = document.querySelector<HTMLFormElement>('[data-allin-tool]')!;
+  const init = () => {
+  const f = document.querySelector<HTMLFormElement>('[data-allin-tool]');
+    if (!f) return;
   const R = JSON.parse(f.dataset.rates!), G = JSON.parse(f.dataset.gst!);
   const o = (k: string) => document.querySelector<HTMLElement>(`[data-o="${k}"]`)!;
   const num = (v: FormDataEntryValue | null) => Number(String(v || '').replace(/[^\d.]/g, '')) || 0;
@@ -66,4 +68,6 @@ import { u } from '../../lib/url';
     o('loading').textContent = a.loading !== null ? `Loading: super area is ${a.loading.toFixed(0)}% bigger than carpet area. You live in the carpet area.` : '';
   };
   f.addEventListener('input', run); run();
+  };
+  document.addEventListener('astro:page-load', init);
 </script>

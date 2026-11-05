@@ -9,6 +9,7 @@ import Tbc from '../components/Tbc.astro';
 import { projects, projectAllIn, source } from '../lib/data';
 import { inr } from '../lib/money';
 import { u } from '../lib/url';
+import { img } from '../lib/data';
 import team from '../data/team.json';
 import site from '../data/site.json';
 import neev from '../data/neev-check.json';
@@ -24,6 +25,16 @@ const fears = [
   ['“I won’t be able to sell it later.”', 'Resale listings and real rents nearby. We never promise returns.', '/neev-check#H'],
 ];
 const air = source('airport')!;
+const zw = [
+  { k: 'journey/k7', w: 25, h: 25, x: 0, y: 0, s: 4, alt: 'Balcony over forested hills at golden hour with a lit diya (made with AI)' },
+  { k: 'projects/heaven-in-the-forest/site-1', w: 35, h: 30, x: 5, y: -30, s: 5, alt: 'Heaven in the Forest site, photo' },
+  { k: 'projects/tech-park-knowledge-park-5/facade-1', w: 20, h: 45, x: -25, y: -10, s: 6, alt: "Tech Park facade, artist's impression" },
+  { k: 'projects/london-mart/render', w: 25, h: 25, x: 27.5, y: 0, s: 5, alt: "London Mart, artist's impression" },
+  { k: 'projects/godrej-the-plaza/render', w: 20, h: 25, x: 5, y: 27.5, s: 6, alt: "Godrej Woods, artist's impression" },
+  { k: 'journey/k5', w: 30, h: 25, x: -22.5, y: 27.5, s: 8, alt: 'A garden gate at golden hour (made with AI)' },
+  { k: 'projects/risland-sky-mansion/render', w: 15, h: 15, x: 25, y: 22.5, s: 9, alt: "Risland Sky Mansion, artist's impression" },
+];
+const zsrc = (k: string) => k.startsWith('journey/') ? { src: u(`/img/${k}-1600.webp`), small: u(`/img/${k}-800.webp`) } : (() => { const i = img(k)!; return { src: u(i.largest.src), small: u((i.sizes.find((x) => x.width >= 800) ?? i.largest).src) }; })();
 ---
 <Base title="PropBillions | Real estate advisory, paperwork checked first" description="PropBillions checks the RERA record, title, approvals and all-in price before you sign. Projects in Noida, Greater Noida, Greater Noida West, South Delhi and near Kainchi Dham." headerTone="dark" jsonld={[{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'PropBillions', url: new URL(u('/'), Astro.site).href }]}>
   <Fragment slot="head">
@@ -33,13 +44,13 @@ const air = source('airport')!;
 
   <Journey />
 
-  <section class="section section--paper bp-grid" id="fears">
+  <section class="section section--paper bp-grid curtain" id="fears" data-chapter="Seven fears">
     <div class="wrap">
-      <p class="label" data-reveal>Seven fears, seven answers</p>
-      <h2 data-reveal>Buyers tell us the same seven worries. <em>Each one has a check.</em></h2>
+      <header class="sh"><span class="sh__n">02</span><p class="label">Seven fears, seven answers</p>
+      <h2>Buyers tell us the same seven worries. <em>Each one has a check.</em></h2></header>
       <ol class="fears">
         {fears.map(([q, a, href], i) => (
-          <li data-reveal data-delay={`${i * 60}ms`}>
+          <li data-reveal>
             <span class="mono fears__n">{String(i + 1).padStart(2, '0')}</span>
             <p class="fears__q">{q}</p>
             <p class="fears__a">{a} <a href={u(href)}>See how</a></p>
@@ -49,32 +60,51 @@ const air = source('airport')!;
     </div>
   </section>
 
-  <section class="section section--dark" id="projects" data-hscroll>
+  <section class="section section--dark gal-sec" id="projects" data-hscroll data-chapter="Projects">
     <div class="wrap gal__head">
-      <p class="label">Six projects, read before listed</p>
-      <h2>The projects. <em>With what we found.</em></h2>
-      <p class="lede">Hover or press and hold a photo to X-ray it: RERA status, possession and the all-in price where one exists.</p>
+      <header class="sh"><span class="sh__n">03</span><p class="label">Six projects, read before listed</p>
+      <h2>The projects. <em>With what we found.</em></h2></header>
+      <p class="lede">Keep scrolling. Each one starts as a drawing and develops into the picture, with the facts pinned on.</p>
+      <div class="gal__bar" aria-hidden="true"><span data-hbar></span></div>
     </div>
     <div class="gal" >
       <div class="gal__track" data-hscroll-track>
-        {projects.map((p, i) => <div class="gal__item"><ProjectCard p={p} eager={i === 0} /></div>)}
+        {projects.map((p, i) => <div class="gal__item"><ProjectCard p={p} eager={i === 0} index={i} /></div>)}
         <div class="gal__item gal__end"><p class="label">Not sure yet?</p><p class="gal__endq">Tell us your budget and where you work. We send a shortlist of three on WhatsApp, with the checks.</p><a class="btn" href={u('/contact#shortlist')}>Get a shortlist</a></div>
       </div>
     </div>
   </section>
 
-  <section class="section bp-grid" id="neev-check">
+  <section class="zw" data-zoomwall data-chapter="The view" id="view" aria-label="Pictures from our projects, zooming into one view">
+    <div class="zw__stage">
+      {zw.map((t) => { const z = zsrc(t.k); return (
+        <div class="zw__layer" data-zw={t.s}>
+          <div class="zw__img" style={`width:${t.w}vw;height:${t.h}vh;transform:translate(${t.x}vw,${t.y}vh)`}>
+            <img src={z.small} srcset={`${z.small} 800w, ${z.src} 1600w`} sizes={`${Math.min(100, t.w * t.s)}vw`} alt={t.alt} loading="lazy" decoding="async" />
+          </div>
+        </div>
+      ); })}
+      <div class="zw__cap" data-zw-cap>
+        <p class="label">04 · Near Kainchi Dham</p>
+        <p class="zw__line">Heaven in the forest. <em>Paperwork checked.</em></p>
+        <a class="btn" href={u('/projects/uttarakhand/heaven-in-the-forest')}>See Heaven in the Forest</a>
+      </div>
+      <p class="zw__note mono">Centre and gate frames made with AI. Others are developer renders and site photos.</p>
+    </div>
+  </section>
+
+  <section class="section bp-grid" id="neev-check" data-chapter="Neev Check">
     <div class="wrap neev">
       <div class="neev__copy">
-        <p class="label" data-reveal>The method</p>
-        <h2 data-reveal><span class="hi" lang="hi">नींव</span> Neev Check</h2>
-        <p class="lede" data-reveal><span class="count mono" data-count="40">40</span> checks before you sign. Each result is <b>clear</b>, <b>ask about this</b>, <b>stop</b> or <b>not checked yet</b>, with the source and the date.</p>
-        <ul class="neev__groups" data-reveal>
+        <header class="sh"><span class="sh__n">05</span><p class="label">The method</p>
+        <h2><span class="hi" lang="hi">नींव</span> Neev Check</h2></header>
+        <p class="lede"><span class="count mono" data-count="40">40</span> checks before you sign. Each result is <b>clear</b>, <b>ask about this</b>, <b>stop</b> or <b>not checked yet</b>, with the source and the date.</p>
+        <ul class="neev__groups">
           {neev.groups.map((g) => <li><span class="mono">{g.id}</span> {g.name}</li>)}
         </ul>
-        <div class="btn-row" data-reveal><a class="btn" href={u('/neev-check')}>See all 40 checks</a><a class="btn btn--ghost" href={u('/neev-check#sample')}>Read a sample report</a></div>
+        <div class="btn-row"><a class="btn" href={u('/neev-check')}>See all 40 checks</a><a class="btn btn--ghost" href={u('/neev-check#sample')}>Read a sample report</a></div>
       </div>
-      <div class="neev__draw">
+      <div class="neev__draw" data-parallax="5">
         <svg viewBox="0 0 400 300" data-draw aria-hidden="true">
           <g fill="none" stroke="var(--bp-500)" stroke-width="1.2">
             <path d="M40 270H360" /><path d="M80 270V90H320V270" /><path d="M80 90L200 40L320 90" />
@@ -89,11 +119,11 @@ const air = source('airport')!;
     </div>
   </section>
 
-  <section class="section section--dark bp-grid" id="where">
+  <section class="section section--dark bp-grid" id="where" data-chapter="Where">
     <div class="wrap where">
       <div>
-        <p class="label">Where we work</p>
-        <h2>Five in Delhi NCR. <em>One in the hills.</em></h2>
+        <header class="sh"><span class="sh__n">06</span><p class="label">Where we work</p>
+        <h2>Five in Delhi NCR. <em>One in the hills.</em></h2></header>
         <p class="lede">The current site says Noida, Greater Noida and Ghaziabad. Our projects are in Noida, Greater Noida, Greater Noida West, South Delhi and near Kainchi Dham, so that is what this map shows.</p>
         <p class="where__fact"><span class="check check--ok">Sourced</span> {air.claim} <a href={air.sources[0].url} rel="noopener" target="_blank">Source</a></p>
         <a class="btn btn--ghost" href={u('/locations')}>Read the location notes</a>
@@ -102,15 +132,15 @@ const air = source('airport')!;
     </div>
   </section>
 
-  <section class="section section--paper" id="all-in">
+  <section class="section section--paper" id="all-in" data-chapter="All-in price">
     <div class="wrap allin">
       <div>
-        <p class="label" data-reveal>The number nobody puts on the poster</p>
-        <h2 data-reveal>{inr(hif.allIn!.basePrice, { compact: true })} on the brochure. <em>{inr(hifCost.total, { compact: true })}</em> to own it.</h2>
-        <p class="lede" data-reveal>Heaven in the Forest, 1 BHK at the published starting price. GST at {hif.allIn!.gstPct}%, Uttarakhand stamp duty and registration added. Estimate for a male buyer; women pay less stamp duty on homes up to ₹25 lakh.</p>
-        <a class="btn" href={u('/tools/all-in-cost')} data-reveal>Work out your own all-in cost</a>
+        <header class="sh"><span class="sh__n">07</span><p class="label">The number nobody puts on the poster</p>
+        <h2>{inr(hif.allIn!.basePrice, { compact: true })} on the brochure. <em>{inr(hifCost.total, { compact: true })}</em> to own it.</h2></header>
+        <p class="lede">Heaven in the Forest, 1 BHK at the published starting price. GST at {hif.allIn!.gstPct}%, Uttarakhand stamp duty and registration added. Estimate for a male buyer; women pay less stamp duty on homes up to ₹25 lakh.</p>
+        <a class="btn" href={u('/tools/all-in-cost')}>Work out your own all-in cost</a>
       </div>
-      <table class="allin__t" data-reveal>
+      <table class="allin__t" data-parallax="6">
         <caption class="visually-hidden">All-in cost estimate</caption>
         <tbody>
           {hifCost.lines.map((l) => <tr><th scope="row">{l.label}</th><td class="mono">{inr(l.amount)}</td></tr>)}
@@ -121,13 +151,13 @@ const air = source('airport')!;
     </div>
   </section>
 
-  <section class="section" id="people">
+  <section class="section" id="people" data-chapter="People">
     <div class="wrap">
-      <p class="label" data-reveal>Who you will talk to</p>
-      <h2 data-reveal>Real people, <em>real names.</em></h2>
+      <header class="sh"><span class="sh__n">08</span><p class="label">Who you will talk to</p>
+      <h2>Real people, <em>real names.</em></h2></header>
       <ul class="team">
         {team.map((t, i) => (
-          <li data-reveal data-delay={`${i * 70}ms`}>
+          <li data-reveal>
             <div data-window><Img k={t.photo} alt={`${t.name}${t.role ? ', ' + t.role : ''}`} sizes="(min-width: 900px) 18vw, 45vw" label={false} /></div>
             <p class="team__n">{t.name}</p>
             <p class="team__r mono">{t.role ?? <Tbc what={`role of ${t.name}`} />}</p>
@@ -144,11 +174,11 @@ const air = source('airport')!;
     </div>
   </section>
 
-  <section class="section section--dark" id="book">
+  <section class="section section--dark" id="book" data-chapter="Book">
     <div class="wrap book">
       <div>
-        <p class="label">One small step</p>
-        <h2>Start with a shortlist. <em>Decide later.</em></h2>
+        <header class="sh"><span class="sh__n">09</span><p class="label">One small step</p>
+        <h2>Start with a shortlist. <em>Decide later.</em></h2></header>
         <ol class="ladder mono">
           <li><a href={u('/tools/all-in-cost')}>1 Work out the all-in cost</a></li>
           <li><span>2 Get a shortlist on WhatsApp</span></li>
@@ -171,14 +201,30 @@ const air = source('airport')!;
   .fears__q { font: 400 var(--step-2)/1.15 var(--font-display); margin: 0; }
   .fears__a { grid-column: 2; margin: 0; color: var(--ink-700); }
   @media (min-width: 900px) { .fears li { grid-template-columns: 4rem 1fr 1fr; align-items: baseline; } .fears__a { grid-column: 3; } }
-  .gal__head { margin-bottom: var(--space-6); }
-  .gal { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: var(--space-3); }
-  .gal::-webkit-scrollbar { display: none; }
-  .gal__track { display: flex; gap: var(--space-5); padding: 0 var(--gutter); width: max-content; }
-  .gal__item { width: min(86vw, 440px); scroll-snap-align: center; color: var(--ink-900); }
+  .gal__head { margin-bottom: var(--space-5); }
+  .gal-sec { height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-block: calc(64px + var(--space-4)) var(--space-5); overflow: clip; }
+  .gal-sec .sh { margin-bottom: var(--space-3); }
+  .gal-sec .lede { margin: 0; }
+  .gal__bar { height: 2px; background: rgb(255 255 255 / .12); margin-top: var(--space-4); max-width: 320px; }
+  .gal__bar span { display: block; height: 100%; background: var(--brass-300); transform: scaleX(0); transform-origin: left; }
+  .zw { position: relative; height: 100svh; background: var(--forest-950); overflow: hidden; }
+  .zw__stage { position: absolute; inset: 0; }
+  .zw__layer { position: absolute; inset: 0; display: grid; place-items: center; will-change: transform; }
+  .zw__img { position: relative; overflow: hidden; border-radius: 6px; }
+  .zw__img img { width: 100%; height: 100%; object-fit: cover; }
+  .zw__cap { position: absolute; left: var(--gutter); bottom: calc(12vh + env(safe-area-inset-bottom)); max-width: 36rem; color: var(--lime-50); opacity: 0; z-index: 2; }
+  .zw__cap .label { color: var(--brass-300); }
+  .zw__line { font: 400 var(--step-4)/1.05 var(--font-display); margin: .4rem 0 var(--space-5); text-shadow: 0 2px 30px rgb(0 0 0 / .5); }
+  .zw__line em { color: var(--brass-300); }
+  .zw__note { position: absolute; right: var(--gutter); bottom: calc(1rem + env(safe-area-inset-bottom)); color: var(--lime-200); font-size: 10px; margin: 0; opacity: .7; max-width: 60vw; text-align: right; }
+  .zw::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgb(15 31 24 / .7), transparent 50%); pointer-events: none; }
+  .gal { overflow: visible; }
+  .gal__track { display: flex; gap: var(--space-5); padding: 0 var(--gutter); width: max-content; will-change: transform; }
+  .gal__item { width: min(82vw, 400px); color: var(--ink-900); }
+  @media (max-height: 760px) and (min-width: 768px) { .gal__item { width: 340px; } }
   .gal__end { display: grid; align-content: center; gap: var(--space-4); padding: var(--space-6); border: 1px dashed rgb(255 255 255 / .2); border-radius: var(--radius-lg); color: var(--lime-100); }
   .gal__endq { font: 400 var(--step-2)/1.2 var(--font-display); margin: 0; }
-  @media (min-width: 900px) { [data-hscroll] { height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-block: var(--space-6); overflow: clip; } .gal { overflow: visible; } .gal__item { width: 420px; } }
+
   .neev { display: grid; gap: var(--space-7); align-items: center; }
   .count { font-size: 1.1em; color: var(--brass-600); }
   .neev__groups { list-style: none; padding: 0; margin: var(--space-5) 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem 1.5rem; }
@@ -219,9 +265,4 @@ const air = source('airport')!;
   .ladder a { color: var(--brass-300); }
   @media (min-width: 900px) { .book { grid-template-columns: .8fr 1.2fr; } }
 </style>
-<script>
-  import { initMotion } from '../scripts/motion';
-  import { initXray } from '../scripts/xray';
-  initXray();
-  initMotion();
-</script>
+

@@ -51,7 +51,9 @@ const L = rates.loan;
 <script>
   import { emi, schedule, eligibility } from '../../lib/emi';
   import { inr } from '../../lib/money';
-  const f = document.querySelector<HTMLFormElement>('[data-emi]')!;
+  const init = () => {
+  const f = document.querySelector<HTMLFormElement>('[data-emi]');
+    if (!f) return;
   const bands = JSON.parse(f.dataset.ltv!);
   const o = (k: string) => document.querySelector<HTMLElement>(`[data-o="${k}"]`)!;
   const n = (k: string) => Number(String(new FormData(f).get(k) || '').replace(/[^\d.]/g, '')) || 0;
@@ -66,4 +68,6 @@ const L = rates.loan;
     o('sched').innerHTML = s.yearly.map((y) => `<tr><td>${y.year}</td><td>${inr(y.principal, { compact: true })}</td><td>${inr(y.interest, { compact: true })}</td><td>${inr(y.balance, { compact: true })}</td></tr>`).join('');
   };
   f.addEventListener('input', run); run();
+  };
+  document.addEventListener('astro:page-load', init);
 </script>

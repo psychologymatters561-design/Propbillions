@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../data/site.json';
 import { u } from '../lib/url';
+import { ClientRouter } from 'astro:transitions';
 import serifFont from '@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2?url';
 import textFont from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
 
@@ -26,6 +27,11 @@ const crumbs = breadcrumbs && {
   itemListElement: breadcrumbs.map((b, i) => ({ '@type': 'ListItem', position: i + 1, name: b.name, item: new URL(u(b.path), Astro.site).href })),
 };
 const ld = [org, ...(crumbs ? [crumbs] : []), ...jsonld];
+// Page turn: the old page sinks and fades, the new one rises in. Short enough never to feel like waiting.
+const pageTurn = {
+  forwards: { old: { name: 'pbOut', duration: '0.45s', easing: 'cubic-bezier(0.65,0,0.35,1)', fillMode: 'both' }, new: { name: 'pbIn', duration: '0.7s', delay: '0.15s', easing: 'cubic-bezier(0.22,1,0.36,1)', fillMode: 'both' } },
+  backwards: { old: { name: 'pbOut', duration: '0.45s', easing: 'cubic-bezier(0.65,0,0.35,1)', fillMode: 'both' }, new: { name: 'pbIn', duration: '0.7s', delay: '0.15s', easing: 'cubic-bezier(0.22,1,0.36,1)', fillMode: 'both' } },
+};
 ---
 <!doctype html>
 <html lang="en-IN">
@@ -51,20 +57,16 @@ const ld = [org, ...(crumbs ? [crumbs] : []), ...jsonld];
     {preload.map((p) => <link rel="preload" as="image" href={u(p)} fetchpriority="high" />)}
     <script is:inline>document.documentElement.classList.add('js');</script>
     {ld.map((x) => <script type="application/ld+json" set:html={JSON.stringify(x)} />)}
+    <ClientRouter fallback="animate" />
     <slot name="head" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
+    <div class="progress" aria-hidden="true" transition:persist="progress"><span data-progress></span></div>
     <Header tone={headerTone} />
-    <main id="main"><slot /></main>
+    <nav class="rail" aria-label="On this page"><ol data-rail hidden></ol></nav>
+    <main id="main" data-header-tone={headerTone} transition:animate={pageTurn}><slot /></main>
     <Footer />
-    <script>
-      // Tiny reveal helper. Content is visible without it; with reduced motion it never hides anything.
-      const els = document.querySelectorAll('[data-reveal],[data-window]');
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-        const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
-        els.forEach((el, i) => { (el as HTMLElement).style.transitionDelay = (el as HTMLElement).dataset.delay || '0ms'; io.observe(el); });
-      } else els.forEach((el) => el.classList.add('is-in'));
-    </script>
+    <script>import '../scripts/site';</script>
   </body>
 </html>

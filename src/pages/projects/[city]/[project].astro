@@ -27,20 +27,21 @@ const ld = {
 ---
 <Base headerTone="dark" title={`${p.name}, ${p.locality}, ${p.cityLabel}`} description={`${p.name}: ${p.kind} in ${p.locality}, ${p.cityLabel}. RERA status, all-in price, checks and site visit booking.`} image={hero?.largest.src} jsonld={[ld]} breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }, { name: p.cityLabel, path: `/locations/${p.city}` }, { name: p.name, path: projectUrl(p) }]}>
   <section class="ph">
-    <div class="ph__media" data-xray>
-      <div class="pc__media ph__frame" data-xray-media>
-        {hero && <img src={u(hero.largest.src)} srcset={hero.sizes.map((s) => `${u(s.src)} ${s.width}w`).join(', ')} sizes="100vw" width={hero.largest.width} height={hero.largest.height} alt={`${p.name}`} fetchpriority="high" />}
-        <div class="pc__xray ph__xray" aria-hidden="true">
-          <svg viewBox="0 0 100 56" preserveAspectRatio="none"><defs><pattern id="gx" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M4 0H0V4" fill="none" stroke="currentColor" stroke-width=".12"/></pattern></defs><rect width="100" height="56" fill="url(#gx)"/></svg>
-          <ul class="ph__xr mono">
-            <li>RERA · {p.rera ?? 'not published'}</li>
-            <li>Possession · {p.possession ?? 'not published'}</li>
-            {Object.entries(counts).map(([s, n]) => <li>{STATE_LABEL[s]} · {n}</li>)}
-          </ul>
-        </div>
-        <span class="impression">{p.heroKind === 'render' ? "Artist's impression" : 'Photo'}</span>
-        <span class="pc__hint mono"><span class="hint-fine">Hover</span><span class="hint-touch">Hold</span> to X-ray</span>
+    <div class="ph__media" data-hero-develop>
+      {hero && <img class="pc__img ph__img" src={u(hero.largest.src)} srcset={hero.sizes.map((s) => `${u(s.src)} ${s.width}w`).join(', ')} sizes="100vw" width={hero.largest.width} height={hero.largest.height} alt={`${p.name}`} fetchpriority="high" />}
+      <div class="pc__bp ph__bp" aria-hidden="true">
+        <svg class="ph__grid" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice"><defs><pattern id="gx" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M6 0H0V6" fill="none" stroke="currentColor" stroke-width=".12"/></pattern></defs><rect width="160" height="90" fill="url(#gx)"/></svg>
+        <svg class="pc__lines ph__lines" viewBox="0 0 160 90" fill="none" stroke="currentColor" stroke-width=".45">
+          <path d="M10 80H150" /><path d="M50 80V18H110V80" /><path d="M50 18L80 8L110 18" /><path d="M50 30H110M50 42H110M50 54H110M50 66H110" /><path d="M65 18V80M80 18V80M95 18V80" /><path d="M74 80V72H86V80" /><path d="M20 80V58H42V80M118 80V52H140V80" />
+        </svg>
+        <span class="ph__bplabel mono">{p.name} · {p.locality} · drawing</span>
       </div>
+      <ul class="ph__notes">
+        <li class="pc__note ph__note"><span class={`check check--${p.rera ? 'ok' : 'tbc'}`}>RERA</span> {p.rera ?? 'not published'}</li>
+        <li class="pc__note ph__note"><span class="mono">Possession</span> {p.possession ?? 'not published'}</li>
+        {Object.entries(counts).map(([s, n]) => <li class="pc__note ph__note"><span class={`check check--${s}`}>{STATE_LABEL[s]}</span> {n}</li>)}
+      </ul>
+      <span class="impression">{p.heroKind === 'render' ? "Artist's impression" : 'Photo'}</span>
     </div>
     <div class="wrap ph__head">
       <nav class="crumbs mono" aria-label="Breadcrumb"><a href={u('/projects')}>Projects</a> / <a href={u(`/locations/${p.city}`)}>{p.cityLabel}</a> / {p.name}</nav>
@@ -125,11 +126,18 @@ const ld = {
   </section>
 </Base>
 <style>
-  .ph__frame { aspect-ratio: auto; height: min(62svh, 640px); }
-  .ph__frame::before { content: ''; position: absolute; inset: 0 0 auto; height: 120px; background: linear-gradient(rgb(15 31 24 / .65), transparent); z-index: 1; pointer-events: none; }
-  .ph__frame > img { width: 100%; height: 100%; object-fit: cover; }
-  .ph__xray svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .ph__xr { position: absolute; left: var(--gutter); bottom: var(--gutter); list-style: none; margin: 0; padding: var(--space-4); background: rgb(13 35 64 / .8); color: var(--bp-100); display: grid; gap: .3rem; font-size: .8rem; }
+  .ph__media { position: relative; height: min(70svh, 700px); overflow: hidden; background: #0d2340; }
+  .ph__media::before { content: ''; position: absolute; inset: 0 0 auto; height: 140px; background: linear-gradient(rgb(15 31 24 / .7), transparent); z-index: 3; pointer-events: none; }
+  .ph__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); will-change: transform; }
+  .ph__bp { position: absolute; inset: 0; background: #0d2340; color: var(--bp-300); z-index: 1; clip-path: inset(0 0 0 0); }
+  .ph__grid { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .ph__lines { position: absolute; inset: 12% 16%; width: 68%; height: 76%; color: var(--lime-50); }
+  .ph__bplabel { position: absolute; left: var(--gutter); bottom: var(--gutter); color: var(--bp-100); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+  .ph__notes { list-style: none; margin: 0; padding: 0; position: absolute; right: var(--gutter); bottom: var(--gutter); z-index: 2; display: grid; gap: .45rem; justify-items: end; }
+  .ph__note { position: relative; display: inline-flex; align-items: center; gap: .45em; padding: .45em .7em; background: rgb(250 247 241 / .95); color: var(--ink-900); border-radius: 4px; font: 500 13px/1.2 var(--font-text); box-shadow: 0 8px 24px rgb(15 31 24 / .3); }
+  .ph__note .mono { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-500); }
+  .ph__media .impression { z-index: 2; }
+  @media (prefers-reduced-motion: reduce) { .ph__bp { display: none; } }
   .ph__head { padding-block: var(--space-6) var(--space-7); }
   .crumbs { color: var(--ink-500); margin-bottom: var(--space-4); }
   .rera { display: flex; gap: var(--space-5); align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--lime-50); border: 2px solid var(--forest-700); border-radius: var(--radius-lg); padding: var(--space-5); margin: var(--space-5) 0; max-width: 46rem; }
@@ -158,7 +166,4 @@ const ld = {
   figcaption.mono { font-size: var(--step--1); color: var(--ink-500); margin-top: .4rem; }
   .more { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
 </style>
-<script>
-  import { initXray } from '../../../scripts/xray';
-  initXray();
-</script>
+

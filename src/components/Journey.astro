@@ -1,7 +1,7 @@
 ---
 import { u } from '../lib/url';
 import site from '../data/site.json';
-const stills = [
+const _stills = [
   ['phone-k1', 'A cramped rented room at dusk, traffic outside the window'],
   ['phone-k3', 'The region seen from above like a map, project pins glowing'],
   ['phone-k4', 'A plot among trees with a building drawn in white lines'],
@@ -21,27 +21,20 @@ const wa = site.whatsapp ? `https://wa.me/${site.whatsapp.replace(/\D/g, '')}` :
 ---
 <script is:inline>
   (function () {
-    var d = document.documentElement, c = navigator.connection || {}, m = 'film';
+    var d = document.documentElement, c = navigator.connection || {}, w = innerWidth, h = innerHeight, co = matchMedia('(pointer: coarse)').matches, m = 'd';
     if (matchMedia('(prefers-reduced-motion: reduce)').matches || c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '')) m = 'static';
-    else if (innerWidth < 768 || (matchMedia('(pointer: coarse)').matches && innerWidth < 900 && innerHeight > innerWidth)) m = 'stills';
+    else if (w < 768 || (co && h > w && w < 900)) m = 'm';
+    else if (w < 1200 || co) m = 't';
     d.dataset.jmode = m;
   })();
 </script>
-<section class="j" data-journey aria-label="The way home: a short scroll film">
+<section class="j" id="way-home" data-chapter="The way home" data-journey data-seq-base={u("/seq/")} aria-label="The way home: a short scroll film">
   <div class="j__stage">
     <picture class="j__poster">
       <source media="(max-width: 767px)" srcset={`${u('/img/journey/phone-k1-540.webp')} 540w, ${u('/img/journey/phone-k1.webp')} 810w`} sizes="100vw" />
       <img src={u('/img/journey/k1-1600.webp')} srcset={`${u('/img/journey/k1-800.webp')} 800w, ${u('/img/journey/k1-1600.webp')} 1600w`} sizes="100vw" width="1600" height="905" alt="" fetchpriority="high" decoding="async" />
     </picture>
-    <video class="j__video" muted playsinline preload="none" disablepictureinpicture aria-hidden="true"
-      data-src-desktop={u('/film/journey-1600.mp4')} data-src-tablet={u('/film/journey-1280.mp4')}></video>
-    <div class="j__stills" aria-hidden="true">
-      {stills.map(([k], i) => (
-        <div class="j__still" data-still style={i === 0 ? 'opacity:1' : 'opacity:0'}>
-          <img src={u(`/img/journey/${k}-540.webp`)} srcset={`${u(`/img/journey/${k}-540.webp`)} 540w, ${u(`/img/journey/${k}.webp`)} 810w`} sizes="100vw" width="540" height="960" alt="" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
-        </div>
-      ))}
-    </div>
+    <canvas class="j__canvas" aria-hidden="true"></canvas>
     <div class="j__end" aria-hidden="true"><img src={u('/img/journey/k8-1600.webp')} srcset={`${u('/img/journey/k8-800.webp')} 800w, ${u('/img/journey/k8-1600.webp')} 1600w`} sizes="100vw" width="1600" height="905" alt="" loading="lazy" decoding="async" /></div>
     <div class="j__scrim"></div>
 
@@ -76,30 +69,26 @@ const wa = site.whatsapp ? `https://wa.me/${site.whatsapp.replace(/\D/g, '')}` :
 </section>
 <style>
   .j { position: relative; background: var(--forest-950); color: var(--lime-50); height: 100svh; }
-  html[data-jmode='film'] .j { height: 900vh; }
-  html[data-jmode='stills'] .j { height: 600vh; }
+  html[data-jmode='d'] .j, html[data-jmode='t'] .j { height: 850vh; }
+  html[data-jmode='m'] .j { height: 650vh; }
   .j__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; }
-  .j__poster, .j__video, .j__stills, .j__end, .j__scrim { position: absolute; inset: 0; }
-  .j__poster img, .j__video, .j__end img, .j__still img { width: 100%; height: 100%; object-fit: cover; }
-  .j__video { opacity: 0; transition: opacity .6s var(--ease); }
-  .j.is-ready .j__video { opacity: 1; }
-  .j__stills { display: none; }
-  .j__still { position: absolute; inset: 0; will-change: opacity, transform; transform-origin: 50% 60%; }
-  html[data-jmode='stills'] .j__stills, .j[data-mode='stills'] .j__stills { display: block; }
-  html[data-jmode='stills'] .j__poster { visibility: hidden; }
+  .j__poster, .j__canvas, .j__end, .j__scrim { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .j__poster img, .j__end img { width: 100%; height: 100%; object-fit: cover; }
+  .j__canvas { opacity: 0; transition: opacity .8s var(--ease); transform-origin: 50% 60%; will-change: transform; }
+  .j.is-ready .j__canvas { opacity: 1; }
   .j__end { opacity: 0; }
   html[data-jmode='static'] .j__end { opacity: 1; }
-  .j__scrim { background: linear-gradient(90deg, rgb(15 31 24 / .78) 0%, rgb(15 31 24 / .35) 45%, rgb(15 31 24 / 0) 70%), linear-gradient(0deg, rgb(15 31 24 / .6), transparent 40%); pointer-events: none; }
+  html[data-jmode='static'] .j__canvas { display: none; }
+  .j__scrim { background: linear-gradient(90deg, rgb(15 31 24 / .78) 0%, rgb(15 31 24 / .35) 45%, rgb(15 31 24 / 0) 70%), linear-gradient(0deg, rgb(15 31 24 / .65), transparent 40%); pointer-events: none; }
   .j__caps { list-style: none; margin: 0; padding: 0; position: absolute; left: var(--gutter); right: var(--gutter); bottom: calc(18vh + env(safe-area-inset-bottom)); max-width: 34rem; }
-  .j__cap { position: absolute; bottom: 0; left: 0; right: 0; opacity: 0; transform: translateY(14px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
-  .j__cap.is-on { opacity: 1; transform: none; }
+  .j__cap { position: absolute; bottom: 0; left: 0; right: 0; opacity: 0; will-change: opacity, transform; }
   .j__cap .label { color: var(--brass-300); }
   .j__hi { font-size: var(--step-4); line-height: 1.25; margin: .4rem 0 .2rem; text-shadow: 0 2px 30px rgb(0 0 0 / .4); }
   .j__line { font: 400 var(--step-4)/1.05 var(--font-display); margin: .4rem 0 0; text-shadow: 0 2px 30px rgb(0 0 0 / .45); text-wrap: balance; }
   .j__hi + .j__line { font: 400 var(--step-1)/1.4 var(--font-text); color: var(--lime-200); }
-  .j__settle { position: absolute; left: var(--gutter); right: var(--gutter); bottom: calc(8vh + env(safe-area-inset-bottom)); max-width: 40rem; opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); pointer-events: none; }
-  .j__settle.is-on, html[data-jmode='static'] .j__settle { opacity: 1; transform: none; pointer-events: auto; }
+  .j__settle { position: absolute; left: var(--gutter); right: var(--gutter); bottom: calc(10vh + env(safe-area-inset-bottom)); max-width: 40rem; opacity: 0; pointer-events: none; will-change: opacity, transform; }
   html[data-jmode='static'] .j__caps { display: none; }
+  html[data-jmode='static'] .j__settle { opacity: 1; pointer-events: auto; }
   .j__settle .label { color: var(--brass-300); }
   .j__title { font-size: var(--step-5); margin: .4rem 0 var(--space-4); }
   .j__title em { color: var(--brass-300); }
@@ -109,21 +98,16 @@ const wa = site.whatsapp ? `https://wa.me/${site.whatsapp.replace(/\D/g, '')}` :
   .ring circle { fill: none; stroke-width: 2; }
   .ring__bg { stroke: rgb(255 255 255 / .18); }
   .ring__arc { stroke: var(--brass-300); stroke-dasharray: 163.36; stroke-dashoffset: 163.36; transition: stroke-dashoffset .3s linear; }
-  .ring.is-indet svg { animation: spin 1.2s linear infinite; }
-  .ring.is-indet .ring__arc { stroke-dashoffset: 110; }
   .ring span { font-size: 10px; }
-  @keyframes spin { to { transform: rotate(270deg); } }
   .j__ai { position: absolute; left: var(--gutter); bottom: calc(1rem + env(safe-area-inset-bottom)); color: var(--lime-200); opacity: .8; margin: 0; }
-  .j__scroll { position: absolute; right: 50%; transform: translateX(50%); bottom: calc(1rem + env(safe-area-inset-bottom)); margin: 0; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; opacity: .7; }
+  .j__scroll { position: absolute; left: 50%; bottom: calc(1rem + env(safe-area-inset-bottom)); transform: translateX(-50%); margin: 0; display: grid; justify-items: center; gap: .4rem; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+  .j__scroll::after { content: ''; width: 1px; height: 36px; background: linear-gradient(var(--lime-100), transparent); animation: drip 1.8s var(--ease) infinite; transform-origin: top; }
+  @keyframes drip { 0% { transform: scaleY(0); } 60% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
   html[data-jmode='static'] .j__scroll { display: none; }
   @media (max-width: 767px) {
-    .j__caps { bottom: calc(22vh + env(safe-area-inset-bottom)); }
-    .j__scrim { background: linear-gradient(0deg, rgb(15 31 24 / .85) 0%, rgb(15 31 24 / .35) 50%, rgb(15 31 24 / .1) 100%); }
-    .j__settle { bottom: calc(10vh + env(safe-area-inset-bottom)); }
+    .j__caps { bottom: calc(24vh + env(safe-area-inset-bottom)); }
+    .j__scrim { background: linear-gradient(0deg, rgb(15 31 24 / .88) 0%, rgb(15 31 24 / .35) 50%, rgb(15 31 24 / .15) 100%); }
     .j__scroll { display: none; }
   }
 </style>
-<script>
-  import { initJourney } from '../scripts/journey';
-  initJourney();
-</script>
+

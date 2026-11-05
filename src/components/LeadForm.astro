@@ -60,7 +60,8 @@ const budgets = ['Under ₹1 Cr', '₹1 to 2 Cr', '₹2 to 4 Cr', '₹4 to 7 Cr'
 <script>
   import { validateLead, whatsappLink, leadSummary } from '../lib/lead';
   const fmt = new Intl.DateTimeFormat('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
-  document.querySelectorAll<HTMLFormElement>('form[data-lead]').forEach((form) => {
+  const bindForms = () => document.querySelectorAll<HTMLFormElement>('form[data-lead]:not([data-bound])').forEach((form) => {
+    form.dataset.bound = '1';
     (form.querySelector('[data-started]') as HTMLInputElement).value = String(Date.now());
     // Site-visit slots: next 10 days, 11:00 and 16:00. Sundays included; real availability is confirmed on the call.
     const sel = form.querySelector<HTMLSelectElement>('[data-slots]');
@@ -108,4 +109,5 @@ const budgets = ['Under ₹1 Cr', '₹1 to 2 Cr', '₹2 to 4 Cr', '₹4 to 7 Cr'
       done.hidden = false; done.focus();
     });
   });
+  document.addEventListener('astro:page-load', bindForms);
 </script>
