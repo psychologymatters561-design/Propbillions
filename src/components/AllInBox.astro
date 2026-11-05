@@ -46,7 +46,8 @@ const a = p.allIn ? allInCost({ basePrice: p.allIn.basePrice, gstPct: p.allIn.gs
 <script>
   import { allInCost } from '../lib/cost';
   import { inr } from '../lib/money';
-  document.querySelectorAll<HTMLElement>('[data-allin]').forEach((box) => {
+  const bindBoxes = () => document.querySelectorAll<HTMLElement>('[data-allin]:not([data-bound])').forEach((box) => {
+    box.dataset.bound = '1';
     const stamp = JSON.parse(box.dataset.stamp!);
     box.addEventListener('change', (e) => {
       const holder = (e.target as HTMLInputElement).value as 'male' | 'female' | 'joint';
@@ -55,4 +56,5 @@ const a = p.allIn ? allInCost({ basePrice: p.allIn.basePrice, gstPct: p.allIn.gs
       box.querySelector('[data-lines]')!.innerHTML = a.lines.map((l) => `<tr><th>${l.label}</th><td class="mono">${inr(l.amount)}</td></tr>`).join('');
     });
   });
+  document.addEventListener('astro:page-load', bindBoxes);
 </script>

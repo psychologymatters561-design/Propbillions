@@ -14,13 +14,15 @@ One continuous first-person journey, scrubbed by scroll. Seven shots, eight key 
 
 Inspection notes: no text, logos or people in any frame. Shot 4 morphs quickly from aerial to gate around 3 to 4 seconds; under scroll scrubbing it reads as a dive, so it was kept rather than re-rolled. The balcony was moved from a city canopy to the Kumaon hills once the crawl showed "Heaven in the Forest" is a real project near Kainchi Dham.
 
-## Delivery by device
+## Delivery by device (round 2: canvas image sequence)
+
+The first version scrubbed an MP4. It only moved after the whole 12 MB file arrived, and some browsers (Safari above all) seek a paused video unreliably, so it did not play every time. It now paints an image sequence on a canvas. Frames load coarse to fine (every 16th frame first, then 8th, 4th, 2nd, all), so the film moves after the first few frames and sharpens as the rest arrive. Between two loaded frames it cross-blends, so scrubbing stays smooth at any speed.
 
 | Device | What plays | Weight |
 | --- | --- | --- |
-| Desktop | `journey-1600.mp4`, 1600x900, 24 fps, keyframe every 10 frames, preloaded as a Blob behind a progress ring | 12 MB |
-| Tablet | `journey-1280.mp4`, 1280x720 | 6.3 MB |
-| Phone | 6 tall stills (K1, K3, K4, K5, K7, K8) that cross-fade and push in | about 0.6 MB at 540 px |
+| Desktop | `seq/d`: 280 frames, 1120x630 WebP | 15 MB in total, moving after about 1 MB |
+| Tablet and small laptops | `seq/t`: 280 frames, 880x495 | 11 MB in total |
+| Phone | `seq/m`: 175 portrait frames, 432x768, cropped to follow each subject (the diya stays in frame) | 5 MB on 4G or Wi-Fi; on slower links it stops at every 4th frame (about 1.3 MB) |
 | Reduced motion, Save-Data, 2G/3G | The settle frame (K8) with all buttons | about 0.1 MB |
 
 ## Credits spent

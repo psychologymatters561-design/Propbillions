@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { projects } from '../../lib/data';
+import { u } from '../../lib/url';
 const minPrice = (p: (typeof projects)[number]) => Math.min(...p.configs.map((c) => c.price ?? Infinity));
 const band = (v: number) => (v === Infinity ? 'on-request' : v < 1e7 ? 'under-1cr' : v < 4e7 ? '1-4cr' : 'above-4cr');
 const config = (p: (typeof projects)[number]) => (p.type !== 'Residential' ? 'commercial' : p.configs.map((c) => (c.type.match(/(\d) BHK/) || [])[1]).filter(Boolean).map((n) => `${n}bhk`).join(' '));
@@ -9,11 +10,11 @@ const status = (p: (typeof projects)[number]) => (/ready/i.test(p.status) ? 'rea
 const cities = [...new Map(projects.map((p) => [p.city, p.cityLabel])).entries()];
 ---
 <Base title="Projects in Noida, Greater Noida, South Delhi and Uttarakhand" description="Six projects with RERA status, all-in price estimates and what our checks found so far. Filter by city, budget, configuration, status and possession year." breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }]}>
-  <section class="section bp-grid">
+  <section class="section bp-grid pl-head" data-chapter="Find">
     <div class="wrap">
-      <p class="label">Projects</p>
-      <h1 class="ttl">Six projects. <em>Read before listed.</em></h1>
-      <p class="lede">Each card shows the RERA status, possession date and an all-in estimate where a price is published. If something is unknown, it says so.</p>
+      <header class="sh"><span class="sh__n">01</span><p class="label">Projects</p>
+      <h1 class="ttl">Six projects. <em>Read before listed.</em></h1></header>
+      <p class="lede">Filter, then scroll sideways through them. Each one develops from the drawing into the picture with RERA, possession and the all-in price pinned on.</p>
       <form class="filters" data-filters aria-label="Filter projects">
         <label>City<select name="city"><option value="">All</option>{cities.map(([v, l]) => <option value={v}>{l}</option>)}</select></label>
         <label>Budget<select name="budget"><option value="">Any</option><option value="under-1cr">Under ₹1 Cr</option><option value="1-4cr">₹1 to 4 Cr</option><option value="above-4cr">Above ₹4 Cr</option><option value="on-request">Price on request</option></select></label>
@@ -22,42 +23,60 @@ const cities = [...new Map(projects.map((p) => [p.city, p.cityLabel])).entries()
         <label>Possession year<select name="year"><option value="">Any</option><option value="none">Not published yet</option></select></label>
       </form>
       <p class="mono count" data-count-out aria-live="polite">{projects.length} projects</p>
-      <div class="grid">
-        {projects.map((p) => (
-          <div data-item data-city={p.city} data-budget={band(minPrice(p))} data-config={config(p)} data-status={status(p)} data-year={p.possession ? 'some' : 'none'}>
-            <ProjectCard p={p} />
-          </div>
-        ))}
-      </div>
-      <p class="empty" data-empty hidden>No project matches. <a href="#" data-reset>Clear filters</a>, or tell us what you need and we will look.</p>
     </div>
+  </section>
+  <section class="section section--dark pl-list" id="list" data-hscroll data-chapter="Projects">
+    <div class="wrap pl-bar"><p class="mono">Scroll to browse</p><div class="gal__bar" aria-hidden="true"><span data-hbar></span></div></div>
+    <div class="pl-track" data-hscroll-track>
+      {projects.map((p, i) => (
+        <div class="pl-item" data-item data-city={p.city} data-budget={band(minPrice(p))} data-config={config(p)} data-status={status(p)} data-year={p.possession ? 'some' : 'none'}>
+          <ProjectCard p={p} index={i} eager={i < 2} />
+        </div>
+      ))}
+      <div class="pl-item pl-end"><p class="label">Not here?</p><p class="pl-endq">Tell us your budget and where you work. We will look.</p><a class="btn" href={u('/contact#shortlist')}>Ask for a shortlist</a></div>
+    </div>
+    <p class="empty wrap" data-empty hidden>No project matches. <a href="#" data-reset>Clear filters</a>.</p>
   </section>
 </Base>
 <style>
   .ttl em { color: var(--brass-600); }
+  .pl-head { padding-bottom: var(--space-6); }
   .filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-4); margin: var(--space-6) 0 var(--space-4); }
   .filters label { display: grid; gap: .3rem; font: 600 var(--step--1) var(--font-text); }
   .filters select { min-height: var(--tap); padding: .5rem; font: 400 16px var(--font-text); border: 1px solid var(--lime-300); border-radius: var(--radius); background: var(--lime-50); }
-  .count { color: var(--ink-500); }
-  .grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+  .count { color: var(--ink-500); margin: 0; }
+  .pl-list { height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: var(--space-5); padding-block: calc(64px + var(--space-3)) var(--space-5); overflow: clip; }
+  .pl-bar { display: flex; align-items: center; gap: var(--space-4); }
+  .pl-bar p { margin: 0; color: var(--forest-300); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+  .gal__bar { flex: 1; height: 2px; background: rgb(255 255 255 / .12); max-width: 320px; }
+  .gal__bar span { display: block; height: 100%; background: var(--brass-300); transform: scaleX(0); transform-origin: left; }
+  .pl-track { display: flex; gap: var(--space-5); padding: 0 var(--gutter); width: max-content; will-change: transform; }
+  .pl-item { width: min(82vw, 400px); color: var(--ink-900); }
+  .pl-end { display: grid; align-content: center; gap: var(--space-4); padding: var(--space-6); border: 1px dashed rgb(255 255 255 / .2); border-radius: 14px; color: var(--lime-100); }
+  .pl-endq { font: 400 var(--step-2)/1.2 var(--font-display); margin: 0; }
+  .empty { color: var(--lime-200); }
+  @media (max-height: 760px) and (min-width: 768px) { .pl-item { width: 340px; } }
 </style>
 <script>
-  import { initXray } from '../../scripts/xray';
-  initXray();
-  const f = document.querySelector<HTMLFormElement>('[data-filters]')!;
-  const items = [...document.querySelectorAll<HTMLElement>('[data-item]')];
-  const out = document.querySelector('[data-count-out]')!, empty = document.querySelector<HTMLElement>('[data-empty]')!;
-  const apply = () => {
-    const v = Object.fromEntries(new FormData(f)) as Record<string, string>;
-    let n = 0;
-    for (const el of items) {
-      const ok = (!v.city || el.dataset.city === v.city) && (!v.budget || el.dataset.budget === v.budget) && (!v.config || (el.dataset.config || '').split(' ').includes(v.config)) && (!v.status || el.dataset.status === v.status) && (!v.year || el.dataset.year === v.year);
-      el.hidden = !ok; if (ok) n++;
-    }
-    out.textContent = `${n} project${n === 1 ? '' : 's'}`; empty.hidden = n > 0;
-    const q = new URLSearchParams(Object.entries(v).filter(([, x]) => x)); history.replaceState(null, '', q.toString() ? `?${q}` : location.pathname);
+  import { ScrollTrigger } from '../../scripts/motion';
+  const init = () => {
+    const f = document.querySelector<HTMLFormElement>('[data-filters]'); if (!f) return;
+    const items = [...document.querySelectorAll<HTMLElement>('[data-item]')];
+    const out = document.querySelector('[data-count-out]')!, empty = document.querySelector<HTMLElement>('[data-empty]')!;
+    const apply = (refresh = true) => {
+      const v = Object.fromEntries(new FormData(f)) as Record<string, string>;
+      let n = 0;
+      for (const el of items) {
+        const ok = (!v.city || el.dataset.city === v.city) && (!v.budget || el.dataset.budget === v.budget) && (!v.config || (el.dataset.config || '').split(' ').includes(v.config)) && (!v.status || el.dataset.status === v.status) && (!v.year || el.dataset.year === v.year);
+        el.hidden = !ok; if (ok) n++;
+      }
+      out.textContent = `${n} project${n === 1 ? '' : 's'}`; empty.hidden = n > 0;
+      const q = new URLSearchParams(Object.entries(v).filter(([, x]) => x)); history.replaceState(history.state, '', q.toString() ? `?${q}` : location.pathname);
+      if (refresh) requestAnimationFrame(() => ScrollTrigger.refresh());
+    };
+    new URLSearchParams(location.search).forEach((val, key) => { const el = f.elements.namedItem(key) as HTMLSelectElement | null; if (el) el.value = val; });
+    f.addEventListener('change', () => apply()); apply();
+    document.querySelector('[data-reset]')!.addEventListener('click', (e) => { e.preventDefault(); f.reset(); apply(); });
   };
-  new URLSearchParams(location.search).forEach((val, key) => { const el = f.elements.namedItem(key) as HTMLSelectElement | null; if (el) el.value = val; });
-  f.addEventListener('change', apply); apply();
-  document.querySelector('[data-reset]')!.addEventListener('click', (e) => { e.preventDefault(); f.reset(); apply(); });
+  document.addEventListener('astro:page-load', init);
 </script>

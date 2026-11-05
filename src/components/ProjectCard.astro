@@ -1,52 +1,95 @@
 ---
-/** Project card with the X-ray lens: hover (desktop), press and hold (touch) or focus reveals the blueprint and check results. */
+/**
+ * Project card, "blueprint to photo": scroll draws the building in white lines over a blueprint,
+ * wipes the drawing away to reveal the picture, then pins drawing-style notes (RERA, possession,
+ * all-in) with leader lines. Desktop adds a depth tilt. Motion lives in scripts/motion.ts.
+ */
 import { img, projectUrl, allInLabel, type Project } from '../lib/data';
 import { u } from '../lib/url';
-interface Props { p: Project; eager?: boolean }
-const { p, eager = false } = Astro.props;
+interface Props { p: Project; eager?: boolean; index?: number }
+const { p, eager = false, index } = Astro.props;
 const i = img(p.hero);
-const rera = p.rera ? { s: 'ok', t: `RERA ${p.rera}` } : { s: 'tbc', t: 'RERA number to confirm' };
 const allIn = allInLabel(p);
 const first = p.configs.find((c) => c.price) ?? p.configs[0];
+const tower = p.type === 'Residential';
 ---
-<article class="pc" data-xray tabindex="-1">
+<article class="pc" data-card>
   <a class="pc__link" href={u(projectUrl(p))} aria-label={`${p.name}, ${p.cityLabel}. Open project`}></a>
   <div class="pc__media">
-    {i && <img src={u(i.sizes.find((s) => s.width >= 800)?.src ?? i.largest.src)} srcset={i.sizes.map((s) => `${u(s.src)} ${s.width}w`).join(', ')} sizes="(min-width: 900px) 40vw, 86vw" width={i.largest.width} height={i.largest.height} alt={`${p.name}, ${p.kind}`} loading={eager ? 'eager' : 'lazy'} decoding="async" />}
-    <div class="pc__xray" aria-hidden="true">
-      {i && <img src={u(i.smallest.src)} alt="" loading="lazy" decoding="async" />}
-      <svg class="pc__grid" viewBox="0 0 100 62" preserveAspectRatio="none"><defs><pattern id={`g-${p.slug}`} width="5" height="5" patternUnits="userSpaceOnUse"><path d="M5 0H0V5" fill="none" stroke="currentColor" stroke-width=".15"/></pattern></defs><rect width="100" height="62" fill={`url(#g-${p.slug})`}/><path d="M30 52V20l20-10 20 10v32M30 30h40M30 41h40M43 52V44h14v8" fill="none" stroke="currentColor" stroke-width=".5"/></svg>
+    {i && <img class="pc__img" src={u(i.sizes.find((s) => s.width >= 800)?.src ?? i.largest.src)} srcset={i.sizes.map((s) => `${u(s.src)} ${s.width}w`).join(', ')} sizes="(min-width: 900px) 34vw, 82vw" width={i.largest.width} height={i.largest.height} alt={`${p.name}, ${p.kind}`} loading={eager ? 'eager' : 'lazy'} decoding="async" />}
+    <div class="pc__bp" aria-hidden="true">
+      {i && <img class="pc__bpimg" src={u(i.smallest.src)} alt="" loading="lazy" decoding="async" />}
+      <svg class="pc__grid" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice"><defs><pattern id={`g-${p.slug}`} width="8" height="8" patternUnits="userSpaceOnUse"><path d="M8 0H0V8" fill="none" stroke="currentColor" stroke-width=".18"/></pattern></defs><rect width="160" height="100" fill={`url(#g-${p.slug})`}/></svg>
+      <svg class="pc__lines" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid meet" fill="none" stroke="currentColor" stroke-width=".7">
+        {tower ? (
+          <>
+            <path d="M20 88H140" /><path d="M58 88V22H102V88" /><path d="M58 22L80 12L102 22" />
+            <path d="M58 34H102M58 46H102M58 58H102M58 70H102" /><path d="M72 22V88M88 22V88" /><path d="M75 88V78H85V88" />
+            <path d="M30 88V64H50V88M110 88V58H130V88" /><path d="M34 70H46M114 64H126" />
+          </>
+        ) : (
+          <>
+            <path d="M14 88H146" /><path d="M24 88V40H136V88" /><path d="M24 40L80 28L136 40" />
+            <path d="M24 56H136M24 72H136" /><path d="M38 88V78Q46 70 54 78V88M70 88V78Q78 70 86 78V88M102 88V78Q110 70 118 78V88" />
+            <path d="M52 40V88M80 40V88M108 40V88" />
+          </>
+        )}
+      </svg>
+      <span class="pc__bplabel mono">{p.locality} · drawing</span>
     </div>
+    <svg class="pc__dims" viewBox="0 0 160 100" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width=".35" aria-hidden="true"><path d="M8 94H152M8 91V97M152 91V97" /><path d="M154 8V86M151 8H157M151 86H157" /></svg>
+    <ul class="pc__notes" aria-label="Key facts">
+      <li class="pc__note n1"><span class={`check check--${p.rera ? 'ok' : 'tbc'}`}>RERA</span> {p.rera ?? 'to confirm'}</li>
+      <li class="pc__note n2"><span class="mono">Possession</span> {p.possession ?? 'to confirm'}</li>
+      {allIn && <li class="pc__note n3"><span class="mono">All-in</span> {allIn.replace(' all-in', '')}</li>}
+    </ul>
     <span class="impression">{p.heroKind === 'render' ? "Artist's impression" : 'Photo'}</span>
-    <span class="pc__hint mono" aria-hidden="true"><span class="hint-fine">Hover</span><span class="hint-touch">Hold</span> to X-ray</span>
+    {index !== undefined && <span class="pc__idx mono">{String(index + 1).padStart(2, '0')}</span>}
   </div>
   <div class="pc__body">
-    <p class="label">{p.type} · {p.cityLabel}</p>
+    <p class="pc__eyebrow mono">{p.type} · {p.cityLabel}</p>
     <h3 class="pc__name">{p.name}</h3>
     <p class="pc__kind">{p.kind}</p>
     <dl class="pc__facts">
-      <div><dt>RERA</dt><dd><span class={`check check--${rera.s}`}>{p.rera ?? 'To confirm'}</span></dd></div>
-      <div><dt>Possession</dt><dd>{p.possession ?? <span class="tbc">to confirm</span>}</dd></div>
       <div><dt>Price</dt><dd>{first.priceLabel}{allIn && <><br /><b>{allIn}</b> <span class="est">estimate</span></>}</dd></div>
+      <div><dt>Stage</dt><dd>{p.status}</dd></div>
     </dl>
+    <span class="pc__go mono" aria-hidden="true">Open project →</span>
   </div>
 </article>
 <style>
-  .pc { position: relative; display: grid; background: var(--lime-50); border: 1px solid var(--lime-300); border-radius: var(--radius-lg); overflow: hidden; height: 100%; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
-  .pc:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-  .pc__link { position: absolute; inset: 0; z-index: 3; }
+  .pc { position: relative; display: grid; grid-template-rows: auto 1fr; background: var(--lime-50); border: 1px solid var(--lime-300); border-radius: 14px; overflow: hidden; height: 100%; will-change: transform; }
+  .pc::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(500px circle at var(--gx, 50%) var(--gy, 0%), rgb(255 255 255 / .16), transparent 45%); opacity: 0; transition: opacity .4s; }
+  .pc:hover::after { opacity: 1; }
+  .pc__link { position: absolute; inset: 0; z-index: 5; }
   .pc__link:focus-visible { outline-offset: -4px; }
-  .pc__media { aspect-ratio: 16 / 10; }
-  .pc__media > img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
-  .pc:hover .pc__media > img { transform: scale(1.03); }
-  .pc__grid { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .pc__media { position: relative; aspect-ratio: 16 / 11; overflow: hidden; background: #0d2340; color: var(--bp-300); }
+  .pc__img { position: absolute; inset: -4%; width: 108%; height: 108%; max-width: none; object-fit: cover; will-change: transform; }
+  .pc__bp { position: absolute; inset: 0; background: #0d2340; color: var(--bp-300); z-index: 1; clip-path: inset(0 0 0 0); }
+  .pc__bpimg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.5) brightness(.9); mix-blend-mode: screen; opacity: .28; }
+  .pc__grid, .pc__lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .pc__lines { color: var(--lime-50); inset: 8% 10%; width: 80%; height: 84%; }
+  .pc__bplabel { position: absolute; left: .7rem; top: .7rem; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--bp-100); }
+  .pc__dims { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--lime-50); z-index: 2; opacity: .75; pointer-events: none; }
+  .pc__notes { list-style: none; margin: 0; padding: 0; position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+  .pc__note { position: absolute; display: inline-flex; align-items: center; gap: .45em; padding: .35em .6em; background: rgb(250 247 241 / .94); color: var(--ink-900); border-radius: 4px; font: 500 12px/1.2 var(--font-text); box-shadow: 0 6px 20px rgb(15 31 24 / .25); white-space: nowrap; }
+  .pc__note .mono { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-500); }
+  .pc__note::before { content: ''; position: absolute; width: 22px; height: 1px; background: var(--lime-50); right: 100%; top: 50%; }
+  .n1 { left: 1rem; top: 2.4rem; } .n1::before { display: none; }
+  .n2 { right: 1rem; top: 46%; } .n2::before { right: auto; left: -22px; }
+  .n3 { left: 1rem; bottom: 1.6rem; } .n3::before { display: none; }
+  .pc__idx { position: absolute; right: .8rem; top: .7rem; z-index: 3; color: var(--lime-50); font-size: 11px; letter-spacing: .1em; }
+  .impression { z-index: 4; left: auto; right: .5rem; bottom: .5rem; }
   .pc__body { padding: var(--space-5); display: grid; gap: .35rem; align-content: start; }
+  .pc__eyebrow { margin: 0; font-size: 11px; color: var(--ink-500); letter-spacing: .06em; text-transform: uppercase; }
   .pc__name { font-size: var(--step-2); margin: 0; }
   .pc__kind { margin: 0; color: var(--ink-700); font-size: .95rem; }
   .pc__facts { margin: var(--space-3) 0 0; display: grid; gap: .45rem; }
-  .pc__facts div { display: grid; grid-template-columns: 6.5rem 1fr; gap: .5rem; font-size: .92rem; }
-  .pc__facts dt { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-500); text-transform: uppercase; letter-spacing: .05em; }
+  .pc__facts div { display: grid; grid-template-columns: 4.5rem 1fr; gap: .5rem; font-size: .92rem; }
+  .pc__facts dt { font-family: var(--font-mono); font-size: 11px; color: var(--ink-500); text-transform: uppercase; letter-spacing: .05em; padding-top: .15em; }
   .pc__facts dd { margin: 0; }
   .est { font-family: var(--font-mono); font-size: 11px; color: var(--ink-500); }
-  .pc.is-xray .pc__facts { color: var(--bp-500); }
+  .pc__go { margin-top: var(--space-3); font-size: 12px; color: var(--brass-600); transition: transform .4s var(--ease); }
+  .pc:hover .pc__go { transform: translateX(6px); }
+  @media (prefers-reduced-motion: reduce) { .pc__bp { clip-path: inset(0 0 0 100%) !important; } }
 </style>

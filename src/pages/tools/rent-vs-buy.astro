@@ -45,7 +45,9 @@ import { u } from '../../lib/url';
 <script>
   import { rentVsBuy } from '../../lib/rentVsBuy';
   import { inr } from '../../lib/money';
-  const f = document.querySelector<HTMLFormElement>('[data-rvb]')!;
+  const init = () => {
+  const f = document.querySelector<HTMLFormElement>('[data-rvb]');
+    if (!f) return;
   const o = (k: string) => document.querySelector<HTMLElement>(`[data-o="${k}"]`)!;
   const n = (k: string) => Number(String(new FormData(f).get(k) || '').replace(/[^\d.-]/g, '')) || 0;
   const run = () => {
@@ -57,4 +59,6 @@ import { u } from '../../lib/url';
     o('emi').textContent = `EMI ${inr(r.emi)} a month after paying ${inr(r.upfront, { compact: true })} upfront.`;
   };
   f.addEventListener('input', run); run();
+  };
+  document.addEventListener('astro:page-load', init);
 </script>
