@@ -1,0 +1,5 @@
+---
+/** Visible marker for a fact we do not have yet. Every use is listed in docs/handover.md. */
+const { what = 'to confirm' } = Astro.props as { what?: string };
+---
+<span class="tbc" title={`Not invented. Waiting for PropBillions to confirm: ${what}`}>to confirm</span>

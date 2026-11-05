@@ -1,0 +1,15 @@
+{
+  "name": "PropBillions",
+  "domain": "propbillions.com",
+  "tagline": null,
+  "phone": null,
+  "whatsapp": null,
+  "email": null,
+  "address": null,
+  "hours": null,
+  "reraAgent": [],
+  "founded": null,
+  "social": {},
+  "payModel": null,
+  "_note": "null means unknown. Templates render a 'to confirm' marker for every null. Filled from the audit of propbillions.com and the client's answers."
+}

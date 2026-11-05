@@ -1,0 +1,109 @@
+---
+/**
+ * One form for every step of the ladder: shortlist, site visit, Neev Check, brochure.
+ * Posts to the lead API when PUBLIC_LEAD_ENDPOINT is set. Without a server it hands the
+ * request to WhatsApp, so a lead still reaches the sales phone, and it says so plainly.
+ */
+import site from '../data/site.json';
+import { u } from '../lib/url';
+interface Props { intent?: 'site-visit' | 'neev-check' | 'shortlist' | 'brochure' | 'callback'; project?: string; title?: string; id?: string; compact?: boolean; dark?: boolean }
+const { intent = 'site-visit', project = '', title, id = 'lead', compact = false, dark = false } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_LEAD_ENDPOINT || '';
+const intents = [
+  ['site-visit', 'Book a site visit'], ['neev-check', 'Get a Neev Check'], ['shortlist', 'Send me a shortlist on WhatsApp'], ['brochure', 'Send the brochure'], ['callback', 'Call me back'],
+];
+const budgets = ['Under ₹1 Cr', '₹1 to 2 Cr', '₹2 to 4 Cr', '₹4 to 7 Cr', 'Above ₹7 Cr', 'Not sure yet'];
+// Next 14 days of slots, computed at build time and refreshed in the browser.
+---
+<form class:list={['lead', { 'lead--compact': compact, 'lead--dark': dark }]} id={id} data-lead data-endpoint={endpoint} data-wa={site.whatsapp || ''} novalidate>
+  {title && <h3 class="lead__title">{title}</h3>}
+  <div class="lead__grid">
+    <div class="field"><label for={`${id}-name`}>Your name</label><input id={`${id}-name`} name="name" autocomplete="name" required /><span class="err" data-err="name"></span></div>
+    <div class="field"><label for={`${id}-phone`}>Mobile number</label><input id={`${id}-phone`} name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="98xxx xxxxx or +971..." required /><span class="err" data-err="phone"></span></div>
+    {!compact && <div class="field"><label for={`${id}-email`}>Email <span class="opt">(optional)</span></label><input id={`${id}-email`} name="email" type="email" autocomplete="email" /><span class="err" data-err="email"></span></div>}
+    <div class="field"><label for={`${id}-intent`}>What would help now?</label>
+      <select id={`${id}-intent`} name="intent">{intents.map(([v, l]) => <option value={v} selected={v === intent}>{l}</option>)}</select></div>
+    {!compact && <div class="field"><label for={`${id}-budget`}>Budget, all in</label><select id={`${id}-budget`} name="budget"><option value="">Choose</option>{budgets.map((b) => <option>{b}</option>)}</select></div>}
+    <div class="field" data-slot-wrap><label for={`${id}-slot`}>Preferred visit slot</label><select id={`${id}-slot`} name="slot" data-slots><option value="">Any time, call me first</option></select></div>
+    {!compact && <div class="field lead__wide"><label for={`${id}-msg`}>Anything we should know? <span class="opt">(optional)</span></label><textarea id={`${id}-msg`} name="message" rows="3" placeholder="Area you work in, school, must-haves"></textarea></div>}
+  </div>
+  <input type="hidden" name="project" value={project} />
+  <input type="hidden" name="startedAt" value="" data-started />
+  <div class="hp" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+  <label class="consent"><input type="checkbox" name="consent" required /> <span>I agree that PropBillions may call or WhatsApp me about this request. My details are used only for this, as set out in the <a href={u('/privacy')}>privacy notice</a> (Digital Personal Data Protection Act, 2023). I can withdraw consent any time.</span></label>
+  <span class="err" data-err="consent"></span>
+  <label class="consent"><input type="checkbox" name="marketingConsent" /> <span>Also send me new project updates. Optional.</span></label>
+  <div class="lead__foot">
+    <button class="btn" type="submit" data-submit>Send request</button>
+    <p class="lead__note" data-note>{endpoint ? 'A person calls you back. We do not share your number with developers without asking you.' : 'This opens WhatsApp with your request typed in. Press send and it reaches our team directly.'}</p>
+  </div>
+  <div class="lead__done" data-done hidden role="status" tabindex="-1"></div>
+</form>
+<style>
+  .lead { display: grid; gap: var(--space-4); }
+  .lead__title { font-size: var(--step-3); }
+  .lead__grid { display: grid; gap: var(--space-4); grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .lead__grid { grid-template-columns: 1fr 1fr; } .lead__wide { grid-column: 1 / -1; } }
+  .lead--compact .lead__grid { grid-template-columns: 1fr; }
+  .opt { font-weight: 400; color: var(--ink-500); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .lead__foot { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+  .lead__note { font-size: var(--step--1); color: var(--ink-500); margin: 0; flex: 1 1 240px; }
+  .lead__done { padding: var(--space-5); background: var(--lime-50); border: 1px solid var(--ok); border-radius: var(--radius-lg); }
+  .lead--dark .field label, .lead--dark .consent { color: var(--lime-200); }
+  .lead--dark .field input, .lead--dark .field select, .lead--dark .field textarea { background: rgb(255 255 255 / .06); border-color: rgb(255 255 255 / .18); color: var(--lime-50); }
+  .lead--dark .field select option { color: var(--ink-900); }
+  .lead--dark .lead__note, .lead--dark .opt { color: var(--forest-300); }
+  .lead--dark .lead__done { background: rgb(255 255 255 / .05); color: var(--lime-100); }
+  .lead--dark a { color: var(--brass-300); }
+</style>
+<script>
+  import { validateLead, whatsappLink } from '../lib/lead';
+  const fmt = new Intl.DateTimeFormat('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
+  document.querySelectorAll<HTMLFormElement>('form[data-lead]').forEach((form) => {
+    (form.querySelector('[data-started]') as HTMLInputElement).value = String(Date.now());
+    // Site-visit slots: next 10 days, 11:00 and 16:00. Sundays included; real availability is confirmed on the call.
+    const sel = form.querySelector<HTMLSelectElement>('[data-slots]');
+    if (sel) for (let d = 1; d <= 10; d++) {
+      const day = new Date(); day.setDate(day.getDate() + d);
+      for (const t of ['11:00', '16:00']) { const o = document.createElement('option'); o.textContent = `${fmt.format(day)}, ${t}`; sel.append(o); }
+    }
+    const intentSel = form.querySelector<HTMLSelectElement>('[name=intent]');
+    const slotWrap = form.querySelector<HTMLElement>('[data-slot-wrap]');
+    const sync = () => { if (slotWrap) slotWrap.hidden = intentSel?.value !== 'site-visit'; };
+    intentSel?.addEventListener('change', sync); sync();
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+      const v = validateLead({ ...data, consent: data.consent === 'on', marketingConsent: data.marketingConsent === 'on', page: location.pathname });
+      form.querySelectorAll<HTMLElement>('[data-err]').forEach((el) => (el.textContent = ''));
+      if (!v.ok) {
+        if (v.spam) return;
+        for (const [k, msg] of Object.entries(v.errors)) { const el = form.querySelector<HTMLElement>(`[data-err="${k}"]`); if (el) el.textContent = msg; }
+        form.querySelector<HTMLElement>(`[name="${Object.keys(v.errors)[0]}"]`)?.focus();
+        return;
+      }
+      const btn = form.querySelector<HTMLButtonElement>('[data-submit]')!; btn.disabled = true; btn.textContent = 'Sending…';
+      const done = form.querySelector<HTMLElement>('[data-done]')!;
+      const endpoint = form.dataset.endpoint, wa = form.dataset.wa;
+      let sent = false;
+      if (endpoint) {
+        try {
+          const r = await fetch(endpoint, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ ...data, consent: true, marketingConsent: data.marketingConsent === 'on', page: location.href }) });
+          const j = await r.json(); sent = Boolean(j.ok && j.alerted);
+        } catch { sent = false; }
+      }
+      if (sent) {
+        done.innerHTML = `<p><strong>Got it, ${v.lead.name.split(' ')[0]}.</strong> Our team has your request and will call ${v.lead.phone}.</p>`;
+      } else if (wa) {
+        const link = whatsappLink(wa, v.lead);
+        done.innerHTML = `<p><strong>One last tap.</strong> WhatsApp opens with your request typed in. Press send and it reaches our team.</p><p><a class="btn btn--wa" href="${link}" target="_blank" rel="noopener">Open WhatsApp</a></p>`;
+        window.open(link, '_blank', 'noopener');
+      } else {
+        done.innerHTML = `<p><strong>We could not send this yet.</strong> Our lead line is being set up. Please call or write to us using the details on the contact page.</p>`;
+      }
+      form.querySelectorAll<HTMLElement>('.lead__grid, .consent, .lead__foot').forEach((el) => (el.hidden = true));
+      done.hidden = false; done.focus();
+    });
+  });
+</script>
