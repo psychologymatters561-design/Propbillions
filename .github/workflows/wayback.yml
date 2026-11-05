@@ -1,0 +1,33 @@
+name: wayback
+on:
+  push:
+    branches: [ccr-6651a26a-t4gy2p]
+    paths: ['scripts/audit/wayback.mjs', '.github/workflows/wayback.yml']
+permissions:
+  contents: write
+jobs:
+  wayback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Archive copies
+        run: timeout 1500 node scripts/audit/wayback.mjs propbillions.com audit-raw/wayback || true
+      - name: Direct retries (http, www, long timeout)
+        run: |
+          mkdir -p audit-raw/direct
+          for u in https://propbillions.com https://www.propbillions.com http://propbillions.com; do
+            n=$(echo $u | sed -E 's#[^a-z0-9]+#_#g')
+            curl -sS -m 90 -L -A "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/130 Mobile Safari/537.36" -H "Accept-Language: en-IN,en;q=0.9,hi;q=0.8" -o audit-raw/direct/$n.html -w "$u %{http_code} %{size_download} %{time_total} %{remote_ip}\n" "$u" >> audit-raw/direct/status.txt 2>>audit-raw/direct/errors.txt || true
+          done
+          dig +short propbillions.com >> audit-raw/direct/dns.txt || true
+          dig +short www.propbillions.com >> audit-raw/direct/dns.txt || true
+          dig +short NS propbillions.com >> audit-raw/direct/dns.txt || true
+          whois propbillions.com 2>/dev/null | grep -iE "registrar:|creation|expiry|name server" | head -12 >> audit-raw/direct/dns.txt || true
+      - name: Commit
+        run: |
+          git config user.name "audit-bot"; git config user.email "audit-bot@users.noreply.github.com"
+          git add audit-raw; git commit -m "audit: wayback copies and direct retries" || exit 0
+          for i in 1 2 3; do git pull --rebase -X theirs origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && break; sleep 5; done
