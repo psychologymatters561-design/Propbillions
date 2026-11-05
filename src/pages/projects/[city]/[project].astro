@@ -1,0 +1,164 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Img from '../../../components/Img.astro';
+import Checks from '../../../components/Checks.astro';
+import AllInBox from '../../../components/AllInBox.astro';
+import LeadForm from '../../../components/LeadForm.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import Tbc from '../../../components/Tbc.astro';
+import { projects, projectUrl, img, reraPortal, locations, STATE_LABEL, type Project } from '../../../lib/data';
+import { u } from '../../../lib/url';
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { city: p.city, project: p.slug }, props: { p } }));
+}
+const { p } = Astro.props as { p: Project };
+const hero = img(p.hero);
+const portal = reraPortal[p.state];
+const loc = locations.find((l) => l.slug === p.city);
+const others = projects.filter((x) => x.slug !== p.slug).slice(0, 3);
+const counts = p.checks.reduce((m: Record<string, number>, c) => ((m[c.s] = (m[c.s] || 0) + 1), m), {});
+const offerPrice = p.configs.find((c) => c.price)?.price;
+const ld = {
+  '@context': 'https://schema.org', '@type': 'RealEstateListing', name: p.name, url: new URL(u(projectUrl(p)), Astro.site).href,
+  description: p.summary, image: hero ? new URL(u(hero.largest.src), Astro.site).href : undefined,
+  about: { '@type': p.type === 'Residential' ? (p.kind.toLowerCase().includes('villa') ? 'House' : 'Apartment') : 'Place', name: p.name, address: { '@type': 'PostalAddress', streetAddress: p.address, addressRegion: p.state === 'UP' ? 'Uttar Pradesh' : p.state === 'DL' ? 'Delhi' : 'Uttarakhand', addressCountry: 'IN' } },
+  ...(offerPrice ? { offers: { '@type': 'Offer', price: offerPrice, priceCurrency: 'INR', description: 'Starting or indicative price as published. Excludes GST, stamp duty and registration.' } } : {}),
+};
+---
+<Base headerTone="dark" title={`${p.name}, ${p.locality}, ${p.cityLabel}`} description={`${p.name}: ${p.kind} in ${p.locality}, ${p.cityLabel}. RERA status, all-in price, checks and site visit booking.`} image={hero?.largest.src} jsonld={[ld]} breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }, { name: p.cityLabel, path: `/locations/${p.city}` }, { name: p.name, path: projectUrl(p) }]}>
+  <section class="ph">
+    <div class="ph__media" data-xray>
+      <div class="pc__media ph__frame" data-xray-media>
+        {hero && <img src={u(hero.largest.src)} srcset={hero.sizes.map((s) => `${u(s.src)} ${s.width}w`).join(', ')} sizes="100vw" width={hero.largest.width} height={hero.largest.height} alt={`${p.name}`} fetchpriority="high" />}
+        <div class="pc__xray ph__xray" aria-hidden="true">
+          <svg viewBox="0 0 100 56" preserveAspectRatio="none"><defs><pattern id="gx" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M4 0H0V4" fill="none" stroke="currentColor" stroke-width=".12"/></pattern></defs><rect width="100" height="56" fill="url(#gx)"/></svg>
+          <ul class="ph__xr mono">
+            <li>RERA · {p.rera ?? 'not published'}</li>
+            <li>Possession · {p.possession ?? 'not published'}</li>
+            {Object.entries(counts).map(([s, n]) => <li>{STATE_LABEL[s]} · {n}</li>)}
+          </ul>
+        </div>
+        <span class="impression">{p.heroKind === 'render' ? "Artist's impression" : 'Photo'}</span>
+        <span class="pc__hint mono"><span class="hint-fine">Hover</span><span class="hint-touch">Hold</span> to X-ray</span>
+      </div>
+    </div>
+    <div class="wrap ph__head">
+      <nav class="crumbs mono" aria-label="Breadcrumb"><a href={u('/projects')}>Projects</a> / <a href={u(`/locations/${p.city}`)}>{p.cityLabel}</a> / {p.name}</nav>
+      <p class="label">{p.type} · {p.status}</p>
+      <h1>{p.name}</h1>
+      <p class="lede">{p.summary}</p>
+      <div class="rera">
+        <div>
+          <p class="mono rera__k">{portal.name} registration</p>
+          <p class="rera__v">{p.rera ?? 'Not published'}</p>
+          <p class="rera__n">{p.reraNote} {p.rera && <a href={portal.url} rel="noopener" target="_blank">Check on {portal.name}</a>}</p>
+        </div>
+        {p.state === 'UP' && <div class="rera__qr"><span class="tbc">project QR code to confirm</span></div>}
+      </div>
+      <div class="btn-row"><a class="btn" href="#visit">Book a site visit</a><a class="btn btn--ghost" href="#brochure">Get the brochure</a><a class="btn btn--ghost" href={u('/neev-check')}>Full Neev Check</a></div>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="wrap pgrid">
+      <div>
+        <h2 class="h3">What it is</h2>
+        <dl class="facts">
+          <div><dt>Address</dt><dd>{p.address}</dd></div>
+          <div><dt>Developer</dt><dd>{p.developer ?? <Tbc what="developer name" />}</dd></div>
+          <div><dt>Type</dt><dd>{p.kind}</dd></div>
+          <div><dt>Stage</dt><dd>{p.status}</dd></div>
+          <div><dt>Possession</dt><dd>{p.possession ?? <Tbc what="possession date" />} <span class="facts__n">{p.possessionNote}</span></dd></div>
+          {p.units && <div><dt>Homes</dt><dd>{p.units}</dd></div>}
+        </dl>
+        <h3 class="h4">Configurations and prices as published</h3>
+        <table class="cfg"><thead><tr><th>Type</th><th>Area</th><th>Price</th></tr></thead><tbody>
+          {p.configs.map((c) => <tr><td>{c.type}</td><td>{c.area ?? <Tbc what="carpet area" />}</td><td>{c.priceLabel}</td></tr>)}
+        </tbody></table>
+        {p.paymentPlan && <><h3 class="h4">Payment plan as published</h3><table class="cfg"><tbody>{p.paymentPlan.map(([a, b]) => <tr><td>{a}</td><td class="mono">{b}</td></tr>)}</tbody></table></>}
+        <ul class="hl">{p.highlights.map((h) => <li>{h}</li>)}</ul>
+      </div>
+      <div class="pgrid__side"><AllInBox p={p} /></div>
+    </div>
+  </section>
+
+  <section class="section bp-grid">
+    <div class="wrap">
+      <p class="label">From public records so far</p>
+      <h2 class="h2s">What we found</h2>
+      <p class="lede">These come from the listing and public sources only. A full Neev Check adds title, approvals and the agreement.</p>
+      <Checks checks={p.checks} />
+      <p class="mono src">Listing: <a href={p.source} rel="noopener" target="_blank">{p.source.replace('https://', '')}</a>, read 5 Nov 2026.</p>
+    </div>
+  </section>
+
+  {(p.plans.length > 0 || p.gallery.length > 0) && (
+    <section class="section section--paper">
+      <div class="wrap">
+        {p.plans.length > 0 && <><h2 class="h2s">Plans</h2><div class="plans">{p.plans.map(([k, cap]) => <figure data-window><Img k={k} alt={cap} fit="contain" sizes="(min-width: 900px) 45vw, 100vw" label={false} /><figcaption class="mono">{cap}. Developer drawing.</figcaption></figure>)}</div></>}
+        {p.gallery.length > 0 && <><h2 class="h2s">Pictures</h2><div class="gallery">{p.gallery.map(([k, kind, cap]) => <figure data-window><Img k={k} alt={`${p.name}: ${cap}`} sizes="(min-width: 900px) 25vw, 50vw" /><figcaption class="mono">{cap}{kind === 'photo' ? ', photo' : ''}</figcaption></figure>)}</div></>}
+      </div>
+    </section>
+  )}
+
+  <section class="section section--dark">
+    <div class="wrap pgrid">
+      <div>
+        <p class="label">Location</p>
+        <h2 class="h2s">{p.locality}, {p.cityLabel}</h2>
+        <p class="lede">{loc?.intro}</p>
+        <p><a class="btn btn--ghost" href={`https://www.google.com/maps/search/?api=1&query=${p.coords[0]},${p.coords[1]}`} rel="noopener" target="_blank">Open in Google Maps</a> <a class="btn btn--ghost" href={u(`/locations/${p.city}`)}>Location notes</a></p>
+      </div>
+      <div id="brochure"><LeadForm intent="brochure" project={p.name} id="brochure-form" title="Get the brochure" compact dark /></div>
+    </div>
+  </section>
+
+  <section class="section" id="visit">
+    <div class="wrap pgrid">
+      <div><p class="label">Next small step</p><h2 class="h2s">Walk it before you pay for it.</h2><p class="lede">Pick a slot. We confirm it on a call, meet you at the site, and bring the questions from this page.</p></div>
+      <LeadForm intent="site-visit" project={p.name} id="visit-form" />
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="wrap"><h2 class="h2s">Other projects</h2><div class="more">{others.map((o) => <ProjectCard p={o} />)}</div></div>
+  </section>
+</Base>
+<style>
+  .ph__frame { aspect-ratio: auto; height: min(62svh, 640px); }
+  .ph__frame::before { content: ''; position: absolute; inset: 0 0 auto; height: 120px; background: linear-gradient(rgb(15 31 24 / .65), transparent); z-index: 1; pointer-events: none; }
+  .ph__frame > img { width: 100%; height: 100%; object-fit: cover; }
+  .ph__xray svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .ph__xr { position: absolute; left: var(--gutter); bottom: var(--gutter); list-style: none; margin: 0; padding: var(--space-4); background: rgb(13 35 64 / .8); color: var(--bp-100); display: grid; gap: .3rem; font-size: .8rem; }
+  .ph__head { padding-block: var(--space-6) var(--space-7); }
+  .crumbs { color: var(--ink-500); margin-bottom: var(--space-4); }
+  .rera { display: flex; gap: var(--space-5); align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--lime-50); border: 2px solid var(--forest-700); border-radius: var(--radius-lg); padding: var(--space-5); margin: var(--space-5) 0; max-width: 46rem; }
+  .rera__k { margin: 0; color: var(--ink-500); }
+  .rera__v { font: 700 var(--step-2)/1.1 var(--font-mono); margin: .3rem 0; letter-spacing: .02em; }
+  .rera__n { margin: 0; font-size: .92rem; color: var(--ink-700); }
+  .h2s { font-size: var(--step-3); }
+  .h3 { font-size: var(--step-2); }
+  .h4 { font-size: var(--step-1); margin-top: var(--space-6); }
+  .pgrid { display: grid; gap: var(--space-7); }
+  @media (min-width: 960px) { .pgrid { grid-template-columns: 1.15fr .85fr; align-items: start; } .pgrid__side { position: sticky; top: 6rem; } }
+  .facts { display: grid; gap: .6rem; margin: 0; }
+  .facts div { display: grid; grid-template-columns: 8rem 1fr; gap: .8rem; padding-bottom: .6rem; border-bottom: 1px solid var(--lime-300); }
+  .facts dt { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-500); text-transform: uppercase; }
+  .facts dd { margin: 0; }
+  .facts__n { display: block; font-size: .88rem; color: var(--ink-500); }
+  .cfg { font-size: .95rem; }
+  .cfg th { text-align: left; font: 500 var(--step--1) var(--font-mono); color: var(--ink-500); text-transform: uppercase; padding: .5rem .4rem .5rem 0; }
+  .cfg td { padding: .6rem .4rem .6rem 0; border-top: 1px solid var(--lime-300); vertical-align: top; }
+  .hl { margin: var(--space-5) 0 0; padding-left: 1.1rem; }
+  .src { color: var(--ink-500); margin-top: var(--space-5); word-break: break-all; }
+  .plans { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); margin-bottom: var(--space-7); }
+  .plans :global(.im) { aspect-ratio: 4 / 3; border-radius: var(--radius-lg); }
+  .gallery { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+  .gallery :global(.im) { aspect-ratio: 3 / 4; border-radius: var(--radius-lg); }
+  figcaption.mono { font-size: var(--step--1); color: var(--ink-500); margin-top: .4rem; }
+  .more { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+</style>
+<script>
+  import { initXray } from '../../../scripts/xray';
+  initXray();
+</script>

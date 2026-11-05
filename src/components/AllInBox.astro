@@ -1,0 +1,58 @@
+---
+/** Brochure price next to the all-in estimate. Holder toggle recomputes in the browser with the same shared logic. */
+import { stateRates, type Project } from '../lib/data';
+import { allInCost } from '../lib/cost';
+import { inr } from '../lib/money';
+import { u } from '../lib/url';
+interface Props { p: Project }
+const { p } = Astro.props;
+const r = stateRates(p.state);
+const a = p.allIn ? allInCost({ basePrice: p.allIn.basePrice, gstPct: p.allIn.gstPct, holder: 'male', stamp: r.stamp }) : null;
+---
+{a && p.allIn ? (
+  <div class="aib" data-allin data-base={p.allIn.basePrice} data-gst={p.allIn.gstPct} data-stamp={JSON.stringify(r.stamp)}>
+    <p class="label">Brochure vs all-in · {p.allIn.label}</p>
+    <div class="aib__nums">
+      <div><p class="mono aib__k">Brochure</p><p class="aib__v">{inr(p.allIn.basePrice, { compact: true })}</p></div>
+      <div class="aib__arrow" aria-hidden="true">→</div>
+      <div><p class="mono aib__k">All-in estimate</p><p class="aib__v aib__v--b" data-total>{inr(a.total, { compact: true })}</p></div>
+    </div>
+    <fieldset class="aib__holder"><legend class="mono">Registered in the name of</legend>
+      {[['male', 'A man'], ['female', 'A woman'], ['joint', 'Jointly']].map(([v, l], i) => <label><input type="radio" name={`h-${p.slug}`} value={v} checked={i === 0} /> {l}</label>)}
+    </fieldset>
+    <table class="aib__t"><tbody data-lines>{a.lines.map((l) => <tr><th>{l.label}</th><td class="mono">{inr(l.amount)}</td></tr>)}</tbody></table>
+    <p class="aib__note">Estimate. Includes GST at {p.allIn.gstPct}%, {r.label} stamp duty and registration. Excludes parking, PLC, club and maintenance charges unless the developer's cost sheet says otherwise. Rates: <a href={r.sources[0].url} rel="noopener" target="_blank">source</a>, checked 5 Nov 2026. <a href={u('/tools/all-in-cost')}>Run your own numbers</a>.</p>
+  </div>
+) : (
+  <div class="aib aib--none"><p class="label">All-in price</p><p>Price on request. We publish an all-in figure only after we have the developer's itemised cost sheet. <span class="tbc">to confirm</span></p><a class="btn btn--ghost" href={u('/tools/all-in-cost')}>Estimate it yourself</a></div>
+)}
+<style>
+  .aib { background: var(--lime-50); border: 1px solid var(--lime-300); border-radius: var(--radius-lg); padding: var(--space-5); display: grid; gap: var(--space-4); }
+  .aib__nums { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+  .aib__k { margin: 0; color: var(--ink-500); }
+  .aib__v { font: 400 var(--step-3)/1 var(--font-display); margin: .2rem 0 0; }
+  .aib__v--b { color: var(--forest-700); }
+  .aib__arrow { font-size: 1.5rem; color: var(--brass-500); }
+  .aib__holder { border: 0; padding: 0; margin: 0; display: flex; gap: var(--space-4); flex-wrap: wrap; }
+  .aib__holder legend { margin-bottom: .4rem; color: var(--ink-500); }
+  .aib__holder label { display: inline-flex; align-items: center; gap: .4rem; min-height: var(--tap); }
+  .aib__holder input { accent-color: var(--brass-500); width: 20px; height: 20px; }
+  .aib__t { font-size: .92rem; }
+  .aib__t th { text-align: left; font-weight: 500; padding: .45rem 0; }
+  .aib__t td { text-align: right; }
+  .aib__t tr + tr { border-top: 1px solid var(--lime-200); }
+  .aib__note { font-size: var(--step--1); color: var(--ink-500); margin: 0; }
+</style>
+<script>
+  import { allInCost } from '../lib/cost';
+  import { inr } from '../lib/money';
+  document.querySelectorAll<HTMLElement>('[data-allin]').forEach((box) => {
+    const stamp = JSON.parse(box.dataset.stamp!);
+    box.addEventListener('change', (e) => {
+      const holder = (e.target as HTMLInputElement).value as 'male' | 'female' | 'joint';
+      const a = allInCost({ basePrice: Number(box.dataset.base), gstPct: Number(box.dataset.gst), holder, stamp });
+      box.querySelector('[data-total]')!.textContent = inr(a.total, { compact: true });
+      box.querySelector('[data-lines]')!.innerHTML = a.lines.map((l) => `<tr><th>${l.label}</th><td class="mono">${inr(l.amount)}</td></tr>`).join('');
+    });
+  });
+</script>

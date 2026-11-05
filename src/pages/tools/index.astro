@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import { u } from '../../lib/url';
+const tools = [
+  ['/tools/all-in-cost', 'All-in cost', 'Brochure price to the real cheque: GST, stamp duty, registration, parking, deposits. By state.'],
+  ['/tools/emi', 'EMI and loan eligibility', 'What the monthly instalment is, and how much a bank may lend you.'],
+  ['/tools/rent-vs-buy', 'Rent vs buy', 'We do not guess price growth. We show the growth at which buying beats renting.'],
+];
+---
+<Base title="Tools: all-in cost, EMI, rent vs buy" description="Free calculators with every rate sourced and dated: all-in cost by state, EMI and loan eligibility, rent vs buy." breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Tools', path: '/tools' }]}>
+  <section class="section bp-grid"><div class="wrap">
+    <p class="label">Tools</p><h1 class="t">Do the maths <em>before</em> the site visit.</h1>
+    <p class="lede">No sign-up. Nothing you type leaves your phone. Every rate shows its source and the date we checked it.</p>
+    <div class="tl">{tools.map(([h, n, d], i) => <a href={u(h)} class="tc" data-reveal data-delay={`${i * 80}ms`}><span class="mono">0{i + 1}</span><h2>{n}</h2><p>{d}</p></a>)}</div>
+  </div></section>
+</Base>
+<style>
+  .t { font-size: var(--step-5); } .t em { color: var(--brass-600); }
+  .tl { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); margin-top: var(--space-6); }
+  .tc { display: grid; gap: .5rem; padding: var(--space-6) var(--space-5); background: var(--lime-50); border: 1px solid var(--lime-300); border-radius: var(--radius-lg); text-decoration: none; transition: transform .4s var(--ease), border-color .3s; }
+  .tc:hover { transform: translateY(-3px); border-color: var(--brass-500); }
+  .tc h2 { font-size: var(--step-3); margin: 0; } .tc p { margin: 0; color: var(--ink-700); } .tc .mono { color: var(--bp-500); }
+</style>

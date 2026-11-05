@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+const colours = [
+  ['Forest', 'The world. Backgrounds and deep panels.', ['--forest-950', '--forest-900', '--forest-800', '--forest-700', '--forest-500', '--forest-300']],
+  ['Limestone', 'The page. Warm off-white, never pure white.', ['--lime-50', '--lime-100', '--lime-200', '--lime-300']],
+  ['Brass', 'Actions only. The thing to press.', ['--brass-600', '--brass-500', '--brass-300']],
+  ['Ink', 'Text.', ['--ink-900', '--ink-700', '--ink-500']],
+  ['Blueprint', 'Line drawings and data only.', ['--bp-500', '--bp-300', '--bp-100']],
+  ['Status', 'Check results.', ['--ok', '--warn', '--bad']],
+];
+const motion = [
+  ['Scroll-scrubbed film', 'The journey', 'Home hero'], ['Parallax layers', 'Depth', 'Sections with [data-parallax]'], ['Map zoom with drawn routes', 'Location truth', 'Home, Locations'],
+  ['Line drawing, then image', 'The plan becomes real', 'Neev Check teaser'], ['Window-shaped reveals', 'Looking in', 'Team, plans, pictures'], ['Counters', 'Real numbers only', 'Neev Check count, proof row'],
+  ['Pinned horizontal gallery', 'Browse without leaving', 'Home projects'], ['X-ray lens', 'Proof under the picture', 'Every project image'],
+];
+---
+<Base title="Style guide" description="PropBillions design tokens: colours, type, grid and motion, each with its job." noindex>
+  <section class="section bp-grid"><div class="wrap">
+    <p class="label">Design system</p><h1>Calm, architectural, <em>quietly expensive.</em></h1>
+    <h2 class="h">Colour, each with one job</h2>
+    <div class="cols">{colours.map(([n, j, vars]) => <div class="col"><p class="cn">{n}</p><p class="cj">{j}</p><div class="sw">{(vars as string[]).map((v) => <div style={`background: var(${v})`} title={v}><span class="mono">{v.replace('--', '')}</span></div>)}</div></div>)}</div>
+    <h2 class="h">Type, all self-hosted</h2>
+    <p class="ts1">Instrument Serif: Read the plan before you sign.</p>
+    <p class="ts2">Manrope for text and interface. Plain, specific sentences with numbers in them: 570 sq ft, 18 homes, 15 June 2026.</p>
+    <p class="mono ts3">JetBrains Mono: labels and numbers, like notes on a drawing · UPRERAPRJ15269</p>
+    <p class="hi ts4" lang="hi">तिरो देवनागरी: हर साल किराया बढ़ता है। घर नहीं।</p>
+    <h2 class="h">Buttons and states</h2>
+    <div class="btn-row"><a class="btn" href="#">Primary action</a><a class="btn btn--ghost" href="#">Secondary</a><span class="check check--ok">Clear</span><span class="check check--warn">Ask about this</span><span class="check check--bad">Stop</span><span class="check check--tbc">Not checked yet</span><span class="tbc">to confirm</span></div>
+    <h2 class="h">Motion, each with a job</h2>
+    <table class="m"><thead><tr><th>Motion</th><th>Job</th><th>Where</th></tr></thead><tbody>{motion.map(([a, b, c]) => <tr><td>{a}</td><td>{b}</td><td class="mono">{c}</td></tr>)}</tbody></table>
+    <p>With reduced motion on, none of these run: the film becomes its final frame with all the buttons, and every section is a calm static page.</p>
+  </div></section>
+</Base>
+<style>
+  h1 em { color: var(--brass-600); } .h { font-size: var(--step-2); margin-top: var(--space-7); }
+  .cols { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .cn { font: 400 var(--step-2) var(--font-display); margin: 0; } .cj { color: var(--ink-500); font-size: .9rem; }
+  .sw { display: grid; gap: 2px; } .sw div { height: 44px; display: flex; align-items: center; padding: 0 .6rem; border-radius: 3px; border: 1px solid rgb(0 0 0 / .06); }
+  .sw .mono { font-size: 10px; background: rgb(255 255 255 / .8); padding: 0 .3rem; }
+  .ts1 { font: 400 var(--step-4)/1.05 var(--font-display); } .ts2 { font-size: var(--step-1); } .ts4 { font-size: var(--step-2); }
+  .m th, .m td { text-align: left; padding: .6rem; border-top: 1px solid var(--lime-300); }
+</style>

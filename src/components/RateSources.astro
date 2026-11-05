@@ -1,0 +1,17 @@
+---
+import { rates } from '../lib/data';
+---
+<details class="rs"><summary class="mono">Rates used, sources and dates</summary>
+  <p>Checked {rates.checked}. {rates.note}</p>
+  <ul>
+    {Object.entries(rates.states).map(([, s]) => <li><b>{s.label}:</b> {s.summary} {s.sources.map((x) => <a href={x.url} rel="noopener" target="_blank">{x.title}</a>)} Official: <a href={s.official} rel="noopener" target="_blank">{s.official.replace('https://', '')}</a></li>)}
+    <li><b>GST:</b> 5% on under-construction homes, 1% for affordable homes, none after a completion certificate. {rates.gst.commercialNote} {rates.gst.sources.map((x) => <a href={x.url} rel="noopener" target="_blank">{x.title}</a>)}</li>
+    <li><b>Loan to value:</b> {rates.loan.ltvSummary} {rates.loan.ltvSources.map((x) => <a href={x.url} rel="noopener" target="_blank">{x.title}</a>)}</li>
+  </ul>
+</details>
+<style>
+  .rs { margin-top: var(--space-6); border-top: 1px solid var(--lime-300); padding-top: var(--space-4); font-size: .9rem; }
+  .rs summary { cursor: pointer; min-height: var(--tap); display: flex; align-items: center; }
+  .rs a { margin-right: .5rem; }
+  .rs li { margin-bottom: .6rem; }
+</style>

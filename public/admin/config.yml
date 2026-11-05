@@ -1,0 +1,46 @@
+# Decap CMS: free, git-based. Editors log in at /admin and every change is a commit.
+# Before launch: set up GitHub OAuth (or Netlify Identity / DecapBridge) for the client's account.
+backend:
+  name: github
+  repo: psychologymatters561-design/Propbillions
+  branch: main
+media_folder: public/img/uploads
+public_folder: /img/uploads
+collections:
+  - name: data
+    label: Site data
+    files:
+      - label: Projects
+        name: projects
+        file: src/data/projects.json
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            root: true
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Slug, name: slug, widget: string }
+              - { label: City slug, name: city, widget: select, options: [noida, greater-noida, greater-noida-west, delhi, uttarakhand] }
+              - { label: State, name: state, widget: select, options: [UP, DL, UK] }
+              - { label: Locality, name: locality, widget: string }
+              - { label: Address, name: address, widget: string }
+              - { label: Type, name: type, widget: select, options: [Residential, Commercial] }
+              - { label: Status, name: status, widget: string }
+              - { label: Developer, name: developer, widget: string, required: false }
+              - { label: RERA number, name: rera, widget: string, required: false, hint: "Leave empty if not confirmed. Never guess." }
+              - { label: Possession, name: possession, widget: string, required: false }
+              - { label: Summary, name: summary, widget: text }
+      - label: Firm details
+        name: site
+        file: src/data/site.json
+        fields:
+          - { label: Address, name: address, widget: string }
+          - { label: WhatsApp number, name: whatsapp, widget: string, required: false }
+          - { label: How we are paid, name: payModel, widget: text, required: false }
+          - label: RERA agent registrations
+            name: reraAgent
+            widget: list
+            fields: [{ label: State, name: state, widget: string }, { label: Number, name: number, widget: string }]
+      - { label: Team, name: team, file: src/data/team.json, fields: [{ label: People, name: people, widget: list, root: true, fields: [{ label: Name, name: name, widget: string }, { label: Role, name: role, widget: string, required: false }] }] }
+      - { label: Rates, name: rates, file: src/data/rates.json, fields: [{ label: Checked on, name: checked, widget: string }] }

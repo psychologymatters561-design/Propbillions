@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { u } from '../lib/url';
+const steps = [
+  ['Who can buy', 'NRIs and OCI cardholders can buy residential and commercial property in India. Agricultural land, plantation property and farmhouses need special permission. Confirm your case with your bank.'],
+  ['How to pay', 'Through normal banking channels: an NRE, NRO or FCNR account in India, or an inward remittance. No cash, no traveller’s cheques.'],
+  ['Home loan', 'Indian banks lend to NRIs. Expect them to ask for overseas income proof and a co-applicant or local power of attorney.'],
+  ['Power of attorney', 'If you cannot be here for registration, a registered power of attorney can sign for you. Keep it specific to this property.'],
+  ['Tax when you sell', 'The buyer deducts tax at source when an NRI sells. Plan for it before you buy, not after.'],
+  ['Uttarakhand', 'The 2025 land law limits what people from outside the state can buy there. Read our note before a hill purchase.'],
+];
+---
+<Base title="NRI guide to buying property in Delhi NCR and Uttarakhand" description="A plain guide for NRIs: who can buy, how to pay, loans, power of attorney, tax on sale, and the Uttarakhand land law." breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'NRI guide', path: '/nri' }]}>
+  <section class="section bp-grid"><div class="wrap">
+    <p class="label">NRI guide</p><h1 class="t">Buying from abroad, <em>without flying in for every step.</em></h1>
+    <p class="lede">A plain summary to plan with. It is not legal or tax advice: confirm with your bank and a chartered accountant. Which NRI markets PropBillions serves is <span class="tbc">to confirm</span>.</p>
+    <ol class="st">{steps.map(([h, p], i) => <li data-reveal><span class="mono">0{i + 1}</span><div><h2>{h}</h2><p>{p}</p></div></li>)}</ol>
+    <p><a href={u('/locations/uttarakhand')}>Uttarakhand location note</a> · <a href={u('/neev-check')}>Neev Check</a> · <a href={u('/tools/all-in-cost')}>All-in cost</a></p>
+  </div></section>
+  <section class="section section--dark"><div class="wrap"><LeadForm intent="callback" id="nri-form" title="Call me at a time that suits my time zone" dark /></div></section>
+</Base>
+<style>
+  .t { font-size: var(--step-5); } .t em { color: var(--brass-600); }
+  .st { list-style: none; padding: 0; margin: var(--space-6) 0; }
+  .st li { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: var(--space-5) 0; border-top: 1px solid var(--lime-300); }
+  .st h2 { font-size: var(--step-2); margin-bottom: .4rem; } .st p { margin: 0; } .st .mono { color: var(--brass-600); }
+</style>

@@ -1,0 +1,61 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import { locations, projects, source, stateRates } from '../../lib/data';
+import { u } from '../../lib/url';
+export function getStaticPaths() { return locations.map((l) => ({ params: { slug: l.slug }, props: { l } })); }
+const { l } = Astro.props as { l: (typeof locations)[number] };
+const ps = projects.filter((p) => p.city === l.slug);
+const r = stateRates(l.state);
+const facts = l.facts.map((k) => source(k)!).filter(Boolean);
+---
+<Base headerTone="dark" title={`${l.name}: location notes, infrastructure and projects`} description={`${l.name}: sourced infrastructure facts, stamp duty, and the projects PropBillions lists here.`} breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Locations', path: '/locations' }, { name: l.name, path: `/locations/${l.slug}` }]}>
+  <section class="section section--dark bp-grid">
+    <div class="wrap">
+      <nav class="mono crumbs" aria-label="Breadcrumb"><a href={u('/locations')}>Locations</a> / {l.name}</nav>
+      <h1 class="t">{l.name}</h1>
+      <p class="lede">{l.intro}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap g">
+      <div>
+        <h2 class="h2s">What is true, with sources</h2>
+        {facts.length === 0 && <p>No infrastructure claims checked here yet. We will add them with sources, not before.</p>}
+        {facts.map((f) => (
+          <article class="fact" data-reveal>
+            <span class="check check--ok">Sourced</span>
+            <p>{f.claim}</p>
+            <p class="mono src">{f.sources.map((s, i) => <>{i > 0 && ' · '}<a href={s.url} rel="noopener" target="_blank">{s.title}</a></>)} · checked {f.checked}</p>
+          </article>
+        ))}
+        {l.published.length > 0 && <><h3 class="h4">What the developers say (not yet checked by us)</h3><ul>{l.published.map((x) => <li>{x}</li>)}</ul></>}
+      </div>
+      <aside class="side">
+        <p class="label">Buying costs here</p>
+        <p>{r.summary}</p>
+        <p class="mono src"><a href={r.sources[0].url} rel="noopener" target="_blank">{r.sources[0].title}</a></p>
+        <a class="btn btn--ghost" href={u('/tools/all-in-cost')}>All-in cost tool</a>
+      </aside>
+    </div>
+  </section>
+  <section class="section section--paper">
+    <div class="wrap"><h2 class="h2s">Projects in {l.name}</h2><div class="more">{ps.map((p) => <ProjectCard p={p} />)}</div></div>
+  </section>
+  <section class="section section--dark"><div class="wrap g"><div><h2 class="h2s">Want a shortlist here?</h2><p class="lede">Tell us where you work and your budget. Three options, with the checks, on WhatsApp.</p></div><LeadForm intent="shortlist" id="loc-form" compact dark /></div></section>
+</Base>
+<style>
+  .t { font-size: var(--step-5); }
+  .crumbs { color: var(--forest-300); }
+  .h2s { font-size: var(--step-3); } .h4 { font-size: var(--step-1); margin-top: var(--space-6); }
+  .g { display: grid; gap: var(--space-7); }
+  @media (min-width: 960px) { .g { grid-template-columns: 1.3fr .7fr; } }
+  .fact { padding: var(--space-5) 0; border-top: 1px solid var(--lime-300); display: grid; gap: .5rem; }
+  .fact p { margin: 0; }
+  .src { font-size: 11px; color: var(--ink-500); }
+  .section--dark .src { color: var(--forest-300); }
+  .side { background: var(--lime-50); border: 1px solid var(--lime-300); border-radius: var(--radius-lg); padding: var(--space-5); align-self: start; }
+  .more { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+</style>
+<script>import { initXray } from '../../scripts/xray'; initXray();</script>

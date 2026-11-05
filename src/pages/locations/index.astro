@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import RegionMap from '../../components/RegionMap.astro';
+import { locations, projects } from '../../lib/data';
+import { u } from '../../lib/url';
+---
+<Base headerTone="dark" title="Locations: Noida, Greater Noida, Greater Noida West, South Delhi, Kainchi Dham" description="Location notes for each micro-market PropBillions works in, with sourced infrastructure facts and the claims we do not repeat." breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Locations', path: '/locations' }]}>
+  <section class="section section--dark bp-grid">
+    <div class="wrap">
+      <p class="label">Locations</p>
+      <h1 class="t">Location is the one thing <em>you can't renovate.</em></h1>
+      <p class="lede">One note per micro-market. Facts carry a source and a date. Distances the developers publish are labelled as theirs until we have timed them.</p>
+      <RegionMap />
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap list">
+      {locations.map((l) => { const ps = projects.filter((p) => p.city === l.slug); return (
+        <a class="loc" href={u(`/locations/${l.slug}`)} data-reveal>
+          <p class="label">{ps.length} project{ps.length === 1 ? '' : 's'}</p>
+          <h2>{l.name}</h2>
+          <p>{l.intro}</p>
+          <span class="mono">{ps.map((p) => p.name).join(' · ')}</span>
+        </a>
+      ); })}
+    </div>
+  </section>
+</Base>
+<style>
+  .t { font-size: var(--step-5); } .t em { color: var(--brass-300); }
+  .list { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+  .loc { display: grid; gap: .5rem; padding: var(--space-5); border: 1px solid var(--lime-300); border-radius: var(--radius-lg); text-decoration: none; background: var(--lime-50); transition: border-color .3s var(--ease), transform .4s var(--ease); }
+  .loc:hover { border-color: var(--brass-500); transform: translateY(-2px); }
+  .loc h2 { font-size: var(--step-3); margin: 0; }
+  .loc p { margin: 0; color: var(--ink-700); }
+  .loc .mono { color: var(--ink-500); font-size: var(--step--1); }
+</style>
+<script>import { initMotion } from '../../scripts/motion'; initMotion();</script>

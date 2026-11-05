@@ -4,6 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../data/site.json';
 import { u } from '../lib/url';
+import serifFont from '@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2?url';
+import textFont from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
 
 interface Props {
   title: string; description: string; image?: string; headerTone?: 'light' | 'dark';
@@ -42,6 +44,8 @@ const ld = [org, ...(crumbs ? [crumbs] : []), ...jsonld];
     <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#14281f" />
+    <link rel="preload" as="font" type="font/woff2" href={serifFont} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={textFont} crossorigin />
     <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
     <link rel="sitemap" href={u('/sitemap-index.xml')} />
     {preload.map((p) => <link rel="preload" as="image" href={u(p)} fetchpriority="high" />)}
