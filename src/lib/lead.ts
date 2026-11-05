@@ -31,8 +31,6 @@ export function normalisePhone(raw: string): string | null {
 export function validateLead(input: LeadInput, now = Date.now()): { ok: true; lead: Lead } | { ok: false; errors: Record<string, string>; spam?: boolean } {
   const errors: Record<string, string> = {};
   if (input.website) return { ok: false, errors: { form: 'Rejected' }, spam: true };
-  const started = Number(input.startedAt || 0);
-  if (started && now - started < 2500) return { ok: false, errors: { form: 'Too fast. Please try again.' }, spam: true };
   const name = String(input.name || '').trim().replace(/\s+/g, ' ');
   if (name.length < 2 || name.length > 80 || /https?:|www\./i.test(name)) errors.name = 'Please enter your name.';
   const phone = normalisePhone(String(input.phone || ''));
@@ -46,6 +44,9 @@ export function validateLead(input: LeadInput, now = Date.now()): { ok: true; le
   if (message.length > 1000) errors.message = 'Please keep the note under 1000 characters.';
   if ((message.match(/https?:\/\//g) || []).length > 1) errors.message = 'Please remove links from the note.';
   if (Object.keys(errors).length) return { ok: false, errors };
+  // Only a complete form can be a bot-speed submit; a fast human with a gap still sees their errors.
+  const started = Number(input.startedAt || 0);
+  if (started && now - started < 2500) return { ok: false, errors: { form: 'Too fast. Please try again.' }, spam: true };
   const clip = (v?: string, n = 120) => (v ? String(v).trim().slice(0, n) : undefined);
   return {
     ok: true,

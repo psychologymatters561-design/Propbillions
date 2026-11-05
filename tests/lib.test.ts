@@ -105,6 +105,12 @@ describe('lead validation', () => {
     const v = validateLead(good);
     expect(v.ok).toBe(true);
   });
+  it('shows field errors even when submitted very fast', () => {
+    const now = 1_000_000;
+    const v = validateLead({ name: '', phone: '', startedAt: now - 300 }, now);
+    expect(v.ok).toBe(false);
+    if (!v.ok) { expect(v.spam).toBeFalsy(); expect(v.errors.phone).toBeTruthy(); }
+  });
   it('requires consent', () => {
     const v = validateLead({ ...good, consent: false });
     expect(v.ok).toBe(false);
