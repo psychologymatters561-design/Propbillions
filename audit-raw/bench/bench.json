@@ -1,0 +1,29 @@
+{
+ "https://www.anarock.com": {
+  "title": "403 Forbidden",
+  "headings": [
+   "403 Forbidden"
+  ],
+  "text": "403 Forbidden"
+ },
+ "https://www.squareyards.com": {
+  "title": "Access Denied",
+  "headings": [
+   "Access Denied"
+  ],
+  "text": "Access Denied\nYou don't have permission to access \"http://www.squareyards.com/\" on this server.\n\nReference #18.5fed2c17.1793894618.6806343e\n\nhttps://errors.edgesuite.net/18.5fed2c17.1793894618.6806343e"
+ },
+ "https://housing.com": {
+  "title": "Security Alert",
+  "headings": [
+   "Request Blocked",
+   "Block Reference ID",
+   "Real Client IP",
+   "Need Help?",
+   "Contact Support",
+   "Common Causes",
+   "Next Steps"
+  ],
+  "text": "ALERT\nRequest Blocked\n\nOur security system detected suspicious activity. Your request was temporarily blocked to protect users and system integrity. We apologize for any inconvenience.\n\nBlock Reference ID\n0.5bed2c17.1793894628.1c79fed3\n\nSave this ID when contacting support.\n\nReal Client IP\n20.62.207.245\n\nSave this IP when contacting support.\n\nNeed Help?\nContact Support\n\nIf you believe this is an error, contact our support team with your Reference ID and details.\n\nContact Support\nCommon Causes\nUnusual network activity\nRapid browsing\nUse of bots or scrapers\nSuspicious VPNs/proxies\nFailed login attempts\nAccessing restricted areas\nNext Steps\nWait a few minutes, typically 10 minutes\nClear cookies/cache\nUse another browser/device\nDisable extensions\nDisconnect VPN\n© 2025 Housing.com | Protecting our users"
+ }
+}

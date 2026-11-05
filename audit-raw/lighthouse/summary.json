@@ -1,0 +1,768 @@
+{
+ "housing_com_desktop": {
+  "url": "https://housing.com/",
+  "scores": {
+   "performance": 50,
+   "accessibility": 52,
+   "best-practices": 74,
+   "seo": 83
+  },
+  "lcp_ms": 3022.1037999999994,
+  "cls": 0.00206076082394729,
+  "fcp_ms": 2581.4534999999987,
+  "tbt_ms": 399.25385000000415,
+  "si_ms": 2834.087438226706,
+  "total_bytes": 3377727,
+  "requests": 245,
+  "lcp_element": "<div style=\"position: fixed; z-index: -1000; pointer-events: none;\">",
+  "heaviest": [
+   {
+    "url": "https://housing.com/",
+    "type": "Document",
+    "bytes": 221521
+   },
+   {
+    "url": "https://housing.com/YLohEQ4CRI7Q52-8MCQEp5nI/bQ5bhkGaiGi1mNu1/RiwSbRYqUQ/JCNx/KTEAXlE",
+    "type": "Script",
+    "bytes": 197384
+   },
+   {
+    "url": "https://housing.com/YLohEQ4CRI7Q52-8MCQEp5nI/bQ5bhkGaiG/SBsWbRYqUQ/DSJo/GAcjB2wZ?v=975fed4c-8148-39e9-dc87-3ee9d69d1724",
+    "type": "Script",
+    "bytes": 180200
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtag/js?id=G-7H39QM6KQH&cx=c&gtm=4e6b31",
+    "type": "Script",
+    "bytes": 179031
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtm.js?id=GTM-WV62TCMH",
+    "type": "Script",
+    "bytes": 171688
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtag/js?id=AW-983777268&cx=c&gtm=4e6b31",
+    "type": "Script",
+    "bytes": 171376
+   },
+   {
+    "url": "https://connect.facebook.net/signals/config/860197050685496?v=2.9.435&r=stable&domain=housing.com&hme=4453c87d489b6902031c012cadd2731893cd69feb64fe8a61b339727247a7703&ex_m=118%2C242%2C171%2C27%2C82%2C83%2C162%2C78%2C77%2C11%2C181%2C102%2C20%2C153%2C141%2C46%2C85%2C90%2C149%2C176%2C183%2C8%2C4%2C5%2C7%2C6%2C3%2C103%2C115%2C32%2C17%2C31%2C18%2C33%2C34%2C35%2C37%2C55%2C163%2C87%2C126%2C22%2C24%2C51%2C47%2C49%2C48%2C95%2C104%2C108%2C124%2C160%2C164%2C53%2C125%2C29%2C26%2C133%2C79%2C43%2C166%2C165%2C167%2C157%2C155%2C30%2C42%2C66%2C123%2C178%2C80%2C21%2C128%2C93%2C76%2C23%2C97%2C98%2C130%2C96%2C151%2C150%2C154%2C109%2C177%2C180%2C41%2C56%2C127%2C54%2C161%2C72%2C185%2C110%2C184%2C211%2C263%2C84%2C283%2C282%2C281%2C14%2C25%2C28%2C40%2C62%2C117%2C68%2C10%2C73%2C111%2C112%2C113%2C119%2C144%2C38%2C36%2C146%2C147%2C148%2C143%2C142%2C172%2C86%2C175%2C173%2C174%2C57%2C69%2C67%2C137%2C19%2C179%2C52%2C333%2C334%2C335%2C332%2C349%2C371%2C256%2C238%2C70%2C239%2C237%2C374%2C365%2C59%2C257%2C121%2C145%2C92%2C135%2C61%2C134%2C140%2C139%2C65%2C74%2C168%2C88%2C89%2C129%2C44%2C39%2C60%2C63%2C114%2C182%2C1%2C138%2C16%2C136%2C12%2C2%2C64%2C105%2C15%2C75%2C71%2C132%2C101%2C100%2C187%2C188%2C106%2C107%2C9%2C116%2C186%2C58%2C158%2C99%2C91%2C81%2C131%2C120%2C169%2C50%2C159%2C0%2C94%2C152%2C156%2C170%2C45%2C122%2C13%2C189",
+    "type": "Script",
+    "bytes": 167277
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtag/js?id=DC-15965758&cx=c&gtm=4e6b31",
+    "type": "Script",
+    "bytes": 147985
+   },
+   {
+    "url": "https://housing-images.n7net.in/4f2250e8/a4054dcf22cf1f6c97c137c95d15899a/v0/fs/casagrand_aquagrove-madhavaram-chennai-casagrand_builder_private_limited.jpeg",
+    "type": "Image",
+    "bytes": 116094
+   },
+   {
+    "url": "https://connect.facebook.net/en_US/fbevents.js",
+    "type": "Script",
+    "bytes": 114414
+   },
+   {
+    "url": "https://housing-images.n7net.in/4f2250e8/57e6d422962a0130b31afc3058c88c44/v0/fs/casagrand_highcity-tambaram-chennai-casagrand_builder_private_limited.jpeg",
+    "type": "Image",
+    "bytes": 91367
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/97325.fd59b0b8.m.d.js",
+    "type": "Script",
+    "bytes": 82257
+   },
+   {
+    "url": "https://housing-images.n7net.in/4f2250e8/0895b348e2bd1d38c57b01837770d552/v0/fs/casagrand_estoria-kelambakkam_tamil_nadu-chennai-casagrand_builder_private_limited.png",
+    "type": "Image",
+    "bytes": 55915
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/common/assets/buyCover.36ede2d6.jpg",
+    "type": "Image",
+    "bytes": 54009
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/common/assets/style.72fccd46.woff2",
+    "type": "Font",
+    "bytes": 51399
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/_react-dom.46308c9b.m.d.js",
+    "type": "Script",
+    "bytes": 47232
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/common/assets/GoogleSansFlex_24pt-Bold.26c6cef4.ttf",
+    "type": "Font",
+    "bytes": 41592
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/common/assets/GoogleSansFlex_24pt-SemiBold.42358c08.ttf",
+    "type": "Font",
+    "bytes": 41584
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/common/assets/GoogleSansFlex_24pt-Medium.f4359ada.ttf",
+    "type": "Font",
+    "bytes": 41041
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/common/assets/GoogleSansFlex_24pt-Regular.25ace106.ttf",
+    "type": "Font",
+    "bytes": 40040
+   },
+   {
+    "url": "https://bzrcdn.openai.com/sdk/oaiq.min.js",
+    "type": "Script",
+    "bytes": 36348
+   },
+   {
+    "url": "https://cdn.branch.io/branch-latest.min.js",
+    "type": "Script",
+    "bytes": 34698
+   },
+   {
+    "url": "https://js-agent.newrelic.com/nr-spa-1.257.0.min.js",
+    "type": "Script",
+    "bytes": 31846
+   },
+   {
+    "url": "https://mightyzeus-mum.housing.com/api/gql/stale?apiName=CITY_LIST_API&emittedFrom=client_buy_home&isBot=false&platform=desktop&source=web&source_name=AudienceWeb",
+    "type": "Fetch",
+    "bytes": 31298
+   },
+   {
+    "url": "https://mightyzeus-mum.housing.com/api/gql/stale?apiName=CITY_LIST_API&emittedFrom=client_buy_home&isBot=false&platform=desktop&source=web&source_name=AudienceWeb",
+    "type": "Fetch",
+    "bytes": 31286
+   }
+  ],
+  "failing": [
+   "first-contentful-paint: First Contentful Paint (2.6 s)",
+   "largest-contentful-paint: Largest Contentful Paint (3.0 s)",
+   "speed-index: Speed Index (2.8 s)",
+   "total-blocking-time: Total Blocking Time (400 ms)",
+   "max-potential-fid: Max Potential First Input Delay (210 ms)",
+   "errors-in-console: Browser errors were logged to the console",
+   "server-response-time: Reduce initial server response time (Root document took 600 ms)",
+   "interactive: Time to Interactive (7.1 s)",
+   "third-party-cookies: Uses third-party cookies (17 cookies found)",
+   "mainthread-work-breakdown: Minimize main-thread work (5.4 s)",
+   "bootup-time: Reduce JavaScript execution time (2.9 s)",
+   "third-party-summary: Reduce the impact of third-party code (Third-party code blocked the main thread for 460 ms)",
+   "largest-contentful-paint-element: Largest Contentful Paint element (3,020 ms)",
+   "unsized-images: Image elements do not have explicit `width` and `height`",
+   "valid-source-maps: Missing source maps for large first-party JavaScript",
+   "button-name: Buttons do not have an accessible name",
+   "color-contrast: Background and foreground colors do not have a sufficient contrast ratio.",
+   "image-alt: Image elements do not have `[alt]` attributes",
+   "link-name: Links do not have a discernible name",
+   "list: Lists do not contain only `<li>` elements and script supporting elements (`<script>` and `<template>`).",
+   "meta-viewport: `[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+   "uses-long-cache-ttl: Serve static assets with an efficient cache policy (35 resources found)",
+   "total-byte-weight: Avoid enormous network payloads (Total size was 3,299 KiB)",
+   "offscreen-images: Defer offscreen images (Est savings of 2 KiB)",
+   "unused-javascript: Reduce unused JavaScript (Est savings of 498 KiB)",
+   "uses-responsive-images: Properly size images (Est savings of 111 KiB)",
+   "legacy-javascript: Avoid serving legacy JavaScript to modern browsers (Est savings of 31 KiB)",
+   "dom-size: Avoid an excessive DOM size (2,265 elements)",
+   "inspector-issues: Issues were logged in the `Issues` panel in Chrome Devtools",
+   "canonical: Document does not have a valid `rel=canonical`",
+   "bf-cache: Page prevented back/forward cache restoration (1 failure reason)",
+   "cache-insight: Use efficient cache lifetimes (Est savings of 688 KiB)",
+   "document-latency-insight: Document request latency (Est savings of 760 ms)",
+   "forced-reflow-insight: Forced reflow",
+   "image-delivery-insight: Improve image delivery (Est savings of 200 KiB)",
+   "network-dependency-tree-insight: Network dependency tree",
+   "render-blocking-insight: Render blocking requests"
+  ],
+  "screenshot": "saved"
+ },
+ "housing_com_mobile": {
+  "url": "https://housing.com/",
+  "scores": {
+   "performance": 29,
+   "accessibility": 70,
+   "best-practices": 75,
+   "seo": 83
+  },
+  "lcp_ms": 11487.641500000005,
+  "cls": 0.0015597387837810158,
+  "fcp_ms": 9307.507000000001,
+  "tbt_ms": 1876.4999999999982,
+  "si_ms": 9307.507000000001,
+  "total_bytes": 3997087,
+  "requests": 253,
+  "lcp_element": "<div style=\"position: fixed; z-index: -1000; pointer-events: none;\">",
+  "heaviest": [
+   {
+    "url": "https://housing.com/YLohEQ4CRI7Q52-8MCQEp5nI/bQ5bhkGaiGi1mNu1/RiwSbRYqUQ/JCNx/KTEAXlE",
+    "type": "Script",
+    "bytes": 197299
+   },
+   {
+    "url": "https://housing.com/",
+    "type": "Document",
+    "bytes": 191385
+   },
+   {
+    "url": "https://housing.com/YLohEQ4CRI7Q52-8MCQEp5nI/bQ5bhkGaiG/SBsWbRYqUQ/DSJo/GAcjB2wZ?v=ad94f2ef-79ba-689d-8cb1-0b19722f172c",
+    "type": "Script",
+    "bytes": 180130
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtag/js?id=G-7H39QM6KQH&cx=c&gtm=4e6b31",
+    "type": "Script",
+    "bytes": 179031
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtm.js?id=GTM-WV62TCMH",
+    "type": "Script",
+    "bytes": 171688
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtag/js?id=AW-983777268&cx=c&gtm=4e6b31",
+    "type": "Script",
+    "bytes": 171376
+   },
+   {
+    "url": "https://connect.facebook.net/signals/config/860197050685496?v=2.9.435&r=stable&domain=housing.com&im=1&hme=4453c87d489b6902031c012cadd2731893cd69feb64fe8a61b339727247a7703&ex_m=118%2C242%2C171%2C27%2C82%2C83%2C162%2C78%2C77%2C11%2C181%2C102%2C20%2C153%2C141%2C46%2C85%2C90%2C149%2C176%2C183%2C8%2C4%2C5%2C7%2C6%2C3%2C103%2C115%2C32%2C17%2C31%2C18%2C33%2C34%2C35%2C37%2C55%2C163%2C87%2C126%2C22%2C24%2C51%2C47%2C49%2C48%2C95%2C104%2C108%2C124%2C160%2C164%2C53%2C125%2C29%2C26%2C133%2C79%2C43%2C166%2C165%2C167%2C157%2C155%2C30%2C42%2C66%2C123%2C178%2C80%2C21%2C128%2C93%2C76%2C23%2C97%2C98%2C130%2C96%2C151%2C150%2C154%2C109%2C177%2C180%2C41%2C56%2C127%2C54%2C161%2C72%2C185%2C110%2C184%2C211%2C263%2C84%2C283%2C282%2C281%2C14%2C25%2C28%2C40%2C62%2C117%2C68%2C10%2C73%2C111%2C112%2C113%2C119%2C144%2C38%2C36%2C146%2C147%2C148%2C143%2C142%2C172%2C86%2C175%2C173%2C174%2C57%2C69%2C67%2C137%2C19%2C179%2C52%2C333%2C334%2C335%2C332%2C349%2C371%2C256%2C238%2C70%2C239%2C237%2C374%2C365%2C59%2C257%2C121%2C145%2C92%2C135%2C61%2C134%2C140%2C139%2C65%2C74%2C168%2C88%2C89%2C129%2C44%2C39%2C60%2C63%2C114%2C182%2C1%2C138%2C16%2C136%2C12%2C2%2C64%2C105%2C15%2C75%2C71%2C132%2C101%2C100%2C187%2C188%2C106%2C107%2C9%2C116%2C186%2C58%2C158%2C99%2C91%2C81%2C131%2C120%2C169%2C50%2C159%2C0%2C94%2C152%2C156%2C170%2C45%2C122%2C13%2C189",
+    "type": "Script",
+    "bytes": 167274
+   },
+   {
+    "url": "https://assets-news.housing.com/news/wp-content/uploads/2017/07/05184958/The-pros-and-cons-of-buying-a-property-in-Delhi%E2%80%99s-Lal-Dora-regions-FB-1200x700-compressed.jpg",
+    "type": "Image",
+    "bytes": 167096
+   },
+   {
+    "url": "https://assets-news.housing.com/news/wp-content/uploads/2020/01/13181859/Haryana-plans-five-cities-of-5000-hectares-each-alongside-KMP-KGP-expressways-FB-1200x700-compressed.jpg",
+    "type": "Image",
+    "bytes": 161239
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtag/js?id=DC-15965758&cx=c&gtm=4e6b31",
+    "type": "Script",
+    "bytes": 147985
+   },
+   {
+    "url": "https://assets-news.housing.com/news/wp-content/uploads/2025/12/16155136/shutterstock_2493715297-1200x700-compressed.jpg",
+    "type": "Image",
+    "bytes": 134645
+   },
+   {
+    "url": "https://assets-news.housing.com/news/wp-content/uploads/2022/08/09104253/Hyderabad-Metro-All-you-need-to-know.jpg",
+    "type": "Image",
+    "bytes": 116139
+   },
+   {
+    "url": "https://connect.facebook.net/en_US/fbevents.js",
+    "type": "Script",
+    "bytes": 114416
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/common/assets/gptweconomic.9e17a93d.jpg",
+    "type": "Image",
+    "bytes": 111714
+   },
+   {
+    "url": "https://assets-news.housing.com/news/wp-content/uploads/2024/11/23181728/buying-an-under-construction-property-F.jpg",
+    "type": "Image",
+    "bytes": 94257
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/70992.93b05013.m.m.js",
+    "type": "Script",
+    "bytes": 88525
+   },
+   {
+    "url": "https://assets-news.housing.com/news/wp-content/uploads/2022/02/08143821/featured-compressed-6.jpg",
+    "type": "Image",
+    "bytes": 83602
+   },
+   {
+    "url": "https://assets-news.housing.com/news/wp-content/uploads/2025/06/11174947/Featured-Image-Housing-compressed.jpg",
+    "type": "Image",
+    "bytes": 58026
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/common/assets/style.72fccd46.woff2",
+    "type": "Font",
+    "bytes": 51397
+   },
+   {
+    "url": "https://assets-news.housing.com/news/wp-content/uploads/2025/09/15200816/Untitled-design-52-compressed.jpg",
+    "type": "Image",
+    "bytes": 49684
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/_react-dom.ddbe48a2.m.m.js",
+    "type": "Script",
+    "bytes": 47305
+   },
+   {
+    "url": "https://assets-news.housing.com/news/wp-content/uploads/2025/11/12174517/Untitled-design-2025-11-12T174414-compressed.jpg",
+    "type": "Image",
+    "bytes": 44992
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/common/assets/GoogleSansFlex_24pt-Bold.26c6cef4.ttf",
+    "type": "Font",
+    "bytes": 41590
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/common/assets/GoogleSansFlex_24pt-SemiBold.42358c08.ttf",
+    "type": "Font",
+    "bytes": 41582
+   },
+   {
+    "url": "https://c.housingcdn.com/demand/s/client/common/assets/GoogleSansFlex_24pt-Medium.f4359ada.ttf",
+    "type": "Font",
+    "bytes": 41041
+   }
+  ],
+  "failing": [
+   "first-contentful-paint: First Contentful Paint (9.3 s)",
+   "largest-contentful-paint: Largest Contentful Paint (11.5 s)",
+   "speed-index: Speed Index (9.3 s)",
+   "total-blocking-time: Total Blocking Time (1,880 ms)",
+   "max-potential-fid: Max Potential First Input Delay (730 ms)",
+   "errors-in-console: Browser errors were logged to the console",
+   "interactive: Time to Interactive (29.9 s)",
+   "third-party-cookies: Uses third-party cookies (17 cookies found)",
+   "mainthread-work-breakdown: Minimize main-thread work (51.1 s)",
+   "bootup-time: Reduce JavaScript execution time (10.8 s)",
+   "third-party-summary: Reduce the impact of third-party code (Third-party code blocked the main thread for 3,210 ms)",
+   "largest-contentful-paint-element: Largest Contentful Paint element (11,490 ms)",
+   "unsized-images: Image elements do not have explicit `width` and `height`",
+   "valid-source-maps: Missing source maps for large first-party JavaScript",
+   "button-name: Buttons do not have an accessible name",
+   "color-contrast: Background and foreground colors do not have a sufficient contrast ratio.",
+   "image-alt: Image elements do not have `[alt]` attributes",
+   "link-name: Links do not have a discernible name",
+   "meta-viewport: `[user-scalable=\"no\"]` is used in the `<meta name=\"viewport\">` element or the `[maximum-scale]` attribute is less than 5.",
+   "target-size: Touch targets do not have sufficient size or spacing.",
+   "uses-long-cache-ttl: Serve static assets with an efficient cache policy (29 resources found)",
+   "total-byte-weight: Avoid enormous network payloads (Total size was 3,903 KiB)",
+   "offscreen-images: Defer offscreen images (Est savings of 7 KiB)",
+   "unused-javascript: Reduce unused JavaScript (Est savings of 548 KiB)",
+   "modern-image-formats: Serve images in next-gen formats (Est savings of 248 KiB)",
+   "uses-responsive-images: Properly size images (Est savings of 868 KiB)",
+   "legacy-javascript: Avoid serving legacy JavaScript to modern browsers (Est savings of 31 KiB)",
+   "dom-size: Avoid an excessive DOM size (1,647 elements)",
+   "inspector-issues: Issues were logged in the `Issues` panel in Chrome Devtools",
+   "canonical: Document does not have a valid `rel=canonical`",
+   "bf-cache: Page prevented back/forward cache restoration (1 failure reason)",
+   "cache-insight: Use efficient cache lifetimes (Est savings of 606 KiB)",
+   "document-latency-insight: Document request latency (Est savings of 920 ms)",
+   "forced-reflow-insight: Forced reflow",
+   "image-delivery-insight: Improve image delivery (Est savings of 856 KiB)",
+   "network-dependency-tree-insight: Network dependency tree",
+   "render-blocking-insight: Render blocking requests"
+  ],
+  "screenshot": "saved"
+ },
+ "propbillions_com_desktop": {
+  "url": "about:blank",
+  "scores": {
+   "performance": 0,
+   "accessibility": 0,
+   "best-practices": 0,
+   "seo": 0
+  },
+  "requests": 0,
+  "lcp_element": null,
+  "heaviest": [],
+  "failing": [],
+  "screenshot": null
+ },
+ "propbillions_com_mobile": {
+  "url": "about:blank",
+  "scores": {
+   "performance": 0,
+   "accessibility": 0,
+   "best-practices": 0,
+   "seo": 0
+  },
+  "requests": 0,
+  "lcp_element": null,
+  "heaviest": [],
+  "failing": [],
+  "screenshot": null
+ },
+ "www_anarock_com_desktop": {
+  "url": "https://www.anarock.com/",
+  "scores": {
+   "performance": 0,
+   "accessibility": 0,
+   "best-practices": 0,
+   "seo": 0
+  },
+  "requests": 0,
+  "lcp_element": null,
+  "heaviest": [],
+  "failing": [],
+  "screenshot": null
+ },
+ "www_anarock_com_mobile": {
+  "url": "https://www.anarock.com/",
+  "scores": {
+   "performance": 0,
+   "accessibility": 0,
+   "best-practices": 0,
+   "seo": 0
+  },
+  "requests": 0,
+  "lcp_element": null,
+  "heaviest": [],
+  "failing": [],
+  "screenshot": null
+ },
+ "www_squareyards_com_desktop": {
+  "url": "https://www.squareyards.com/",
+  "scores": {
+   "performance": 79,
+   "accessibility": 92,
+   "best-practices": 78,
+   "seo": 100
+  },
+  "lcp_ms": 1232.0159999999998,
+  "cls": 0.003016618786939467,
+  "fcp_ms": 351.26099999999997,
+  "tbt_ms": 392,
+  "si_ms": 1369.0787067854005,
+  "total_bytes": 2137776,
+  "requests": 82,
+  "lcp_element": "<img class=\"img-responsive hero-banner\" loading=\"eager\" decoding=\"sync\" fetchpriority=\"high\" src=\"https://static.squareyards.com/assets/images/home-desktop-cover.png?aio=w-…\" width=\"1521\" height=\"558\" alt=\"Home Page Banner\">",
+  "heaviest": [
+   {
+    "url": "https://www.googletagmanager.com/gtag/js?id=G-7QLJ47513Q&cx=c&gtm=4e6b40h2",
+    "type": "Script",
+    "bytes": 202387
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtm.js?id=GTM-P7LQ3JL",
+    "type": "Script",
+    "bytes": 202150
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtag/destination?id=AW-959865518&cx=c&gtm=4e6b40h2",
+    "type": "Script",
+    "bytes": 171797
+   },
+   {
+    "url": "https://connect.facebook.net/en_US/fbevents.js",
+    "type": "Script",
+    "bytes": 114415
+   },
+   {
+    "url": "https://connect.facebook.net/signals/config/9701679079929824?v=2.9.435&r=stable&domain=www.squareyards.com&hme=4453c87d489b6902031c012cadd2731893cd69feb64fe8a61b339727247a7703&ex_m=118%2C242%2C171%2C27%2C82%2C83%2C162%2C78%2C77%2C11%2C181%2C102%2C20%2C153%2C141%2C46%2C85%2C90%2C149%2C176%2C183%2C8%2C4%2C5%2C7%2C6%2C3%2C103%2C115%2C32%2C17%2C31%2C18%2C33%2C34%2C35%2C37%2C55%2C163%2C87%2C126%2C22%2C24%2C51%2C47%2C49%2C48%2C95%2C104%2C108%2C124%2C160%2C164%2C53%2C125%2C29%2C26%2C133%2C79%2C43%2C166%2C165%2C167%2C157%2C155%2C30%2C42%2C66%2C123%2C178%2C80%2C21%2C128%2C93%2C76%2C23%2C97%2C98%2C130%2C96%2C151%2C150%2C154%2C109%2C177%2C180%2C41%2C56%2C127%2C54%2C161%2C72%2C185%2C110%2C184%2C211%2C263%2C84%2C283%2C282%2C281%2C14%2C25%2C28%2C40%2C62%2C117%2C68%2C10%2C73%2C111%2C112%2C113%2C119%2C144%2C38%2C36%2C146%2C147%2C148%2C143%2C142%2C172%2C86%2C175%2C173%2C174%2C57%2C69%2C67%2C137%2C19%2C179%2C52%2C333%2C334%2C335%2C332%2C349%2C371%2C256%2C238%2C70%2C239%2C237%2C374%2C365%2C59%2C257%2C121%2C145%2C92%2C135%2C61%2C134%2C140%2C139%2C65%2C74%2C168%2C88%2C89%2C129%2C44%2C39%2C60%2C63%2C114%2C182%2C1%2C138%2C16%2C136%2C12%2C2%2C64%2C105%2C15%2C75%2C71%2C132%2C101%2C100%2C187%2C188%2C106%2C107%2C9%2C116%2C186%2C58%2C158%2C99%2C91%2C81%2C131%2C120%2C169%2C50%2C159%2C0%2C94%2C152%2C156%2C170%2C45%2C122%2C13%2C189",
+    "type": "Script",
+    "bytes": 106986
+   },
+   {
+    "url": "https://www.squareyards.com/assets/fonts/projectV2/fonts/icomoon.woff2?i2mc5j",
+    "type": "Font",
+    "bytes": 96156
+   },
+   {
+    "url": "https://www.squareyards.com/assets/vendors/chart/highcharts.js",
+    "type": "Script",
+    "bytes": 79973
+   },
+   {
+    "url": "https://www.squareyards.com/",
+    "type": "Document",
+    "bytes": 76434
+   },
+   {
+    "url": "https://chat.squareyards.com/public/widget.e37a564.js",
+    "type": "Script",
+    "bytes": 73139
+   },
+   {
+    "url": "https://static.squareyards.com/assets/images/home-desktop-cover.png?aio=w-1521;h-558;crop;",
+    "type": "Image",
+    "bytes": 71855
+   },
+   {
+    "url": "https://www.squareyards.com/assets/images/insight-tool-img/property-rates-heatmap-img.png",
+    "type": "Image",
+    "bytes": 59933
+   },
+   {
+    "url": "https://www.squareyards.com/getCommonSearchData?cityName=India&hometab=sale&popupType=search&globalIsIpadBrowser=false",
+    "type": "XHR",
+    "bytes": 59612
+   },
+   {
+    "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+    "type": "Font",
+    "bytes": 48464
+   },
+   {
+    "url": "https://www.squareyards.com/assets/js/jquery-ea73d0b2ec.min.js",
+    "type": "Script",
+    "bytes": 46684
+   },
+   {
+    "url": "https://www.squareyards.com/assets/images/referral-banner/banner-illustration.webp?aio=w-329;h-296;crop;",
+    "type": "Image",
+    "bytes": 45802
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/godrej-arden.jpeg",
+    "type": "Image",
+    "bytes": 44512
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/godrej-vanantara.jpeg",
+    "type": "Image",
+    "bytes": 42008
+   },
+   {
+    "url": "https://www.squareyards.com/assets/js/home-v2-8fb4811ef2.min.js",
+    "type": "Script",
+    "bytes": 40209
+   },
+   {
+    "url": "https://www.squareyards.com/assets/js/commonleadform.js",
+    "type": "Script",
+    "bytes": 40178
+   },
+   {
+    "url": "https://www.squareyards.com/assets/js/common-global-eea77c3d35.min.js",
+    "type": "Script",
+    "bytes": 39250
+   },
+   {
+    "url": "https://bzrcdn.openai.com/sdk/oaiq.min.js",
+    "type": "Script",
+    "bytes": 36353
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/lnt-crestoria-estate.jpeg",
+    "type": "Image",
+    "bytes": 32494
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/m3m-forestia-east.jpeg",
+    "type": "Image",
+    "bytes": 31700
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/eldeco-terra-and-sol.jpeg",
+    "type": "Image",
+    "bytes": 31190
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/signature-global-sarvam.jpeg",
+    "type": "Image",
+    "bytes": 28234
+   }
+  ],
+  "failing": [
+   "largest-contentful-paint: Largest Contentful Paint (1.2 s)",
+   "speed-index: Speed Index (1.4 s)",
+   "total-blocking-time: Total Blocking Time (390 ms)",
+   "max-potential-fid: Max Potential First Input Delay (320 ms)",
+   "interactive: Time to Interactive (3.6 s)",
+   "third-party-cookies: Uses third-party cookies (6 cookies found)",
+   "mainthread-work-breakdown: Minimize main-thread work (3.7 s)",
+   "third-party-summary: Reduce the impact of third-party code (Third-party code blocked the main thread for 290 ms)",
+   "largest-contentful-paint-element: Largest Contentful Paint element (1,230 ms)",
+   "unsized-images: Image elements do not have explicit `width` and `height`",
+   "aria-hidden-focus: `[aria-hidden=\"true\"]` elements contain focusable descendents",
+   "button-name: Buttons do not have an accessible name",
+   "uses-long-cache-ttl: Serve static assets with an efficient cache policy (41 resources found)",
+   "unminified-javascript: Minify JavaScript (Est savings of 13 KiB)",
+   "unused-css-rules: Reduce unused CSS (Est savings of 53 KiB)",
+   "unused-javascript: Reduce unused JavaScript (Est savings of 463 KiB)",
+   "modern-image-formats: Serve images in next-gen formats (Est savings of 181 KiB)",
+   "uses-responsive-images: Properly size images (Est savings of 108 KiB)",
+   "legacy-javascript: Avoid serving legacy JavaScript to modern browsers (Est savings of 13 KiB)",
+   "dom-size: Avoid an excessive DOM size (10,994 elements)",
+   "inspector-issues: Issues were logged in the `Issues` panel in Chrome Devtools",
+   "cache-insight: Use efficient cache lifetimes (Est savings of 1,102 KiB)",
+   "forced-reflow-insight: Forced reflow",
+   "image-delivery-insight: Improve image delivery (Est savings of 208 KiB)"
+  ],
+  "screenshot": "saved"
+ },
+ "www_squareyards_com_mobile": {
+  "url": "https://www.squareyards.com/",
+  "scores": {
+   "performance": 52,
+   "accessibility": 95,
+   "best-practices": 79,
+   "seo": 100
+  },
+  "lcp_ms": 4943.5335,
+  "cls": 0,
+  "fcp_ms": 1369.5335,
+  "tbt_ms": 3196.5,
+  "si_ms": 2835.5602505637726,
+  "total_bytes": 2167520,
+  "requests": 97,
+  "lcp_element": "<img class=\"img-responsive hero-banner\" loading=\"eager\" decoding=\"sync\" fetchpriority=\"high\" src=\"https://static.squareyards.com/assets/images/home-mobile-cover-v1.png?aio=…\" width=\"375\" height=\"342\" alt=\"Home Page Banner\">",
+  "heaviest": [
+   {
+    "url": "https://www.googletagmanager.com/gtag/js?id=G-7QLJ47513Q&cx=c&gtm=4e6b31",
+    "type": "Script",
+    "bytes": 202317
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtm.js?id=GTM-P7LQ3JL",
+    "type": "Script",
+    "bytes": 202143
+   },
+   {
+    "url": "https://www.googletagmanager.com/gtag/destination?id=AW-959865518&cx=c&gtm=4e6b31",
+    "type": "Script",
+    "bytes": 171776
+   },
+   {
+    "url": "https://connect.facebook.net/en_US/fbevents.js",
+    "type": "Script",
+    "bytes": 114417
+   },
+   {
+    "url": "https://connect.facebook.net/signals/config/9701679079929824?v=2.9.435&r=stable&domain=www.squareyards.com&im=1&hme=4453c87d489b6902031c012cadd2731893cd69feb64fe8a61b339727247a7703&ex_m=118%2C242%2C171%2C27%2C82%2C83%2C162%2C78%2C77%2C11%2C181%2C102%2C20%2C153%2C141%2C46%2C85%2C90%2C149%2C176%2C183%2C8%2C4%2C5%2C7%2C6%2C3%2C103%2C115%2C32%2C17%2C31%2C18%2C33%2C34%2C35%2C37%2C55%2C163%2C87%2C126%2C22%2C24%2C51%2C47%2C49%2C48%2C95%2C104%2C108%2C124%2C160%2C164%2C53%2C125%2C29%2C26%2C133%2C79%2C43%2C166%2C165%2C167%2C157%2C155%2C30%2C42%2C66%2C123%2C178%2C80%2C21%2C128%2C93%2C76%2C23%2C97%2C98%2C130%2C96%2C151%2C150%2C154%2C109%2C177%2C180%2C41%2C56%2C127%2C54%2C161%2C72%2C185%2C110%2C184%2C211%2C263%2C84%2C283%2C282%2C281%2C14%2C25%2C28%2C40%2C62%2C117%2C68%2C10%2C73%2C111%2C112%2C113%2C119%2C144%2C38%2C36%2C146%2C147%2C148%2C143%2C142%2C172%2C86%2C175%2C173%2C174%2C57%2C69%2C67%2C137%2C19%2C179%2C52%2C333%2C334%2C335%2C332%2C349%2C371%2C256%2C238%2C70%2C239%2C237%2C374%2C365%2C59%2C257%2C121%2C145%2C92%2C135%2C61%2C134%2C140%2C139%2C65%2C74%2C168%2C88%2C89%2C129%2C44%2C39%2C60%2C63%2C114%2C182%2C1%2C138%2C16%2C136%2C12%2C2%2C64%2C105%2C15%2C75%2C71%2C132%2C101%2C100%2C187%2C188%2C106%2C107%2C9%2C116%2C186%2C58%2C158%2C99%2C91%2C81%2C131%2C120%2C169%2C50%2C159%2C0%2C94%2C152%2C156%2C170%2C45%2C122%2C13%2C189",
+    "type": "Script",
+    "bytes": 106998
+   },
+   {
+    "url": "https://www.squareyards.com/assets/fonts/projectV2/fonts/icomoon.woff2?i2mc5j",
+    "type": "Font",
+    "bytes": 96165
+   },
+   {
+    "url": "https://www.squareyards.com/assets/vendors/chart/highcharts.js",
+    "type": "Script",
+    "bytes": 79972
+   },
+   {
+    "url": "https://www.squareyards.com/",
+    "type": "Document",
+    "bytes": 76732
+   },
+   {
+    "url": "https://chat.squareyards.com/public/widget.e37a564.js",
+    "type": "Script",
+    "bytes": 73323
+   },
+   {
+    "url": "https://www.squareyards.com/assets/images/insight-tool-img/property-rates-heatmap-img.png",
+    "type": "Image",
+    "bytes": 59942
+   },
+   {
+    "url": "https://www.squareyards.com/getCommonSearchData?cityName=India&hometab=sale&popupType=search&globalIsIpadBrowser=true",
+    "type": "XHR",
+    "bytes": 59628
+   },
+   {
+    "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+    "type": "Font",
+    "bytes": 48464
+   },
+   {
+    "url": "https://www.squareyards.com/assets/js/jquery-ea73d0b2ec.min.js",
+    "type": "Script",
+    "bytes": 47253
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/godrej-arden.jpeg",
+    "type": "Image",
+    "bytes": 44547
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/godrej-vanantara.jpeg",
+    "type": "Image",
+    "bytes": 42033
+   },
+   {
+    "url": "https://www.squareyards.com/assets/js/commonleadform.js",
+    "type": "Script",
+    "bytes": 40232
+   },
+   {
+    "url": "https://www.squareyards.com/assets/js/common-global-eea77c3d35.min.js",
+    "type": "Script",
+    "bytes": 39836
+   },
+   {
+    "url": "https://www.squareyards.com/assets/images/squareyard-services/home-loan.png?aio=w-40;h-40;crop;",
+    "type": "Image",
+    "bytes": 37093
+   },
+   {
+    "url": "https://www.squareyards.com/assets/images/squareyard-services/valuation.png?aio=w-40;h-40;crop;",
+    "type": "Image",
+    "bytes": 36649
+   },
+   {
+    "url": "https://bzrcdn.openai.com/sdk/oaiq.min.js",
+    "type": "Script",
+    "bytes": 36352
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/lnt-crestoria-estate.jpeg",
+    "type": "Image",
+    "bytes": 32519
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/m3m-forestia-east.jpeg",
+    "type": "Image",
+    "bytes": 31726
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/eldeco-terra-and-sol.jpeg",
+    "type": "Image",
+    "bytes": 31215
+   },
+   {
+    "url": "https://static.squareyards.com/resources/images/sy-reels/signature-global-sarvam.jpeg",
+    "type": "Image",
+    "bytes": 28260
+   },
+   {
+    "url": "https://www.squareyards.com/assets/images/audio/voice-click-mp.mp3",
+    "type": "Media",
+    "bytes": 27747
+   }
+  ],
+  "failing": [
+   "largest-contentful-paint: Largest Contentful Paint (4.9 s)",
+   "total-blocking-time: Total Blocking Time (3,200 ms)",
+   "max-potential-fid: Max Potential First Input Delay (1,340 ms)",
+   "interactive: Time to Interactive (15.6 s)",
+   "third-party-cookies: Uses third-party cookies (6 cookies found)",
+   "mainthread-work-breakdown: Minimize main-thread work (13.8 s)",
+   "bootup-time: Reduce JavaScript execution time (4.9 s)",
+   "third-party-summary: Reduce the impact of third-party code (Third-party code blocked the main thread for 1,930 ms)",
+   "largest-contentful-paint-element: Largest Contentful Paint element (4,940 ms)",
+   "unsized-images: Image elements do not have explicit `width` and `height`",
+   "button-name: Buttons do not have an accessible name",
+   "uses-long-cache-ttl: Serve static assets with an efficient cache policy (58 resources found)",
+   "unminified-javascript: Minify JavaScript (Est savings of 13 KiB)",
+   "unused-css-rules: Reduce unused CSS (Est savings of 52 KiB)",
+   "unused-javascript: Reduce unused JavaScript (Est savings of 432 KiB)",
+   "modern-image-formats: Serve images in next-gen formats (Est savings of 259 KiB)",
+   "uses-responsive-images: Properly size images (Est savings of 105 KiB)",
+   "legacy-javascript: Avoid serving legacy JavaScript to modern browsers (Est savings of 13 KiB)",
+   "dom-size: Avoid an excessive DOM size (11,187 elements)",
+   "inspector-issues: Issues were logged in the `Issues` panel in Chrome Devtools",
+   "uses-passive-event-listeners: Does not use passive listeners to improve scrolling performance",
+   "cache-insight: Use efficient cache lifetimes (Est savings of 1,185 KiB)",
+   "forced-reflow-insight: Forced reflow",
+   "image-delivery-insight: Improve image delivery (Est savings of 355 KiB)"
+  ],
+  "screenshot": "saved"
+ }
+}

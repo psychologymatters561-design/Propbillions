@@ -1,0 +1,18 @@
+[
+ {
+  "url": "https://propbillions.com",
+  "finalUrl": "chrome-error://chromewebdata/",
+  "status": 0,
+  "consoleErrors": [
+   "NAV page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://propbillions.com/\", waiting until \"domcontentloaded\"\n"
+  ],
+  "failed": [
+   "https://propbillions.com/"
+  ],
+  "requestCount": 0,
+  "rawHtmlBytes": 0,
+  "rawHtmlTextSample": "",
+  "rawHtmlTextLength": 0,
+  "error": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation"
+ }
+]
