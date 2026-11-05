@@ -1,18 +1,59 @@
 [
  {
   "url": "https://propbillions.com",
-  "finalUrl": "chrome-error://chromewebdata/",
-  "status": 0,
-  "consoleErrors": [
-   "NAV page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://propbillions.com/\", waiting until \"domcontentloaded\"\n"
-  ],
+  "finalUrl": "https://propbillions.com/",
+  "status": 200,
+  "consoleErrors": [],
   "failed": [
-   "https://propbillions.com/"
+   "https://propbillions.com/public/video/mountains-drone.mp4"
   ],
-  "requestCount": 0,
-  "rawHtmlBytes": 0,
-  "rawHtmlTextSample": "",
-  "rawHtmlTextLength": 0,
-  "error": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation"
+  "requestCount": 9,
+  "rawHtmlBytes": 21372,
+  "rawHtmlTextSample": "Propbillions | Real Estate Advisory – Shubh Deepawali Heaven In The Forest EST. 2026 Festival of Lights 28.6139° N शुभ दीपावली Happy Diwali Heaven In The Forest Real Estate Advisory Building Better Tomorrows May your home glow with prosperity Lighting the diyas 0% Skip Intro",
+  "rawHtmlTextLength": 275,
+  "title": "Propbillions | Real Estate Advisory – Shubh Deepawali",
+  "meta": {
+   "viewport": "width=device-width, initial-scale=1.0",
+   "theme-color": "#1a0709",
+   "p:domain_verify": "133a274070cc16df501fcb5267b6dd80"
+  },
+  "canonical": null,
+  "lang": "en",
+  "headings": [],
+  "text": "HEAVEN IN THE FOREST\nEST. 2026\nFESTIVAL OF LIGHTS\n28.6139° N\nशुभ दीपावली\nHAPPY DIWALI\nHeaven In The Forest\nREAL ESTATE ADVISORY\nBuilding Better Tomorrows\nMAY YOUR HOME GLOW WITH PROSPERITY\nLIGHTING THE DIYAS\nNaN%\nSKIP INTRO",
+  "links": [],
+  "linkTexts": [],
+  "imgs": [
+   {
+    "src": "https://propbillions.com/public/images/logo.png",
+    "srcset": "",
+    "alt": "Propbillions Logo",
+    "w": 415,
+    "h": 125,
+    "loading": "auto"
+   }
+  ],
+  "bgs": [
+   "https://propbillions.com/%23n"
+  ],
+  "videos": [
+   {
+    "tag": "VIDEO",
+    "src": "https://propbillions.com/public/video/mountains-drone.mp4",
+    "poster": ""
+   },
+   {
+    "tag": "SOURCE",
+    "src": "https://propbillions.com/public/video/mountains-drone.mp4",
+    "poster": ""
+   }
+  ],
+  "forms": [],
+  "ldjson": [],
+  "tel": [],
+  "scripts": [],
+  "docH": 900,
+  "docW": 1440,
+  "vw": 1440
  }
 ]
