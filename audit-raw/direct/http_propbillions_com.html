@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a0709">
+<meta name="p:domain_verify" content="133a274070cc16df501fcb5267b6dd80"/>
+<title>Propbillions | Real Estate Advisory – Shubh Deepawali</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ================= TOKENS ================= */
+:root{
+  --night:#1a0709;      /* deep maroon-black */
+  --plum:#3a0f1c;
+  --saffron:#ff9a1f;
+  --marigold:#ffc24a;
+  --gold:#e9c46a;
+  --ember:#ff5a1f;
+  --cream:#fff4dc;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden}
+body{background:var(--night);color:var(--cream);font-family:'Work Sans',sans-serif}
+button{font-family:inherit}
+
+.splash{position:fixed;inset:0;overflow:hidden;background:var(--night)}
+
+/* ================= VIDEO ================= */
+.video-fallback{position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse at 50% 100%,#5a1a12 0%,#2a0b10 45%,#12050a 100%)}
+.drone-video{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;opacity:0;
+  transform:scale(1.08);z-index:1;
+  filter:saturate(.8) sepia(.45) hue-rotate(-12deg) contrast(1.08) brightness(.5)}
+
+/* ================= OVERLAYS ================= */
+.dark-overlay{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(26,7,9,.85) 0%,rgba(58,15,28,.35) 35%,rgba(58,15,28,.3) 55%,rgba(20,5,8,.92) 100%)}
+
+/* warm glow rising from the diyas */
+.gold-light{position:absolute;left:50%;top:50%;width:90vw;height:90vw;max-width:1100px;max-height:1100px;
+  transform:translate(-50%,-50%);opacity:0;z-index:3;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,170,50,.26) 0%,rgba(255,110,30,.1) 30%,rgba(255,110,30,0) 70%)}
+
+/* rotating rangoli / mandala */
+.mandala{position:absolute;left:50%;top:50%;width:min(130vh,130vw);height:min(130vh,130vw);
+  margin:calc(min(130vh,130vw)/-2) 0 0 calc(min(130vh,130vw)/-2);z-index:3;pointer-events:none;
+  opacity:.16;animation:spin 140s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+#sparks{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+
+.grain{position:absolute;inset:-50%;width:200%;height:200%;opacity:.05;z-index:10;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+  animation:grainMove .18s steps(2) infinite}
+@keyframes grainMove{0%{transform:translate(0,0)}25%{transform:translate(-2%,1%)}50%{transform:translate(1%,-2%)}75%{transform:translate(2%,2%)}100%{transform:translate(-1%,-1%)}}
+
+.scan-line{position:absolute;left:0;top:-10%;width:100%;height:1px;opacity:0;z-index:8;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,194,74,.7),transparent);
+  box-shadow:0 0 15px rgba(255,170,50,.4)}
+
+/* ================= STRING LIGHTS ================= */
+.lights{position:absolute;left:0;top:0;width:100%;height:64px;z-index:7;pointer-events:none}
+.lights::before{content:"";position:absolute;left:0;right:0;top:10px;height:1px;background:rgba(233,196,106,.35)}
+.bulb{position:absolute;width:9px;height:13px;border-radius:50% 50% 50% 50%/40% 40% 60% 60%;
+  background:var(--c);box-shadow:0 0 10px 3px var(--c);opacity:0;
+  animation:twinkle var(--d) ease-in-out infinite alternate}
+.bulb::before{content:"";position:absolute;left:3px;top:-5px;width:3px;height:5px;background:#8a6a2a}
+@keyframes twinkle{from{opacity:.35;transform:scale(.9)}to{opacity:1;transform:scale(1.08)}}
+
+/* ================= HUD ================= */
+.hud{position:absolute;inset:0;padding:70px 36px 30px;z-index:7;pointer-events:none;display:flex;justify-content:space-between;align-items:flex-start}
+.hud-left,.hud-right{display:flex;flex-direction:column;gap:7px}
+.hud-right{text-align:right}
+.hud-item{font-size:9px;letter-spacing:.28em;color:rgba(255,244,220,.7);text-transform:uppercase}
+.hud-gold{color:var(--marigold)}
+
+.corner{position:absolute;width:42px;height:42px;z-index:7;opacity:.65}
+.corner::before,.corner::after{content:"";position:absolute;background:rgba(255,194,74,.75)}
+.corner::before{width:42px;height:1px}
+.corner::after{width:1px;height:42px}
+.corner-tl{left:28px;top:70px}
+.corner-tr{right:28px;top:70px;transform:rotate(90deg)}
+.corner-bl{left:28px;bottom:28px;transform:rotate(-90deg)}
+.corner-br{right:28px;bottom:28px;transform:rotate(180deg)}
+
+/* ================= CONTENT ================= */
+.content{position:absolute;left:50%;top:48%;width:min(90%,1000px);transform:translate(-50%,-50%);z-index:6;text-align:center}
+.brand{display:flex;flex-direction:column;align-items:center;gap:16px}
+
+.greeting{font-family:'Noto Sans Devanagari','Fraunces',serif;font-weight:600;
+  font-size:clamp(16px,2.2vw,24px);letter-spacing:.08em;margin-bottom:6px;opacity:0;transform:translateY(20px);
+  background:linear-gradient(90deg,#ffb23e,#fff1b8,#ffb23e);-webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:none}
+.greeting small{display:block;margin-top:4px;font-family:'Work Sans',sans-serif;font-size:10px;font-weight:500;
+  letter-spacing:.38em;text-transform:uppercase;-webkit-text-fill-color:rgba(255,244,220,.75)}
+
+.brand-logo{display:block;width:150px;height:auto;max-width:45vw;object-fit:contain;opacity:0;
+  transform:translateY(35px) scale(.92);filter:drop-shadow(0 0 22px rgba(255,150,40,.45)) drop-shadow(0 12px 30px rgba(0,0,0,.5))}
+
+.brand-name{font-family:'Fraunces',serif;font-size:clamp(40px,7vw,88px);font-weight:600;line-height:.98;
+  letter-spacing:-.04em;opacity:0;transform:translateY(35px);
+  background:linear-gradient(180deg,#fff6e0 0%,#ffd98a 55%,#ffa83a 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 24px rgba(255,140,30,.35))}
+
+.gold-rule{position:relative;width:0;height:1px;margin:28px auto 20px;
+  background:linear-gradient(90deg,transparent,#ffc24a,transparent);box-shadow:0 0 12px rgba(255,170,50,.5)}
+.gold-rule::after{content:"\2740";position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);
+  font-size:14px;color:var(--marigold);background:transparent;padding:0 10px;text-shadow:0 0 10px rgba(255,150,40,.8)}
+
+.subtitle{font-size:clamp(9px,1vw,12px);font-weight:500;letter-spacing:.42em;text-transform:uppercase;
+  color:rgba(255,244,220,.88);opacity:0;transform:translateY(20px)}
+.tagline{margin-top:17px;font-family:'Fraunces',serif;font-size:clamp(15px,2vw,22px);font-weight:500;
+  letter-spacing:.015em;color:rgba(255,236,200,.85);opacity:0;transform:translateY(20px)}
+.location{margin-top:17px;font-size:9px;letter-spacing:.3em;color:rgba(255,220,160,.6);text-transform:uppercase;opacity:0}
+
+/* ================= DIYAS ================= */
+.diya{position:absolute;bottom:92px;z-index:7;width:var(--w);height:calc(var(--w)*.5);pointer-events:none}
+.diya .bowl{position:absolute;inset:auto 0 0 0;height:100%;border-radius:8% 8% 100% 100%/10% 10% 100% 100%;
+  background:linear-gradient(180deg,#e98a2e 0%,#b0501a 55%,#6b2a0e 100%);
+  box-shadow:inset 0 3px 0 rgba(255,220,140,.5),0 0 40px rgba(255,130,30,.35)}
+.diya .bowl::after{content:"";position:absolute;left:12%;right:12%;top:18%;height:2px;background:rgba(255,220,140,.45);border-radius:2px}
+.diya .wick{position:absolute;left:50%;bottom:92%;width:3px;height:7px;margin-left:-1.5px;background:#2a1208;border-radius:2px}
+.diya .flame{position:absolute;left:50%;bottom:calc(92% + 5px);width:calc(var(--w)*.2);height:calc(var(--w)*.46);
+  margin-left:calc(var(--w)*-.1);transform-origin:50% 100%;
+  border-radius:50% 50% 50% 50%/62% 62% 38% 38%;
+  background:radial-gradient(ellipse at 50% 75%,#fff7d0 0%,#ffd45a 35%,#ff8a1f 70%,rgba(255,80,20,0) 100%);
+  box-shadow:0 0 28px 10px rgba(255,150,40,.55),0 0 80px 30px rgba(255,100,20,.25);
+  animation:flicker var(--f) ease-in-out infinite alternate}
+@keyframes flicker{
+  0%{transform:scale(1,1) rotate(-2deg)}
+  30%{transform:scale(.92,1.1) rotate(1.5deg)}
+  60%{transform:scale(1.05,.94) rotate(-1deg)}
+  100%{transform:scale(.96,1.06) rotate(2deg)}}
+.d1{left:5%;--w:92px;--f:.9s}
+.d2{left:17%;--w:62px;--f:.7s}
+.d3{right:17%;--w:62px;--f:.8s}
+.d4{right:5%;--w:92px;--f:.6s}
+
+/* ================= LOADER ================= */
+.loader{position:absolute;left:50%;bottom:55px;transform:translateX(-50%);width:min(420px,50vw);z-index:7}
+.loader-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+.loader-text{font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,236,200,.65)}
+.loader-percent{font-size:8px;letter-spacing:.15em;color:var(--marigold)}
+.loader-track{width:100%;height:1px;background:rgba(255,236,200,.22);overflow:hidden}
+.loader-progress{width:0;height:100%;background:linear-gradient(90deg,#c2410c,#ffb23e,#fff1b8);box-shadow:0 0 10px rgba(255,150,40,.6)}
+
+/* ================= SKIP / FLASH ================= */
+.skip{position:absolute;right:38px;bottom:40px;z-index:9;border:1px solid rgba(255,194,74,.4);
+  background:rgba(26,7,9,.3);color:rgba(255,236,200,.8);padding:10px 16px;font-size:8px;letter-spacing:.24em;
+  text-transform:uppercase;cursor:pointer;backdrop-filter:blur(6px);
+  transition:background .25s,border-color .25s,color .25s}
+.skip:hover,.skip:focus-visible{background:rgba(255,154,31,.18);border-color:rgba(255,194,74,.85);color:#ffe29a;outline:none}
+.exit-flash{position:fixed;inset:0;background:#fff4d6;opacity:0;z-index:50;pointer-events:none}
+
+/* ================= MOBILE ================= */
+@media (max-width:768px){
+  .hud{padding:62px 20px 20px}
+  .hud-item{font-size:7px}
+  .corner{width:25px;height:25px}
+  .corner::before{width:25px}
+  .corner::after{height:25px}
+  .corner-tl{left:18px;top:62px}.corner-tr{right:18px;top:62px}
+  .corner-bl{left:18px;bottom:18px}.corner-br{right:18px;bottom:18px}
+  .brand-logo{width:115px}
+  .brand-name{font-size:44px}
+  .gold-rule{margin:20px auto 16px}
+  .subtitle{letter-spacing:.28em}
+  .loader{bottom:30px;width:min(420px,72vw)}
+  .skip{right:18px;bottom:80px}
+  .diya{bottom:78px}
+  .d2,.d3{display:none}
+  .d1{--w:70px;left:4%}.d4{--w:70px;right:4%}
+}
+@media (max-width:420px){
+  .brand-logo{width:95px}
+  .brand-name{font-size:36px}
+  .subtitle{font-size:8px;letter-spacing:.2em}
+  .tagline{font-size:14px}
+  .hud-right{display:none}
+}
+
+/* ================= REDUCED MOTION ================= */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .drone-video{opacity:1;transform:none}
+  .brand-logo,.brand-name,.subtitle,.tagline,.location,.greeting,.bulb{opacity:1;transform:none}
+  .gold-rule{width:100%}
+  #sparks{display:none}
+}
+</style>
+</head>
+
+<body>
+<div class="splash" id="splash">
+
+  <div class="video-fallback"></div>
+
+  <video class="drone-video" id="droneVideo" autoplay muted playsinline preload="auto">
+    <source src="https://propbillions.com/public/video/mountains-drone.mp4" type="video/mp4">
+  </video>
+
+  <div class="dark-overlay"></div>
+  <div class="gold-light" id="goldLight"></div>
+
+  <!-- Rangoli mandala -->
+  <svg class="mandala" viewBox="-200 -200 400 400" fill="none" stroke="#ffc24a" stroke-width="1" aria-hidden="true">
+    <circle r="190"/><circle r="170" stroke-dasharray="2 6"/><circle r="120"/><circle r="60"/>
+    <g id="petals">
+      <path d="M0-190 C28-150 28-120 0-90 C-28-120 -28-150 0-190Z"/>
+      <path d="M0-118 C16-96 16-80 0-62 C-16-80 -16-96 0-118Z"/>
+    </g>
+    <use href="#petals" transform="rotate(30)"/><use href="#petals" transform="rotate(60)"/>
+    <use href="#petals" transform="rotate(90)"/><use href="#petals" transform="rotate(120)"/>
+    <use href="#petals" transform="rotate(150)"/><use href="#petals" transform="rotate(180)"/>
+    <use href="#petals" transform="rotate(210)"/><use href="#petals" transform="rotate(240)"/>
+    <use href="#petals" transform="rotate(270)"/><use href="#petals" transform="rotate(300)"/>
+    <use href="#petals" transform="rotate(330)"/>
+  </svg>
+
+  <canvas id="sparks"></canvas>
+  <div class="grain"></div>
+  <div class="scan-line" id="scanLine"></div>
+
+  <!-- String lights -->
+  <div class="lights" id="lights" aria-hidden="true"></div>
+
+  <!-- HUD -->
+  <div class="hud">
+    <div class="hud-left">
+      <div class="hud-item hud-gold">Heaven In The Forest</div>
+      <div class="hud-item">EST. 2026</div>
+    </div>
+    <div class="hud-right">
+      <div class="hud-item">Festival of Lights</div>
+      <div class="hud-item">28.6139° N</div>
+    </div>
+  </div>
+
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <!-- Diyas -->
+  <div class="diya d1" aria-hidden="true"><div class="flame"></div><div class="wick"></div><div class="bowl"></div></div>
+  <div class="diya d2" aria-hidden="true"><div class="flame"></div><div class="wick"></div><div class="bowl"></div></div>
+  <div class="diya d3" aria-hidden="true"><div class="flame"></div><div class="wick"></div><div class="bowl"></div></div>
+  <div class="diya d4" aria-hidden="true"><div class="flame"></div><div class="wick"></div><div class="bowl"></div></div>
+
+  <!-- Content -->
+  <main class="content">
+    <div class="brand">
+      <div class="greeting" id="greeting">शुभ दीपावली<small>Happy Diwali</small></div>
+
+      <img src="https://propbillions.com/public/images/logo.png" alt="Propbillions Logo" class="brand-logo" id="brandLogo">
+
+      <div class="brand-name" id="brandName">Heaven In The Forest</div>
+    </div>
+
+    <div class="gold-rule" id="goldRule"></div>
+    <div class="subtitle" id="subtitle">Real Estate Advisory</div>
+    <div class="tagline" id="tagline">Building Better Tomorrows</div>
+    <div class="location" id="location">May your home glow with prosperity</div>
+  </main>
+
+  <!-- Loader -->
+  <div class="loader">
+    <div class="loader-label">
+      <span class="loader-text" id="loaderText">Lighting the diyas</span>
+      <span class="loader-percent" id="loaderPercent">0%</span>
+    </div>
+    <div class="loader-track"><div class="loader-progress" id="loaderProgress"></div></div>
+  </div>
+
+  <button class="skip" id="skipButton" type="button">Skip Intro</button>
+  <div class="exit-flash" id="exitFlash"></div>
+</div>
+
+<script type="module">
+import { animate, createTimeline } from 'https://cdn.jsdelivr.net/npm/animejs@4.5.0/+esm';
+
+const $ = id => document.getElementById(id);
+const video = $('droneVideo'), goldLight = $('goldLight'), scanLine = $('scanLine'),
+      greeting = $('greeting'), brandLogo = $('brandLogo'), brandName = $('brandName'),
+      goldRule = $('goldRule'), subtitle = $('subtitle'), tagline = $('tagline'),
+      locationText = $('location'), loaderProgress = $('loaderProgress'),
+      loaderPercent = $('loaderPercent'), loaderText = $('loaderText'),
+      skipButton = $('skipButton'), exitFlash = $('exitFlash');
+
+const REDIRECT_URL = "http://propbillions.com/home";
+let exiting = false, progressValue = 0;
+
+/* ---------- String lights ---------- */
+const lights = $('lights');
+const colors = ['#ffb23e', '#ff5a1f', '#ffe08a', '#ff3d6e', '#ffc24a'];
+const count = Math.max(14, Math.round(innerWidth / 46));
+for (let i = 0; i < count; i++) {
+  const b = document.createElement('i');
+  b.className = 'bulb';
+  const t = (i + .5) / count;
+  b.style.left = (t * 100) + '%';
+  b.style.top = (12 + Math.sin(t * Math.PI * 6) * 6 + 6) + 'px';
+  b.style.setProperty('--c', colors[i % colors.length]);
+  b.style.setProperty('--d', (0.7 + Math.random() * 1.1).toFixed(2) + 's');
+  b.style.animationDelay = (-Math.random() * 2).toFixed(2) + 's';
+  lights.appendChild(b);
+}
+
+/* ---------- Fireworks + embers ---------- */
+const cv = $('sparks'), ctx = cv.getContext('2d');
+let W, H, dpr = Math.min(devicePixelRatio || 1, 2);
+function resize() {
+  W = innerWidth; H = innerHeight;
+  cv.width = W * dpr; cv.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+resize(); addEventListener('resize', resize);
+
+const palette = [[255,178,62],[255,90,31],[255,224,138],[255,61,110],[255,255,255]];
+let parts = [];
+function burst(x, y) {
+  const c = palette[Math.floor(Math.random() * palette.length)];
+  const n = 46;
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI * 2, s = 1.4 + Math.random() * 2.6;
+    parts.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 1, decay: .012 + Math.random() * .008, c, r: 1.4, g: .03 });
+  }
+}
+function ember() {
+  parts.push({ x: Math.random() * W, y: H + 6, vx: (Math.random() - .5) * .5, vy: -(.6 + Math.random() * 1.1),
+    life: 1, decay: .004, c: [255, 170 + Math.random() * 50, 60], r: 1 + Math.random() * 1.4, g: 0 });
+}
+let lastBurst = 0;
+function tick(now) {
+  ctx.clearRect(0, 0, W, H);
+  ctx.globalCompositeOperation = 'lighter';
+  if (!exiting && now - lastBurst > 1500 + Math.random() * 900) {
+    lastBurst = now;
+    burst(W * (.15 + Math.random() * .7), H * (.14 + Math.random() * .3));
+  }
+  if (Math.random() < .35) ember();
+  parts = parts.filter(p => p.life > 0);
+  for (const p of parts) {
+    p.x += p.vx; p.y += p.vy; p.vy += p.g; p.vx *= .985; p.life -= p.decay;
+    ctx.fillStyle = `rgba(${p.c[0]},${p.c[1]},${p.c[2]},${Math.max(p.life, 0)})`;
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
+  }
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+
+/* ---------- Video ---------- */
+video.addEventListener('error', () => { video.style.display = 'none'; });
+video.play().catch(() => console.log('Video autoplay was blocked.'));
+
+animate(video, { opacity: [0, 1], scale: [1.08, 1.16], translateX: ['0%', '-2%'], translateY: ['0%', '-1%'], duration: 9000, ease: 'linear' });
+animate(goldLight, { opacity: [0, 1], scale: [.7, 1.2], duration: 5000, ease: 'out(4)' });
+animate(scanLine, { opacity: [0, .7, 0], top: ['-5%', '105%'], duration: 5500, ease: 'linear' });
+
+/* ---------- Main timeline ---------- */
+const timeline = createTimeline({ defaults: { ease: 'out(4)' } });
+timeline
+  .add(greeting,    { opacity: [0, 1], translateY: [20, 0], duration: 900 })
+  .add(brandLogo,   { opacity: [0, 1], translateY: [35, 0], scale: [.92, 1], duration: 1200 }, '-=500')
+  .add(brandName,   { opacity: [0, 1], translateY: [35, 0], duration: 900 }, '-=650')
+  .add(goldRule,    { width: ['0%', '100%'], duration: 850, ease: 'inOut(3)' }, '-=300')
+  .add(subtitle,    { opacity: [0, 1], translateY: [20, 0], duration: 650 }, '-=250')
+  .add(tagline,     { opacity: [0, 1], translateY: [20, 0], duration: 800 }, '-=350')
+  .add(locationText,{ opacity: [0, 1], duration: 650 }, '-=350');
+
+/* ---------- Progress ---------- */
+const progressSteps = [
+  { value: 35,  text: 'Lighting the diyas' },
+  { value: 68,  text: 'Decorating with rangoli' },
+  { value: 100, text: 'Welcome home' }
+];
+
+function animateProgress(i) {
+  if (exiting) return;
+  const step = progressSteps[i];
+  if (!step) { finishSplash(); return; }
+  animate({ value: progressValue }, {
+    value: step.value,
+    duration: i === 0 ? 1300 : 1200,
+    ease: 'inOut(3)',
+    onUpdate: self => {
+      progressValue = self.value;
+      const r = Math.round(self.value);
+      loaderProgress.style.width = r + '%';
+      loaderPercent.textContent = r + '%';
+    },
+    onComplete: () => {
+      loaderText.textContent = step.text;
+      burst(W * (.25 + Math.random() * .5), H * (.2 + Math.random() * .2));
+      setTimeout(() => animateProgress(i + 1), i === 2 ? 500 : 250);
+    }
+  });
+}
+setTimeout(() => animateProgress(0), 900);
+
+/* ---------- Finish ---------- */
+function finishSplash() {
+  if (exiting) return;
+  exiting = true;
+  animate(exitFlash, {
+    opacity: [0, 1], duration: 700, ease: 'inOut(2)',
+    onComplete: () => { window.location.href = REDIRECT_URL; }
+  });
+}
+skipButton.addEventListener('click', finishSplash);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') finishSplash(); });
+
+/* ---------- Reduced motion ---------- */
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  video.style.opacity = '1';
+  [greeting, brandLogo, brandName, subtitle, tagline].forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+  locationText.style.opacity = '1';
+  goldRule.style.width = '100%';
+  loaderProgress.style.width = '100%';
+  loaderPercent.textContent = '100%';
+  setTimeout(finishSplash, 1000);
+}
+</script>
+</body>
+</html>
